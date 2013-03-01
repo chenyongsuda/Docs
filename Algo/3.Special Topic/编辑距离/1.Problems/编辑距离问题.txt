@@ -1,0 +1,26 @@
+编辑距离问题  英文术语 Levenshtein Distance
+1.问题描述：设A和B是2个字符串。要用最少的字符操作将字符A转化为字符B。
+
+字符操作包括：
+（1）删除一个人字符。
+（2）插入一个字符。
+（3）将一个字符改为另一个字符。
+将字符串A变换为字符串B所用的最少字符操作数称为字符串A到B 的编辑距离，记为d（A，B）。设计一个算法，对给定的任意两个字符串A和B计算出他们的编辑距离d(A,B).
+例如：
+输入：
+        fxpimu
+        xwrs
+输出:
+        5
+
+		
+2. 假设增加,删除,修改的Cost不同  应该怎么解决变换过程所用权值最小.
+解答: d[i][j] = MIN((d[i - 1][j] + COST[DELETE]), (d[i,j-1]  + COST[ADD]), (d[d[i-1][j-1] + COST[REPLACE]]))
+
+
+
+更深入论题探讨
+斯坦福大学自然语言处理第三课“最小编辑距离（Minimum Edit Distance）”
+斯坦福大学于2012年3月在Coursera启动了在线自然语言处理课程，由NLP领域大牛Dan Jurafsky 和 Chirs Manning教授授课：
+https://class.coursera.org/nlp/
+
