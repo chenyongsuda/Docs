@@ -74,5 +74,50 @@ A  B C ......Z   AA.....AZ   BA....BZ............AAA................ZZZ.........
   
 12. 给10亿个数去重，我就说分段用bitmap。他说bitmap怎么做，我就说用STL啊。然后让我自己实现，简单地写了个代码。 
 
-13. 
+13. 六度定理，(Six Degrees of Kevin Bacon)任意两个不认识的人之间最多只有六个人形成一条链。想一个算法求两个人之间的度。有什么可以 trade-off, 有什么可以优化的。
+	那究竟什么是六度分离理论呢？六度分离理论（Six Degrees of Separation）：“你和任何一个陌生人之间所间隔的人不会超过五个，也就是说，
+	最多通过五个人你就能够认识任何一个陌生人。”根据这个理论，你和世界上的任何一个人之间只隔着五个人，不管对方在哪个国家，属哪类人种，
+	是哪种肤色。
+
+14. 一个数组(长度小于1000)找最大值，是用 Bubble Sort 还是 Merge Sort？ 如果数组长度大于1000，用哪一个？
+	我觉得是都用Bubble Sort只要找最大值的话 一次Bubble Sort 复杂度为n
+
+15. 5个6面标准骰子，掷出“至少2个4”的概率是多少。
+
+16. 给定一个数组和一个整数X，找出一对数满足a+b=X。
+	两个指针 按照条件向中间逼近
+	
+17. 判定一个二叉树是否为二叉搜索树
+	中根遍历 判断是否是有序的
+	
+18. 问的是两个string1，和string2，怎么判断string1是不是string2的subsequence   要是SubString又如何
+	子序列  子串问题
+	
+19. 怎样reverse string但是保证space的位置不变
+	
+20. 一个BST和一个string，怎么找到common的element
+	
+21. string palindrome(回文)，还有两个array找duplicate
+
+22. 一串string，每一个word被“@”分割，写个function，return array words。
+
+23. 有一个int数组，每个int的范围都是1到10000，找出最小的不存在的数。比如array={3,1,4} return 2
+	bitMap  
+
+24. 输入两个string判断是不是anagram(只判断字母，但是string里可以有其他字符， 比如“cat”, "act", "t c a", "at[c]"， 都会返回true)
+	
+25. 在一个binary tree中，找到两个node的公共祖先。然后继续问，如果node有一个pointer指向parent， 要求空间O（1）
+	
+26. 有一个unsorted int array有100个元素， 每个元素都是1到100之间的，如果有重复的元素， 把它找出来。（不能修改数组，空间O（1））
+	设定100各位
+27. 给一个single linked list找到中间的元素 
+	一个指针跳一下 一个跳两下
+28. 写一个m的n次方的函数
+
+29. 判断两个tree是否是mirror
+
+30. merge sort
+
+31. 将一个单链表逆转——原来的头指针变为尾指针，原来的尾指针变为头指针。
+
 

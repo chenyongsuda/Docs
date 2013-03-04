@@ -1,0 +1,28 @@
+二叉树是否为镜像  英文术语 Mirror of Binary
+
+1. 求出二叉树的镜像
+	BinaryTreeNode * Mirror(BinaryTreeNode * pRoot)
+	{
+		if(pRoot == NULL) // 返回NULL
+			return NULL;
+		BinaryTreeNode * pLeft = Mirror(pRoot->m_pLeft); // 求左子树镜像
+		BinaryTreeNode * pRight = Mirror(pRoot->m_pRight); // 求右子树镜像
+			// 交换左子树和右子树
+		pRoot->m_pLeft = pRight;
+		pRoot->m_pRight = pLeft;
+		return pRoot;
+	}
+	
+2. 判断两个节点是否互为镜像
+	bool check_mirror_tree(Node a, Node b) {
+	  if (a == null && b == null) return true;
+	  if (a == null || b == null) return false;
+	  return a.value == b.value
+		&& check_mirror_tree(a.left, b.right)
+		&& check_mirror_tree(a.right, b.left);
+	}
+	
+	
+
+
+
