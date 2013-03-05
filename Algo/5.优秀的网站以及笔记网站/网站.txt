@@ -7,3 +7,13 @@ Udacity
 @中文公开课讨论网站
 http://52opencourse.com/
 http://courseminer.com/
+
+
+@代码练习
+http://codeforces.com/
+
+@面试题目网站
+http://www.1point3acres.com/bbs/forum-145-1.html
+
+九度面试在线测试
+http://ac.jobdu.com/hhtproblems.php
