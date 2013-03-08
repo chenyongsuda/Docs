@@ -17,3 +17,12 @@ http://www.1point3acres.com/bbs/forum-145-1.html
 
 九度面试在线测试
 http://ac.jobdu.com/hhtproblems.php
+
+@专门翻译网站
+http://www.yeeyan.org/
+
+@在线测试网站
+codility
+
+@VS 设置
+比较好看的字体 consolars

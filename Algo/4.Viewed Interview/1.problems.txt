@@ -150,3 +150,32 @@ Q2 写一个函数：输入是一个整数，返回是一个字符串，内容是这个整数的八进制表达(C++)
 【题目4】逆序对
 数组a[1..n],有多少对(i,j),使得i<j且，a[i]>a[j]?
 想想：从中间开始拆？似乎是一个归并排序的附带产物？
+
+38.
+atoi()实现
+1、检查字符串是否为空
+
+2、对非法输入，返回0，并设置全局变量
+
+3、溢出
+
+4、空字符串""
+
+5、输入字符串只有"+"或"-"号
+
+39. 是逆波兰表达式的计算
+
+40. 单例模式
+	http://en.wikipedia.org/wiki/Double-checked_locking
+41. Hash Table，如何实现，怎样避免冲突，怎样保证universal hash
+
+42. Coding: given an array of integer, find the 2nd largest one
+
+43. Coding: given an array of integer a[], remove duplicates and return a non-duplicate array of integer b[]
+
+44.  Print the first non-duplicate character of a string.(e.g abcba -> c ;  accxay -> x)
+
+45. 150题目 中矩形中翻0
+
+46. 怎样实现一个power函数，比如 3,2 -> 9 ; 10,3 ->1000（non-recursive version)
+
