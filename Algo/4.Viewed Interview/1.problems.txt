@@ -179,3 +179,28 @@ atoi()实现
 
 46. 怎样实现一个power函数，比如 3,2 -> 9 ; 10,3 ->1000（non-recursive version)
 
+47. 用linked list做个stack
+
+48. 二叉树的common ancestor。输入是两个node ptr和这个二叉树的root ptr, 
+	输出是他们的最深common ancestor。我想到的算法是从root开始搜索，把两个node到root的path记录下来，
+	然后进行比较就行了。M说正确是正确，时间复杂度也够，只是杂七杂八的开销太多让我再想。
+	我绞尽脑汁他百般提示就是想不出来。后来他把答案告诉了我：一次DF就够了，搜索一个node t的时候，
+	如果他以t为根的子树里有node 1，就返回1，有node 2，就返回2，两个node都有，就返回3，
+	剩下只利用一个bool值就可以记录第一个返回3的node，他就是要找的节点。好鞋又高效。lz拜服。
+	（事实上lz面试的时候没听太懂，回来想了想才懂得，汗。。。）
+	
+49. 第一题：链表内容的反转，比如1->2->3变为3->2->1。但是不能改变链表的内存顺序，所以只能修改这些node的内容了。
+	这题很明显我就用了个stack就做出来了，他又要求不能用buffer，我就写了一个递归，当然是O(N^2)的那种。他继续要求改进，
+	lz又抓耳挠腮一番也同样的想不出。结果他就展示了一个O(N)的递归算法，思想与lz写的string revers一样
+	https://gist.github.com/2407515（。。。其实是我模仿他）
+	当时觉得好高明啊，出来一向才发现这不是调用系统栈嘛，原来又是坑啊。。。
+	其实reverse linked list， 可以用一个XOR swap..一样不需要buffer,也是O(n); 不过用recursive stack不要太美！
+	
+	//assume the input is integer, but any type works 
+	void xorSwap (int *x, int *y) {
+		 if (x != y) {
+			 *x ^= *y;
+			 *y ^= *x;
+			 *x ^= *y;
+		 }
+	}

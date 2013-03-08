@@ -1,0 +1,47 @@
+反转链表问题  英文术语 
+
+题目1. 反转链表
+1. 通过递归反转
+   记录节点
+   
+2. 只反转内容
+   通过栈的递归recursive stack
+   类似
+	#include <iostream>
+	#include <string.h>
+	 
+	using namespace std;
+	 
+	 
+	//利用递归的栈空间来反转
+	void reverse(char * s, int & beg, int & end)
+	{
+		if(s[end]=='\0') return;
+		reverse(s, beg, ++end);
+		if(beg >= end) return;
+		swap(s[beg++],s[--end]);
+	}
+	 
+	int main()
+	{
+		char * s;
+		int be, en;
+		while(cin >> s)
+		{
+			be = en = 0;
+			reverse(s, be, en);
+			cout << s << endl;
+		}
+	}
+
+题目2 Recerse linked list by block
+
+//Reverse linklist in block
+//eg. block size is 3 and list is
+//1 2 3 4 5 6 7 8
+//Output: 3 2 1 6 5 4 8 7
+
+链接
+http://www.1point3acres.com/bbs/thread-12070-1-1.html
+
+
