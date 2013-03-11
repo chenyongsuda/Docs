@@ -26,3 +26,9 @@ codility
 
 @VS 设置
 比较好看的字体 consolars
+
+@信息资料书籍网站
+ppurl 皮皮书屋
+http://www.nowamagic.net  现代魔法
+http://www.nowamagic.net/librarys/veda/cate/Algorithm  现代魔法：算法部分
+
