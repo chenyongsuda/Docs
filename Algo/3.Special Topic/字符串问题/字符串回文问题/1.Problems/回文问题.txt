@@ -1,0 +1,26 @@
+回文问题  英文术语 Longest Palindromic Substring 
+
+题目：找出一个string 最长的回文子串
+Finding the Longest Palindromic Substring in Linear Time
+
+解答：
+1. 暴力解法 C(n,2) 选出start 与 end 的index，然后判断这个sub string是不是回文，返回最长长度的start 与 end index O(n^3)
+
+2. 高级解法，选出可能结果回文的中心index，然后利用这个 middle index 对称构造substring，找出最长长度的 start 与 end index O(n^2)
+
+3. Manacher算法
+
+4. 构造suffix tree, 然后找出最长回文子串 O(n)
+
+注意
+一个容易犯的错误
+初看这个问题可能想到这样的方法：对字符串S逆序得到新的字符串S'，再求S和S'的最长公共子串，这样求出的就是最长回文子串。
+如S="caba", S'="abac"，则S和S'的最长公共子串为aba，这个是正确的。
+但是如果S = “abacdfgdcaba”, S’ = “abacdgfdcaba”，则S和S'的最长公共子串为abacd，显然这不是回文字符串。因此这种方法是错误的。
+
+
+
+
+
+
+

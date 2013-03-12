@@ -11,9 +11,11 @@ http://courseminer.com/
 
 @代码练习
 http://codeforces.com/
+http://leetcode.com  代码练习
 
 @面试题目网站
 http://www.1point3acres.com/bbs/forum-145-1.html
+http://hxraid.iteye.com/category/83702  数据结构  算法题目
 
 九度面试在线测试
 http://ac.jobdu.com/hhtproblems.php
@@ -31,4 +33,6 @@ codility
 ppurl 皮皮书屋
 http://www.nowamagic.net  现代魔法
 http://www.nowamagic.net/librarys/veda/cate/Algorithm  现代魔法：算法部分
+http://dongxicheng.org/category/structure/  数据结构
+
 
