@@ -1,0 +1,94 @@
+class Solution {
+public:
+    double findMedianSortedArrays(int A[], int m, int B[], int n) {
+        // Start typing your C/C++ solution below
+        // DO NOT write int main() function
+        int count = 0;
+        int mid = (m + n) >> 1;
+        bool isEve = false;
+        if(0 == (m + n) & 1){
+            isEve = true;
+        }
+        int i = 0;
+        int j = 0;
+        double midvalless = 0;
+        double midval = 0;
+        while(1){
+            
+            midvalless = midval;
+            
+            int a = A[i];
+            int b = B[j];
+            bool tag = false;
+            if(a >= b){
+                j++;
+                tag = true;
+            }
+            else if (a < b){
+                i++;
+                
+            }
+            else{
+                
+            }
+            count++;
+            
+            if(count == mid + 1){
+                if(tag){
+                    midval = b;
+                    
+                }
+                else{
+                    midval = a;
+                }
+                
+                if(!isEve)
+                        return midval;
+                else
+                        return (midvalless + midval) / 2;
+            }
+            
+            if((count < mid + 1)&&(i >= m || j >= n)){
+                int add = (mid + 1 - count);
+                int index = 0;
+                if(!isEve){
+                    if(i >= m){
+                        index = j + add -1;
+                        return B[index];
+                    }
+                    else if(j >= n){
+                        index = i + add -1;
+                        return A[index];
+                    }
+                } else{
+                    double res ;
+                    if(i >= m){
+                        if(add >= 2){
+                            index = j + add -1;
+                            res = ((double) B[index] + B[index - 1] )/ 2;
+                            return res;
+                        } else{
+                            index = j + add -1;
+                            res = ((double) B[index] + A[m - 1] )/ 2;
+                            return res;
+                        }
+                    }
+                    else if(j >= n){
+                         if(add >= 2){
+                            index = j + add -1;
+                            res = ((double) A[index] + A[index - 1] )/ 2;
+                            return res;
+                         }
+                         else{
+                            index = j + add -1;
+                            res = ((double) A[index] + B[n - 1] )/ 2;
+                            return res;
+                         }
+                    }
+                    
+                }
+            }
+        }
+        
+    }
+};
