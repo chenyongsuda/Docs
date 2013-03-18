@@ -19,29 +19,19 @@ public:
             
             int a = A[i];
             int b = B[j];
-            bool tag = false;
             if(a >= b){
                 j++;
-                tag = true;
+				midval = b;
             }
             else if (a < b){
-                i++;
-                
+                i++;   
+				midval = a;
             }
             else{
                 
             }
             count++;
-            
             if(count == mid + 1){
-                if(tag){
-                    midval = b;
-                    
-                }
-                else{
-                    midval = a;
-                }
-                
                 if(!isEve)
                         return midval;
                 else

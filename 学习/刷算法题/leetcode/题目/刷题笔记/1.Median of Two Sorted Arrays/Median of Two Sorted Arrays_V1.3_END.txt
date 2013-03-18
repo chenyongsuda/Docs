@@ -1,0 +1,54 @@
+double findMedianSortedArrays(int A[], int m, int B[], int n) {
+        // Start typing your C/C++ solution below
+        // DO NOT write int main() function
+        int count = 0;
+        int mid = (m + n) >> 1;
+        bool isTwo = false;
+        if(0 == (m + n) % 2){
+            isTwo = true;
+        }
+        int i = 0;
+        int j = 0;
+        double midvalless = 0;
+        double midval = 0;
+		int step = 0;
+        while(1){
+			midvalless = midval;
+			if(i < m && j < n) {
+				int a = A[i];
+				int b = B[j];
+				if(a >= b){
+					j++;
+					count++;
+					midval = b;
+				}
+				else if (a < b){
+					i++;
+					count++;
+					midval = a;
+				}
+				else{
+	                
+				}
+			}
+			else if(i >= m){
+				midval = B[j++];
+				count++;
+			}
+			else if(j >= n){
+				midval = A[i++];
+				count++;
+			}
+			else{
+				
+			}
+            
+            if(count == mid + 1){
+                if(!isTwo)
+                        return midval;
+                else
+                        return (midvalless + midval) / 2;
+            }
+		}
+        
+}
