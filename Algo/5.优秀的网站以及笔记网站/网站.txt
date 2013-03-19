@@ -14,11 +14,17 @@ http://codeforces.com/
 http://leetcode.com  代码练习
 careercup
 python challenge
+http://hero.pongo.cn/Question/Details?ID=17&ExamID=17  庞果网
+
 
 @面试题目网站
 http://www.1point3acres.com/bbs/forum-145-1.html
 http://hxraid.iteye.com/category/83702  数据结构  算法题目
 http://blog.csdn.net/ohmygirl/article/category/1185442	算法总结
+http://www.ahathinking.com/archives/186.html  勇幸|Thinking
+http://www.felix021.com/blog/read.php?1587  算法blog
+http://blog.csdn.net/v_JULY_v/article/details/6322882	算法blog
+
 
 九度面试在线测试
 http://ac.jobdu.com/hhtproblems.php

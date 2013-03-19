@@ -1,0 +1,8 @@
+问题： 左移动字符串
+老题目有三种方法
+1. 普通使用一部分临时内存 移动
+2. 三次swap
+3. STL Rotary方法 具体介绍相对复杂的Rotary
+	如： http://www.cnblogs.com/atyuwen/archive/2009/11/08/rotate.html
+	任然不是很懂
+	

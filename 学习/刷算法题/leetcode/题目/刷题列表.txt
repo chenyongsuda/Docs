@@ -2,6 +2,7 @@
 £¨SOLVED£©
 
 2.Median of Two Sorted Arrays
+£¨SOLVED£©
 
 3.Longest Substring Without Repeating Characters
 
