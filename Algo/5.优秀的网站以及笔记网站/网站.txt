@@ -24,6 +24,7 @@ http://blog.csdn.net/ohmygirl/article/category/1185442	算法总结
 http://www.ahathinking.com/archives/186.html  勇幸|Thinking
 http://www.felix021.com/blog/read.php?1587  算法blog
 http://blog.csdn.net/v_JULY_v/article/details/6322882	算法blog
+http://blog.csdn.net/wuzhekai1985/article/details/6764858  算法
 
 
 九度面试在线测试
@@ -45,3 +46,5 @@ http://www.nowamagic.net/librarys/veda/cate/Algorithm  现代魔法：算法部分
 http://dongxicheng.org/category/structure/  数据结构
 
 
+没解决的笔试题
+http://bbs.byr.cn/#!article/Job/1365483
