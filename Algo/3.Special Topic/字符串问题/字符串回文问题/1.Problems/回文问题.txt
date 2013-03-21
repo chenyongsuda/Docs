@@ -10,7 +10,7 @@ Finding the Longest Palindromic Substring in Linear Time
 
 3. Manacher算法
 
-4. 构造suffix tree, 然后找出最长回文子串 O(n)
+4. 构造suffix tree, 然后找出最长回文子串 O(n) 通过比较两个字串的最长公共子串具体没详细了解
 
 注意
 一个容易犯的错误

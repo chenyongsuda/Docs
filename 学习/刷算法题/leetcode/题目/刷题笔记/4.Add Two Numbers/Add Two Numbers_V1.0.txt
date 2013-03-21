@@ -1,0 +1,113 @@
+/**
+* Definition for singly-linked list.
+* struct ListNode {
+*     int val;
+*     ListNode *next;
+*     ListNode(int x) : val(x), next(NULL) {}
+* };
+*/
+
+void Reverse(ListNode* l,ListNode* r){
+     if(NULL != l || NULL != r){
+          int temp = l->val;
+          l->val = r->val;
+          r->val = temp;
+     }
+}
+
+ListNode *pHeader;
+bool falg = false;
+void ReverseList(ListNode* l){
+     if(NULL == l)
+          return ;
+     ReverseList(l->next);
+
+     if(pHeader == l ){
+          falg = true;
+          return;
+     }
+     if(falg == true)
+          return;
+     Reverse(pHeader,l);
+     pHeader = pHeader->next;
+
+}
+
+class Solution {
+public:
+       ListNode *addTwoNumbers(ListNode *l1, ListNode *l2) {
+        // Start typing your C/C++ solution below
+         // DO NOT write int main() function
+         if(NULL == l1 || NULL == l2)
+              return NULL;
+          //以为是链表逆序相加 先是逆序下链表结果老有case反掉了
+         //Revert ls
+        /*
+         pHeader = l1;
+         falg =false;
+         ReverseList(l1);
+   
+         pHeader = l2;
+         falg =false;
+         ReverseList(l2);
+        */
+   
+         ListNode * l = l1;
+         ListNode * r = l2;
+   
+         if(l == NULL && r != NULL){
+              return r;
+         }
+   
+         if(r == NULL && l != NULL){
+              return l;
+         }
+   
+         ListNode* head = NULL;
+         ListNode* last = NULL;
+         int recval = 0;
+         while(1){
+              if(l != NULL || r != NULL){
+                   int lval,rval;
+                   if(l != NULL && r != NULL){
+                        lval = l->val;
+                        rval = r->val;
+   
+                   }
+                   else if(l == NULL && r != NULL){
+                        lval = 0;
+                        rval = r->val;
+                   }
+                   else if(l != NULL && r == NULL){
+                        lval = l->val;
+                        rval = 0;
+                   }
+   
+                   if(NULL == last){
+                        last = head = new ListNode((lval + rval + recval) % 10);
+                   }
+                   else{
+                        last = last->next = new ListNode((lval + rval + recval) % 10);
+                   }
+                   if(lval + rval + recval >= 10){
+                        recval = 1;
+                   }
+                   else{
+                        recval = 0;
+                   }
+                   if(NULL != l)
+                        l = l->next;
+                   if(NULL != r)
+                        r = r->next;
+              }
+            else{
+                 if(recval != 0){
+                   last->next = new ListNode(1);
+                   }
+                   break;
+              }
+         }
+        
+         return head;
+    }
+};

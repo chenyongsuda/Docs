@@ -1,0 +1,9 @@
+题目：
+Longest Substring Without Repeating CharactersMay 16 '11
+Given a string, find the length of the longest substring without repeating characters. 
+For example, the longest substring without repeating letters for "abcabcbb" is "abc", which the length is 3.
+ For "bbbbb" the longest substring is "b", with the length of 1.
+ 
+ 解题：
+ 起初以为是从链表尾巴开始加,后来仔细看题目是从表头开始,囧~~容易多了.
+ 

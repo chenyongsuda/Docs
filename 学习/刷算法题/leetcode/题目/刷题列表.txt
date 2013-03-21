@@ -5,6 +5,12 @@
 £¨SOLVED£©
 
 3.Longest Substring Without Repeating Characters
+£¨SOLVED£©
 
-4.First Missing Positive
+4.Add Two Numbers
+£¨SOLVED£©
 
+5.Longest Palindromic Substring
+£¨SOLVED£©
+
+6.ZigZag Conversion

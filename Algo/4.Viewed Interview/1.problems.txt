@@ -217,5 +217,13 @@ atoi()实现
 54. 1.给我一全是数字的array，说这里面的每个数字在这个array里面，只有一个出现的频率是偶数其他的都是奇数，把那个出线频率是偶数的哥们找出来
 	2. 从n个数中找出重复的或缺少的某个数或者多个数的小结
 
-55. 
-	
+55. [1]二叉树遍历.[2]找出二叉树中the kth largest number
+
+56. Reverse Linked List	no.2 打印一个string所有可能的subset的anagram，
+	怎么写简历，我是看了板上一位神人的帖子，写出来的简历，每次有人回复都是说，
+	impressive resume, brilliant。。。。
+	我自己的资料存在evernote,有兴趣可以看看，不过不要人肉我。。。
+
+	http://www.evernote.com/shard/s177/sh/e0a6c4d4-c131-4de6-a8f1-9
+
+	http://www.evernote.com/shard/s177/sh/5203d4f1-995e-4664-8bde-c
