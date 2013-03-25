@@ -1,0 +1,64 @@
+class Solution {
+public:
+    string convert(string s, int nRows) {
+    // Start typing your C/C++ solution below
+     // DO NOT write int main() function   
+     int len = s.size();
+     if(0 == len || 1 == nRows) return s;
+     string res;
+     for(int i = 1; i <= nRows; i++){
+          //Edge samle rows 4 means 1 4
+          //i , i + n(2 * nRows -2)
+          if(i == 1 || i == nRows){
+               if(i <= len){
+                    res.append(1,s[i-1]);   
+               }
+               int sum = i;
+               int n = 1;
+               while(1){
+
+                    sum = i + n * (2 * nRows -2);
+                    if(sum <= len){
+                         res.append(1,s[sum-1]); 
+                    }
+                    else{
+                         break;
+                    }
+                    n++;
+               }
+          }
+          //Middle 2 3
+          // i, n*nRows + (n-1)*(nRows-2) + |nRows - i|, i + n(2 * nRows -2)
+          else{
+               int sta = nRows - i;
+               if(i <= len){
+                    res.append(1,s[i-1]);   
+               }
+
+               int n = 1;
+               int sum1 =  1;
+               int sum2 = 1;
+               while(1){
+                    sum1 = n*nRows + (n-1)*(nRows-2) + sta;
+                    sum2 = i + n * (2 * nRows -2);
+
+                    if(sum1 <= len){
+                         res.append(1,s[sum1-1]); 
+                    }
+
+                    if(sum2 <= len){
+                         res.append(1,s[sum2-1]); 
+                    }
+                    else{
+                         break;
+                    }
+                    n++;
+               }
+          }
+     }
+     return res;
+
+}
+};
+pass all test case
+

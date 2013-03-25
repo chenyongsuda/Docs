@@ -14,3 +14,16 @@
 £¨SOLVED£©
 
 6.ZigZag Conversion
+£¨SOLVED£©
+
+7.Reverse Integer
+£¨SOLVED£©
+
+8.String to Integer (atoi)
+£¨SOLVED£©
+
+9.Palindrome Number
+£¨SOLVED£©
+
+10.Regular Expression Matching
+
