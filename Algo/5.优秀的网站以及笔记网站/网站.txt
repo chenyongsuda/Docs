@@ -25,6 +25,7 @@ http://www.ahathinking.com/archives/186.html  勇幸|Thinking
 http://www.felix021.com/blog/read.php?1587  算法blog
 http://blog.csdn.net/v_JULY_v/article/details/6322882	算法blog
 http://blog.csdn.net/wuzhekai1985/article/details/6764858  算法
+http://blog.csdn.net/tianshuai11/article/details/7828907  算法集合
 
 
 九度面试在线测试

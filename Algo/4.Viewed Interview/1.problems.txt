@@ -227,3 +227,14 @@ atoi()实现
 	http://www.evernote.com/shard/s177/sh/e0a6c4d4-c131-4de6-a8f1-9
 
 	http://www.evernote.com/shard/s177/sh/5203d4f1-995e-4664-8bde-c
+57.	1）求array 平均数， 非常基础，要求念出具体的code。又问数多溢出怎么办.
+	2) 两个array找相同item。
+		我先给了nlogn的算法，又问memory足够，怎么写O（n）的算法。
+	3）两个linked list判断是否有common nodes。
+		解答：1.判断最后节点是否是同一个 2. 制造环
+	4）水桶问题， 用5gallon和3gallon两个水桶，装出4gallon。
+		3 * 3 - 5
+		
+58. 有两个数组a,b，大小都为n,数组元素的值任意，无序；
+	要求：通过交换a,b中的元素，使数组a元素的和与数组b元素的和之间的差最小
+		
