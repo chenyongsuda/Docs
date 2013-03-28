@@ -14,6 +14,7 @@ http://codeforces.com/
 http://leetcode.com  ´úÂëÁ·Ï°
 careercup
 python challenge
+Google code jam
 http://hero.pongo.cn/Question/Details?ID=17&ExamID=17  ÅÓ¹ûÍø
 
 

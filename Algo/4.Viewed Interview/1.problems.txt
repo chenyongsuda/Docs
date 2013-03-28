@@ -237,4 +237,59 @@ atoi()实现
 		
 58. 有两个数组a,b，大小都为n,数组元素的值任意，无序；
 	要求：通过交换a,b中的元素，使数组a元素的和与数组b元素的和之间的差最小
-		
+
+59.	1->2->3->4->5->6 拆分成兩個 1->3->5 和 2->4->6,
+	循环把 point—>next->next = point->next
+	指针指向1 和 2 
+	对1 执行一次point—>next->next = point->next
+	对2 执行一次point—>next->next = point->next
+	然后把 1 2 换到新位置
+60. 有一個 int a[] ={1,2,3,4,5,6,7,8,9}, 把a 變成 {1,3,5,7,9,2,4,6,8}, in-place， 用O(1) 的空間。
+	初看起来是某种意义上的排序 index从地到高并且奇数位在左
+	可以用MergeSort但是空间复杂度达不到.
+	可以用QuickSort 排序key为奇偶性质+数值 复合排序key
+	还可以用插入排序 数据范围小 速度较快
+	可以改进插入排序,记录插入排序的奇数偶数分割点,如果是偶数在偶数区域插入,如果是奇数在奇数区域插入.可以结合二分查找寻找插入点
+61. 第一題：用合適的 data structure 表示一個recursive linked list，linked list 中的 data 也可以是linked list，比如
+	{1,2,{3,4,5},6}. 這個linked list有4個元素，第三個 node中 data 表示的是 另外一個linked list。
+
+	我的方法也很簡單，
+	struct node{
+		struct node* pointer1;
+		struct node* pointer2;
+		int data;
+	}
+	這樣需要4*3=12 bytes.
+
+	他又問我能不能節省空間，我想了半天，用 4bytes 的union 表示 pointer2和 data ，用1byte指明此union的類型，這樣用4+4+1=9 bytes。 最後再寫一個函數把所有data(即123456) print出來。
+
+62. 给定一个英语句子（字符串），该句子由很多单词组成，但是单词之间没有空格。先给定一个字典，让把英语句子加上空格。列出所有可能的句子。如Iloveyou这个句子经过查询字典后只有I love you这一种情况。	
+	find(n)
+		IF 0 == n print list
+		FOR i <-[1,n]
+			IF match [1,i]
+				list.add(string [1,i])
+				find(i,n)
+				list.remove(string [1,i])
+	
+	网上有人说
+	可以找到匹配字典中单词的最大最小长度，min_max
+	然后做匹配的时候，temp <- src[0:len] 只有搜索min_max范围就好了
+	
+
+63. 
+	1、某个公司举行一场羽毛球赛，有1001个人参加，现在为了评比出“最厉害的那个人”，进行淘汰赛，请问至少需要进行多少次比赛。
+
+	2、有100个灯泡，第一轮把所有灯泡都开启，第二轮把奇数位的灯泡灭掉，第三轮每隔两个灯泡，灭一个，开一个，依此类推。求100轮后还亮的灯泡。
+
+	3、有20个数组，每个数组里面有500个数组，降序排列，每个数字是32位的unit,求出这10000个数字中最大的500个。
+点评：以上3题全部来源和于我去年整理在此文http://blog.csdn.net/v_july_v/article/details/7974418中的第27题，百度2013年校招笔试题。
+
+64.
+	统计一个二叉树的每一层 节点个数
+
+65. 把一个字符串的大写字母放到字符串的后面，各个字符的相对位置不变，不能申请额外的空间
+
+66. 旋转有序数组 没重复元素 找最小元
+	股票那个题，买一次，卖一次，求买进那天、卖出那天、最大利润
+	batman, 就是n个人，batman认识所有人，所有人都不认识batman，返回batman的id，没有的话返回-1。给了个api是bool AknowsB(int a,int b)
