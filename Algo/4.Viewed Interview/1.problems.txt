@@ -307,4 +307,25 @@ atoi()实现
 
 	(3) How can you reduce the time complexity of finding the LCA?
 
+69. 1.Given an array of paper products in which each product has an attribute name, width, and height, 
+	and given a sheet of paper that has width xx and height yy, write a program that returns the number of sheets 
+	of paper needed to print out the array of paper products.(不知道怎么做)
+	2.  Maximum subarray problem 
+
+70.	乱序输入1000个数，正序输出
+	定义一个链表，delete操作，写代码
+
+71.	Q1. 给你一大串数字，你不知道有多少个数字，如何从中*随机等概率*地挑出一个数字？问一个恒定内存的方法
+	Q2. 给你一大串价格，比如，股价。如何决定最好的买入和卖出时机？
+	Q1 写一个可以按顺序打印二叉树的方法(Java)
+	Q2 写一个函数：输入是一个整数，返回是一个字符串，内容是这个整数的八进制表达(C++)
 	
+72. 设计问题，有一堆股票，还有股票值，不断更新，如何在某一时刻返回，前20大股票值和其对应的股票
+	公司，大概是一个map 键与值的转换问题。
+	写一个Vector class，包括构造函数，析构函数，push_back操作
+	什么是map，插入，删除，搜索时间复杂度，什么是hashing，和map比较
+	三个人站在三角形不同的顶点上，同时跑，不相遇的几率是多少？
+	singleton pattern的编程题
+	在一个很大的文件里，一行一个string，找出所有的anagranms,分门别类
+	如何找到多个missing num
+	8球问题，加9球问题的延伸

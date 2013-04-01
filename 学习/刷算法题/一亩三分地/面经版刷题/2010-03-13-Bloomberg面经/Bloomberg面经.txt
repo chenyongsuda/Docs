@@ -1,0 +1,94 @@
+http://www.1point3acres.com/bbs/thread-3512-1-1.html
+1．定义一个链表，delete操作，写代码
+2．乱序输入1000个数，正序输出
+
+
+
+1. 第一题是删除链表节点 由于链表知道下一个节点但是不知道上一个节点
+	当要删除的只能使用替代法(注意如果是链表末尾的话怎么删除)
+	Node* Del(Node *pHead , Node* pDelNode){
+	Node	*pPre = NULL;
+	Node	*pCur = pHead;
+	//catch NULL
+	if(NULL == pHead || NULL ==pDelNode)
+		return NULL;
+	//if not end 
+	if(NULL != pDelNode->pNext){
+		pDelNode->iValue = pDelNode->pNext->iValue;
+		pDelNode->pNext = pDelNode->pNext->pNext;
+	}
+	//if end
+	else{
+		while(1){
+			if(pHead == pDelNode){
+				//If The list is only One Element
+				return NULL;
+			}
+			else{
+				if(pDelNode == pCur){
+					pPre->pNext = NULL;
+					return pHead;
+				}
+			}
+			pPre = pCur;
+			pCur = pCur->pNext;
+		}
+	}
+	return pHead;
+	}
+	
+	void PrintList(Node *pHead){
+	Node	*pCur = pHead;
+	while(1){
+		if (NULL != pCur)
+		{
+			printf("%d ->", pCur->iValue);
+			pCur = pCur->pNext;
+		}
+		else{
+			printf("NULL\n");
+			break;
+		}
+	}
+	}
+	int _tmain(int argc, _TCHAR* argv[])
+	{
+		Node * fir1 = new Node(1);
+		Node * fir2 = new Node(2);
+		Node * fir3 = new Node(3);
+		Node * fir4 = new Node(4);
+		Node * fir5 = new Node(5);
+		Node * fir6 = new Node(6);
+		Node * fir7 = new Node(6);
+		Node *pHead = NULL;
+		fir1->pNext = fir2;
+		fir2->pNext = fir3;
+		fir3->pNext = fir4;
+		fir4->pNext = fir5;
+		fir5->pNext = fir6;
+		fir6->pNext = NULL;
+		pHead = fir1 ;
+		PrintList(pHead);
+		pHead = Del(pHead,fir4);
+		PrintList(pHead);
+		pHead = Del(pHead,fir3);
+		PrintList(pHead);
+		pHead = Del(pHead,fir2);
+		PrintList(pHead);
+		pHead = Del(pHead,fir1);
+		PrintList(pHead);
+		pHead = Del(pHead,fir5);
+		PrintList(pHead);
+		pHead = Del(pHead,fir6);
+		PrintList(pHead);
+
+		return 0;
+	}
+	这是个错误的code  因为其中删除的节点是以指针传入的,二内部使用了交换节点值来删除并非直接删除节点
+	导致当删除头节点的时候头节点的标示不能用指针判断是否相等.
+	
+	如面试中所说的需要删除链表的O(1)时间 这个问题个人觉得其实有问题(方法调用多次会出现问题)
+	
+2. 排序问题
+	简单问题 略过
+	

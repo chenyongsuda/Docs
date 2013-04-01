@@ -1,0 +1,70 @@
+Q1. 给你一大串数字，你不知道有多少个数字，如何从中*随机等概率*地挑出一个数字？问一个恒定内存的方法
+	等概率发生器(蓄水池问题) 暂时没研究
+Q2. 给你一大串价格，比如，股价。如何决定最好的买入和卖出时机？
+	一个数字序列 找出差值最大的一组
+	1. bruce force 
+	2. 假设第 i 位为卖出点 min表示 0-> i - 1最低点位
+	FOR i <- 1....N			复杂度0(n)
+		//如果该位小于前面最小的
+		if a[i] < min
+			min = a[i]
+		else
+			//以该位为卖出点大于之前的决策的话更新最优
+			if(res < a[i] - min){
+				res = a[i] -min;
+			}
+			else{
+				//Do Nothing
+			}
+	需要证明的是 如果构成差值最大的话一定是某一位上的值和前面数列中的最小值(容易证明)
+	注意min的初始化  应该循环从index为1开始 min初始化为a[0]
+	测试代码
+	int GetMax(int a[],int len){
+	int res = 0;
+	if(len < 2){
+		return res;
+	}
+
+	int min = a[0];
+	for(int i = 1; i < len; i++){
+		if(a[i] < min){
+			min = a[i];
+		}
+		else{
+			if(res < a[i] - min){
+				res = a[i] - min;
+			}
+			else{
+
+			}
+		}
+	}
+	return res;
+	}
+	
+	
+Q1 写一个可以按顺序打印二叉树的方法(Java)
+	分为三种打印方式
+	先根 中根 后跟
+	sample ：中根打印
+	PrintBST(Node* node){
+		if(null == node){
+			return ;
+		}
+		printBST(node->left);
+		print	node->value;
+		printBST(node->right);
+	}
+		
+Q2 写一个函数：输入是一个整数，返回是一个字符串，内容是这个整数的八进制表达(C++)
+	int number
+	int count = 0;
+	while(number){
+		int str = number % 8;
+		number = number /8;
+		count++;
+	}
+	可以最后反转输出 或者利用堆栈做容器
+	
+	
+	
