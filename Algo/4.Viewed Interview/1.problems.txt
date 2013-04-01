@@ -293,3 +293,18 @@ atoi()实现
 66. 旋转有序数组 没重复元素 找最小元
 	股票那个题，买一次，卖一次，求买进那天、卖出那天、最大利润
 	batman, 就是n个人，batman认识所有人，所有人都不认识batman，返回batman的id，没有的话返回-1。给了个api是bool AknowsB(int a,int b)
+
+67. (1) Reverse string 基本上用二个pointer就可以解决 
+      Ex: Hello word! 
+      --> !dord olleH
+(2) Reverse word 上一题的follow up
+      Ex: Hello word!
+      --> word! Hello
+
+68. (1) Find lowest common ancestor in Binary tree. What is the complexity of running time and space?
+
+	(2) Find lowest common ancestor in BST tree. What is the complexity of running time and space?
+
+	(3) How can you reduce the time complexity of finding the LCA?
+
+	

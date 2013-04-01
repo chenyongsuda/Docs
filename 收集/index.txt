@@ -1,6 +1,7 @@
 @图形化工具
 Linux下gnuplot
 http://www.ibm.com/developerworks/cn/linux/l-gnuplot/index.html
+http://blog.sciencenet.cn/home.php?mod=space&uid=373392&do=blog&view=me&from=space&page=6  使用手册
 
 @电影
 VS网剧收官《幸福也需要敏捷》、《为爱Debug》、《让爱编译通过》
