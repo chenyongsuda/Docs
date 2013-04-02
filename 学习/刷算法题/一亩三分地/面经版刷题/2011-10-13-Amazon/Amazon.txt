@@ -1,0 +1,16 @@
+http://www.1point3acres.com/bbs/thread-16542-1-1.html
+
+1) OOD question
+
+2) Build a schema for an online book store(which table should you put book's price in)
+
+3) talked about Iterator in C++
+
+	What iterator does vector use(pointer, random access iterator)? Which does list use(BiDirectionIterator? forgot)?
+
+	talked about auto_ptr, shared_ptr in boost
+
+	talked about RAII in C++
+
+4) shuffle array
+	

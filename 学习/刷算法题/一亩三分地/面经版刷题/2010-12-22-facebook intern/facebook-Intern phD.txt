@@ -1,0 +1,85 @@
+1. 反转一个单项链表
+typedef struct Node{
+	int		value;
+	Node	*pNext;
+	Node(int v){
+		value = v;
+		pNext = NULL;
+	}
+};
+
+
+Node* pGHeader = new Node(1);
+//注意必须创建个给ReverseLinklist中用因为方法中这个是运动的不能一直对首节点指向
+Node* pTHeader = pGHeader;
+//用来当两指针碰头时候不继续执行
+bool flag = false;
+
+void Swap(Node* fir, Node* sec){
+	if(fir == sec){
+		return;
+	}
+	else{
+		int temp = fir->value;
+		fir->value = sec->value;
+		sec->value = temp;
+	}
+}
+
+void ReverseLinklist(Node *pHead){
+	if(NULL == pHead){
+		return;
+	}
+
+	ReverseLinklist(pHead->pNext);
+
+	if(true == flag){
+		return;
+	}
+
+	if(pTHeader != pHead){
+		Swap(pTHeader,pHead);
+		pTHeader = pTHeader->pNext;
+	}
+	else{
+		flag = true;
+	}
+	return;
+}
+
+void PrintList(Node* pHead){
+	Node* pTemp = pHead;
+	while(1){
+		if (NULL != pTemp){
+			printf("%d ->",pTemp->value);
+			pTemp = pTemp->pNext;
+		}
+		else{
+			printf("NULL\n");
+			break;
+		}
+	}
+}
+
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+	Node* pNo1 = new Node(2);
+	pGHeader->pNext = pNo1;
+	Node* pNo2 = new Node(3);
+	pNo1->pNext = pNo2;
+	Node* pNo3 = new Node(4);
+	pNo2->pNext = pNo3;
+	Node* pNo4 = new Node(5);
+	pNo3->pNext = pNo4;
+	PrintList(pGHeader);
+	ReverseLinklist(pGHeader);
+	PrintList(pGHeader);
+	return 0;
+}
+
+
+2. 已知一个ｎ*ｎ矩阵，要定义一个特殊点，每一行的最大值又是这一列的最小值
+（暂时没想明白）
+
+

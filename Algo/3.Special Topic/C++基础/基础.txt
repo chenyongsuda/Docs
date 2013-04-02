@@ -1,0 +1,14 @@
+1.一些字符串的操作（concatenation, substring, reverse, to upper case…）
+
+2.写一个Vector class，包括构造函数，析构函数，push_back操作
+
+3.singleton pattern
+	http://en.wikipedia.org/wiki/Double-checked_locking
+
+4.talked about Iterator in C++
+
+	What iterator does vector use(pointer, random access iterator)? Which does list use(BiDirectionIterator? forgot)?
+
+	talked about auto_ptr, shared_ptr in boost
+
+	talked about RAII in C++

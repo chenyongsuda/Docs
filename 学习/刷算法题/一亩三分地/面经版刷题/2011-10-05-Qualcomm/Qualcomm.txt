@@ -1,0 +1,11 @@
+1. Write code: check if 'a' is in a c style string
+    follow up: what if the string never ends
+
+2.describe scope variable
+    keyword: stack
+
+3.difference of preempritve and round robin
+    forgot, fvck
+
+4.describe thread safe programming, sample code
+    asked about the API of C thread safe.

@@ -1,0 +1,7 @@
+1.给一个integer的array，要求找出一个sub-array使其和为最大
+	记录前一个为尾的最大子串和EndMax
+	所以的EndMax组成了Max子串和
+	EndMax > 0
+		EndMax += a[i];
+	else
+		EndMax = a[i];

@@ -16,6 +16,8 @@ http://www.1point3acres.com/bbs/thread-8320-1-1.html
 	http://en.wikipedia.org/wiki/Double-checked_locking
 	
 5. 在一个很大的文件里，一行一个string，找出所有的anagranms,分门别类
-
-6. 八球问题  延生九球问题
+	字母排序 算hash 然后group
 	
+6. 八球问题  延生九球问题
+	信息熵问题 称硬币问题
+

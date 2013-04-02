@@ -1,0 +1,10 @@
+1.问给一个array和一个数，要在array里边找到两个数的和等于这个给定的数
+	排序 然后首尾两指针
+
+2. 最大子数组和问题
+	记录前一个为尾的最大子串和EndMax
+	所以的EndMax组成了Max子串和
+	EndMax > 0
+		EndMax += a[i];
+	else
+		EndMax = a[i];
