@@ -1,0 +1,28 @@
+http://www.1point3acres.com/bbs/thread-16586-1-1.html
+http://www.1point3acres.com/bbs/thread-16632-1-1.html
+
+1.	add sibling pointer to the left sibling of each node in a tree, O(n) time, O(1) space. 
+	（5 minutes thinking, 10 minutes coding, a hint he gave me: recursion）
+	
+	
+	
+2. 	permutation of string with duplicate characters（prove its correctness）
+	字符的全排列 证明正确性
+	
+
+
+3.	find longest path of a tree
+     o(n) time complexity o(1) space
+	寻找最长path
+	DFS(Node* node)
+		IF node is null 
+			return 0;
+		nLeft = DFS(node->left)
+		nRight = DFS(node->right)
+		sum = nLeft + nRight + 1;
+		IF sum > Max 
+			Max = sum;
+		return MAX(nLeft + 1, nRight + 1)
+	
+	递归操作 
+	不是很难

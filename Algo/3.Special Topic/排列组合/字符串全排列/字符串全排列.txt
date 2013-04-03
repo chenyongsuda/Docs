@@ -1,0 +1,113 @@
+1. permutation of string with duplicate characters（prove its correctness）
+	字符的全排列 证明正确性
+	
+
+void _inner_print2(char* strOrg, int m, int n)
+{
+	assert(strOrg && n >= 0);
+
+	if (m == n)
+	{
+		cout<<strOrg<<endl;
+		return;
+	}
+
+	char rec[256];
+	memset(rec, 0, sizeof(rec)*sizeof(char));
+
+	rec[strOrg[m]]++;
+
+	for (int i = m; i < n; i++)
+	{
+		if (rec[strOrg[i]] != 0)	//如果不包括重复的需要加上这句
+			continue;
+		swap(strOrg[m], strOrg[i]);
+		_inner_print2(strOrg, m + 1, n);
+		swap(strOrg[m], strOrg[i]);
+	}
+}
+
+全代码
+// te.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <assert.h>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+void _inner_print(char* strOrg, char* strStart, int nLen)
+{
+	assert(strStart && nLen >= 0);
+
+	if (0 == nLen)
+	{
+		cout<<strOrg<<endl;
+		return;
+	}
+
+	char rec[256];
+	memset(rec, 0, sizeof(rec)*sizeof(char));
+
+	rec[*strStart]++;
+	_inner_print(strOrg, strStart + 1, nLen - 1);
+	for (int i = 1; i < nLen; i++)
+	{
+		if (rec[*(strStart + i)] != 0)
+			continue;
+
+		rec[*(strStart + i)]++;
+
+		swap(*strStart, *(strStart + i));
+		_inner_print(strOrg, strStart + 1, nLen - 1);
+		swap(*(strStart + i), *strStart);
+	}
+}
+
+void _inner_print2(char* strOrg, int m, int n)
+{
+	assert(strOrg && n >= 0);
+
+	if (m == n)
+	{
+		cout<<strOrg<<endl;
+		return;
+	}
+
+	char rec[256];
+	memset(rec, 0, sizeof(rec)*sizeof(char));
+
+	rec[strOrg[m]]++;
+	for (int i = m; i < n; i++)
+	{
+		if (rec[strOrg[i]] != 0)
+			continue;
+		swap(strOrg[m], strOrg[i]);
+		_inner_print2(strOrg, m + 1, n);
+		swap(strOrg[m], strOrg[i]);
+	}
+}
+
+void PrintPerpetuation(char* str)
+{
+	assert(str);
+
+	int nLen = strlen(str);
+	_inner_print(str, str, nLen);
+	_inner_print2(str,0,nLen);
+}
+
+void test()
+{
+	char str[] = "abb";
+	PrintPerpetuation(str);
+}
+
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+	test();
+	return 0;
+}
+

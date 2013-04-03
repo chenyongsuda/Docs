@@ -329,3 +329,11 @@ atoi()实现
 	在一个很大的文件里，一行一个string，找出所有的anagranms,分门别类
 	如何找到多个missing num
 	8球问题，加9球问题的延伸
+	
+73. 1. add sibling pointer to the left sibling of each node in a tree, O(n) time, O(1) space. 
+		5 minutes thinking, 10 minutes coding, a hint he gave me: recursion 
+	没看懂
+	
+74. 1.find longest path of a tree
+	2.permutation of string with duplicate characters 
+		prove its correctness
