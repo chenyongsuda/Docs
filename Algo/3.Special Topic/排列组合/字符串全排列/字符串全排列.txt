@@ -1,113 +1,83 @@
 1. permutation of string with duplicate characters（prove its correctness）
 	字符的全排列 证明正确性
 	
+	包含重复子串的全排列算法
+	我们把上面全排列的方法归纳一下，基本上就是：任意选一个数（一般从小到大或者从左到右）打头，对后面的n-1个数进行全排列。聪明的读者应该已经发现，这是一个递归的方法，因为要得到n-1个数的全排列，我们又要先去得到n-2个数的全排列，而出口是只有1个数的全排列，因为它只有1种，为它的本身。写成比较规范的流程：
+		1.开始for循环。
+		2.改变第一个元素为原始数组的第一个元素（什么都没做）。
+		3.求第2个元素到第n个元素的全排列。
+		4.要求第2个元素到第n个元素的全排列，要递归的求第3个元素到第n个元素的全排列。
+		......
+		5.直到递归到第n个元素到第n元素的全排列，递归出口。
+		6.将改变的数组变回。
+		7.改变第一个元素为原始数组的第二个元素。
+		（注：理论上来说第二次排列时才改变了第一个元素，即第6步应该此时才开始执行，但由于多执行一次无义的交换影响不大，而这样使得算法没有特殊情况，更容易读懂，如果一定要省时间可以把这步写在此处，这种算法我在下文中便不给出了，读者可以自己写。）
 
-void _inner_print2(char* strOrg, int m, int n)
-{
-	assert(strOrg && n >= 0);
+		5.求第2个元素到第n个元素的全排列。
+		6.要求第2个元素到第n个元素的全排列，要递归的求第3个元素到第n个元素的全排列。
+		......
+		5.直到递归到第n个元素到第n元素的全排列，递归出口。
+		6.将改变的数组变回。
+		......
+		8.不断地改变第一个元素，直至n次使for循环中止。
 
-	if (m == n)
+	Code：
+	void _inner_print2(char* strOrg, int m, int n)
 	{
-		cout<<strOrg<<endl;
-		return;
+		assert(strOrg && n >= 0);
+
+		if (m == n)
+		{
+			cout<<strOrg<<endl;
+			return;
+		}
+
+		char rec[256];
+		memset(rec, 0, sizeof(rec)*sizeof(char));
+
+		for (int i = m; i < n; i++)
+		{	
+
+			swap(strOrg[m], strOrg[i]);
+			_inner_print2(strOrg, m + 1, n);
+			swap(strOrg[m], strOrg[i]);
+		}
 	}
-
-	char rec[256];
-	memset(rec, 0, sizeof(rec)*sizeof(char));
-
-	rec[strOrg[m]]++;
-
-	for (int i = m; i < n; i++)
+	
+	不包含重复子串的全排列算法
+	是通过的换掉当前的第一个元素更换成不同的来打印出不重复全排列的
+	比如abbc 应该首先a为第一个 然后b为第一个 然后c为第一个 第三个也为b但是前面已经b成为过首元素了 所以跳过
+	因此在一轮中必须保存出现过哪些元素 可以通过一个map记载.
+	当换位首元素的时候被设置进去,所以在两处加了rec[strOrg[m]]++; 代码如下
+	
+	Code：
+	void _inner_print2(char* strOrg, int m, int n)
 	{
-		if (rec[strOrg[i]] != 0)	//如果不包括重复的需要加上这句
-			continue;
-		swap(strOrg[m], strOrg[i]);
-		_inner_print2(strOrg, m + 1, n);
-		swap(strOrg[m], strOrg[i]);
+		assert(strOrg && n >= 0);
+
+		if (m == n)
+		{
+			cout<<strOrg<<endl;
+			return;
+		}
+
+		char rec[256];
+		memset(rec, 0, sizeof(rec)*sizeof(char));
+
+		for (int i = m; i < n; i++)
+		{	
+			if(m == i){
+				rec[strOrg[m]]++;
+				_inner_print2(strOrg, m + 1, n);
+			}
+			else{
+				if(0 != rec[strOrg[i]]){
+					continue;
+				}
+				swap(strOrg[m], strOrg[i]);
+				rec[strOrg[m]]++;
+				_inner_print2(strOrg, m + 1, n);
+				swap(strOrg[m], strOrg[i]);
+			}
+		}
 	}
-}
-
-全代码
-// te.cpp : Defines the entry point for the console application.
-//
-
-#include "stdafx.h"
-#include <assert.h>
-#include <iostream>
-#include <algorithm>
-using namespace std;
-
-void _inner_print(char* strOrg, char* strStart, int nLen)
-{
-	assert(strStart && nLen >= 0);
-
-	if (0 == nLen)
-	{
-		cout<<strOrg<<endl;
-		return;
-	}
-
-	char rec[256];
-	memset(rec, 0, sizeof(rec)*sizeof(char));
-
-	rec[*strStart]++;
-	_inner_print(strOrg, strStart + 1, nLen - 1);
-	for (int i = 1; i < nLen; i++)
-	{
-		if (rec[*(strStart + i)] != 0)
-			continue;
-
-		rec[*(strStart + i)]++;
-
-		swap(*strStart, *(strStart + i));
-		_inner_print(strOrg, strStart + 1, nLen - 1);
-		swap(*(strStart + i), *strStart);
-	}
-}
-
-void _inner_print2(char* strOrg, int m, int n)
-{
-	assert(strOrg && n >= 0);
-
-	if (m == n)
-	{
-		cout<<strOrg<<endl;
-		return;
-	}
-
-	char rec[256];
-	memset(rec, 0, sizeof(rec)*sizeof(char));
-
-	rec[strOrg[m]]++;
-	for (int i = m; i < n; i++)
-	{
-		if (rec[strOrg[i]] != 0)
-			continue;
-		swap(strOrg[m], strOrg[i]);
-		_inner_print2(strOrg, m + 1, n);
-		swap(strOrg[m], strOrg[i]);
-	}
-}
-
-void PrintPerpetuation(char* str)
-{
-	assert(str);
-
-	int nLen = strlen(str);
-	_inner_print(str, str, nLen);
-	_inner_print2(str,0,nLen);
-}
-
-void test()
-{
-	char str[] = "abb";
-	PrintPerpetuation(str);
-}
-
-
-int _tmain(int argc, _TCHAR* argv[])
-{
-	test();
-	return 0;
-}
-
