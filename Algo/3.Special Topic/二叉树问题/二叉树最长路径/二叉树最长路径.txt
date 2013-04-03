@@ -1,0 +1,15 @@
+find longest path of a tree
+     o(n) time complexity o(1) space
+	寻找最长path
+	DFS(Node* node)
+		IF node is null 
+			return 0;
+		nLeft = DFS(node->left)
+		nRight = DFS(node->right)
+		sum = nLeft + nRight + 1;
+		IF sum > Max 
+			Max = sum;
+		return MAX(nLeft + 1, nRight + 1)
+	
+	递归操作 
+	不是很难

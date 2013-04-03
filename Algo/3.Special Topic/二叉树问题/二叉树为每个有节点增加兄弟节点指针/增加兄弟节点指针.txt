@@ -1,0 +1,2 @@
+1.	add sibling pointer to the left sibling of each node in a tree, O(n) time, O(1) space. 
+	£¨5 minutes thinking, 10 minutes coding, a hint he gave me: recursion£©
