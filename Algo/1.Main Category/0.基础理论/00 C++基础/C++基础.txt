@@ -1,0 +1,11 @@
+1.	here is a class, have some member data, what complier gotta do?                
+(经典问题碰上了) 4 function, constructor, destructor, copy constructor, assignmeng operator.
+
+2. what happened if you pass value, do you wanna pass value in copy constructor
+	class scope里写copy constructor，会产生无限循环。
+
+3. copy constructor，virtual function, polymorphism
+
+4. 解释下Polymorphism并且举个例子
+	参考\Docs\Algo\1.Main Category\0.基础理论\00 C++基础
+

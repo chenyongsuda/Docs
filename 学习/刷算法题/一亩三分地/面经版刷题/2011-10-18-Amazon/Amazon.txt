@@ -1,0 +1,24 @@
+1.	解释下Polymorphism并且举个例子
+	参考Docs\Algo\1.Main Category\0.基础理论
+
+2. 解释下bst，写一下validate bst的代码
+	ISBST(Node* node)
+		IF	node is NULL 
+			return true
+		IF	node's left is not null
+			compare value 
+		IF 	node'right is not null
+			compare value 
+		IF 	fit conditions
+			return ISBST(node's left) && ISBST(node's right)
+		else
+			return false
+		
+	
+3. 用linked list做个stack，大概想法说下
+	没什么好说的  指针指向linklist尾巴节点
+	sample：1-》2-》3-》4-》5-》6
+	
+4. 实现一下单链表找距离末尾K的元素。我就用经典的两个指针的那个方法做(现在想想应该先跟他说复杂度高的方法的)。
+他问有没有其它方法，不会也没关系，我就说用stack也行的。
+	1.双指针 2. 遍历一次知道size 3. 建立一个k大小的链表 始终保持链表最长为k 4.堆栈

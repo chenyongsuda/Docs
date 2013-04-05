@@ -1,0 +1,9 @@
+http://www.1point3acres.com/bbs/thread-17968-1-1.html
+
+问题1. OOD,设计一个digital图书馆，持有kindle并且是的prime用户可以从图书馆里面借阅图书。
+
+问题2. hash mapping 和tree mapping的特点和区别。
+
+问题3. 怎么验证一个树是balance binary tree， 写代码。
+
+问题4. 怎么把排列好的数组转换成balance binary tree。写代码
