@@ -1,0 +1,20 @@
+问题1. OOD,设计一个digital图书馆，持有kindle并且是的prime用户可以从图书馆里面借阅图书。
+问题2. hash mapping 和tree mapping的特点和区别。
+问题3. 怎么验证一个树是balance binary tree， 写代码。
+		
+问题4. 怎么把排列好的数组转换成balance binary tree。写代码
+		通过数组构造BST
+		public Node createBSTHelp(Node[] nodes, int start, int end) {  
+        if (start > end) {  
+            return null;  
+        }  
+        int mid = start + (end - start) / 2;  
+        if (start == end) {  
+            return nodes[mid];  
+        }  
+        Node root = nodes[mid];  
+        root.left = createBSTHelp(nodes, start, mid - 1);  
+        root.right = createBSTHelp(nodes, mid + 1, end);  
+        return root;  
+  
+		}  

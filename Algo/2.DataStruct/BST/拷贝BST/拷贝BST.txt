@@ -1,0 +1,8 @@
+1. ¿½±´BST
+	Ê÷µÄ²Ù×÷Ò»°ãÓÃµÝ¹é
+	CopyBST(Node* des, Node* src)
+		IF src is null
+			return;
+		des = new Node(src->value)
+		CopyBST(des->left, src->left)
+		CopyBST(des->right, src->right)

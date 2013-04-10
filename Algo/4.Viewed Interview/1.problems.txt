@@ -371,9 +371,67 @@ atoi()实现
 	从1….n中随机输出m个不重复的数
 	prim函数的功能是分解质因数
 	输出数组的全排列
+	//辗转相除
+	int GCD (int m, int n ){
+		  int max = MAX(m ,n);
+		  int min = MIN(m ,n);
+
+		  while(max % min){
+			   int temp = max % min;
+			   max = min;
+			   min = temp;
+		  }
+		  return min ;
+	}
+
+	//分解质因数
+	void split (int value,int n){
+		  if(value < n){
+			   return ;
+		  }
+
+		  while(0 == value % n){
+			   printf("%d, " ,n);
+			   value = value / n ;
+		  }
+		  n++;
+		  split(value , n );
+	}
+
+	//全排列
+	void perm (char* array, int m, int n ){
+		  if(m == n){
+			   //Printf  list
+		  }
+		  //if print not same mast creat a map for record
+		  //and in if Block ,if exist in map continue
+		  for(int i = m +1; i < n ; i ++){
+			   //swap m and i
+			   perm(array , m + 1, n);
+			   //swap back m and i
+		  }
+	}
 	
 	1、（40分）用户启动迅雷时，服务器会以uid,login_time,logout_time的形式记录用户的在线时间；用户在使用迅雷下载时，服务器会以taskid,start_time,finish_time的形式记录任务的开始时间和结束时间。有效下载时间是指用户在开始时间和结束时间之间的在线时间，由于用户可能在下载的时候退出迅雷，因此有效下载时间并非finish_time 和 start_time之差。假设登录记录保存在login.txt中，每一行代表用户的上下线记录；下载记录保存在task.txt中，每一行代表一个任务记录，记录的字段之间以空格分开。计算每个用户的有效下载时间和总在线时间的比例。注意：请尽量使用STL的数据结构和算法
 	2、（60分）在8X8的棋盘上分布着n个骑士，他们想约在某一个格中聚会。骑士每天可以像国际象棋中的马那样移动一次，可以从中间像8个方向移动（当然不能走出棋盘），请计算n个骑士的最早聚会地点和要走多少天。要求尽早聚会，且n个人走的总步数最少，先到聚会地点的骑士可以不再移动等待其他的骑士。
 	从键盘输入n（0<n<=64），然后一次输入n个骑士的初始位置xi,yi（0<=xi,yi<=7）。屏幕输出以空格分隔的三个数，分别为聚会点（x，y）以及走的天数。
 	3. 12个工厂分布在一条东西向高速公路的两侧，工厂距离公路最西端的距离分别是0、4、5、10、12、18、27、30、31、38、39、47.在这12个工厂中选取3个原料供应厂，使得剩余工厂到最近的原料供应厂距离之和最短，问应该选哪三个厂 ？
+
+81.	how to find a median number in an array
+	查找中位数
+
+82.	how to calculate the area of parallelogram?
+	平行四边形面积
+	Check if the given matrix is symmetric
+	判断矩阵是否对称
+	copy a BST
+	拷贝BST
+	how to find a median node in a linklist
+	在链表中查找中位数
+
+83.	string里边如何找substring的问题
+
+
+84. 问题3. 怎么验证一个树是balance binary tree， 写代码。
 	
+	问题4. 怎么把排列好的数组转换成balance binary tree。写代码
