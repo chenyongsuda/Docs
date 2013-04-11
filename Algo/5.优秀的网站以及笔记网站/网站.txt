@@ -31,6 +31,11 @@ http://blog.csdn.net/tianshuai11/article/details/7828907  算法集合
 http://www.51projob.com/a/souhu/20120911/651.html  面试题网站
 http://www.mianwww.com/html/2012/03/14404.html
 
+一些算法相关推荐
+http://www.1point3acres.com/bbs/thread-35139-1-1.html
+
+@普林斯顿 算法
+http://algs4.cs.princeton.edu/home/
 
 
 九度面试在线测试
