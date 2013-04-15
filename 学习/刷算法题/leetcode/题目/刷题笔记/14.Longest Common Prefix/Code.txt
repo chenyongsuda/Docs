@@ -1,0 +1,49 @@
+// te.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <assert.h>
+#include <iostream>
+#include <algorithm>
+#include <vector>
+using namespace std;
+
+string longestCommonPrefix(vector<string> &strs) {
+	// Start typing your C/C++ solution below
+	// DO NOT write int main() function
+	int size = strs.size();
+	if (0 == size) {
+		return "";
+	}
+	string res = strs[0];
+	for(int index = 1; index < size; index++){
+		string str = strs[index];
+		int len = 0;
+		for(int i = 0; i < str.size(); i++){
+			if(str[i] == res[i]){
+				len++;
+			}
+			else{
+				break;
+			}
+		}
+		res = res.substr(0,len);
+	}
+	return res;
+}
+
+void test()
+{
+	vector<string> strs;
+	strs.push_back("aca");
+	strs.push_back("cba");
+	longestCommonPrefix(strs);
+}
+
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+	test();
+	return 0;
+}
+

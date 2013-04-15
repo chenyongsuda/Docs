@@ -30,6 +30,10 @@ http://blog.csdn.net/wuzhekai1985/article/details/6764858  算法
 http://blog.csdn.net/tianshuai11/article/details/7828907  算法集合
 http://www.51projob.com/a/souhu/20120911/651.html  面试题网站
 http://www.mianwww.com/html/2012/03/14404.html
+http://stackoverflow.com/
+http://blog.unieagle.net/2012/10/16/leetcode%E9%A2%98%E7%9B%AE%EF%BC%9Anext-permutation/
+http://dongxicheng.org/knowledges-carding/  一些基础链接 董的blog
+
 
 一些算法相关推荐
 http://www.1point3acres.com/bbs/thread-35139-1-1.html

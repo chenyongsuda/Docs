@@ -30,5 +30,58 @@
 11.Container With Most Water
 £¨SOLVED£©
 
+14.Longest Common Prefix
+ (VIEWED)
+
+15.3Sum
+ (VIEWED)
+ 
+16.3Sum Closest
+ (VIEWED)
+ 
+17.4Sum
+ (VIEWED)
+ 
+18.Letter Combinations of a Phone Number
+ (VIEWED)
+ 
+19.Remove Nth Node From End of List
+ (VIEWED)
+
+20.Valid Parentheses
+ (VIEWED)
+
+21.Generate Parentheses
+ (VIEWED)
+
+22.Merge k Sorted Lists
+ (VIEWED)
+ 
+23.Swap Nodes in Pairs
+ (VIEWED)
+ 
+24.Reverse Nodes in k-Group
+ (VIEWED)
+ 
+25.Remove Duplicates from Sorted Array
+ (VIEWED)
+ 
+26.Remove Element
+ (VIEWED)
+
+27.Implement strStr()
+
+28.Divide Two Integers
+
+29.Substring with Concatenation of All Words
+
+30.Next Permutation
+
+31.Longest Valid Parentheses
+
+32.Search in Rotated Sorted Array
+
+33.Search for a Range
+
 
 

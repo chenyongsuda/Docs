@@ -1,3 +1,5 @@
 1.	Write a function to find the longest common prefix string amongst an array of strings.
 	可以使用后缀数组的数据结构  具体参考Docs\Algo\2.DataStruct\后缀数组
 	
+	这题的意思是所有list中的最长公共前缀, 可以通过两个比较确立前缀然后把这个公共前缀依次和其他字符串比较不断缩小最长共前缀
+	
