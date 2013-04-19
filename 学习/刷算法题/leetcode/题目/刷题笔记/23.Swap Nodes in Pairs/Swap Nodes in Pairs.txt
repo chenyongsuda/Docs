@@ -1,0 +1,68 @@
+#include "stdafx.h"
+#include <assert.h>
+#include <iostream>
+#include <algorithm>
+#include <vector>
+
+//主要思想是通过三个指针
+首先pre指向null
+cur指向第一个 next指向下一个
+为什么不是pre指向第一个  cur指向第二个 next指向第三个,因为需要保存兑换节点第一个的前一个和第二个的后一个,
+由于第二个的后一个可以用next求出,而第一个的前一个是只能保存所以这么初始化.
+
+using namespace std;
+struct ListNode {
+	int val;
+	 ListNode *next;
+	ListNode(int x) : val(x), next(NULL) {}
+	};
+
+ListNode *swapPairs(ListNode *head) {
+	// Start typing your C/C++ solution below
+	// DO NOT write int main() function
+	if(!head)
+		return NULL;
+	if(!head->next)
+		return head;
+	ListNode* pPre = NULL;
+	ListNode* pCur = head;
+	ListNode* pNext = head->next;
+	ListNode* pHeader = NULL;
+
+	while(pCur && pNext){
+		//Adjust
+		pCur->next = pNext->next;
+		pNext->next = pCur;
+		if(pPre)
+			pPre->next = pNext;
+		//Set Header
+		if(NULL == pHeader)
+			pHeader = pNext;
+		//Move
+		pPre = pCur;
+		pCur = pCur->next;
+		if(pCur)
+			pNext = pCur->next;
+		else
+			pNext = NULL;
+	}
+
+	return pHeader; 
+}
+
+
+void test()
+{
+	ListNode* header = new ListNode(1);
+	ListNode* fir = new ListNode(2);
+	header->next = fir;
+	ListNode* ret = swapPairs(header);
+	return;
+}
+
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+	test();
+	return 0;
+}

@@ -1,0 +1,17 @@
+链表的删除
+void remove_if(node ** head, remove_fn rm)
+{
+    for (node** curr = head; *curr; )
+    {
+        node * entry = *curr;
+        if (rm(entry))
+        {
+            *curr = entry->next;
+            free(entry);
+        }
+        else
+            curr = &entry->next;
+    }
+}
+
+参考	\Docs\Algo\1.Main Category\0.基础理论\00 C++基础\二级指针的妙用.docx

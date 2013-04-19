@@ -1,0 +1,2 @@
+1. 参考文档
+	https://developers.google.com/protocol-buffers/docs/proto	介绍能使用的基本类型

@@ -33,6 +33,7 @@ http://www.mianwww.com/html/2012/03/14404.html
 http://stackoverflow.com/
 http://blog.unieagle.net/2012/10/16/leetcode%E9%A2%98%E7%9B%AE%EF%BC%9Anext-permutation/
 http://dongxicheng.org/knowledges-carding/  一些基础链接 董的blog
+http://ac.jobdu.com/submitpage.php?pid=1082 九度OJ
 
 
 一些算法相关推荐
@@ -63,3 +64,10 @@ http://dongxicheng.org/category/structure/  数据结构
 
 没解决的笔试题
 http://bbs.byr.cn/#!article/Job/1365483
+
+不错的Blog
+http://wordaligned.org/articles/two-star-programming	Linus	还有相关二级指针等等
+
+http://blog.csdn.net/maqingli87/article/details/8007557	Leetcoed题目
+
+http://coolshell.cn/articles/5426.html	酷壳 比较好的学习Blog 每天瞧一瞧
