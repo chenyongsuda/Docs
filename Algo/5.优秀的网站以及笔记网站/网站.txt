@@ -71,3 +71,11 @@ http://wordaligned.org/articles/two-star-programming	Linus	还有相关二级指针等等
 http://blog.csdn.net/maqingli87/article/details/8007557	Leetcoed题目
 
 http://coolshell.cn/articles/5426.html	酷壳 比较好的学习Blog 每天瞧一瞧
+
+
+@资源网站
+http://glyphicons.com/	图片资源网站
+
+@好用的编辑器
+webstream	开发webgl	
+Sublime Text 2 liunx下编辑工具	http://www.iplaysoft.com/sublimetext.html
