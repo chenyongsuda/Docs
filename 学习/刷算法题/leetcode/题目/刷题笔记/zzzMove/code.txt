@@ -1,0 +1,134 @@
+class Solution {
+public:
+    //Define Mode
+    int VMode = 0;
+    int HMode = 1;
+        
+    //Define Direction
+    int right = 0;
+    int down = 1;
+    int left = 2;
+    int up = 3;
+    
+    int mode = VMode;
+    int dir = right;
+    
+    bool isWalkEnd(vector<vector<int> > &matrix,int i , int j,int m, int n){
+        //Wall
+        if(j >= n || j <= 0 || i >= m || i <= 0){
+            return true;
+        }
+        //has Walked
+        if(0 == matrix[i][j]){
+            return true;
+        }
+        return false;
+    }
+    
+    bool isFinish(vector<vector<int> > &matrix,int i , int j,int m, int n){
+        if(VMode == mode && right == dir){
+           if( isWalkEnd(matrix,i,j+1,m,n) && isWalkEnd(matrix,i + 1,j,m,n) ){
+               return true;
+           }
+        }
+        
+        else if(VMode == mode && left == dir){
+            if( isWalkEnd(matrix,i,j-1,m,n) && isWalkEnd(matrix,i - 1,j,m,n) ){
+               return true;
+           }
+        }
+        
+        else if(HMode == mode && up == dir){
+            if( isWalkEnd(matrix,i - 1,j,m,n) && isWalkEnd(matrix,i,j - 1,m,n) ){
+               return true;
+           }
+        }
+        
+        else if(HMode == mode && down == dir){
+           if( isWalkEnd(matrix,i + 1,j,m,n) && isWalkEnd(matrix,i,j + 1,m,n) ){
+               return true;
+           }
+        }
+        else{
+            
+        }
+        return false;
+    }
+    
+    void ChangeMode(int& mode,int& dir){
+        mode = (mode++) % 2;
+        dir = (dir++) % 4;
+    }
+    
+    void Move(int mode,int dir,int& i, int& j)
+    {
+        if(VMode == mode && right == dir){
+            j++;
+        }
+        
+        else if(VMode == mode && left == dir){
+            j--;
+        }
+        
+        else if(HMode == mode && up == dir){
+            i--;
+        }
+        
+        else if(HMode == mode && down == dir){
+            i++;
+        }
+        else{
+            
+        }
+    }
+    
+    vector<int> spiralOrder(vector<vector<int> > &matrix) {
+        // Start typing your C/C++ solution below
+        // DO NOT write int main() function
+        vector<int> list;
+        
+        int m = matrix.size();
+        if(0 == m) return list;
+        int n = matrix[0].size();
+        
+        int a[m][n];
+        
+        //init 
+        for(int i = 0; i < m; i ++){
+            for(int j = 0; j < n; j ++){
+                a[i][j] = -1;
+            }
+        }
+        
+        
+        
+        int mode = VMode;
+        int dir = right;
+        int i = 0; 
+        int j = -1;
+        
+        while(1){
+    
+            if(isFinish(matrix,i,j,m,n)){
+                //Print list
+                break;
+            }
+            
+            if(isWalkEnd(matrix,i,j,m,n)){
+                ChangeMode(mode,dir);
+            }
+            else{
+                Move(mode,dir,i,j);
+                a[i][j] = 0;
+                //Add To list
+                list.push_back(matrix[i][j]);
+            }
+            
+        }
+        
+        return list;
+        
+        
+        
+    }
+};

@@ -1,0 +1,15 @@
+class Solution {
+public:
+    int removeElement(int A[], int n, int elem) {
+        // Start typing your C/C++ solution below
+        // DO NOT write int main() function
+        int count = 0;
+        for(int index = 0; index < n; index++)
+        {
+            if(elem != A[index]){
+                A[count++] = A[index];
+            }
+        }
+        return count;
+    }
+};

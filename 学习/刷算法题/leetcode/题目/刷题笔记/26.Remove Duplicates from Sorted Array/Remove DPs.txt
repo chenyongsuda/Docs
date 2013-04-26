@@ -1,0 +1,28 @@
+class Solution {
+public:
+    int removeDuplicates(int A[], int n) {
+        // Start typing your C/C++ solution below
+        // DO NOT write int main() function
+        // Start typing your C/C++ solution below
+        // DO NOT write int main() function
+        if(0 == n){
+            return 0;
+        }
+        if(1 == n){
+            return 1;
+        }
+        int pre = 0;
+        int cur = 0;
+        int count = 1;
+        for(int index = 1; index < n; index++)
+        {
+            cur = index;
+            if(A[cur] != A[pre]){
+                A[count] = A[cur];
+                count++;
+            }
+            pre = cur;
+        }
+        return count;
+    }
+};
