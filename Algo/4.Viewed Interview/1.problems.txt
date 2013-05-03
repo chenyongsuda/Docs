@@ -438,3 +438,35 @@ atoi()实现
 
 	
 85.	m个降序数组，每个数组有n个元素（各不相同），求最大的K个数，有没有O(n)的算法。
+
+
+86. C語言中各種關鍵詞，global/static, stack/ heap 
+
+87.  C中的 struct 在函數調用的時候 如何傳遞？我說了兩個 pass by pointer  , pass by copy, 
+	如何struct太大會怎樣？ 我說stack overflow.
+	how OS detects stack overflow？ 說了半天，好像他不是很滿意
+	
+88. priority inversion 是什麼？
+
+89.問我 virtual address space中有什麼 ？ 我畫了下 .text, .data,  heap 和 stack
+
+90.check if a word is anagram of a word in the dictionary. 解釋怎麼做， complexity 
+
+91. check if a sequence of bytes is 0-1 alternating. 
+寫代碼的題目就這1個，很鬱悶啊，
+
+92.semaphore, mutex 區別， 如何實現 semaphore，
+
+93. 如果一個processor 不釋放 spinlock 會怎麼樣？ 我答得他好像不滿意
+
+94. 問我 process 的3個 state (running ,ready, blocked) 怎麼轉換， 
+
+95.Mixed C and assembly 需要注意什麼？
+
+96. 因為我做過multi-threaded downloader， 問我如何實現5個thread， 我說了pthread中的方法
+
+97.  C++ 中的 virtual funtion 是什麼? pure virtual 是什麼？
+
+98.	問我用過什麼 STL， 我說就 stack ,queue, 他好像不滿意
+
+

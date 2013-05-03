@@ -1,0 +1,55 @@
+1. C語言中各種關鍵詞，global/static, stack/ heap 
+
+2. C中的 struct 在函數調用的時候 如何傳遞？我說了兩個 pass by pointer  , pass by copy, 
+如何struct太大會怎樣？ 我說stack overflow.
+how OS detects stack overflow？ 說了半天，好像他不是很滿意
+
+3. 因為我簡歷中寫了我會x86，面試官就問我  x86 calling convention, 參數如何傳遞，函數如何返回，還問我 i++對應的 x86彙編指令。
+
+4. ISR是什麼，OS和 CPU怎麼 disable interrupt? 我說了x86中的方法CLI
+
+5. pipeline, hazard. 我說了RISC中5個stage 和  data hazard. 忘了說 branch hazard了，
+
+6. priority inversion 是什麼？
+
+最後我問他, do you mean I will get an onsite interview？ 他說 yes, you should have one. If not in two weeks, send me an email. 
+
+
+onsite interview:
+
+五輪，其實有很多人問東西的是重複的，大致的問題如下
+
+但由於很多次緊張得話都說不出來，掛了
+
+1. 讓我畫ARM CPU的結構。我畫x86了結構，畫了 L1-L2-L3 cache, MMU, TLB， 還畫了PIC(programmable interrupt controller)
+
+他問我 how L1 cache fetches content from the memory？我不會， 只好猜，就說把 當前的page放進cache。 他問我知道一個page多大，L1 cache多大嗎？ 我說 都是 4KB, 結果發現自己剛才說的不對。最後答得他還是不滿意。
+
+2. 問我 virtual address space中有什麼 ？ 我畫了下 .text, .data,  heap 和 stack
+
+3. 問我對 ARM有多瞭解？ 我說了 ARM 有16個register，R0-R3是 arguments，R15是program counter, R14是link register。我又說了下 x86 用stack傳遞參數。
+
+4. check if a word is anagram of a word in the dictionary. 解釋怎麼做， complexity 
+
+5. check if a sequence of bytes is 0-1 alternating. 
+寫代碼的題目就這1個，很鬱悶啊，
+
+6. 9個硬幣，有一個最輕，需要秤幾次？ 太經典了
+
+7. semaphore, mutex 區別， 如何實現 semaphore，
+
+8. 如果一個processor 不釋放 spinlock 會怎麼樣？ 我答得他好像不滿意
+
+9. 問我 process 的3個 state (running ,ready, blocked) 怎麼轉換， 
+
+10. 問我做的 ARM course project(我剛開始做的東西，還不會就放簡歷上，還不如就不放上面了) ， 討論了下此project的 Pulse width modulation 控制LED的亮度。
+
+11. Mixed C and assembly 需要注意什麼？
+
+12. 因為我做過multi-threaded downloader， 問我如何實現5個thread， 我說了pthread中的方法
+
+13. C++ 中的 virtual funtion 是什麼? pure virtual 是什麼？
+
+14. 問我用過什麼 STL， 我說就 stack ,queue, 他好像不滿意
+
+onsite過了一個星期，通知我面試掛了。

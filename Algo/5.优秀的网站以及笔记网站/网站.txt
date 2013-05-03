@@ -34,6 +34,17 @@ http://stackoverflow.com/
 http://blog.unieagle.net/2012/10/16/leetcode%E9%A2%98%E7%9B%AE%EF%BC%9Anext-permutation/
 http://dongxicheng.org/knowledges-carding/  一些基础链接 董的blog
 http://ac.jobdu.com/submitpage.php?pid=1082 九度OJ
+http://www.keithschwarz.com/interesting/	数据结构算法的100多条题目
+http://mindlee.net/2011/09/26/binomial-heaps/	酷行天下
+http://www.algorithmist.com/index.php/Data_Structures
+
+@论坛
+http://bbs.byr.cn/#!board/ACM_ICPC	北邮
+http://www.newsmth.net/nForum/#!board/Algorithm	水木清华
+http://bbs.csdn.net/forums/ST_Arithmetic	CSDN算法
+http://www.1point3acres.com/bbs/forum-84-1.html	一亩三分地算法
+
+		
 
 
 一些算法相关推荐
@@ -79,3 +90,8 @@ http://glyphicons.com/	图片资源网站
 @好用的编辑器
 webstream	开发webgl	
 Sublime Text 2 liunx下编辑工具	http://www.iplaysoft.com/sublimetext.html
+
+
+@字体
+http://www.cnblogs.com/hanyulcf/archive/2010/12/26/1917083.html	10款字体推荐
+
