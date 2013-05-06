@@ -10,3 +10,5 @@
 否则，就有失败的可能。
 
 
+Prove：http://www.csie.ntnu.edu.tw/~u91029/Greedy.html
+
