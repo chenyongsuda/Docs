@@ -1,0 +1,6 @@
+首先下载 ctags
+
+然后把ctags的放在环境变量中，我的是"D:\Program Files\ctags", 进入命令行，然后到项目的目录去，
+运行：ctags -R -f .tags。
+
+sublime安装ctags插件，成功后 ‘ctrl+t ctrl+t’可以到函数的定义， ‘ctrl+t ctrl+b’可以回到上次的地方。

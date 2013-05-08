@@ -1,0 +1,91 @@
+[PS: 这篇文章主要针对windows平台，但是对其他平台也有参考作用]
+
+<1>  如果你的编译环境是GCC并且已经可以在命令行里用gcc编译源文件，那么Sublime Text不要任何配置就可以对单个源文件进行编译和运行，下面的东西可以不看了。
+<2> 如果没有GCC或者就是希望用Visual Studio里的编译器CL进行编译运行，那么你需要继续读下面一节以完成配置。
+
+(	1	)
+		对Win7，稍有不同：在桌面上“计算机”右键找到“属性”，然后在弹出的页面的左侧找到“远程设置”， 这时弹出“系统属性对话框”，然后切换到“高级”属性页，进到“环境变量”里面。
+
+		（1）创建三个系统变量
+
+		<1>名字 VS100Common
+
+			   值 C:\Program Files (x86)\Microsoft Visual Studio 10.0\Common7
+
+		<2>名字 VS100VC
+
+			   值 C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC
+
+		<3>名字 VS100SDK
+
+			   值 C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A
+
+		（2）创建（或追加）三个用户变量
+
+		<1>名字PATH
+
+		值 %VS100VC%\BIN;%VS100Common%\IDE;%VS100Common%\TOOLS;%VS100SDK%\BIN;%PATH%
+
+		<2>名字INCLUDE
+
+		值 %VS100VC%\INCLUDE;%VS100VC%\ATLMFC\INCLUDE;%VS100SDK%\INCLUDE;%INCLUDE%
+
+		<3>名字LIB
+
+		值 %VS100VC%\LIB;%VS100VC%\ATLMFC\LIB;%VS100SDK%\LIB;%LIB%
+
+		（3）重启电脑（至少Win7需要）
+
+(	2	)
+	在 C:\Documents and Settings\Username\Application Data\Sublime Text 2\Packages\C++\ 目录下找到 C++.sublime-build 文件并修改。请务必把上面目录中的Username替换为本机的用户名。
+
+	但是如果安装的Sublime Text是Portable版，那就需要到Sublime Text存放位置下的Sublime Text 2\Packages\C++\ 找到 C++.sublime-build 文件。
+
+	然后把C++.sublime-build 里的内容替换为下面的代码：
+	{
+		// "cmd": ["g++", "${file}", "-o", "${file_path}/${file_base_name}"], // For GCC On Windows and Linux 
+		"cmd": ["CL", "/Fo${file_base_name}", "/O2", "${file}"],	// For CL on Windows Only
+		"file_regex": "^(..[^:]*):([0-9]+):?([0-9]+)?:? (.*)$",
+		"working_dir": "${file_path}",
+		"selector": "source.c, source.c++",
+
+		"variants":
+		[
+			{
+				"name": "Run",
+				// "cmd": ["bash", "-c", "g++ '${file}' -o '${file_path}/${file_base_name}' && '${file_path}/${file_base_name}'"],  // Linux Only
+				// "cmd": ["CMD", "/U", "/C", "g++ ${file} -o ${file_base_name} && ${file_base_name}"],  // For GCC On Windows Only
+				"cmd": ["CMD", "/U", "/C", "CL /Fo${file_base_name} /O2 ${file} && ${file_base_name}"]   // For CL On Windows Only
+			}
+		]
+	}
+
+
+(	3	)	
+	上面的代码仅仅是在原来代码的基础了针对windows平台下CL的修改了两节，同时加了几个逗号。
+
+	代码的原理很简单，就是在命令行里编译源文件的命令 CL /FoObjectName /O FileName .
+	以供参考： http://docs.sublimetext.info/en/latest/reference/build_systems.html
+	
+	
+(	4	)	
+	测试
+	#include <stdio.h>
+	int main(void)
+	{
+		printf("Hello World!\n");
+		return 0;
+	}
+	
+	DOS界面里出现这样的错误“LINK:fatal error LNK1104:cannot open file 'kernel32.lib' “这样的链接错误
+	kernel32.lib是Windows系统文件，通过Windows自带的搜索工具，我们看到此文件在文件夹C:\Program Files\Microsoft SDKs\Windows\v7.0A\Lib里，
+	我们可以将其加到环境变量里面.
+
+(	5	)
+	编译 ctrl + B
+	运行 Ctrl + shift + B
+	
+	
+	ConvertToUTF8插件可解决中文乱码问题。
+	主要用它来书写Go语言和C/C++代码。分别配置插件GoSublime和SublimeClang、SublimeGDB
+	

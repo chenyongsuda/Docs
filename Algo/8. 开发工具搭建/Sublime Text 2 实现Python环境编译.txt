@@ -1,0 +1,28 @@
+install package  - python
+
+Menu – Browse Packages…
+
+PATH 环境变量尾部添加:
+
+C:\Python32;D:\Program Files\Sublime Text 2\;C:\Python32\Tools\Scripts
+
+
+解决UTF8错误：
+
+find your Python package .
+
+(mine : C:\Users\konakona\AppData\Roaming\Sublime Text 2\Packages\Python)
+
+File "Python.sublime-build":
+
+
+{
+"cmd": ["python", "-u", "$file"],
+"file_regex": "^[ ]*File \"(...*?)\",
+line ([0-9]*)",
+"selector": "source.python",
+"encoding": "cp936"
+}
+
+
+重新打开sublime text2, CTRL+B 即可编译。
