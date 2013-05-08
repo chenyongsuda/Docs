@@ -45,7 +45,7 @@ http://www.newsmth.net/nForum/#!board/Algorithm	水木清华
 http://bbs.csdn.net/forums/ST_Arithmetic	CSDN算法
 http://www.1point3acres.com/bbs/forum-84-1.html	一亩三分地算法
 http://www.csie.ntnu.edu.tw/~u91029/	演算法笔记
-		
+http://coolshell.cn/articles/5426.html	酷壳 比较好的学习Blog 每天瞧一瞧		
 
 
 一些算法相关推荐
@@ -82,7 +82,9 @@ http://wordaligned.org/articles/two-star-programming	Linus	还有相关二级指针等等
 
 http://blog.csdn.net/maqingli87/article/details/8007557	Leetcoed题目
 
-http://coolshell.cn/articles/5426.html	酷壳 比较好的学习Blog 每天瞧一瞧
+http://blog.csdn.net/haoel/article/details/1388498/	陈昊的Blog
+
+
 
 
 @资源网站
