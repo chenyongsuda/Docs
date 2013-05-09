@@ -1,107 +1,108 @@
-ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ¾
+¹«¿ª¿ÎÍøÕ¾
 
-@ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+@¼ÆËã»ú¹«¿ª¿Î
 Coursera
 Udacity
 
-@ï¿½ï¿½ï¿½Ä¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ¾
+@ÖÐÎÄ¹«¿ª¿ÎÌÖÂÛÍøÕ¾
 http://52opencourse.com/
 http://courseminer.com/
 
 
-@ï¿½ï¿½ï¿½ï¿½ï¿½Ï°
+@´úÂëÁ·Ï°
 http://codeforces.com/
-http://leetcode.com  ï¿½ï¿½ï¿½ï¿½ï¿½Ï°
+http://leetcode.com 
 careercup
 python challenge
 Google code jam
 glassdoor
-http://hero.pongo.cn/Question/Details?ID=17&ExamID=17  ï¿½Ó¹ï¿½ï¿½ï¿½
+http://hero.pongo.cn/Question/Details?ID=17&ExamID=17  ÅÓ¹ûÍø
 
 
 @ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½Õ¾
 http://www.1point3acres.com/bbs/forum-145-1.html
-http://hxraid.iteye.com/category/83702  ï¿½ï¿½Ý½á¹¹  ï¿½ã·¨ï¿½ï¿½Ä¿
-http://blog.csdn.net/ohmygirl/article/category/1185442	ï¿½ã·¨ï¿½Ü½ï¿½
-http://www.ahathinking.com/archives/186.html  ï¿½ï¿½ï¿½ï¿½|Thinking
-http://www.felix021.com/blog/read.php?1587  ï¿½ã·¨blog
-http://blog.csdn.net/v_JULY_v/article/details/6322882	ï¿½ã·¨blog
-http://blog.csdn.net/wuzhekai1985/article/details/6764858  ï¿½ã·¨
-http://blog.csdn.net/tianshuai11/article/details/7828907  ï¿½ã·¨ï¿½ï¿½ï¿½ï¿½
-http://www.51projob.com/a/souhu/20120911/651.html  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ¾
+http://hxraid.iteye.com/category/83702  Êý¾Ý½á¹¹  Ëã·¨ÌâÄ¿
+http://blog.csdn.net/ohmygirl/article/category/1185442	Ëã·¨×Ü½á
+http://www.ahathinking.com/archives/186.html  ÓÂÐÒ|Thinking
+http://www.felix021.com/blog/read.php?1587  Ëã·¨blog
+http://blog.csdn.net/v_JULY_v/article/details/6322882	Ëã·¨blog
+http://blog.csdn.net/wuzhekai1985/article/details/6764858  Ëã·¨
+http://blog.csdn.net/tianshuai11/article/details/7828907  Ëã·¨¼¯ºÏ
+http://www.51projob.com/a/souhu/20120911/651.html  ÃæÊÔÌâÍøÕ¾
 http://www.mianwww.com/html/2012/03/14404.html
 http://stackoverflow.com/
 http://blog.unieagle.net/2012/10/16/leetcode%E9%A2%98%E7%9B%AE%EF%BC%9Anext-permutation/
-http://dongxicheng.org/knowledges-carding/  Ò»Ð©ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½blog
-http://ac.jobdu.com/submitpage.php?pid=1082 ï¿½Å¶ï¿½OJ
-http://www.keithschwarz.com/interesting/	ï¿½ï¿½Ý½á¹¹ï¿½ã·¨ï¿½ï¿½100ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿
-http://mindlee.net/2011/09/26/binomial-heaps/	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+http://dongxicheng.org/knowledges-carding/  Ò»Ð©»ù´¡Á´½Ó ¶­µÄblog
+http://ac.jobdu.com/submitpage.php?pid=1082 ¾Å¶ÈOJ
+http://www.keithschwarz.com/interesting/	Êý¾Ý½á¹¹Ëã·¨µÄ100¶àÌõÌâÄ¿
+http://mindlee.net/2011/09/26/binomial-heaps/	¿áÐÐÌìÏÂ
 http://www.algorithmist.com/index.php/Data_Structures
-http://blog.csdn.net/lyy289065406/article/details/6674366	 Ð¡ï¿½ï¿½ POJï¿½ï¿½ï¿½ï¿½
+http://blog.csdn.net/lyy289065406/article/details/6674366	 Ð¡ÓÅ POJ½âÌâ
 
-@ï¿½ï¿½Ì³
-http://bbs.byr.cn/#!board/ACM_ICPC	ï¿½ï¿½ï¿½ï¿½
-http://www.newsmth.net/nForum/#!board/Algorithm	Ë®Ä¾ï¿½å»ª
-http://bbs.csdn.net/forums/ST_Arithmetic	CSDNï¿½ã·¨
-http://www.1point3acres.com/bbs/forum-84-1.html	Ò»Ä¶ï¿½ï¿½Öµï¿½ï¿½ã·¨
-http://www.csie.ntnu.edu.tw/~u91029/	ï¿½ï¿½ï¿½ã·¨ï¿½Ê¼ï¿½
-http://coolshell.cn/articles/5426.html	ï¿½ï¿½ï¿½ ï¿½È½ÏºÃµï¿½Ñ§Ï°Blog Ã¿ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½		
+@ÂÛÌ³
+http://bbs.byr.cn/#!board/ACM_ICPC	±±ÓÊ
+http://www.newsmth.net/nForum/#!board/Algorithm	Ë®Ä¾Çå»ª
+http://bbs.csdn.net/forums/ST_Arithmetic	CSDNËã·¨
+http://www.1point3acres.com/bbs/forum-84-1.html	Ò»Ä¶Èý·ÖµØËã·¨
+http://www.csie.ntnu.edu.tw/~u91029/	ÑÝËã·¨±Ê¼Ç
+http://coolshell.cn/articles/5426.html	¿á¿Ç ±È½ÏºÃµÄÑ§Ï°Blog Ã¿ÌìÇÆÒ»ÇÆ		
 
 
-Ò»Ð©ï¿½ã·¨ï¿½ï¿½ï¿½ï¿½Æ¼ï¿½
+Ò»Ð©Ëã·¨Ïà¹ØÍÆ¼ö
 http://www.1point3acres.com/bbs/thread-35139-1-1.html
 
-@ï¿½ï¿½ï¿½ï¿½Ë¹ï¿½ï¿½ ï¿½ã·¨
+@ÆÕÁÖË¹¶Ù Ëã·¨
 http://algs4.cs.princeton.edu/home/
 
 
-ï¿½Å¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß²ï¿½ï¿½ï¿½
+@¾Å¶ÈÃæÊÔÔÚÏß²âÊÔ
 http://ac.jobdu.com/hhtproblems.php
 
-@×¨ï¿½Å·ï¿½ï¿½ï¿½ï¿½ï¿½Õ¾
+@×¨ÃÅ·­ÒëÍøÕ¾
 http://www.yeeyan.org/
 
-@ï¿½ï¿½ï¿½ß²ï¿½ï¿½ï¿½ï¿½ï¿½Õ¾
+@ÔÚÏß²âÊÔÍøÕ¾
 codility
 
-@VS ï¿½ï¿½ï¿½ï¿½
-ï¿½È½ÏºÃ¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ consolars
+@VS ÉèÖÃ
+±È½ÏºÃ¿´µÄ×ÖÌå consolars
 
-@ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ï¿½é¼®ï¿½ï¿½Õ¾
-ppurl Æ¤Æ¤ï¿½ï¿½ï¿½ï¿½
-http://www.nowamagic.net  ï¿½Ö´ï¿½Ä§ï¿½ï¿½
-http://www.nowamagic.net/librarys/veda/cate/Algorithm  ï¿½Ö´ï¿½Ä§ï¿½ï¿½ï¿½ï¿½ï¿½ã·¨ï¿½ï¿½ï¿½ï¿½
-http://dongxicheng.org/category/structure/  ï¿½ï¿½Ý½á¹¹
+@ÐÅÏ¢×ÊÁÏÊé¼®ÍøÕ¾
+ppurl Æ¤Æ¤ÊéÎÝ
+http://www.nowamagic.net  ÏÖ´úÄ§·¨
+http://www.nowamagic.net/librarys/veda/cate/Algorithm  ÏÖ´úÄ§·¨£ºËã·¨²¿·Ö
+http://dongxicheng.org/category/structure/  Êý¾Ý½á¹¹
 
-
-Ã»ï¿½ï¿½ï¿½Ä±ï¿½ï¿½ï¿½ï¿½ï¿½
+Ã»½â¾öµÄ±ÊÊÔÌâ
 http://bbs.byr.cn/#!article/Job/1365483
 
-ï¿½ï¿½ï¿½ï¿½ï¿½Blog
-http://wordaligned.org/articles/two-star-programming	Linus	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø¶ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½Èµï¿½
+²»´íµÄBlog
+http://wordaligned.org/articles/two-star-programming	Linus	»¹ÓÐÏà¹Ø¶þ¼¶Ö¸ÕëµÈµÈ
 
-http://blog.csdn.net/maqingli87/article/details/8007557	Leetcoedï¿½ï¿½Ä¿
+http://blog.csdn.net/maqingli87/article/details/8007557	LeetcoedÌâÄ¿
 
-http://blog.csdn.net/haoel/article/details/1388498/	ï¿½ï¿½ê»µï¿½Blog
-
-
+http://blog.csdn.net/haoel/article/details/1388498/	³Âê»µÄBlog
 
 
-@ï¿½ï¿½Ô´ï¿½ï¿½Õ¾
-http://glyphicons.com/	Í¼Æ¬ï¿½ï¿½Ô´ï¿½ï¿½Õ¾
-
-@ï¿½ï¿½ï¿½ÃµÄ±à¼­ï¿½ï¿½
-webstream	ï¿½ï¿½ï¿½ï¿½webgl	
-Sublime Text 2 liunxï¿½Â±à¼­ï¿½ï¿½ï¿½ï¿½	http://www.iplaysoft.com/sublimetext.html
 
 
-@ï¿½ï¿½ï¿½ï¿½
-http://www.cnblogs.com/hanyulcf/archive/2010/12/26/1917083.html	10ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¼ï¿½
+@×ÊÔ´ÍøÕ¾
+http://glyphicons.com/	Í¼Æ¬×ÊÔ´ÍøÕ¾
+
+@ºÃÓÃµÄ±à¼­Æ÷
+webstream	¿ª·¢webgl	
+Sublime Text 2 liunxÏÂ±à¼­¹¤¾ß	http://www.iplaysoft.com/sublimetext.html
 
 
-@ï¿½ï¿½ï¿½Ú´ï¿½Ñ§ï¿½ï¿½Ñ§ï¿½ï¿½ï¿½ï¿½
-http://fusion.grids.cn/mzhang/shixi/	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ§	ï¿½ï¿½Ý½á¹¹ï¿½ï¿½ï¿½ã·¨ï¿½ï¿½ï¿½ï¿½
-http://www.jpk.pku.edu.cn/pkujpk/course/sjjg/frame/index.html	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ§	ï¿½ï¿½Ý½á¹¹ï¿½ï¿½ï¿½ã·¨ï¿½Î³ï¿½
+
+@×ÖÌå
+http://www.cnblogs.com/hanyulcf/archive/2010/12/26/1917083.html	10¿î×ÖÌåÍÆ¼ö
+
+
+@¹úÄÚ´óÑ§½ÌÑ§×ÊÁÏ
+http://fusion.grids.cn/mzhang/shixi/	±±¾©´óÑ§	Êý¾Ý½á¹¹ºÍËã·¨×ÊÁÏ
+http://www.jpk.pku.edu.cn/pkujpk/course/sjjg/frame/index.html	±±¾©´óÑ§	Êý¾Ý½á¹¹ºÍËã·¨¿Î³Ì
+
 
 @Video
 http://www.cnblogs.com/ider/archive/2013/01/22/online-video-tutorial.html
