@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8">
+<title></title>
+<style type="text/css">
+ul,li {list-style:none}
+#box { width:240px; height:200px; margin:200px auto; overflow:hidden; position:relative; padding:80px 30px 100px; background:#ccc; border-radius:80px 80px 150px 150px; }
+#box li { width:100px; height:100px; background:wheat;border-radius:100%; position:relative; }
+#box li div { border-radius:100%; background:#333; width:20px; height:20px; position:absolute; left:40px; top:40px;  }
+#le { float:left;}
+#re { float:right;}
+#box:after { content:""; width:200px; height:30px; border-radius:100px/15px; background:wheat; position:absolute; z-index:1000; left:50px; bottom:80px; }
+</style>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script type="text/javascript">
+/*
+ * author:wyysf
+ * site:www.xh-css.cn
+ *    useage
+ *    $("#eye1,#eye2").mouseEye({
+ *		  rL:40, //跟随滚动元素所在的元空间的左边半径（椭圆的时候如果是圆的话其实这个和rT一个是相同的）
+		  rT:40, //跟随滚动元素所在的元空间的上边半径（椭圆的时候如果是圆的话其实这个和rL一个是相同的）
+		  initL:40,//初始状态的时候滚动元素距离左边的距离
+		  initT:40 //初始状态的时候滚动元素距离上边的距离
+ *    });
+ *
+*/
+;(function ($) {
+    $.fn.mouseEye = function (options) {
+        var defaults = {
+            rL: 40,
+            rT: 40,
+            initL: 40,
+            initT: 40
+        };
+        var opts = $.extend(defaults, options);
+        //
+        return this.each(function () {
+            var $this = $(this),
+				dx, dy, R, x, y, lock = true;
+            //
+            $(document).on("mousemove", function (e) {
+                lock = !lock; //减少一半的mousemove的计算
+                if (lock) return;
+                dx = e.pageX - $this.offset().left;
+                dy = e.pageY - $this.offset().top;
+                R = Math.sqrt(dx * dx + dy * dy);
+                x = (R < opts.rL) ? dx : (opts.rL / R) * dx;
+                y = (R < opts.rT) ? dy : (opts.rT / R) * dy;
+                $this.css({
+                    "left": (opts.initL + x) + "px",
+                    "top": (opts.initT + y) + "px"
+                });
+            });
+        });
+    };
+})(jQuery);
+//调用
+$(function(){
+	$("#box").find("div").mouseEye({
+		rL:40,
+		rT:40,
+		initL:40,
+		initT:40
+	});
+})
+</script>
+</head>
+<body>
+	<ul id="box">
+		<li id="le"><div id="eye1"></div></li>
+		<li id="re"><div id="eye2"></div></li>
+	</ul>
+</body>
+</html>

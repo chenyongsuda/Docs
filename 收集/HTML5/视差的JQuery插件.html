@@ -1,0 +1,115 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        ul,li { list-style: none;}
+        .vision_diffbox {
+            width: 950px;
+            height: 250px;
+            overflow: hidden;
+            margin: 50px auto;
+            position: relative;
+            zoom:1;
+            background: url(http://www.xh-css.cn/wp-content/uploads/2013/03/background.jpg) no-repeat center top;
+        }
+        .vision_diffbox li{
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script type="text/javascript">
+        /*
+        * author:wyysf
+        * Email:sunxh@xh-css.cn
+        * site:www.xh-css.cn
+        * useage:
+        *   $("#wrap").parallax({
+                "target":"#test"
+            });
+        *
+        * */
+        ;(function($){
+            $.fn.parallax = function(options){
+                $.fn.parallax.defaults = {
+                    "target":null
+                };
+                var opts = $.extend({}, $.fn.parallax.defaults,options);
+                //
+                return this.each(function(){
+                    //声明一坨变量供使用
+                    var $this = $(this);
+                    var target = $this.find(opts.target);
+                    var iWidth = $this.width();
+                    var iHeight = $this.height();
+                    var targetW = target.width();
+                    var targetH = target.height();
+                    var targetHalfW = targetW / 2;
+                    var targetHalfH = targetH / 2;
+                    var maxW = iWidth - targetW;
+                    var maxH = iHeight - targetH;
+                    //计算出需要计算的数量
+                    var childNode = $this.children().not(target);
+                    var len = childNode.length;
+                    var stepinit = 0.2;
+                    var step = 0.8 / len;
+                    //绑定鼠标移到事件
+                    $this.off("mousemove").on("mousemove",function(e){
+                        var iX = e.pageX - $(this).offset().left;
+                        var iY = e.pageY - $(this).offset().top;
+                        //判断范围
+                        iX = iX < targetHalfW ? 0 : iX - targetHalfW;
+                        iX = iX > maxW ? maxW : iX;
+                        //比例
+                        var percentX = (iX/maxW);
+                        var percentY = (iY/iHeight);
+                        //
+                        target.css({
+                            "left":iX + "px"
+                        });
+                        //
+                        childNode.each(function(i){
+                            var para = stepinit + (i * step);
+                            //
+                            var diffX = iWidth - $(this).width();
+                            var diffY = iHeight - $(this).height();
+                            //
+                            $(this).css({
+                                "left":diffX * percentX * para + "px",
+                                "top":diffY * percentY * para + "px"
+                            });
+                        });
+                    });
+                });
+            }
+        })(jQuery);
+    </script>
+    <script type="text/javascript">
+        $(function(){
+            $("#wrap").parallax({
+                "target":"#test"
+            });
+        });
+    </script>
+</head>
+<body>
+<ul id="wrap" class="vision_diffbox">
+    <li>
+        <img src="http://www.xh-css.cn/wp-content/uploads/2013/03/grass.png" alt="">
+    </li>
+    <li id="test">
+        <img src="http://www.xh-css.cn/wp-content/uploads/2013/03/frog2.png" alt="">
+    </li>
+    <li>
+        <img src="http://www.xh-css.cn/wp-content/uploads/2013/03/butterflies3.png" alt="">
+    </li>
+</ul>
+</body>
+</html>

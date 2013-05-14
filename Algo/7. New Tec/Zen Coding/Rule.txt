@@ -1,0 +1,18 @@
+展开缩写功能将类似CSS的选择器转换为XHTML代码。术语“缩写”可能会有点儿难以理解。为什么不直接称之为“CSS选择器”呢？嗯，首要原因是语义化：“选择器”意为选择一些东西，但是在这里我们事实上是生成 一些东西，是写一个长代码的较短的替代。其次，它只是使用真实的CSS选择器语法的一个小的子集，并添加了一些新的操作符。
+这里是一个支持的属性和操作符的列表：
+E
+元素名称(div, p);
+E#id
+使用id的元素(div#content, p#intro, span#error);
+E.class
+使用类的元素(div.header, p.error.critial). 你也可以联合使用class和idID: div#content.column.width;
+E>N
+子代元素(div>p, div#footer>p>span);
+E+N
+兄弟元素(h1+p, div#header+div#content+div#footer);
+E*N
+元素倍增(ul#nav>li*5>a);
+E$*N
+条目编号 (ul#nav>li.item-$*5);
+正如你能看到的，你已经知道如何使用Zen Coding了：只是些一个简单的仿CSS选择器(呃，“缩写”抱歉)，就像这样…
+div#header>img.logo+ul#nav>li*4>a
