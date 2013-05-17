@@ -18,11 +18,47 @@ File "Python.sublime-build":
 
 {
 "cmd": ["python", "-u", "$file"],
-"file_regex": "^[ ]*File \"(...*?)\",
-line ([0-9]*)",
+"file_regex": "^[ ]*File \"(...*?)\",line ([0-9]*)",
 "selector": "source.python",
 "encoding": "cp936"
 }
 
 
 重新打开sublime text2, CTRL+B 即可编译。
+
+
+http://www.crifan.com/use_sublime_text_2_as_python_ide/
+http://www.crifan.com/python_sublime_text_2_eoferror_eof_when_reading_a_line/
+
+插件
+1.把Sublime作为Python的IDE，包括这里提到的，和其他所需要的功能，包括但不限于：
+
+Python函数和代码的自动补全
+可参考：
+Sublime Text 2 tips for Python and web developers
+去安装：
+Essential Sublime Text 2 Plugins and Extensions
+总结的插件：Sublime CodeIntel
+支持命令行参数输入
+可以参考：
+Sublime Text 2 console input
+去使用其提到的：SublimeREPL，实现类似的，命令行参数的输入
+左边边栏的文件浏览器
+可参考：
+Sublime Text 2 tips for Python and web developers
+提到的：
+SideBarEnhanchements
+
+然后去运行python代码，结果出错“The system cannot find the file specified”，详见：
+
+【已解决】Sublime Text 2中运行Python程序出错：The system cannot find the file specified
+
+3.解决了找不到python的问题后，又出现下面错误：
+
+【已解决】Sublime中运行带input或raw_input的Python代码出错：EOFError: EOF when reading a line
+
+4.暂时，只是用SublimeREPL暂时解决了，支持参数输入的问题，虽然不是很好用。
+
+关于其他的功能特点，还是有空再去试吧。
+
+不过，也仅仅是折腾玩玩，Sublime，还是不适合开发Python，详见上面的帖子。

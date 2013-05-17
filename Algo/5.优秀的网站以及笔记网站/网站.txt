@@ -19,7 +19,7 @@ glassdoor
 http://hero.pongo.cn/Question/Details?ID=17&ExamID=17  庞果网
 
 
-@锟斤拷锟斤拷锟斤拷目锟斤拷站
+@学习技术网站
 http://www.1point3acres.com/bbs/forum-145-1.html
 http://hxraid.iteye.com/category/83702  数据结构  算法题目
 http://blog.csdn.net/ohmygirl/article/category/1185442	算法总结
@@ -38,6 +38,7 @@ http://www.keithschwarz.com/interesting/	数据结构算法的100多条题目
 http://mindlee.net/2011/09/26/binomial-heaps/	酷行天下
 http://www.algorithmist.com/index.php/Data_Structures
 http://blog.csdn.net/lyy289065406/article/details/6674366	 小优 POJ解题
+http://www.cnblogs.com/remlostime/archive/2012/10/29/2745125.html	leetcode
 
 @论坛
 http://bbs.byr.cn/#!board/ACM_ICPC	北邮
@@ -124,4 +125,11 @@ http://hxla.gatzs.com.cn/
 
 官網http://rusen.stust.edu.tw 
 萌学姐的申请直播帖http://www.douban.com/group/topic/26595453/
+
+@HTML5
+bootstrap   UI框架
+
+@sublime
+插件大全
+http://blog.csdn.net/w6611415/article/details/7725566
 

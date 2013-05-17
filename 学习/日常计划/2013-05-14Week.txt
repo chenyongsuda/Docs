@@ -1,7 +1,12 @@
-				5.13 Mon	5.14 Tue.	5.15 Wed.	5.16 Thur.	5.17 Fri	5.18 Sat.	5.19 Sun.
-面试题目一条
+				5.13 Mon	5.14 Tue.			5.15 Wed.			5.16 Thur.		5.17 Fri	5.18 Sat.	5.19 Sun.
+面试题目一条	-			-					Done LeetCode39&40	Leetcode41 42
 
-公开课2节
+公开课2节		Done		Done				Done				Done
 
-英语单词
+英语单词		Done		Done				-					-
+
+
+
+PYTHON Task 5.17 -> 5.19 Sun.
+把Cocos2D 08项目转成05项目  脚本转成05脚本 把.h全部抽取出来
 
