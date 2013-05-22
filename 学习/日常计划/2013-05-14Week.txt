@@ -7,6 +7,9 @@
 
 
 
-PYTHON Task 5.17 -> 5.19 Sun.
+1.PYTHON Task 5.17 -> 5.19 Sun.
 把Cocos2D 08项目转成05项目  脚本转成05脚本 把.h全部抽取出来
+
+
+2. 近两个月 完成 MoonWarriors C++ 和js版本
 

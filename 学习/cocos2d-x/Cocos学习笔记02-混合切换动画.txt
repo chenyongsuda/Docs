@@ -1,0 +1,5 @@
+1.cocos2d 添加 sprite 到 layer 的机制是这样的：
+opengl 混合将z值较大的精灵叠在 z值较小的精灵上面，混合的配置是
+（ccBlendFunc）{GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA}
+很简单，src（源） 代表偏上的精灵，dst（目标） 代表偏下的精灵
+

@@ -1,0 +1,52 @@
+不同的图形库采用不同的坐标系。iPhone平台提供了两种绘图库：Quartz 2D和OpenGL ES。其中Quartz 2D是Core Graphics绘图库的子集，
+OpenGL ES是跨平台图形库OpenGL的嵌入设备版。这两者的坐标系原点不一样。
+
+Quartz 2D的原点在左上角：
+大多数图形窗口应用程序都采用类似的坐标系。这是一种基于虚拟“画布”绘图模型的图形库，绘图指令按次序向“画布”上画下不同的内容，
+后画的内容会覆盖先画的内容（透明的除外）。这比较容易理解。
+
+OpenGL ES的原点在左下角：
+OpenGL ES相对比较复杂，这实际上是一个3D的绘图库，按照“状态机”模型设计的绘图库。他不是简单地让后者叠加在前者上面，
+而是记录各个绘制内容的三维位置关系，再按照系统设定的投影关系，将绘制的所有内容投影在某个特定的虚拟窗口上。
+cocos2d-x是基于OpenGL ES的，所以请大家牢记我们使用笛卡尔坐标系，坐标系的原点在左下角。
+
+cocos2d-x引擎的大多数可显示对象都是从CCNode类派生而来的，理解该类对于使用该图形引擎至关重要。今天我们先来说明与位置相关的属性：
+1)anchorPoint（锚点）
+为了将一个矩形图像精准地放置在屏幕某一位置上，需要设置该矩形的位置参考点。通常人们习惯于将该参考点设置在矩形的左上角上，而在cocos2d-x中我们称其为锚点，默认位置在矩形的中心。
+2)Position（位置）
+Position就是CCNode对象实际的OpenGL ES坐标。
+
+
+1. 创建精灵
+1.通过单张图片创建
+CCSprite * pLogoImg = CCSprite::create("logo.png");
+
+2.通过大张图片创建
+CCSprite *pStarNormal = CCSprite::create("menu.png",CCRectMake(0, 0, 126, 33));
+
+3.通过缓存创建
+CCTexture2D *pShipGroup = CCTextureCache::sharedTextureCache()->addImage("ship01.png");
+pShip = CCSprite::createWithTexture(pShipGroup,CCRectMake(0,45,63,45));
+
+4. 创建菜单
+
+//3.Set Menu Click List
+//Load Start
+CCSprite *pStarNormal = CCSprite::create("menu.png",CCRectMake(0, 0, 126, 33));
+CCSprite *pStartSel	= CCSprite::create("menu.png",CCRectMake(0, 33, 126, 33));
+CCSprite *pStartDis	= CCSprite::create("menu.png",CCRectMake(0, 33 * 2, 126, 33));
+//Load Option
+CCSprite *pOptionNormal = CCSprite::create("menu.png",CCRectMake(126, 0, 126, 33));
+CCSprite *pOptionSel	= CCSprite::create("menu.png",CCRectMake(126, 33, 126, 33));
+CCSprite *pOptionDis	= CCSprite::create("menu.png",CCRectMake(126, 33 * 2, 126, 33));
+//Load About
+CCSprite *pAboutNormal = CCSprite::create("menu.png",CCRectMake(126*2, 0, 126, 33));
+CCSprite *pAboutSel	= CCSprite::create("menu.png",CCRectMake(126*2, 33, 126, 33));
+CCSprite *pAboutDis	= CCSprite::create("menu.png",CCRectMake(126*2, 33 * 2, 126, 33));
+
+CCMenuItemSprite* pMenuItemStart = CCMenuItemSprite::create(pStarNormal,pStartSel,pStartDis,this,menu_selector(TP_SystemMenu::OnStartMenuClick));
+CCMenuItemSprite* pMenuItemOption = CCMenuItemSprite::create(pOptionNormal,pOptionSel,pOptionDis,this,menu_selector(TP_SystemMenu::OnOptionMenuClick));
+CCMenuItemSprite* pMenuItemAbout = CCMenuItemSprite::create(pAboutNormal,pAboutSel,pAboutDis,this,menu_selector(TP_SystemMenu::OnAboutMenuClick));
+
+CCMenu * pMenu = CCMenu::create(pMenuItemStart,pMenuItemOption,pMenuItemAbout,NULL);
+

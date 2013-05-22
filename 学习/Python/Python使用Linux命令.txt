@@ -1,0 +1,78 @@
+http://blog.chinaunix.net/uid-16844903-id-57786.html
+
+1·os.system
+举例：
+In [34]: import os
+
+In [35]: os.system('ls /home')
+cacti nagios oracle roottest1 roottest2 test6 test7
+Out[35]: 0
+优点：直接显示命令的输出和返回值
+
+
+2·os.popen				
+举例：
+In [36]: os.popen('ls /home') 
+Out[36]: <open file 'ls /home', mode 'r' at 0xeacf60>
+
+In [37]: os.popen('ls /home').read()
+Out[37]: 'cacti\nnagios\noracle\nroottest1\nroottest2\ntest6\ntest7\n'
+
+In [38]: file_tmp = os.popen('ls /home')
+
+In [39]: for i in file_tmp:
+   ....: print i
+   ....: 
+   ....: 
+cacti
+
+nagios
+
+oracle
+
+roottest1
+
+roottest2
+
+test6
+
+test7
+优点：可以将命令的输出保存在变量中，然后以多种方式展示出来
+
+
+3·commands.getstatusoutput
+举例：
+In [40]: import commands
+
+In [41]: (status, output) = commands.getstatusoutput('ls /home') 
+
+In [42]: print status
+0
+
+In [43]: print output
+cacti
+nagios
+oracle
+roottest1
+roottest2
+test6
+test7
+
+In [44]: commands.getstatusoutput('ls /home') 
+Out[44]: (0, 'cacti\nnagios\noracle\nroottest1\nroottest2\ntest6\ntest7')
+优点：命令输出和返回值分开显示
+help资料
+FUNCTIONS
+    getoutput(cmd)
+        Return output (stdout or stderr) of executing cmd in a shell.
+    
+    getstatus(file)
+        Return output of "ls -ld <file>" in a string.
+    
+    getstatusoutput(cmd)
+        Return (status, output) of executing cmd in a shell.
+
+In [45]: commands.getoutput('ls /home')  
+Out[45]: 'cacti\nnagios\noracle\nroottest1\nroottest2\ntest6\ntest7'
+In [48]: commands.getstatus('/bin/ls')
+Out[48]: '-rwxr-xr-x 1 root root 91240 2010-03-01 /bin/ls'

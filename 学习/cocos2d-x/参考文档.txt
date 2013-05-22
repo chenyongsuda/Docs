@@ -1,0 +1,2 @@
+中文参考文档
+http://cocos2d.cocoachina.com/document/index/class?url=d9/d66/classcocos2d_1_1_c_c_layer.html

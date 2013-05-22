@@ -128,6 +128,27 @@ http://hxla.gatzs.com.cn/
 
 @HTML5
 bootstrap   UI框架
+Cocos-x 游戏开发
+http://blog.csdn.net/xiaominghimi/article/category/921752
+http://blog.csdn.net/bill_man/article/details/7202458   游戏开发和实例
+1.csdn的cocos2d-x开发专栏。
+2.csdn的cocos2d-x入门专栏。
+3.himi的cocos2d-x游戏开发（这个链接是csdn的，大家可以去关注himi的新个人主页）
+4.老G的blog
+5.cocoaChina上面的汇总帖（这个汇总帖涵盖了api、wiki、相关文档和一些开发者博客。值得收藏）
+6.搭建cocos2d-x-android环境 Windows XP3 + Eclipse + NDKR7+COCOS2DX(没有用到cygwin和minigw)
+7.cocos2d-x 编译 Anroid版本遇到的问题以及解决办法
+8. cocos2d-x添加广告条（BADA版本）（上面写了很多关于lua的文章）
+9.http://blog.plicatibu.com/category/cocos2d/
+10.我是妖怪，cocos2d-x 引擎lua源码贡献者
+11.http://www.cnblogs.com/cocos2d-x/ (非常适合win32下面学习的同学关注和支持一下，文章总结的很好，相信楼主还会有更多更新。)
+12.http://blog.sina.com.cn/s/blog_61d2d3f50100y2rv.html(布莱特_雷欧波德的blog)
+13.http://blog.tsiannian.com/archives/category/cocos2d-x（实现了cocos2d-x下面的WIN32按键消息）
+14.http://blog.csdn.net/tkokof1/article/details/7426706(COCOS2D-X支持中文最详细解决方案)
+
+游戏实例讲解
+http://blog.csdn.net/fylz1125/article/details/8489333
+
 
 @sublime
 插件大全
