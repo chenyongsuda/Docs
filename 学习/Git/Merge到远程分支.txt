@@ -1,0 +1,67 @@
+Release分支提交代码手顺展开。
+
+请根据实际情况选择如下手顺使用：
+
+情况A: 当前master所有包含的内容都提交到release分支中
+       1. 对需要提交的git仓库追加remote:
+          命令:
+              git remote add <name> <url>
+          参数解释:
+              <name> 追加的remote名称，自己定义
+              <url> 参考http://xxxxxxxxxxxxxxx/builder/
+          例：
+              git remote add builder ssh://git@xxxxxxxxxxxx/xxxxxxxx/xxxxxx.git
+
+       2. 创建并切换到release分支:
+          命令:
+              git checkout -b <name> <remote/branch>
+          参数解释:
+              <name> 本地release分支名称，自己定义
+              <remote-branch> 远程release分支名称，本次使用builder中的xxx/For_EXAMPLE
+          例：
+              git checkout -b For_EXAMPLE builder/xxx/For_EXAMPLE
+
+       3. 把master中提交内容Merge到release 分支中：
+          命令:
+              git merge master
+          使用注意:
+              确保本地master中包含所有提交内容，确保当前branch是release分支。
+
+       4. 把Merge完的release分支push到服务器中：
+          命令:
+              git push <remote> <local-branch>:<remote-branch>
+          例：
+              git push builder For_EXAMPLE:xxx/For_EXAMPLE
+
+情况B: 当前master包含的部分内容提交到release分支中
+       1. 对需要提交的git仓库追加remote:
+          命令:
+              git remote add <name> <url>
+          参数解释:
+              <name> 追加的remote名称，自己定义
+              <url> 参考http://xxxx/xxxbuilder/
+          例：
+              git remote add builder ssh://xxxx.git
+
+       2. 创建并切换到release分支:
+          命令:
+              git checkout -b <name> <remote/branch>
+          参数解释:
+              <name> 本地release分支名称，自己定义
+              <remote-branch> 远程release分支名称，本次使用builder中的ngi/For_AGL
+          例：
+              git checkout -b For_EXAMPLE builder/xxx/For_EXAMPLE
+
+       3. 把master中部分commit内容提交到release 分支中：
+          命令:
+              git cherry-pick <commit-id>
+          参数解释:
+              <commit-id> 已经提交过的commit id
+          使用注意:
+              如果初次使用该功能，请自行查阅相关帮助文档。
+
+       4. 把提交完的release分支push到服务器中：
+          命令:
+              git push <remote> <local-branch>:<remote-branch>
+          例：
+              git push builder For_EXAMPLE:xxx/For_EXAMPLE

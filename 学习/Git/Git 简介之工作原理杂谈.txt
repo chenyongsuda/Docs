@@ -1,0 +1,102 @@
+
+Git 简介之工作原理杂谈
+
+自从认识Git开始，就一直非常佩服这个软件，一直想写点东西来把自己所体会到的记录下来。 Git是由Linux Kernal的创始人Linus设计并发布的一个版本控制软件，乍一看是愚蠢的设计，实际上是天才的杰作，真可谓是大智若愚。我们都知道传统的版本控制软件有CVS，SVN等，但Git跟同源软件相比能脱颖而出并青出于蓝，完全得意于它“大智若愚”的模型设计。
+
+首先想说一下Git模型设计的一些基本概念：Git设计了几种对象模型，在每种对象模型中，主要包含了对象的size，type和content。Git中包含的对象非常简单，主要为以下三种：
+1. blob: is used to store file data - it is generally a file
+2. tree: is basically like a directory - it references a bunch of other trees and/or blobs
+3. commit: points to a single tree, marking it as what the project looked like at a certain point in time
+(optional)4. tag: The tag object is a way to mark a specific commit as special in some way.
+
+以我们常用的源码管理为例子，blob对象即项目中的所有实体文件，包括源代码、图片资源、xml配置信息等等等等的内容，特别强调它记录的仅仅是文件内容，而关于此文件所在目录、名字大小等信息统统记录在关联它的tree对象上。我们每次提交，都会产生一个commit对象，并更新有改动的文件所关联的所有tree对象，tree除了管理blob还可以管理tree本身。所以，众多tree对象一起记录了包含整个项目所有blob对象的信息，并形成了一个个的DAG（有向无环图），以至于在任何时间点任何情况下，通过commit对象关联的唯一根节点tree，都可以遍历找出整个项目在这次commit 状态下的全部文件。
+
+引用一段Git权威书籍的原文：
+1
+Git design split file name and content 
+2
+- file name saved in tree 
+3
+- file content saved in blob 
+4
+- so the same blob can stands for multi files with multi names 
+5
+   
+6
+Git objects are immutable, that is, they cannot ever be changed. 
+7
+- There are references which also stored in Git.  
+8
+- Unlike the objects, references can constantly change.
+
+
+那么Git为什么能够成为同类软件中的佼佼者？只是因为这简洁的几种object定义么？
+笔者理解是：传统版本控制软件CVS，SVN，在文件被修改之后提交，提交之后再修改再提交，它们只记录文件之间的差异状态，也就是为一个文件从创建之初就只有一个副本，以后所有的改变都是通过记录的差异从原始的副本计算得来。而Git的设计理念是，任何文件，只要有任何改动，哪怕是一个字节也好，都会重新创建一个副本(即之前提到的blob)对象，若一个文件被修改了4次就会有4个副本，每一个都是独立的，都与每次提交产生commit对象所管理。乍一看Git的这种设计非常消耗硬盘，确实是这样，貌似非常愚钝！但当今的计算机时代，硬盘的低廉和容量的飞速扩大，让这磁盘空间的消耗变得越来越微不足道。 Git的设计者Linus就充分利用这一点，牺牲了磁盘空间，换取 了无限控制上的灵活和管理的高效。这就是笔者之前提到的“大智若愚”
+
+下面通过一个实际的例子来介绍Git的工作原理：
+假设我们的项目里目录结构是这样子的：
+1
+- src 
+2
+    - java 
+3
+        - Hello.java 
+4
+        - resource.xml 
+5
+- lib 
+6
+    - rt.jar 
+7
+- run.bat
+
+1.当我们使用git init创建repository并第一次提交整个项目之后，会形成4个blog对象分别存储Hello.java，resource.xml, rt.jar和run.bat。并形成一个commit对象和四个tree对象(分别代表src、java和lib和整个项目根目录root)。
+此时Git里的缺省HEAD即指向最近一次提交的tree对象。通过checkout HEAD，可以把最近一次提交的所有文件都找出来。(实际上这所有的对象都存储在隐藏目录.git/objects里面)
+
+2.现在我们唯独只修改Hello.java，并进行第二次提交，那么Git会生成一个新的blob对象记录修改后的Hello.java，并生成一个新的commit对象。由于blob只记录文件内容，其他文件信息、目录结构等都由tree对象记录，所以Hello.java改变导致代表java目录的 tree发生了改变，父目录src代表的tree对象也发生了改变，根目录同理，所以这次提交还会生成三个新的tree对象(代表新的src和新的 java和新的项目根目录root)
+
+3.当有另外一个开发人员希望得到项目的第一次提交状态的话，只需要提供第一提交的commit对象的key，它记录的仅仅是第一提交的root tree，这个root tree会找到旧的src tree对象，java tree对象和并非改变过的lib tree对象，并通过它们找回它们所管理的所有blog对象。至此，第一次提交时的整个项目就被checkout 出来了。我们可以给某次commit对象起便于记忆的别名，这也就形成了我们所熟悉的tag和branch的概念。下次checkout提供别名就可以了。
+
+这样设计的优势是什么呢？笔者的理解是，对于大型项目来说，创建分支是很常见的。Git的整套模型设计赋予了开发人员最大的灵活性来任意创建分支并在自己的分支上开发。到一定时间需要merge到主干的时候，除非是对同一个文件内容的修改需要处理冲突(合并两个blob对象)之外，其余部分只是在 merge两棵tree，把有向无环图tree中对blob的指针和少量文件基本信息更新，形成一棵新的tree，如此而已！在实际项目开发中，毕竟创建分支的不同开发都是在分支上开发少量的新功能，大部分内容与主干并无区别，所以merge成新的tree的时候，对毫无改变的blob对象，merge前后的tree都依然指向它们，对于各自分支的修改文件，分别merge到主干上也只是更新了少量的tree和blob而已。(如果对数据结构还有些基础的话，不妨试着画一画，你会发现把两个有向无环图合并是如此之简单高效)
+
+最后附上一些常用的Git命令供实验和参考：(推荐一本介绍Git的书《Pro Git》，在学习Git的过程中，其实也是在学习如何根据衍化设计出高效实用的软件的过程)
+01
+git cat-file -t 
+02
+git ls-tree 
+03
+git show 
+04
+git add 
+05
+git commit 
+06
+git commit -a  
+07
+git checkout HEAD 
+08
+git hash-object <file_name> 
+09
+git show -s --pretty=raw 
+10
+find .git/objects/ -type f 
+11
+git branch <branch_name> 
+12
+git branch - list all branches 
+13
+git branch -D <branch_name> (- delete a branch) 
+14
+git merge <branch_name> (- merge branch with name indicated into active branch) 
+15
+git checkbox <branch_name> - switch active branch, default is master 
+16
+git archive 
+17
+git tag <name>  
+18
+(- this will indicated the lastest commit hash value, also called lightweight tag) 
+19
+git tag -a <name>  
+20
+(- will add a tag object, saved in .git/objects, cat-file will return "tag" type)

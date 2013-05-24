@@ -1,0 +1,72 @@
+git中配置autocrlf来正确处理crlf
+
+在使用git的过程中，如果我们的项目是跨平台开发的
+
+那么CRLF的处理也许会成为一个很头疼的事情，有可能会出以下的莫名其妙的问题：
+
+我们的某个开发人员在linux上提交的一个文件
+
+当从windows上pull下来后，没做任何的修改，查看其status，它的状态已经是modifed了
+
+即使你使用git checkout -f来恢复改文件，它的状态仍然是modified，真是郁闷…
+
+后来，才发现就是CRLF惹的祸
+
+ 
+
+我们都知道，在Windows上是CRLF来作为一行的结束符，而Linux上则是LF作为行结束符
+
+在git中提供了autocrlf的设置，可以用来自动转换CRLF，它可以设置成true,false,input
+
+Windows上的msysgit默认设置了autocrlf为true
+
+这样，在提交时自动地把行结束符CRLF转换成LF，而在签出代码时把LF转换成CRLF
+
+这样保证了从windows平台上提交的代码，都是以LF作为行结束符
+
+在linux平台上，git默认设置autocrlf为false，也即它不会自动处理CRLF
+
+这样就有一个问题，如果我们把windows上的一个文件给上传到linux上，并提交
+
+那么，提交到仓库中的代码就会以CRLF来换行了，
+
+这样就会导致我们在windows上查看改文件的状态就会是modified
+
+解决这个问题有以下2个办法：
+
+在Linux上设置autocrlf为input，这样，Git在提交时把CRLF转换成LF，签出时不转换
+ 
+
+对于从Windows上直接拷到Linux上的文件，首先把它转换成linux格式后，再进行提交
+
+
+
+提交用用户名和邮箱：
+git config --global user.name  xxx(请替换成自己的名字)
+git config --global user.email xxx@xx.xx.net(请替换成自己的email)
+
+换行等设置：
+git config --global core.autocrlf input
+git config --global core.safecrlf true
+
+
+
+#签出时将换行符转换成CRLF，签入时转换回 LF。 git config --global core.autocrlf true  
+#签出时不转换换行符，签入时转换回 LF git config --global core.autocrlf input   
+#签出签入均不转换 git config --global core.autocrlf false
+
+
+core.autocrlf
+假如你正在Windows上写程序，又或者你正在和其他人合作，他们在Windows上编程，而你却在其他系统上，在这些情况下，你可能会遇到行尾结束符问题。这是因为Windows使用回车和换行两个字符来结束一行，而Mac和Linux只使用换行一个字符。虽然这是小问题，但它会极大地扰乱跨平台协作。
+
+Git可以在你提交时自动地把行结束符CRLF转换成LF，而在签出代码时把LF转换成CRLF。用core.autocrlf来打开此项功能，如果是在Windows系统上，把它设置成true，这样当签出代码时，LF会被转换成CRLF：
+
+$ git config --global core.autocrlf true
+Linux或Mac系统使用LF作为行结束符，因此你不想 Git 在签出文件时进行自动的转换；当一个以CRLF为行结束符的文件不小心被引入时你肯定想进行修正，把core.autocrlf设置成input来告诉 Git 在提交时把CRLF转换成LF，签出时不转换：
+
+$ git config --global core.autocrlf input
+这样会在Windows系统上的签出文件中保留CRLF，会在Mac和Linux系统上，包括仓库中保留LF。
+
+如果你是Windows程序员，且正在开发仅运行在Windows上的项目，可以设置false取消此功能，把回车符记录在库中：
+
+$ git config --global core.autocrlf false

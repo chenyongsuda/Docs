@@ -1,0 +1,65 @@
+http://www.open-open.com/lib/view/open1328070620202.html
+比较好的书籍
+参考
+GitCommunityBook 中文版
+ProGit 中文版
+
+1. 查看配置
+	git config --list
+
+2. 查看object对象
+	git cat-file -p d670460b4b4aece5915caf5c68d12f560a9fe3e4
+	
+3. 查看index文件
+	git ls-files --stage
+
+4. 查看commit对象
+	git show -s --pretty=raw 2be7fcb476
+	
+5. 查看Tree对象
+	git ls-tree fb3a8bdd0ce
+	或者
+	git show -s --pretty=raw 2be7fcb476
+6. 查看标签对象
+	$ git cat-file tag v1.5.0
+	object 437b1b20df4b356c9342dac8d38849f24ef44f27
+	type commit
+	tag v1.5.0
+	tagger Junio C Hamano <junkio@cox.net> 1171411200 +0000
+
+	GIT 1.5.0
+	-----BEGIN PGP SIGNATURE-----
+	Version: GnuPG v1.4.6 (GNU/Linux)
+
+	iD8DBQBF0lGqwMbZpPMRm5oRAuRiAJ9ohBLd7s2kqjkKlq1qqC57SbnmzQCdG4ui
+	nLE/L9aUXdWeTFPron96DLA=
+	=2E+0
+7.	恢复暂存区域文件（Git历险记（四））
+	git checkout -- readme.txt
+	git checkout的主要功能就是迁出一个分支的特定版本。默认是迁出分支的HEAD版本
+	示例：
+	git checkout master     //取出master版本的head。
+	git checkout tag_name    //在当前分支上 取出 tag_name 的版本
+	git checkout  master file_name  //放弃当前对文件file_name的修改
+	git checkout  commit_id file_name  //取文件file_name的 在commit_id是的版本。commit_id为 git commit 时的sha值。
+	$ git checkout -- hello.rb
+	这条命令把hello.rb从HEAD中签出.
+	$ git checkout .
+	这条命令把 当前目录所有修改的文件 从HEAD中签出并且把它恢复成未修改时的样子.
+	注意：在使用git checkout 时，如果其对应的文件被修改过，那么该修改会被覆盖掉。
+
+8. 查看Head指向的提交状态
+	git cat-file -p HEAD
+
+9. 下面的这条很复杂的命令是查看当前的提交（HEAD）所包含的blob对象：
+	$git cat-file -p HEAD | head -n 1 | cut -b6-15 | xargs git cat-file -p	
+	
+10. 上一次提交（HEAD^）所包含的blob对象：
+	$git cat-file -p HEAD^ | head -n 1 | cut -b6-15 | xargs git cat-file -p	
+
+11. 查看远程仓库
+	git config --list
+	git config --get remote.origin.url
+	
+
+	
