@@ -60,6 +60,26 @@ ProGit 中文版
 11. 查看远程仓库
 	git config --list
 	git config --get remote.origin.url
-	
 
+12. 创建远程连接
+	git remote add xx  url
+	
+13. $ git push origin test:master         // 提交本地test分支作为远程的master分支
+	$ git push origin test:test              // 提交本地test分支作为远程的test分支
+
+14. 删除远程分支
+	$ git push origin :test              // 刚提交到远程的test将被删除，但是本地还会保存的，不用担心
+	
+15.你可以在使用'git branch'命令时加上'--track'参数, 来手动创建一个'追踪分支'.
+	git branch --track experimental origin/experimental
+	当你运行下命令时:
+	$ git pull experimental
+	它会自动从‘origin'抓取(fetch)内容，再把远程的'origin/experimental'分支合并进(merge)本地的'experimental'分支.
+	当要把修改推送(push)到origin时, 它会将你本地的'experimental'分支中的修改推送到origin的‘experimental'分支里,　而无需指定它(origin).	
+
+
+16. 如果你要查看文件的每个部分是谁修改的, 那么 git blame 就是不二选择. 只要运行'git blame [filename]', 你就会得到整个文件的每一行的详细修改信息:包括SHA串,日期和作者: 
+	要查看提交记录 git log -p filename
+
+17. 	
 	
