@@ -1,0 +1,41 @@
+class Solution {
+public:
+    void rotate(vector<vector<int> > &matrix) {
+        // Start typing your C/C++ solution below
+        // DO NOT write int main() function
+        int n = matrix.size();
+        if (n == 0) return ;
+        int endloop = 0;
+        if(0 == (n % 2)){
+            endloop = n/2;
+        }
+        else{
+            endloop =  n/2;
+        }
+        
+        /**
+         * matrix[level][n - 1 -i]
+         * matrix[n -1-i][n - 1- level]
+         * matrix[n - 1 - level][i]
+         * matrix[i][level]
+         **/
+        for(int level = 0; level < endloop; level++){
+            
+            for (int i = n  - 1 - level ; i > level ; i--){
+                
+                int temp = matrix[i][level];
+                matrix[i][level] = matrix[n - 1 - level][i];
+                matrix[n - 1 - level][i] = matrix[n -1-i][n - 1- level];
+                matrix[n -1-i][n - 1- level] = matrix[level][n - 1 -i];
+                matrix[level][n - 1 -i] = temp;
+                /**
+                int temp = matrix[level][n - 1 -i];
+                matrix[level][n - 1 -i] = matrix[n -1-i][n - 1- level];
+                matrix[n -1-i][n - 1- level] = matrix[n - 1 - level][i];
+                matrix[n - 1 - level][i] = matrix[i][level];
+                matrix[i][level] = temp;
+                **/
+            }
+        }
+    }
+};

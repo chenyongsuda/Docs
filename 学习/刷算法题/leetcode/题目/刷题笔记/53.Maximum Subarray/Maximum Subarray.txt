@@ -1,0 +1,78 @@
+class Solution {
+public:
+    int maxSubArray(int a[], int n) {
+        // Start typing your C/C++ solution below
+        // DO NOT write int main() function
+        if (n <= 0){
+            return 0;
+        }
+        int pre = 0;
+        int sum = 0;
+        
+        for(int index = 0; index < n ; index++){
+            if(pre + a[index] < 0){
+                pre = 0;
+            }
+            else{
+                pre = pre + a[index];
+            }
+            if(sum < pre){
+                sum = pre;
+            }
+        }
+        
+        return sum;
+    }
+};
+
+
+失败case
+input	output	expected	
+[-1]	0	-1	
+
+   
+[-2,-3,-1]	0	-1	
+
+
+全是负数的情况
+
+加上处理全负数情况
+class Solution {
+public:
+    int maxSubArray(int a[], int n) {
+        // Start typing your C/C++ solution below
+        // DO NOT write int main() function
+        if (n <= 0){
+            return 0;
+        }
+        int pre = 0;
+        int sum = 0;
+        bool isAllNegative = true;
+        for(int index = 0; index < n ; index++){
+            if(a[index] >= 0 ){
+                isAllNegative = false;
+            }
+            if(pre + a[index] < 0){
+                pre = 0;
+            }
+            else{
+                pre = pre + a[index];
+            }
+            if(sum < pre){
+                sum = pre;
+            }
+        }
+        
+        if(isAllNegative){
+            sum = a[0];
+            for(int index = 0; index < n ; index++){
+                if(a[index] > sum ){
+                    sum = a[index];
+                }
+            }
+        }
+        return sum;
+    }
+};
+
+ 

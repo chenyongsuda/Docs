@@ -1,0 +1,13 @@
+ 1. 在 $ANDROIDTOP/build/core目录下面有一个文件，version_defaults.mk，这个文件定义了这个版本号
+ 
+ 
+ 
+ 2. 运行模拟器
+	out/host/linux-x86/bin/emulator-arm 
+	-avd xxx 
+	-kernel prebuilts/kernels/goldfish-qemu-2.6.29 
+	-system out/target/product/generic/system.img 
+	-ramdisk out/target/product/generic/ramdisk.img 
+	-nocache -show-kernel -shell
+	
+	

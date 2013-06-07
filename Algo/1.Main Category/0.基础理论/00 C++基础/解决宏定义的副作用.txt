@@ -1,0 +1,167 @@
+min宏定义探究
+min宏定义探究 在GCC的文档中建议使用如下的min宏定义： 
+引用：#define min(X,Y) / 
+(__extension__ / 
+({ / 
+typeof(X) __x=(X), __y=(Y); / 
+(__x<__y)?__x:__y; / 
+}) / 
+) 
+本文讨论了这样作法的意义。 
+    1、传统的min带来的副作用 
+    2、GCC中的({statement list})的扩展 
+    3、typeof(expression) 
+    4、__extension__的含义 
+    5、使用typeof和({})实现min，避免了副作用 
+附录1、旧版本的的GCC中的的解决方法 
+附录2、C++中使用template的解决方法 
+1、传统的min带来的副作用 
+min通常被定义成这样的宏： 
+#define min(X,Y) ((X) < (Y) ? (X) : (Y)) 
+这种定义会带来一些副作用，看下面的例子： 
+int x = 1, y = 2; 
+int main() 
+{ 
+printf("min=%d/n", min(x++, y++)); 
+printf("x = %d, y = %d/n", x, y); 
+} 
+执行完min(x++、y++)，我们期望x的值为2，y的值为3。 
+但是，实际的结果是，执行完mini(x++、y++)后，x的值为3，y的值为3，原因在于宏展开后x++被执行了两次： 
+引用： 
+int x = 1, y = 2; 
+int main() 
+{ 
+printf("min=%d/n", x++ < y++ ? x++ : y++); 
+printf("x = %d, y = %d/n", x, y); 
+} 
+2、GCC中的({statement list})的扩展 
+({statement list})是一个表达式，逗号表达式类似，但是功能更强，({与})中可以包含有多条语句(可以是变量定义、复杂的控制语句)，该表达式的值为statement list中最后一条语句的值，举例： 
+int main() 
+{ 
+int result = ({ 
+int i, sum = 0; 
+for (i = 1; i <= 100; i++) 
+          sum+= i; 
+     sum; 
+}) 
+printf("result=%d/n", result); 
+} 
+运行结果： 
+result=5050 
+3、typeof(expression) 
+typeof(expression)用来获取expression的类型，举例： 
+int main() 
+{ 
+int integer; 
+typeof(100) i; /* 表达式100的类型是int，定义了int型变量i */ 
+typeof(integer) j; /* 表达式integer的类型是int，定义了int型变量j */ 
+   i = 1; 
+   j = 2; 
+} 
+4、__extension__的含义 
+GCC引入了很多标准C中的没有的扩展，如({和)}，GCC提供了pednatic选项用于检测程序是否使用了GCC的扩展，当使用pedantic选项编译如下程序时 
+int main() 
+{ 
+int result = ({ 
+int i, sum = 0; 
+for (i = 1; i <= 100; i++) 
+          sum+= i; 
+     sum; 
+}) 
+printf("result=%d/n", result); 
+} 
+编译器发出警告： 
+$ cc -pedantic test.c 
+test.c: 在函数 ‘main’ 中： 
+test.c:9: 警告：ISO C 不允许在表达式中使用花括号组 
+编译器提醒程序员，这段C程序使用了不符合ISO C标准的语法，如果使用其他的编译器(非GCC)编译这段代码有能会出错。在所有使用GNU 扩展关键字的表达式之前加__extension__ 关键字后，使用pedantic选项编译时，编译器就不再发出警告信息: 
+int main() 
+{ 
+int result = __extension__({ 
+int i, sum = 0; 
+for (i = 1; i <= 100; i++) 
+        sum+= i; 
+      sum; 
+}) 
+printf("result=%d/n", result); 
+} 
+$ cc -pedantic test.c 
+$ 编译成功！ 
+5、使用typeof和({})实现min，避免了副作用 
+#define min(X,Y) / 
+({ / 
+typeof(X) __x=(X), __y=(Y); / 
+(__x<__y)?__x:__y; / 
+}) 
+使用传统的min会出现问题的例子： 
+int x = 1, y = 2;; 
+int main() 
+{ 
+printf("min=%d/n", min(x++, y++)); 
+printf("x = %d, y = %d/n", x, y); 
+} 
+它被扩展为 
+引用： 
+int x = 1, y = 2;; 
+int main() 
+{ 
+printf("min=%d/n", ({ 
+typeof(x) __x = (x++), __y = (y++); /* 定义了两个整形变量 */ 
+(__x<__y)?__x:__y; 
+}) 
+); 
+printf("x = %d, y = %d/n", x, y); 
+} 
+在执行min(x++, y++)期间，x++和y++只执行了一次，因而结果是正确的。 
+附录1、旧版本的的GCC中的的解决方法 
+旧版本的GCC提供了两个内置的运算操作符：?， ?返回两个操作数中较大的一个，使用这两个操作符定义的min如下: 
+#define min(x, y) ((x) #define max(x, y) ((x) >? (y)) 
+但是新版本的GCC文档中宣称：现在这两个运算操作符已经过时了，建议大家不要使用。 
+附录2、C++中使用template的解决方法 
+template 
+type min(type a, type b) 
+{ 
+return a < b ? a : b; 
+} 
+来源： http://www.chinaunix.net/jh/23/934870.html 
+add linux kernel min, max define: 
+include/linux/kernel.h 
+/* 
+* min()/max() macros that also do 
+* strict type-checking.. See the 
+* "unnecessary" pointer comparison. 
+*/ 
+#define min(x,y) ({ / 
+typeof(x) _x = (x); / 
+typeof(y) _y = (y); / 
+(void) (&_x == &_y); / 
+        _x < _y ? _x : _y; }) 
+#define max(x,y) ({ / 
+typeof(x) _x = (x); / 
+typeof(y) _y = (y); / 
+(void) (&_x == &_y); / 
+        _x > _y ? _x : _y; }) 
+   Min和Max宏： 
+/* 
+* min()/max() macros that also do 
+* strict type-checking.. See the 
+* "unnecessary" pointer comparison. 
+*/ 
+#define min(x,y) ({ typeof(x) _x = (x); typeof(y) _y = (y); (void) (&_x == &_y); _x < _y ?_x : _y; }) 
+#define max(x,y) ({ typeof(x) _x = (x); typeof(y) _y = (y); (void) (&_x == &_y); _x > _y? _x : _y; }) 
+/* 
+* ..and if you can't take the strict 
+* types, you can specify one yourself. 
+* 
+* Or not use min/max at all, of course. 
+*/ 
+#define min_t(type,x,y) ({ type __x = (x); type __y = (y); __x < __y ? __x: __y; }) 
+#define max_t(type,x,y) ({ type __x = (x); type __y = (y); __x > __y ? __x: __y; }) 
+不是感觉跟我们用的有些不一样啊: 
+(void) (&_x == &_y); 
+(void) (&_x == &_y)这句话本身都执行程序来讲完全是一句废话，它的作用在于，本身我们无法做这样的操作typeof(_x)==typeof(_y)，所以故意判断他们2个的地址指针是否相等，显然是不可能相等，但是如果_x和_y的类型不一样，其指针类型也会不一样，2个不一样的指针类型进行比较操作，会抛出一个编译警告。也就是说char *p; int *q; 然后p==q;，这个判断因为一个是char*一个是int*，会在编译时产生一个warning。巧妙就巧妙在这里。 
+由于内核是很多开发着一起开发的，其中还有一些其他的实现，就跟我们平常用的一样： 
+#define min(a,b) (((a) < (b)) ? (a) : (b)) 
+试想： 
+min(++a,++b) ==> ((++a)<(++b))?(++a):(++b) 
+是不是就有问题了，传入的参数被加了两次。
