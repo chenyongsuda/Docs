@@ -1,0 +1,110 @@
+1. 题目同poj-2567 prufer 编码
+参考http://poj.org/problem?id=2567
+	http://java-mans.iteye.com/blog/1651436
+	
+首先构建树
+	Sample Input
+	(2 (6 (7)) (3) (5 (1) (4)) (8))
+	规则是(number(..)(..)...)
+	可以使用堆来构建
+
+	LOOP 1 -> Size
+		case (
+			GetNumbers
+			push to steak
+		case )
+			pop steak 
+			add set pop param to the current pop's child
+
+	
+	可以通过建立树 或者建立个parent数组保存相对于节点的parent
+	还需要保存某些节点的子节点数目
+	
+然后是取出0子节点的最小然后输出父节点并且删掉该节点
+循环到还剩最后一个节点。
+
+
+
+Code 参考
+
+#include <iostream>
+#include <stack>
+#include <stdio.h>
+#include <string>
+using namespace std;
+int father[1005];
+bool flag[1005];//记录是否找过
+int num[1005];//记录有几个儿子
+int main()
+{
+	//freopen("Input.txt","r",stdin);
+	string str;
+	while (getline(cin,str))
+	{
+		stack<int> S;
+		int Max=0;int Min=100000;
+		memset(father,-1,sizeof(father));
+		memset(flag,0,sizeof(flag));
+		memset(num,0,sizeof(num));
+		int i,j,x;
+		int m=str.length()-1;
+		for (i=0;i<m;i++)//构造树
+		{
+			if (str[i]=='(')
+			{
+				x=0;
+				++i;
+				while(str[i]>='0'&&str[i]<='9') 
+				{
+					x=x*10+str[i]-'0';
+					i++;
+				}
+				i--;
+				if (Max<x)//确定该树最大的节点
+				{
+					Max=x;
+				}
+				S.push(x);
+			}
+			else if (str[i]==')')
+			{
+				x=S.top();
+				S.pop();
+				father[x]=S.top();
+				num[S.top()]++;
+			}
+			
+		}
+		while(!S.empty()) S.pop();
+		for (i=0;i<Max-1;i++)//找最小的叶子
+		{
+			Min=100000;
+			for (j=1;j<Max;j++)
+			{
+				//没找过 并且 没有儿子或者没有父亲且只有一个儿子
+				if (flag[j]==0&&(num[j]==0||(father[j]==-1&&num[j]==1)))
+				{
+					if (j<Min) Min=j;
+				}
+			}
+			flag[Min]=1;
+			
+			if (father[Min]==-1)
+			{
+				for (j=1;j<=Max;j++)
+				{
+					if(flag[j]==0&&father[j]==Min) 
+					{
+						father[j]=-1;
+						cout<<j<<" ";
+						break;
+					}
+				}
+			}
+			else if (num[Min]==0) {num[father[Min]]--;cout<<father[Min]<<" ";}
+		}
+		cout<<endl;
+	}
+	return 0;
+}	
+
