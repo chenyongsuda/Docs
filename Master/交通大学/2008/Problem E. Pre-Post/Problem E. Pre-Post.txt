@@ -1,0 +1,133 @@
+题目  同 POJ1240 Pre-Post-erous!
+
+
+已知先序与中序    后序于中序   先序与后序  分别是否可以确定一棵二叉树
+
+答：知道中序 并且知道先序和后序其中之一就能确定一颗二叉树。
+例如中序和先序。
+前序为 a b d e c 
+中序为： d b e a c
+1.根据先序第一个a知道，二叉树的根节点为a
+2.对应中序，知道a左边的都是在a的左子树,右边的在右子树上。
+3.dbe在a的左子树上，然后根据前序之后b在这三者的最前面 所以知道b是左子树的根节点
+以此类推 得到
+     a
+     b     c
+d      e
+后序和前序类似，是最后的一个结点确定根节点
+
+题目是根据前缀后缀求中序种类
+http://hi.baidu.com/sunkehappy/item/bfe52b741fd9912d5d178975
+如果N叉树的一个结点有M（M<N)个子结点，那么有C(N,M)种造型。然后就是根据给出的遍历，推算出每一个节点有多少颗子树。
+
+
+
+
+
+解题参考
+
+/*
+【题目来源】 
+http://acm.zju.edu.cn/onlinejudge/showProblem.do?problemCode=1500
+
+【题目分析】 
+给定k叉树的前序遍历和后续遍历，输出一共有多少种K叉树。 
+
+【思路分析】 
+前序遍历和中序遍历可以唯一确定后序遍历。
+
+后序遍历和中序遍历可以唯一确定前序遍历。
+
+前序遍历和后序遍历不能确定唯一中序遍历。（有多种可能）
+
+1.前序遍历中：第一个元素就是根。 后序遍历中最后一个元素是根。
+所以第一件事就是把2种遍历的根删除。
+
+2.删除后，前序遍历的第一个元素是根的第一棵子树（注意措辞）的根
+
+3.后序遍历中找到其位置，那么从开头到这个位置的元素个数就是第一棵子树的元素个数，同时得到其后序遍历。
+
+4.由元素个数在前序遍历中确定第一棵子树的前序遍历。
+
+5.对第一颗子树的前序遍历和后续遍历继续递归。从原前序遍历和后续遍历删除掉关于第一棵子树的部分直到没有元素。
+如此得到了根的子树的个数m，注意其相对顺序是确定的。那么对于k叉树的这个根来说，一共有C(m,k)种情况对吧？对的。
+那么每个节点的可能情况数相乘就得到了总的可能情况数对吧？对的。
+
+6.进入递归时，若元素个数小于等于1，说明最多只有一种情况此时不对ans处理，返回。
+
+【小小感受】 
+这道题也是思路清晰的时候写的，所以也是一次就AC了。我还是很惊讶能这么快就AC
+*/
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+int k, ans = 1;
+
+int combination(int k, int m)//求组合数C(m,k)
+{
+    int ans = 1;
+
+    for (int i = k; i > k-m; --i)
+    {
+        ans *= i;
+    }
+
+    for (int i = 2; i <= m; ++i)
+    {
+        ans /= i;
+    }
+
+    return ans;
+}
+
+void solve(string pre, string post)
+{
+    if (pre.size() <= 1)
+    {
+        return;
+    }
+    pre.erase(0, 1);
+
+    post.erase(post.size()-1, 1);
+
+    int subTreeNum = 0;
+
+    while (pre.size())
+    {
+        int index = post.find(pre[0]);
+
+        string pre_1 = pre.substr(0, index+1);
+
+        string post_1 = post.substr(0, index+1);
+
+        solve(pre_1, post_1);
+
+        pre.erase(0, index+1);
+
+        post.erase(0, index+1);
+
+        subTreeNum++;
+    }
+
+    ans *= combination(k, subTreeNum);
+
+    return;
+}
+
+int main()
+{    
+    string pre, post;
+
+    while (cin >> k, k)
+    {
+        ans = 1;        //每种情况都要初始化一下ans
+
+        cin >> pre >> post;
+
+        solve(pre, post);
+
+        cout << ans << endl;
+    }
+}

@@ -1,0 +1,58 @@
+我遇到的三种组合数的求法
+
+int f(int m,int n)
+{
+    if(n==0)
+        return 1;
+    else if(n==1)
+        return m;
+    else if(n>m/2)
+        return f(m,m-n);
+    else
+        return f(m-1,n)+f(m-1,n-1);
+}
+
+这种方法由于是递归，当m达到20的时候就没办法出答案了。我是搜索盲，这个也让我记住了搜索层数的限制。当然如果空间小的话，层数也有可能加深。这个代码也可以在搜索的同时加个记忆化，就是把算过的结果记录下来。这样的话就跟第二种方法有点像了。
+
+      第二种方法n^2打表：
+
+
+
+int c[maxn][maxn];
+void ComputeC()
+{
+    memset(c,0,sizeof(c));
+    for(int i=0; i<N; i++)
+    {
+        c[i][0] = 1;
+    }
+    for(int i=1; i<N; i++)
+    {
+        for(int j=i; j<N; j++)
+        {
+            c[i][j] = c[i-1][j-1]+c[i][j-1];
+        }
+    }
+}
+
+很多同学，我想应该会这么做的。
+
+第三种方法是第二种方法的不保存版：
+
+
+
+//c(m,cnt)
+int zuhe(int cnt)
+{
+    int count=1;
+    for(int i=1;i<=cnt;i++)
+    {
+        count*=m-i+1;
+        count/=i;
+    }
+    return count;
+}
+
+如果不想保存就用这种的。当然如果这个函数在程序里面调用太多次，能保存的话还是保存的好。
+
+大概就这样了，我也是初学者，跟大家一起进步吧。加油！！！
