@@ -1,0 +1,119 @@
+思路:用DFS搜索出所有可能的情况然后打表输出。
+
+View Code 
+ #include<stdio.h>
+ #include<stdlib.h>
+ #include<string.h>
+ #define N 1000005
+ 
+ int fac[11] = {0,1,1,2,6,24,120,720,5040,40320,362880};//这里数组要注意。。fac[0] = 0,fac[1]代表了0的阶乘,fac[2]代表了1的阶乘，以此类推。
+ int vis[11], sum;
+ int num[2000],flag,k,temp;
+ int hash[N];
+ 
+ void DFS(int x)
+ {
+      int i;
+      
+      if(sum != 0 && temp == flag)
+      {
+        num[k++] = sum;
+      }  
+      for(i=x; i<=10; i++)
+      {
+          if(!vis[i] )
+          {
+              flag++;       
+              vis[i] = 1;   
+              sum += fac[i];   
+              DFS(i); 
+              flag--;    
+              vis[i] = 0;        
+              sum -= fac[i];                 
+              
+          }    
+      } 
+ }    
+ 
+ int main()
+ {
+     int i,n;
+     
+     memset(num,0,sizeof(num));   
+     k = 1;
+     for(i=1; i<=10; i++)
+     {
+        memset(vis,0,sizeof(vis));
+        sum = 0;
+        flag = 0; 
+        temp = i;
+        DFS(1);
+     }   
+     for(i=0; i<k-1; i++)
+       num[i] = num[i+1];
+       //printf("k = %d %d\n",k,num[0]);
+     memset(hash,0,sizeof(hash));
+     for(i = 0; i < 1023; i++)
+     {
+       hash[num[i]] = 1;
+     } 
+                 
+     while(scanf("%d",&n)!=EOF && n>=0)
+     {             
+        if(hash[n] == 1)
+             printf("YES\n");  
+        else   
+             printf("NO\n");
+     }
+     return 0;
+ }
+ 
+ 
+ 
+ 
+ 
+ 另外的解法，非常简洁容易理解，就是把n一次减去每个数的阶乘看看能不能使之为0
+ 
+ View Code 
+ #include<stdio.h>
+ 
+ int main()
+ {
+     int i, n, num[11], m;
+     num[0] = 1;
+     num[1] = 1;
+     
+     for(i=2; i<11; i++)
+     {
+       num[i] = num[i-1]*i;
+     }
+     
+     while(scanf("%d",&n) && n>=0 )
+     {
+        m = n;    
+        if(!m)
+        {
+           printf("NO\n");
+           continue;
+        }                                       
+        for(i=10; i>=0; i--)
+        {
+           if(num[i] <= m)
+             m -= num[i];
+           if(m <= 0)                    
+              break;
+        }                                         
+        if( !m )                    
+          printf("YES\n");                
+        else
+          printf("NO\n");                  
+     }
+     return 0;
+ }
+ 
+从大到小考虑每个数的阶乘:
+如果n < i!,那么把i!忽略;
+如果n >= i!,那么i!必须选,如果不选,那么剩下的数的阶乘之和必然小于或等于i!,也必然小于n.选了i!之后,剩下的数就是n-i!,重复前面的过程,直到剩下的数为0.
+要考虑的特殊情况:n == 0时答案应该为NO,因为题目要求至少表示成为一个数的阶乘之和.
+陷阱:题目说输入是以负数结束,不要受样例误导,认为这个数是-1.
+由于10! = 362880 > 1000000,所以只需要考虑10以内的阶乘就可以了.
