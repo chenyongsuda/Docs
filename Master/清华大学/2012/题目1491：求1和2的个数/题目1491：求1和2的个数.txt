@@ -1,0 +1,157 @@
+题目1491：求1和2的个数
+
+题目描述：
+给定正整数N，函数F(N)表示小于等于N的自然数中1和2的个数之和，例如：1,2,3,4,5,6,7,8,9,10序列中1和2的个数之和为3，因此F(10)=3。输入N，求F(N)的值，1=<N<=10^100(10的100次方)若F(N)很大，则求F(N)mod20123的值。
+题意要求找出1-N之间的数中1和2出现的次数，只要找出1出现的次数，2同理可得。
+参考《编程之美》上1的数目，该题需要找规律，又是规律题，清华的机试给跪了~~~
+总结规律如下：N=abcde
+找出百位上可能出现1的次数num：（假设以百位为基准，更高位数值为iHighNumber=a*10+b,地位数组为iLowNumber=d*10+e）
+若c<1,则num取决于更高位数字，num=iHighNum*100；
+若c==1，则num取决于更高位数字，也受到低位影响，num=iHighNum*100+iLowNumber+1；
+若c>1，则num取决于更高为数字，num=（iHighNum+1）*100；
+其它位上可能出现1的次数同理可依次求出。
+
+
+代码如下
+#include <cstdio>  
+#include <cstring>  
+#include <queue>
+#include <math.h>
+using namespace std;
+
+#define ERROR -1
+
+char items[102];
+
+/**/
+int SubStr(char* pArray,int sta,int end){
+	int sum = 0;
+	for (int index = sta; index < end; index++) {
+		sum = sum*10 + (pArray[index] - '0');
+		sum = sum % 20123;
+	}
+	return sum;
+}
+
+int factor(int n){
+	int sum = 1;
+	for(int i = 0; i < n; i++){
+		sum *= 10; 
+		sum %= 20123;
+	}
+	return sum;
+}
+
+int Solve(char*str, int len, char item){
+	if (NULL == str) {
+		return ERROR;
+	}
+	if (len <= 0) {
+		return ERROR;
+	}
+	int totle = 0;
+	for (int index = 0; index < len; index++) {
+		int high = SubStr(str,0,index);
+		int low = SubStr(str,index + 1,len);
+		int fac = factor(len - 1 - index);
+		if(str[index] > item){
+			totle += ((high + 1) * fac) % 20123;
+		}
+		else if(str[index] < item){
+			totle += ((high) * fac) % 20123;
+		}
+		else {
+			totle += ((high) * fac + (low + 1)) % 20123;
+		}
+	}
+	return totle % 20123;
+}
+
+int main () {  
+	while(scanf("%s",items)!=EOF)  
+	{  
+		int Ones = Solve(items,strlen(items),'1');
+		int Twos = Solve(items,strlen(items),'2');
+		printf("%d\n",(Ones + Twos) % 20123);
+	}
+	return 0;  
+} 
+名次
+19	 539333	chenyongsuda	 1020 KB	 10 MS	C++	 1346 B	2013-06-17 16:23:14
+
+
+优化
+#include <cstdio>  
+#include <cstring>  
+#include <queue>
+#include <math.h>
+using namespace std;
+
+#define ERROR -1
+
+char items[102];
+
+/**/
+int SubStr(char* pArray,int sta,int end){
+	int sum = 0;
+	for (int index = sta; index < end; index++) {
+		sum = sum*10 + (pArray[index] - '0');
+		sum = sum % 20123;
+	}
+	return sum;
+}
+
+int factor(int n){
+	int sum = 1;
+	for(int i = 0; i < n; i++){
+		sum *= 10; 
+		sum %= 20123;
+	}
+	return sum;
+}
+
+int Solve(char*str, int len){
+	if (NULL == str) {
+		return ERROR;
+	}
+	if (len <= 0) {
+		return ERROR;
+	}
+	int totle = 0;
+	for (int index = 0; index < len; index++) {
+		int high = SubStr(str,0,index);
+		int low = SubStr(str,index + 1,len);
+		int fac = factor(len - 1 - index);
+		if(str[index] > '1'){
+			totle += ((high + 1) * fac) % 20123;
+		}
+		else if(str[index] < '1'){
+			totle += ((high) * fac) % 20123;
+		}
+		else {
+			totle += ((high) * fac + (low + 1)) % 20123;
+		}
+		
+		if(str[index] > '2'){
+			totle += ((high + 1) * fac) % 20123;
+		}
+		else if(str[index] < '2'){
+			totle += ((high) * fac) % 20123;
+		}
+		else {
+			totle += ((high) * fac + (low + 1)) % 20123;
+		}
+	}
+	return totle % 20123;
+}
+
+int main () {  
+	while(scanf("%s",items)!=EOF)  
+	{  
+		int res = Solve(items,strlen(items));
+		printf("%d\n",res);
+	}
+	return 0;  
+} 
+
+时间空间没怎么变！！！

@@ -1,0 +1,120 @@
+题目1087：约数的个数
+题目描述：
+输入n个整数,依次输出每个数的约数的个数
+输入：
+输入的第一行为N，即数组的个数(N<=1000)
+接下来的1行包括N个整数，其中每个数的范围为(1<=Num<=1000000000)
+当N=0时输入结束。
+输出：
+可能有多组输入数据，对于每组输入数据，
+输出N行，其中每一行对应上面的一个数的约数的个数。
+样例输入：
+5
+1 3 4 6 12
+样例输出：
+1
+2
+3
+4
+6
+
+
+1.首先Bruck Force
+#include <cstdio>  
+#include <cstring>  
+#include <queue>
+#include <math.h>
+using namespace std;
+
+int ApproximateCount(int num){
+	int count = 0;
+	for(int i = 1; i <= sqrt((double)num); i++){
+		if(0 == (num % i)){
+			count++;
+		}
+	}
+	count *= 2;
+	if(sqrt((double)num) * sqrt((double)num) == num){
+		count--;
+	}
+	return count;
+}
+
+int main () {  
+	int n;  
+	int s[1000];  
+	while(scanf("%d",&n) != EOF)  
+	{ 
+		for(int i = 0; i < n; i++)  
+		{  
+			scanf("%d",&s[i]);  
+			s[i] = ApproximateCount(s[i]);
+		}  
+		for(int i = 0; i < n; i++)  
+		{  
+			printf("%d\n",s[i]);  
+		}  
+
+	}
+
+	return 0;  
+} 
+
+过了2个Case  2个没过
+
+2.可以观察到
+求m的约数个数的方法:将m开方得n，判断n之前属于m的约数个数num。若n * n == m 则m约数个数为2*num-1，否则为2*num
+
+修改后通过
+int ApproximateCount(int num){
+	int count = 0;
+	int n = sqrt((double)num);
+	for(int i = 1; i <= n; i++){
+		if(0 == (num % i)){
+			count++;
+		}
+	}
+	count *= 2;
+	if(n * n == num){
+		count--;
+	}
+	return count;
+}
+539775	chenyongsuda	1087	Accepted		1032 kb	110 ms	C++ / Edit	14:03:28
+
+3.由于
+99=3*3*11
+3的最高次数是1,那就从1开始(1就是3的0次方),然后加3的1次方,再加3的2次方
+11的最高次数是1,那就从1开始(1是11的0次方),饭后加11的1次方
+因数的个数就是:(2+1)×(1+1)=6个
+因数和就是(3的0次方+3的1次方+3的2次方)*(1+11)
+
+这就涉及到分解质因数
+
+最简单的是通过定义求解
+普通算法：  
+#include <stdio.h> 
+main() {  
+long n,i;  
+printf("输入一个数："); 
+scanf("%ld",&n); 
+printf("%ld=",n); 
+for(i=2;i<n;) {
+  if(n%i==0) {
+	printf("%d*",i); n=n/i; 
+  } 
+  else{
+	i++; 
+  }  
+  printf("%d",n); 
+}
+
+通过素数表来解决
+首先生成素数表
+然后再表中查询
+http://now-code.com/archives/319
+
+
+
+
+

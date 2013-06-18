@@ -1,0 +1,233 @@
+题目1086：最小花费
+
+题目描述：
+在某条线路上有N个火车站，有三种距离的路程，L1，L2，L3,对应的价格为C1,C2,C3.其对应关系如下:
+距离s           票价
+0<S<=L1         C1
+L1<S<=L2        C2
+L2<S<=L3        C3
+输入保证0<L1<L2<L3<10^9,0<C1<C2<C3<10^9。
+每两个站之间的距离不超过L3。
+当乘客要移动的两个站的距离大于L3的时候，可以选择从中间一个站下车，然后买票再上车，所以乘客整个过程中至少会买两张票。
+现在给你一个 L1，L2，L3，C1，C2,C3。然后是A B的值，其分别为乘客旅程的起始站和终点站。
+然后输入N，N为该线路上的总的火车站数目，然后输入N-1个整数，分别代表从该线路上的第一个站，到第2个站，第3个站，……，第N个站的距离。
+根据输入，输出乘客从A到B站的最小花费。
+输入：
+以如下格式输入数据：
+L1  L2  L3  C1  C2  C3
+A  B
+N
+a[2]
+a[3]
+……
+a[N]
+输出：
+可能有多组测试数据，对于每一组数据，
+根据输入，输出乘客从A到B站的最小花费。
+样例输入：
+1 2 3 1 2 3
+1 2
+2
+2
+样例输出：
+2
+
+
+题目
+线性动态规划
+最后一个数能有多种组合方式  求出代价最小的 一步步推出
+
+#include <cstdio>  
+#include <cstring>  
+#include <queue>
+#include <math.h>
+using namespace std;
+
+#define MAXN 2211686018427387904  
+#define MAXS 30000  
+long long l1,l2,l3,c1,c2,c3,rout[MAXS];  
+
+int GetTicketValue(long long dis){
+	if(dis <= l1 ){
+		return c1;
+	}
+	else if (dis <= l2) {
+		return c2;
+	}
+	else if (dis <= l3) {
+		return c3;
+	}
+	else {
+		return 0;
+	}
+}
+
+void swap(int a, int b){
+	int tmp = a;
+	a = b;
+	b = tmp;
+}
+
+int main () {  
+	long long i,j,a,b,n,dp[MAXS];  
+	while(~scanf("%lld %lld %lld %lld %lld %lld",&l1,&l2,&l3,&c1,&c2,&c3))  
+	{  
+		for(i=0;i<MAXS;i++)rout[i]=dp[i]=MAXN;  
+		scanf("%lld %lld",&a,&b);  
+		scanf("%lld",&n);  
+
+		rout[0]=0;
+		rout[1]=0;  
+		for(i=2;i<=n;i++)scanf("%lld",&rout[i]);  
+		//Init The Route Data
+		for (i = n ;i >= 2; i--) {
+			rout[i] = rout[i] - rout[i-1];
+		}
+
+		dp[0] = 0;
+		dp[1] = 0;	
+		if(a > b){
+			swap(a , b);
+		}
+		
+		for (i = a + 1; i <= b; i++) {
+			long long index = i;
+			if(i == a + 1){
+				dp[index] = GetTicketValue(rout[index]);
+			}
+			else {
+				dp[index] = dp[index - 1] + GetTicketValue(rout[index]);
+				//Track Back
+				for(long long start = index; start >= a + 1; start--){
+					long long sum = 0;
+					long long tmp = 0;
+					sum += rout[start];
+					if(sum <= l3){
+						tmp += dp[start - 1] + GetTicketValue(sum);
+					}
+					if(sum < dp[index]){
+						dp[index] = sum;
+					}
+				}
+			}
+		}
+		printf("%lld\n",dp[b]);  
+	}
+
+	return 0;  
+} 
+
+错误的代码
+					if(sum <= l3){
+						tmp += dp[start - 1] + GetTicketValue(sum);
+					}
+					if(sum < dp[index]){
+						dp[index] = sum;
+					}
+改成
+					if(sum <= l3){
+						tmp += dp[start - 1] + GetTicketValue(sum);
+						if(tmp < dp[index]){
+							dp[index] = tmp;
+						}
+					}
+由于在小于l3情况下才去比较替换成最小的值
+			dp[0] = 0;
+			dp[1] = 0;	
+			if(a > b){
+				swap(a , b);
+			}
+替换成
+			if(a > b){
+			swap(a , b);
+			}
+			dp[a] = 0;
+			
+			DP 不一定是求1-x的 可能是求5-7 或者 6-9 Etc....
+			所以初始化第一个应该设置dp[a] = 0;
+			
+正确的版本如下
+
+
+#include <cstdio>  
+#include <cstring>  
+#include <queue>
+#include <math.h>
+using namespace std;
+
+#define MAXN 2211686018427387904  
+#define MAXS 30000  
+long long l1,l2,l3,c1,c2,c3,rout[MAXS];  
+
+long long GetTicketValue(long long dis){
+	if(dis <= l1 ){
+		return c1;
+	}
+	else if (dis <= l2) {
+		return c2;
+	}
+	else if (dis <= l3) {
+		return c3;
+	}
+	else {
+		return 0;
+	}
+}
+
+void swap(long long  a, long long  b){
+	long long tmp = a;
+	a = b;
+	b = tmp;
+}
+
+int main () {  
+	long long i,j,a,b,n,dp[MAXS];  
+	while(~scanf("%lld %lld %lld %lld %lld %lld",&l1,&l2,&l3,&c1,&c2,&c3))  
+	{  
+		for(i=0;i<MAXS;i++)rout[i]=dp[i]=MAXN;  
+		scanf("%lld %lld",&a,&b);  
+		scanf("%lld",&n);  
+
+		rout[0]=0;
+		rout[1]=0;  
+		for(i=2;i<=n;i++)scanf("%lld",&rout[i]);  
+		//Init The Route Data
+		for (i = n ;i >= 2; i--) {
+			rout[i] = rout[i] - rout[i-1];
+		}
+
+		if(a > b){
+			swap(a , b);
+		}
+		dp[a] = 0;
+		
+		for (i = a + 1; i <= b; i++) {
+			long long index = i;
+			if(i == a + 1){
+				dp[index] = GetTicketValue(rout[index]);
+			}
+			else {
+				dp[index] = dp[index - 1] + GetTicketValue(rout[index]);
+				//Track Back
+				long long sum = 0;
+				for(long long start = index; start >= a + 1; start--){
+					long long tmp = 0;
+					sum += rout[start];
+					if(sum <= l3){
+						tmp += dp[start - 1] + GetTicketValue(sum);
+						if(tmp < dp[index]){
+							dp[index] = tmp;
+						}
+					}
+				}
+			}
+		}
+		printf("%lld\n",dp[b]);  
+	}
+
+	return 0;  
+} 
+		
+改进 往前找的部分可以优化为二分		
+					
+
