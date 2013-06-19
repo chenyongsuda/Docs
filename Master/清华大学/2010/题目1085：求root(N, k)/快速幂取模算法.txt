@@ -1,0 +1,87 @@
+参考文章来源：Reait  Home(http://www.reait.com/blog.html) 转载请注明，谢谢合作。 
+
+在Miller Rabbin测试素数，就用到了快速幂取模的思想。这里总结下。
+求a^b%c（这就是著名的RSA公钥的加密方法），当a,b很大时，直接求解这个问题不太可能 
+算法1：利用公式a*b%c=((a%c)*b)%c,这样每一步都进行这种处理，这就解决了a^b可能太大存不下的问题，但这个算法的时间复杂度依然没有得到优化
+代码如下：
+[cpp] view plaincopy
+int modexp_simple(int a,int b,int n)       
+{      
+    int ret = 1;  
+    while (b--)  
+    {  
+        ret = a * ret % n;  
+    }  
+    return ret;  
+}    
+算法2：另一种算法利用了二分的思想，可以达到O(logn)。
+可以把b按二进制展开为：b = p(n)*2^n  +  p(n-1)*2^(n-1)  +…+   p(1)*2  +  p(0)
+其中p(i) (0<=i<=n)为 0 或 1
+
+这样 a^b =  a^ (p(n)*2^n  +  p(n-1)*2^(n-1)  +...+  p(1)*2  +  p(0))
+               =  a^(p(n)*2^n)  *  a^(p(n-1)*2^(n-1))  *...*  a^(p(1)*2)  *  a^p(0)
+对于p(i)=0的情况, a^（p(i) * 2^(i-1) ） =  a^0  =  1,不用处理
+我们要考虑的仅仅是p(i)=1的情况
+化简：a^(2^i)  = a^(2^(i-1)  * 2) = (  a^(  p(i)  *  2^(i-1)  )  )^2
+（这里很重要！！具体请参阅秦九韶算法：http://baike.baidu.com/view/1431260.htm）
+利用这一点，我们可以递推地算出所有的a^(2^i)
+当然由算法1的结论，我们加上取模运算：
+a^(2^i)%c = ( (a^(2^(i-1))%c) * a^(2^(i-1)))  %c
+于是再把所有满足p(i)=1的a^(2^i)%c按照算法1乘起来再%c就是结果， 即二进制扫描从最高位一直扫描到最低位
+实例代码：递归
+
+
+[cpp] view plaincopy
+//计算a^bmodn       
+int modexp_recursion(int a,int b,int n)       
+{      
+    int t = 1;  
+  
+    if (b == 0)  
+        return 1;  
+  
+    if (b == 1)  
+         return a%n;  
+  
+    t = modexp_recursion(a, b>>1, n);  
+  
+    t = t*t % n;  
+  
+    if (b&0x1)  
+    {      
+        t = t*a % n;  
+    }  
+  
+    return t;  
+ }   
+
+
+实例代码2：非递归优化 
+[cpp] view plaincopy
+#include <iostream>     
+using namespace std;     
+    
+//计算a^bmodn     
+int modexp(int a,int b,int n)     
+{     
+    int ret=1;     
+    int tmp=a;     
+    while(b)     
+    {     
+       //基数存在     
+       if(b&0x1) ret=ret*tmp%n;     
+       tmp=tmp*tmp%n;     
+       b>>=1;     
+    }     
+    return ret;     
+}     
+    
+int main()     
+{     
+    cout<<modexp(2,10,3)<<endl;     
+    return 0;     
+}    
+
+ 
+
+原文：http://kmplayer.javaeye.com/blog/601578

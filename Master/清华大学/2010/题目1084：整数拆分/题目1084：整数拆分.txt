@@ -1,0 +1,87 @@
+题目1084：整数拆分
+
+一个整数总可以拆分为2的幂的和，例如：
+7=1+2+4
+7=1+2+2+2
+7=1+1+1+4
+7=1+1+1+2+2
+7=1+1+1+1+1+2
+7=1+1+1+1+1+1+1
+总共有六种不同的拆分方式。
+再比如：4可以拆分成：4 = 4，4 = 1 + 1 + 1 + 1，4 = 2 + 2，4=1+1+2。
+用f(n)表示n的不同拆分的种数，例如f(7)=6.
+要求编写程序，读入n(不超过1000000)，输出f(n)%1000000000。
+输入：
+每组输入包括一个整数：N(1<=N<=1000000)。
+输出：
+对于每组数据，输出f(n)%1000000000。
+样例输入：
+7
+样例输出：
+6
+
+整数拆分
+1. 想到母函数  
+   超时
+   
+2. 对于偶数n=2k：考虑有1和没有1的拆分。有1的拆分，与(2k-1)的拆分一一对应，与上面奇数的情况
+理由相同；没有1的拆分，将每项除以2，正好一一对应于k的所有拆分。因此f(2k)=f(2k-1)+f(k).
+
+需要注意f(n)会很大，不要溢出了。最终结果只要求除以十亿的余数，在int的表示范围内，
+因此不需要大数运算。注意余数的性质：(a+b)%m == (a%m+b%m)%m，所以只要对每个中间
+结果也都取余数，就不会有溢出的问题，且不改变最终输出结果。
+
+
+//int -> 2^31-1 = 2147483647  
+//unsigned int -> 2^32 -1 = 4294967295  
+//long long -> 2^63 -1 = 9223372036854775807  
+//unsigned __int64 -> 2^64 -1 = 18446744073709551615  
+
+代码
+#include <stdio.h>
+#include <string.h>
+#define SIZE 1000002
+#define MAX 1000000000
+int res[SIZE];
+
+int NumCount(int num){
+
+	if(0 != res[num]){
+		return res[num];
+	}
+	int ret = 0;
+	if(0 == num % 2){
+		ret = (NumCount(num / 2) % MAX + NumCount(num - 1) % MAX) % MAX;
+	}
+	else {
+		ret = NumCount(num - 1) % MAX;
+	}
+	res[num] = ret;
+	return ret;
+}
+
+int main () {  
+	int num;
+	int max = 0;
+	
+	memset(res,0,SIZE);
+
+	res[0] = 1;
+	res[1] = 1;
+	res[2] = 2;
+
+	while(scanf("%d",&num)!=EOF){
+		for (int index = 3; index <= num; index++) {
+			if(0 == index % 2){
+				res[index] = (res[index - 1]% MAX + res[index/2]% MAX)% MAX;
+			}
+			else{
+				res[index] = res[index - 1]% MAX;
+			}
+		}
+		printf("%d\n",res[num]);
+	}
+	return 0;  
+} 
+
+使用递归不行 会溢出

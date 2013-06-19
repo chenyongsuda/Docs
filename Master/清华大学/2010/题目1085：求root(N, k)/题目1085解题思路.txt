@@ -1,0 +1,64 @@
+ mathematics对于程序是很重要的，光会bruteforce是不能提高编程水平的，最近做的上机题目尤其是上交跟清华北大都用到不少相关的东西，巧妙的解决了问题。
+        从本篇开始对于一些用到的数学知识进行总结。
+
+------------之一：快速幂取模
+       计算x^ymod n;如果采用常规方法，当x与y都比较小的情况下，采用直接计算可以，但是如果当x跟y都非常大的时候，如2^1000mod 100000，那该如何解决呢？
+      利用模运算的这个：（a*b）mod n = (（a mod n） * b ) mod n;
+      例如：2^11 mod 100 = 2^(1011) mod 100= （(2 ^(1010)mod 100)＊２）mod 100……
+       1011为11的二进制表示
+      于是就有如下的实现过程了：
+#define LL long long int
+LL exp_mod( LL x , LL y , LL n ){
+     LL ret=1;
+     while(y){
+             if(y&1) ret=(ret*x)%n;
+             x=(x*x)%n;
+             y=y>>1;
+     }
+     return ret;
+}
+    程序执行次数至于y的位长度有关。
+    实战例子：求root(N, k)
+        2010年清华的上机题目，题意请点击题目处链接。
+        本题可以有如下分析：
+       N=a0+a1*k+a2*k^2+……+an*k^n;
+       N'=a0+a1+a2+……+an;
+       N-N'=a1*(k-1)+a2*(k^2-1)+……+an*(k^n-1);
+       提取(k-1)有: (N-N')%(K-1)=0;
+       继续递推下去有： （N-N'）%(k-1) =0；
+                                    （N'-N''）%(k-1)=0;
+                                      ……
+                                     （N(r-1)-N(r)）%（k-1）=0；
+        相加有：（N-N(r)）%(k-1)=0,N(r)是我们要求的结果，故有
+        N(r) = N % (k-1);
+        如果 N(r)==0 ,为边界，则 N(r) = k-1;
+         至于如何取模运算参考上面刚学习的快速幂取模即可。
+        实现代码如下：
+#include <stdio.h>
+#define LL long long int
+LL exp_mod(LL x,LL y,LL n){
+    LL ret=1;
+    while(y){
+        if(y&1) ret=(ret*x)%n;
+        x=(x*x)%n;
+        y=y>>1;   
+    }   
+    return ret;
+}
+ 
+int main(){
+    LL a,b,k,ans;
+     
+    while(scanf("%lld%lld%lld",&a,&b,&k)==3){
+        ans=exp_mod(a,b,k-1);
+        if(ans==0) ans=k-1;
+        printf("%lld\n",ans);  
+    }
+    return 0;
+}
+-----------Amazing Mathematics
+
+
+
+http://t.jobdu.com/thread-7808-1-1.html
+
