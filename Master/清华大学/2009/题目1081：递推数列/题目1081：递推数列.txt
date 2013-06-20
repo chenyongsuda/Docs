@@ -1,0 +1,115 @@
+题目1081：递推数列
+题目描述：
+给定a0,a1,以及an=p*a(n-1) + q*a(n-2)中的p,q。这里n >= 2。 求第k个数对10000的模。
+输入：
+输入包括5个整数：a0、a1、p、q、k。
+输出：
+第k个数a(k)对10000的模。
+样例输入：
+20 1 1 14 5
+样例输出：
+8359
+
+
+#include <stdio.h>
+#include <string.h>
+#define MOD 10000  
+
+
+int main () {  
+	int a0,a1,p,q,k;
+	int sto00,sto01;
+	int res;
+	while(scanf("%d%d%d%d%d",&a0,&a1,&p,&q,&k)!=EOF){
+		sto00 = a0; sto01 = a1;
+		if(0 == k){
+			res = a0;
+		}
+		if(1 == k){
+			res = a1;
+		}
+		for (int i = 2; i <=k ; i++) {
+			res = ((sto00 * q)%MOD +   (sto01 * p)%MOD)%MOD;
+			sto00 = sto01;
+			sto01 = res;
+		}
+		printf("%d\n",res);
+	}
+	return 0;  
+} 
+
+TLE
+想到类似于斐波那契  可以用矩阵乘法降低复杂度
+代码如下
+#include <stdio.h>
+#include <string.h>
+#define MOD 10000  
+
+int metrix[2][2];
+int resMetrix[2][2];
+
+int MutiMetrix(int k){
+	//Init resMetrix
+	resMetrix[0][0] = 1;
+	resMetrix[0][1] = 0;
+	resMetrix[1][0] = 0;
+	resMetrix[1][1] = 1;
+	
+	//TMP
+	int tmp[2][2];
+	while (k) {
+		if(k&1) {
+			tmp[0][0] = ((resMetrix[0][0] * metrix[0][0])%MOD +  (resMetrix[0][1] * metrix[1][0])%MOD)%MOD;
+			tmp[0][1] = ((resMetrix[0][0] * metrix[0][1])%MOD +  (resMetrix[0][1] * metrix[1][1])%MOD)%MOD;
+			tmp[1][0] = ((resMetrix[1][0] * metrix[0][0])%MOD +  (resMetrix[1][1] * metrix[1][0])%MOD)%MOD;
+			tmp[1][1] = ((resMetrix[1][0] * metrix[0][1])%MOD +  (resMetrix[1][1] * metrix[1][1])%MOD)%MOD;
+			resMetrix[0][0] = tmp[0][0];
+			resMetrix[0][1] = tmp[0][1];
+			resMetrix[1][0] = tmp[1][0];
+			resMetrix[1][1] = tmp[1][1];
+			
+		}
+		//x * x
+		tmp[0][0] = ((metrix[0][0] * metrix[0][0])%MOD +  (metrix[0][1] * metrix[1][0])%MOD)%MOD;
+		tmp[0][1] = ((metrix[0][0] * metrix[0][1])%MOD +  (metrix[0][1] * metrix[1][1])%MOD)%MOD;
+		tmp[1][0] = ((metrix[1][0] * metrix[0][0])%MOD +  (metrix[1][1] * metrix[1][0])%MOD)%MOD;
+		tmp[1][1] = ((metrix[1][0] * metrix[0][1])%MOD +  (metrix[1][1] * metrix[1][1])%MOD)%MOD;
+		
+		metrix[0][0] = tmp[0][0];
+		metrix[0][1] = tmp[0][1];
+		metrix[1][0] = tmp[1][0];
+		metrix[1][1] = tmp[1][1];
+		
+		k = k >> 1;
+	}
+	return 0;
+}
+
+int main () {  
+	int a0,a1,p,q,k;
+	int sto00,sto01;
+	int res;
+	while(scanf("%d%d%d%d%d",&a0,&a1,&p,&q,&k)!=EOF){
+		sto00 = a0; sto01 = a1;
+		if(0 == k){
+			res = a0;
+			printf("%d\n",res);
+			continue;
+		}
+		if(1 == k){
+			res = a1;
+			printf("%d\n",res);
+			continue;
+		}
+		metrix[0][0] = p;
+		metrix[0][1] = q;
+		metrix[1][0] = 1;
+		metrix[1][1] = 0;
+		MutiMetrix(k - 1);
+		printf("%d\n",((resMetrix[0][0]*sto01)%MOD+(resMetrix[0][1]*sto00)%MOD)%MOD);
+	}
+	return 0;  
+} 
+
+
+

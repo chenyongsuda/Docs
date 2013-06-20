@@ -1,0 +1,9 @@
+开源的在线OJ系统
+地址:
+http://code.google.com/p/hustoj/downloads/list
+
+https://code.google.com/p/acsolo-oj/
+
+
+代码分析blog
+http://hi.baidu.com/0800710225
