@@ -70,4 +70,76 @@ int get_ip(){
 
 题目的解法是按照访问IP 当符合代理列表全部时候  res + 1
 
+代码如下
 
+#include <stdio.h>
+#include <string.h>
+#include <map>
+#include<set>
+
+using namespace std;
+
+int GetIp(){
+	int a,b,c,d;
+	scanf("%d.%d.%d.%d",&a,&b,&c,&d);
+	return ((a<<24) | (b<<16) | (c<<8) | (d));
+}
+
+int main () {  
+	int nProxy, mVisit;
+	int result = 0;
+	int count  = 0;
+	bool bFit = false;
+
+	while ( scanf("%d",&nProxy)!=EOF )  
+	{  
+		//Init Result
+		count = 0;
+		result = 0;
+		bFit = false;
+		
+		int tmp ;
+		map<int,int> ProxyMap;
+		set<int> Set;
+
+		for (int i=0; i<nProxy; i++)  {
+			tmp = GetIp();
+			ProxyMap[tmp] = i + 1;
+		}
+
+		scanf ("%d", &mVisit);  
+		for (int i = 0; i<mVisit; i++)  {
+			tmp = GetIp(); 
+			int it = ProxyMap[tmp];
+			if(it != 0){
+				bFit = true;
+				count++;
+				Set.insert(it);
+				if(Set.size() == nProxy){
+					//ReNew changeCount;
+					result++;
+					Set.clear();
+					Set.insert(it);
+				}
+			}
+		}
+
+		//Printf Result
+		if(bFit == true && nProxy == 1){
+			printf("-1\n");
+			continue;
+		}
+		printf("%d\n",result);
+	}  
+	return 0;  
+} 
+
+
+注意这部分
+//Printf Result
+if(bFit == true && nProxy == 1){
+	printf("-1\n");
+	continue;
+}
+
+把continue;写成了return 0 导致一直WA
