@@ -1,0 +1,53 @@
+题目1209：最小邮票数
+
+题目描述：
+    有若干张邮票，要求从中选取最少的邮票张数凑成一个给定的总值。
+    如，有1分，3分，3分，3分，4分五张邮票，要求凑成10分，则使用3张邮票：3分、3分、4分即可。
+输入：
+    有多组数据，对于每组数据，首先是要求凑成的邮票总值M，M<100。然后是一个数N，N〈20，表示有N张邮票。接下来是N个正整数，分别表示这N张邮票的面值，且以升序排列。
+输出：
+      对于每组数据，能够凑成总值M的最少邮票张数。若无解，输出0。
+样例输入：
+10
+5
+1 3 3 3 4
+样例输出：
+3
+
+动态规划递推表达式
+dp(x,n) = min(dp(x-a[n],n -1) + 1,dp(x,n-1))
+
+
+懒得打了 
+抄袭了一个
+#include <stdio.h>  
+#include <string.h>
+#include <algorithm>
+#include <cmath>
+#include <iostream>  
+using namespace std;
+#define INF 1000000000  //1000000000是个很大的不超INT_MAX的正数  
+int dp[1000], a[100];  
+int main(){  
+	int m, n;  
+	int i, j, k;  
+	//ifstream cin("THU_1209.txt");  
+	while( cin >> m >> n ){  
+		for( i=0; i<n; i++ )  
+			cin >> a[i];  
+		for( i=1; i<=m; i++ )  
+			dp[i] = INF;  
+		dp[0] = 0;  
+		for( i=0; i<n; i++ )  
+			for( j=m; j>=a[i]; j-- )  
+				if( dp[j-a[i]] != INF )  
+					dp[j] = min( dp[j], dp[j-a[i]]+1 );  
+		if(dp[m] == INF)  
+			cout << "0" << endl;  
+		else  
+			cout << dp[m] << endl;  
+	}  
+	return 0;
+} 
+
+
