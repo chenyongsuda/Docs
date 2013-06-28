@@ -1,0 +1,42 @@
+题目1064：反序数
+
+题目描述：
+设N是一个四位数，它的9倍恰好是其反序数（例如：1234的反序数是4321）
+求N的值
+输入：
+程序无任何输入数据
+输出：
+输出题目要求的四位数，如果结果有多组，则每组结果之间以回车隔开
+样例输入：
+样例输出：
+
+
+范围缩小为1000 到1111 因为10000/9为 1111
+
+代码如下
+#include <stdio.h>  
+#include <string.h>
+#include <algorithm>
+#include <cmath>
+#include <iostream>  
+using namespace std;
+
+int Reverse(int num){
+	int res = 0;
+	int tmp = 0;
+	while (num) {
+		tmp = num % 10;
+		num /= 10;
+		res = res * 10 + tmp;
+	}
+	return res;
+}
+
+int main(){   
+	for (int i = 1000; i <= 1111; i++) {
+		if(i * 9 == Reverse(i)){
+			printf("%d\n",i);
+		}
+	}
+	return 0;
+} 

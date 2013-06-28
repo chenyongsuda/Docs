@@ -1,0 +1,53 @@
+题目1070：今年的第几天？
+
+题目描述：
+输入年、月、日，计算该天是本年的第几天。
+输入：
+包括三个整数年(1<=Y<=3000)、月(1<=M<=12)、日(1<=D<=31)。
+输出：
+输入可能有多组测试数据，对于每一组测试数据，
+输出一个整数，代表Input中的年、月、日对应本年的第几天。
+样例输入：
+1990 9 20
+2000 5 1
+样例输出：
+263
+122
+
+
+主要注意的是在month大于等于3的时候 平年闰年才起作用
+
+#include <stdio.h>  
+#include <string>
+#include <algorithm>
+#include <cmath>
+#include <iostream>  
+using namespace std;
+
+int month[13] = {0,31,28,31,30,31,30,31,31,30,31,30,31};
+
+bool isprim(int year){
+	if(((0 == year%4) && (0 != year %100)) || (0 == year % 400)){
+		return true;
+	}
+	return false;
+}
+
+int main(){  
+	int y,m,d;  
+	while(scanf("%d%d%d",&y,&m,&d)!=EOF){  
+		bool isPuls = isprim(y);
+		int sum = 0;
+		for (int i = 1; i < m; i++) {
+		 sum += month[i];
+		}
+		sum += d;
+		if(isPuls){
+			if(m >= 3){
+				sum += 1;
+			}
+		}
+		printf("%d\n",sum);
+	}  
+	return 0;
+} 

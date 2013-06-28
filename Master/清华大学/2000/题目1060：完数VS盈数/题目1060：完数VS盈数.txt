@@ -1,0 +1,107 @@
+题目1060：完数VS盈数
+
+题目描述：
+一个数如果恰好等于它的各因子(该数本身除外)子和，如：6=3+2+1。则称其为“完数”；若因子之和大于该数，则称其为“盈数”。
+求出2到60之间所有“完数”和“盈数”。
+输入：
+题目没有任何输入。
+输出：
+输出2到60之间所有“完数”和“盈数”，并以如下形式输出：
+E: e1 e2 e3 ......(ei为完数)
+G: g1 g2 g3 ......(gi为盈数)
+其中两个数之间要有空格，行尾不加空格。
+
+
+
+做的有点复杂 刚开始看错题目了 以为要求 质因数的和
+不过改改还是AC了 懒得再写简单的了
+
+#include<stdio.h>
+#define SIZE 61
+
+bool visit[SIZE];
+bool table[SIZE];
+int prim[SIZE];
+int  res01[SIZE];
+int  res02[SIZE];
+
+bool IsPrim(int num){
+	if(1 == num){
+		return true;
+	}
+	if(2 == num){
+		return true;
+	}
+	for (int i = 2;i*i <= num; i++) {
+		if(0 == num % i){
+			return false;
+		}
+	}
+	return true;
+}
+
+int main()
+{
+	int n;
+	//init prim table
+	visit[1] = true;
+	table[1] = true;
+	for (int i = 2; i<= 60; i++) {
+		if((false == visit[i]) && (true == IsPrim(i))){
+			visit[i] = true;
+			table[i] = true;
+			for(int j = 2;  j * i<= 60; j++){
+				visit[j * i] = true;
+				table[j * i] = false;
+			}
+		}
+	}
+	//Remove The useless form table
+	int len = 0;
+	for (int i = 2; i <=60; i++) {
+		if( true == table[i]){
+			prim[len++] = i;
+		}
+	}
+	
+	int len01 = 0;
+	int len02 = 0;
+	//Solve
+	for(int i = 2; i <= 60; i++){
+		if(true == table[i]){
+			continue;
+		}
+		int sum = 0;
+		int index = 0;
+		int tmp = i;
+		int calc = i;
+		
+		for(int j = 2; j < calc; j++){
+			if(0 == calc % j){
+				sum += j;
+			}
+		}
+
+		if(sum + 1 == tmp){
+			res01[len01++] = tmp;
+		}
+		if(sum + 1 > tmp){
+			res02[len02++] = tmp;
+		}
+	}
+
+	//printf result 01
+	printf("E:");
+	for (int i = 0; i < len01; i++) {
+		printf(" %d",res01[i]);
+	}
+	printf("\n");
+	//printf result 02
+	printf("G:");
+	for (int i = 0; i < len02; i++) {
+		printf(" %d",res02[i]);
+	}
+	printf("\n");
+	
+	return 0;
+}

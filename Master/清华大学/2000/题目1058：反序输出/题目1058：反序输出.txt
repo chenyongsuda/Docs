@@ -1,0 +1,33 @@
+题目1058：反序输出
+
+题目描述：
+输入任意4个字符(如：abcd)， 并按反序输出(如：dcba)
+输入：
+题目可能包含多组用例，每组用例占一行，包含4个任意的字符。
+输出：
+对于每组输入,请输出一行反序后的字符串。
+具体可见样例。
+样例输入：
+Upin
+cvYj
+WJpw
+cXOA
+样例输出：
+nipU
+jYvc
+wpJW
+AOXc
+
+水题 
+过！
+
+#include<stdio.h>
+int main()
+{
+   char s[4];
+   int i;
+   while(scanf("%s",s)!=EOF){
+                     for(i=3;i>=0;i--)printf("%c",s[i]);
+     printf("\n"); 
+}
+}

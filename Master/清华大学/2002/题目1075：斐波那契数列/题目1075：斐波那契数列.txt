@@ -1,0 +1,56 @@
+题目1075：斐波那契数列
+
+题目描述：
+编写一个求斐波那契数列的递归函数，输入n值，使用该递归函数，输出如样例输出的斐波那契数列。
+输入：
+一个整型数n
+输出：
+题目可能有多组不同的测试数据，对于每组输入数据，
+按题目的要求输出相应的斐波那契图形。
+样例输入：
+6
+样例输出：
+0
+0 1 1
+0 1 1 2 3
+0 1 1 2 3 5 8
+0 1 1 2 3 5 8 13 21
+0 1 1 2 3 5 8 13 21 34 55
+
+
+
+比较简单
+
+代码如下
+#include <stdio.h>  
+#include <string.h>
+#include <algorithm>
+#include <cmath>
+#include <iostream>  
+using namespace std;
+
+int main(){  
+	int n;  
+	while(scanf("%d",&n)!=EOF){  
+		for(int i = 0; i < n; i++){
+			int fir = 0;
+			int sec = 1;
+			for (int j = 0; j <= i * 2; j++) {
+				if(0 == j){
+					printf("%d",fir);
+				}
+				else if(1 == j){
+					printf(" %d",sec);
+				}
+				else{
+					int tmp = fir + sec;
+					fir = sec;
+					sec = tmp;
+					printf(" %d",sec);
+				}
+			}
+			printf("\n");
+		}
+	}  
+	return 0;
+} 

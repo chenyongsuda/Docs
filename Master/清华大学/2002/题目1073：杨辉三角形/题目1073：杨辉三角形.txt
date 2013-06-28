@@ -1,0 +1,62 @@
+题目1073：杨辉三角形
+
+题目描述：
+输入n值，使用递归函数，求杨辉三角形中各个位置上的值。
+输入：
+一个大于等于2的整型数n
+输出：
+题目可能有多组不同的测试数据，对于每组输入数据，
+按题目的要求输出相应输入n的杨辉三角形。
+样例输入：
+6
+样例输出：
+1 1
+1 2 1
+1 3 3 1
+1 4 6 4 1
+1 5 10 10 5 1
+
+
+比较容易的题目
+杨辉三角性质
+http://baike.baidu.com/view/7804.htm
+
+
+注意输出格式
+代码如下
+#include <stdio.h>  
+#include <string.h>
+#include <algorithm>
+#include <cmath>
+#include <iostream>  
+using namespace std;
+
+int a[100][101];
+int main(){  
+	int n;  
+	while(scanf("%d",&n)!=EOF){  
+		memset(a,0,sizeof(a));
+		for(int i = 2; i <= n; i++){
+			for(int j = 0; j < i; j++){
+				//Start
+				if(0 == j){
+					a[i][j] = 1;
+				}
+				//end
+				else if(i -1 == j){
+					a[i][j] = 1;
+				}
+				//other
+				else {
+					a[i][j] = a[i-1][j] + a[i-1][j - 1];
+				}
+				if(0 == j)
+					printf("%d",a[i][j]);
+				else
+					printf(" %d",a[i][j]);
+			}
+			printf("\n");
+		}
+	}  
+	return 0;
+}

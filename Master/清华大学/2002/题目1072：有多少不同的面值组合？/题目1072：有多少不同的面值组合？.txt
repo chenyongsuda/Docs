@@ -1,0 +1,40 @@
+题目1072：有多少不同的面值组合？
+
+题目描述：
+某人有8角的邮票5张，1元的邮票4张，1元8角的邮票6张，用这些邮票中的一张或若干张可以得到多少种不同的邮资？
+输入：
+题目没有任何输入
+输出：
+按题目的要求输出可以得到的不同邮资的数目
+样例输入：
+样例输出：
+
+
+题目是硬数据
+直接三循环
+
+懒->抄袭来的代码
+
+import java.util.HashSet;
+import java.util.Set;
+public class Main{
+        public static void main(String[] args) {
+                Set<Integer> set = new HashSet<Integer>();
+                int a = 8;
+                int b = 10;
+                int c = 18;
+                int aN = 5;
+                int bN = 4;
+                int cN = 6;
+                for(int i=0;i<=aN;i++){
+                        for(int j=0;j<=bN;j++){
+                                for(int k=0;k<=cN;k++){
+                                        set.add(a*i + b*j + c*k);
+                                }
+                        }
+                }
+                System.out.println(set.size()-1);
+        }
+}
+
+或者使用母函数

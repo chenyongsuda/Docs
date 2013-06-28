@@ -25,3 +25,88 @@ XEDGAF
 
 前序 中序 求后续
 
+网上参考的比较好的思想
+---------------------------------------------------------------------------------------------------------------------------------------
+已知二叉树的前序遍历与中序遍历，求后续遍历。
+
+前序遍历方式为：根节点->左子树->右子树
+
+中序遍历方式为：左子树->根节点->右子树
+
+后序遍历方式为：左子树->右子树->根节点
+
+从这里可以看出，前序遍历的第一个值就是根节点，然后再中序遍历中找到这个值，那么这个值的左边部分即为当前二叉树的左子树部分前序遍历结果，这个值的右边部分即为当前二叉树的右子树部分前序遍历结果。因此，通过这个分析，可以恢复这棵二叉树，得到这样的一段伪码：
+
+节点 getRoot(前序，中序)
+
+c=前序第一个字符
+
+pos=c在中序中的位置
+
+len1=中序pos左半部分长度
+
+len2=中序pos右半部分长度
+
+新建节点r，令r的元素等于c
+
+r的左儿子=getRoot(前序位置1开始的len1长度部分，中序pos位置的左半部分)
+
+r的右儿子=getRoot(前序位置len1开始右半部分，中序pos位置的右半部分)
+
+return r
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+代码如下
+
+#include <stdio.h>  
+#include <string>
+#include <algorithm>
+#include <cmath>
+#include <iostream>  
+using namespace std;
+
+string preOrder;
+string midOrder;
+
+typedef struct Node{
+	Node*	left;
+	Node*	right;
+	char	value;
+}Node;
+
+Node* GetRoot(string preOrder,string midOrder){
+	if(preOrder.length() <= 0){
+		return NULL;
+	}
+	char fir = preOrder[0];
+	Node* root = new Node();
+	root->value = fir;
+	int mid = 0;
+	if(midOrder.find(fir) != string::npos){
+		mid = midOrder.find(fir);
+	}
+	root->left = GetRoot(preOrder.substr(1,mid),midOrder.substr(0,mid));
+	root->right = GetRoot(preOrder.substr(mid+1),midOrder.substr(mid + 1));
+	return root;
+}
+
+void PostOrder(Node* root){
+	if(NULL == root){
+		return ;
+	}
+	PostOrder(root->left);
+	PostOrder(root->right);
+	printf("%c",root->value);
+}
+
+int main(){  
+	int n;  
+	while(cin>>preOrder>>midOrder){  
+		Node * root = GetRoot(preOrder,midOrder);
+		PostOrder(root);
+		printf("\n");
+	}  
+	return 0;
+} 
+

@@ -1,0 +1,37 @@
+题目1059：abc
+
+题目描述：
+设a、b、c均是0到9之间的数字，abc、bcc是两个三位数，且有：abc+bcc=532。求满足条件的所有a、b、c的值。
+输入：
+题目没有任何输入。
+输出：
+请输出所有满足题目条件的a、b、c的值。
+a、b、c之间用空格隔开。
+每个输出占一行。
+样例输入：
+样例输出：
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+        int a, b, c;
+        int num1, num2;
+
+        for(a = 0; a <= 5; a++)
+        {
+                for(b = 0; b <= 3; b++)
+                {
+                        for(c = 0; c <= 9; c++)
+                        {
+                                num1 = 100 * a +10 * b + c;
+                                num2 = 100 *b +10 * c + c;
+                                if((num1+num2) == 532)
+                                        printf("%d %d %d\n",a,b,c);
+                        }
+                }
+        }
+        return 0;
+}

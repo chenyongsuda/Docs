@@ -1,0 +1,39 @@
+题目1068：球的半径和体积
+
+题目描述：
+输入球的中心点和球上某一点的坐标，计算球的半径和体积
+输入：
+球的中心点和球上某一点的坐标，以如下形式输入：x0 y0 z0 x1 y1 z1
+输出：
+输入可能有多组，对于每组输入，输出球的半径和体积，并且结果保留三位小数
+样例输入：
+0 0 0 1 1 1 
+样例输出：
+1.732 21.766
+提示：
+为避免精度问题，PI值请使用arccos(-1)。
+
+比较简单一题
+注意数据类型用double
+
+懒得写 抄了个
+
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+using namespace std;
+int main()
+{
+        double x0,y0,z0,x1,y1,z1;
+        double PI;
+        PI=acos(-1);
+        double r,v;
+        while (cin>>x0>>y0>>z0>>x1>>y1>>z1)
+        {
+                r=sqrt((x1-x0)*(x1-x0)+(y1-y0)*(y1-y0)+(z1-z0)*(z1-z0));
+                v=4*PI*r*r*r/3;
+                cout<<setiosflags(ios::fixed)<<setprecision(3)<<r<<" "<<v<<endl; 
+        }
+        return 0;
+}
+
