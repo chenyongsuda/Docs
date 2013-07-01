@@ -42,6 +42,7 @@ http://www.cnblogs.com/remlostime/archive/2012/10/29/2745125.html	leetcode
 http://openjudge.cn/
 百度之星程序设计大赛
 http://star.baidu.com/
+http://mindlee.net/2011/09/10/huffman-coding/  酷行天下
 
 
 @论坛
