@@ -16,3 +16,71 @@
 1
 
 
+#include<stdio.h>
+#include<string.h>
+
+#define  MAX 1000001
+int a[MAX];
+int n;
+
+int Search(int s,int e){
+	//case 1
+	if(s == e){
+		return s;
+	}
+	//Case 2
+	if(s + 1 == e){
+		if(a[s] < a[e]){
+			return s;
+		}
+		else{
+			return e;
+		}
+	}
+	int m = (s + e) >> 1;
+	if(a[m] > a[s] && a[m] > a[e]){
+		return Search(m + 1,e);
+	}
+	else{
+		return Search(s,m);
+	}
+}
+
+int main()
+{
+	while(scanf("%d",&n) != EOF){
+		for(int i = 0; i < n; i++){
+			scanf("%d",&a[i]);
+		}
+		//
+		int re = Search(0, n-1);
+		printf("%d\n",a[re]);
+	}
+	return 0;
+}
+
+int Search(int s,int e){
+	//case 1
+	if(s == e){
+		return s;
+	}
+	//Case 2
+	if(s + 1 == e){
+		if(a[s] < a[e]){
+			return s;
+		}
+		else{
+			return e;
+		}
+	}
+	int m = (s + e) >> 1;
+	if(a[m] > a[s] && a[m] > a[e]){
+		return Search(m + 1,e);
+	}
+	else{
+		return Search(s,m);
+	}
+}这个函数对二分查找做了扩展分割
+最终长度肯定会出现1 或者2的case
+对case长度 1 2 做特殊处理 我觉得对我自己而言比经典的二分查找变种代码好理解多了
+
