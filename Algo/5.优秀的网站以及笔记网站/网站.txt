@@ -43,6 +43,7 @@ http://openjudge.cn/
 百度之星程序设计大赛
 http://star.baidu.com/
 http://mindlee.net/2011/09/10/huffman-coding/  酷行天下
+http://www.cnblogs.com/remlostime/  蛮好的Blog  牛人
 
 
 @论坛
@@ -158,4 +159,11 @@ http://blog.csdn.net/fylz1125/article/details/8489333
 @sublime
 插件大全
 http://blog.csdn.net/w6611415/article/details/7725566
+
+
+@其他理财生活
+http://cn.wsj.com/gb/index.asp 华尔街中文网
+http://gold.hexun.com/  和讯黄金
+
+
 

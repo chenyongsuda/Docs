@@ -1,0 +1,107 @@
+题目描述：
+在一个二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。
+输入：
+输入可能包含多个测试样例，对于每个测试案例，
+输入的第一行为两个整数m和n(1<=m,n<=1000)：代表将要输入的矩阵的行数和列数。
+输入的第二行包括一个整数t(1<=t<=1000000)：代表要查找的数字。
+接下来的m行，每行有n个数，代表题目所给出的m行n列的矩阵(矩阵如题目描述所示，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。
+输出：
+对应每个测试案例，
+输出”Yes”代表在二维数组中找到了数字t。
+输出”No”代表在二维数组中没有找到数字t。
+样例输入：
+3 3
+5
+1 2 3
+4 5 6
+7 8 9
+3 3
+1
+2 3 4
+5 6 7
+8 9 10
+3 3
+12
+2 3 4
+5 6 7
+8 9 10
+样例输出：
+Yes
+No
+No
+
+
+1.初始化思路是按照题目给的特征  判断
+难点是结束条件
+
+2. 转化为一维二分查找  但是不一定以为是有序的
+
+3.网上参考别人思路可以看到
+比如：
+A -> *** -> B 
+|           |
+*           *
+*           * 
+C -> *** -> D 
+E -> ******->G，G是这个矩阵的最大值，A是最小值。假如val < A || val  > G，val不在矩阵中，依据这个规律，从假如val  > A && val < D就在小矩阵里找
+假如不满足，就在E-G或F-G中找
+类似于不断减小问题规模
+可以在最后一列二分查找缩小范围 查找到这个值所在在范围 话费Logn
+
+4. 利用杨氏矩阵算法和思维 
+
+
+参考网站
+http://lsxjl.iteye.com/blog/1319537
+http://www.cnblogs.com/remlostime/archive/2012/11/21/2780352.html
+
+
+
+使用样式矩阵方法 AC
+
+#include<stdio.h>
+#include<string.h>
+#define MAX 1001
+int metrix[MAX][MAX];
+int r,c;
+
+bool FindMetrix(int i, int j, int val){
+	while(i <= r - 1 && j >= 0){
+		if(metrix[i][j] == val){
+			return true;
+		}
+		else if(metrix[i][j] < val){
+			i++;
+		}
+		else{
+			j--;
+		}
+	}
+	return false;
+}
+
+int main()
+{
+	while(scanf("%d%d",&r,&c) != EOF) {
+		int num = 0;
+		scanf("%d",&num);
+		for (int i = 0; i < r; i++) {
+			for (int j = 0; j < c; j++) {
+				scanf("%d",&metrix[i][j]);
+			}
+		}
+		bool res = FindMetrix(0 ,c - 1,num);
+		if(res)
+			printf("Yes\n");
+		else
+			printf("No\n");
+	}
+	return 0;
+}
+
+546099	chenyongsuda	1384	Accepted		4936 kb	670 ms	C++ / Edit	14:24:14
+
+
+最快的 90ms
+差距很大啊  以后再说吧 现在目标是AC 以后目标提高了在说吧.
+

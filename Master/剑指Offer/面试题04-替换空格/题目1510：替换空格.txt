@@ -1,0 +1,72 @@
+题目1510：替换空格
+
+题目描述：
+请实现一个函数，将一个字符串中的空格替换成“%20”。例如，当字符串为We Are Happy.则经过替换之后的字符串为We%20Are%20Happy。
+输入：
+每个输入文件仅包含一组测试样例。
+对于每组测试案例，输入一行代表要处理的字符串。
+输出：
+对应每个测试案例，出经过处理后的字符串。
+样例输入：
+We Are Happy
+样例输出：
+We%20Are%20Happy
+
+1.个人想法
+记录空格数目
+如果可以开辟新内存的话
+
+遇到一个空格 之后放到新数组的位置为 index + 1*(3-1)
+遇到n个为 index + n*(3-1)
+如果为空格 
+i i+1 i+2 为% 2 0
+
+如果不可以还要在原来数组上操作的话
+如果从前往后替换字符串，那么保存在空格后面的字符串肯定会被覆盖，那么我们就考虑从后往前进行替换。
+
+首先遍历原字符串，找出字符串的长度以及其中的空格数量，
+根据原字符串的长度和空格的数量我们可以求出最后新字符串的长度。
+设置两个指针originalIndex和newIndex分别指向原字符串和新字符串的末尾位置。
+如果originalIndex指向内容不为空格，那么将内容赋值给newIndex指向的位置，如果originalIndex指向为空格，那么从newIndex开始赋值“02%”
+直到originalIndex==newIndex时表明字符串中的所有空格都已经替换完毕。
+
+代码如下：
+
+#include<stdio.h>
+#include<string.h>
+#define MAX 1000001
+char str[MAX];
+
+int main()
+{
+	while(gets(str)) {
+		int len = strlen(str);
+		int count = 0;
+		//Get space count
+		for(int i = 0; i < len; i++){
+			if(str[i] == ' ') count++;
+		}
+		int end = 0;
+		if(0 == count){
+			end = len - 1;
+		}
+		else{
+			end = len - 1 + count * 2;
+		}
+		//Move
+		for(int i = len - 1; i >= 0; i --){
+			if(' ' == str[i]){
+				str[end--] = '0';
+				str[end--] = '2';
+				str[end--] = '%';
+			}
+			else{
+				str[end--] = str[i];
+			}
+		}
+		printf("%s\n",str);
+	}
+	return 0;
+}
+
+

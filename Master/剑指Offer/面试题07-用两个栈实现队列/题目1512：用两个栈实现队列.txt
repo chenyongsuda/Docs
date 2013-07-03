@@ -1,0 +1,137 @@
+题目1512：用两个栈实现队列
+
+题目描述：
+用两个栈来实现一个队列，完成队列的Push和Pop操作。
+队列中的元素为int类型。
+输入：
+每个输入文件包含一个测试样例。
+对于每个测试样例，第一行输入一个n(1<=n<=100000)，代表队列操作的个数。
+接下来的n行，每行输入一个队列操作：
+1.	PUSH X 向队列中push一个整数x(x>=0)
+2.	POP 从队列中pop一个数。
+输出：
+对应每个测试案例，打印所有pop操作中从队列pop中的数字。如果执行pop操作时，队列为空，则打印-1。
+样例输入：
+3
+PUSH 10
+POP
+POP
+样例输出：
+10
+-1
+
+
+代码如下
+
+#include<stdio.h>
+#include<string.h>
+#define MAX 100001
+
+char action[4];
+int top1;
+int top2;
+int heap1[MAX];
+int heap2[MAX];
+
+void Push(int val){
+	heap2[++top2] = val;
+}
+
+int Get(){
+	int res = -1;
+	if(-1 == top1){
+		while(-1 != top2){
+			heap1[++top1] = heap2[top2--];
+		}
+	}
+	
+	res = heap1[top1];
+	top1--;
+
+	return res;
+}
+
+int main()
+{
+	int n;
+	//Build Linked list
+	while(scanf("%d",&n) != EOF) {
+		top1 = -1;
+		top2 = -1;
+		for(int i = 0; i < n; i++){
+			scanf("%s",action);
+			//PUSH
+			if('U' == action[1]){
+				int val = 0;
+				scanf("%d",&val);
+				Push(val);
+			}
+			//POP
+			else{
+				int val = Get();
+				printf("%d\n",val);
+			}
+		}
+	}
+	return 0;
+}
+
+WA
+
+发现
+
+int Get(){
+	int res = -1;
+	if(-1 == top1){
+		while(-1 != top2){
+			heap1[++top1] = heap2[top2--];
+		}
+	}
+	
+	res = heap1[top1];
+	top1--;
+
+	return res;
+}
+
+这块是不对的
+如果top为-1不能
+res = heap1[top1];
+top1--;
+这么处理
+
+改成
+
+int Get(){
+	int res = -1;
+	if(-1 == top1){
+		while(top2 >= 0){
+			heap1[++top1] = heap2[top2--];
+		}
+	}
+	if(-1 != top1){
+		res = heap1[top1--];
+	}
+	return res;
+}
+
+还是WA 但是用C交就过了 = =！囧
+
+改为
+int Get(){
+	int res = -1;
+	if(top1 < 0){
+		while(top2 >= 0){
+			heap1[++top1] = heap2[top2--];
+		}
+	}
+	if(top1 >= 0){
+		res = heap1[top1--];
+	}
+	return res;
+}
+AC
+
+为啥 不了解
+不纠结了 
+
