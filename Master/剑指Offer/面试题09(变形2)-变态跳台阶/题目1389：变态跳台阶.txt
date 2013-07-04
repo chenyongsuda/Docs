@@ -13,3 +13,23 @@
 样例输出：
 32
 
+总结规律
+
+i-> 2的i次方
+
+代码如下
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+	int n;
+	//Build Linked list
+	while(scanf("%d",&n) != EOF) {
+		long long res = 1;
+		for (int i = 0; i < n - 1; i++) {
+			res *= 2;
+		}
+		printf("%lld\n",res);
+	}
+	return 0;
+}

@@ -1,0 +1,56 @@
+题目1515：打印1到最大的N位数
+
+题目描述：
+给定一个数字N，打印从1到最大的N位数。
+输入：
+每个输入文件仅包含一组测试样例。
+对于每个测试案例，输入一个数字N(1<=N<=5)。
+输出：
+对应每个测试案例，依次打印从1到最大的N位数。
+样例输入：
+1
+样例输出：
+1
+2
+3
+4
+5
+6
+7
+8
+9
+
+需要注意的地方if(0 == count & 1) 先是计算 0 == count然后才计算 & 1
+
+AC 代码
+
+#include<stdio.h>
+#include<string.h>
+
+int GetNum(int count){
+	if(0 == count){
+		return 1;
+	}
+	if(0 == (count & 1)){
+		int tmp = GetNum(count >> 1);
+		return tmp * tmp;
+	} else {
+		int tmp = GetNum(count >> 1);
+		return 10 * tmp * tmp;
+	}
+}
+
+int main()
+{
+	int n;
+	int count = 0;
+	//Build Linked list
+	while(scanf("%d",&n) != EOF) {
+		int i = 0;
+		int res = GetNum(n);
+		while(++i < res){
+			printf("%d\n",i);
+		}
+	}
+	return 0;
+}

@@ -1,0 +1,90 @@
+题目1517：链表中倒数第k个结点
+
+题目描述：
+输入一个链表，输出该链表中倒数第k个结点。
+(hint: 请务必使用链表。)
+输入：
+输入可能包含多个测试样例，输入以EOF结束。
+对于每个测试案例，输入的第一行为两个整数n和k(0<=n<=1000, 0<=k<=1000)：n代表将要输入的链表元素的个数,k代表要查询倒数第几个的元素。
+输入的第二行包括n个数t(1<=t<=1000000)：代表链表中的元素。
+输出：
+对应每个测试案例，
+若有结果，输出相应的查找结果。否则，输出NULL。
+样例输入：
+5 2
+1 2 3 4 5
+1 0
+5
+样例输出：
+4
+NULL
+
+AC代码如下
+利用堆栈的逆序输出
+
+#include<stdio.h>
+#include<string.h>
+
+typedef struct  Node{
+	Node* next;
+	int val;
+}Node;
+
+Node* head = NULL;
+Node* cur = NULL;
+int count = -1;
+int targetIndex = 0;
+
+bool CountPlus(){
+	bool tag = false;
+	count++;
+	if(targetIndex == count){
+		tag = true;
+	}
+	return tag;
+}
+void Reverse(Node* fir){
+	if(NULL == fir){
+		if(CountPlus()){
+			printf("NULL\n");
+		}
+		return;
+	}
+	
+	Reverse(fir->next);
+	if(CountPlus()){
+		printf("%d\n",fir->val);
+	}
+}
+
+int main()
+{
+	int n;
+	while(scanf("%d%d",&n,&targetIndex) != EOF) {
+		head = NULL;
+		cur = NULL;
+		count = -1;
+
+		for (int i = 0; i < n; i ++) {
+			int tmp = 0;
+			scanf("%d",&tmp);
+			//Build Link List
+			Node* node = new Node;
+			node->next = NULL;
+			node->val = tmp;
+			if(NULL == head){
+				head = cur =  node;
+			} else{
+				cur->next = node;
+				cur = node;
+			}
+		}
+		if(targetIndex > n || targetIndex <= 0){
+			printf("NULL\n");
+		}
+		else{
+			Reverse(head);
+		}
+	}
+	return 0;
+}

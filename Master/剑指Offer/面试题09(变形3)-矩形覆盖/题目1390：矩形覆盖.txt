@@ -1,0 +1,51 @@
+题目1390：矩形覆盖
+
+题目描述：
+我们可以用2*1的小矩形横着或者竖着去覆盖更大的矩形。请问用n个2*1的小矩形无重叠地覆盖一个2*n的大矩形，总共有多少种方法？
+输入：
+输入可能包含多个测试样例，对于每个测试案例，
+输入包括一个整数n(1<=n<=70)，其中n为偶数。
+输出：
+对应每个测试案例，
+输出用n个2*1的小矩形无重叠地覆盖一个2*n的大矩形，总共有的方法数。
+样例输入：
+4
+样例输出：
+5
+
+
+比较简单
+
+dp(n) = dp(n-1)+dp(n-2)
+
+代码
+
+#include<stdio.h>
+#include<string.h>
+long long fir = 1;
+long long sec = 2;
+int main()
+{
+	int n;
+	//Build Linked list
+	while(scanf("%d",&n) != EOF) {
+		fir = 1;
+		sec = 2;
+
+		if(1 == n){
+			printf("%d\n",fir);
+			continue;
+		}
+		if(2 == n){
+			printf("%d\n",sec);
+			continue;
+		}
+		for (int i = 3; i <= n; i++) {
+			long long tmp = sec;
+			sec = fir + sec;
+			fir = tmp; 
+		}
+		printf("%lld\n",sec);
+	}
+	return 0;
+}
