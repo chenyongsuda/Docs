@@ -1,0 +1,62 @@
+题目1520：树的子结构
+
+题目描述：
+输入两颗二叉树A，B，判断B是不是A的子结构。
+输入：
+输入可能包含多个测试样例，输入以EOF结束。
+对于每个测试案例，输入的第一行一个整数n,m(1<=n<=1000,1<=m<=1000)：n代表将要输入的二叉树A的节点个数（节点从1开始计数），m代表将要输入的二叉树B的节点个数（节点从1开始计数）。接下来一行有n个数，每个数代表A树中第i个元素的数值，接下来有n行，第一个数Ki代表第i个节点的子孩子个数，接下来有Ki个树，代表节点i子孩子节点标号。接下来m+1行，与树A描述相同。
+输出：
+对应每个测试案例，
+若B是A的子树输出”YES”(不包含引号)。否则，输出“NO”（不包含引号）。
+样例输入：
+7 3
+8 8 7 9 2 4 7
+2 2 3
+2 4 5
+0
+0
+2 6 7
+0
+0
+8 9 2
+2 2 3
+0
+0
+
+1 1
+2
+0
+3
+0
+样例输出：
+YES
+NO
+提示：
+B为空树时不是任何树的子树。
+
+
+//这里描述一棵树的方式很恶心
+
+算了 直接上算法吧 主要还是专注算法
+
+1.个人思路：
+	通过递归方式 
+		IsContainner(tree,subtree){
+			if NULL 
+				return false
+			if isSamtree
+				return true;
+			leftres = IsContainner(lefttree,subtree)
+			rightres = IsContainner(righttree,subtree)
+			return leftres || rightres;
+		}
+	判断isSamtree时候只要判断前序中序都一样就行了吧  当tree节点的值和subtree节点值相等 leftsize 和rightsize相等采取检测 不等就返回false
+
+2.判断前序中序包含这个子串么 不知道对么
+
+
+网上的代码参照
+http://zhedahht.blog.163.com/blog/static/25411174201011445550396/
+基本和我的思路差不多
+他的更简单
+ 	

@@ -19,4 +19,126 @@
 1 2 3 4 5 7 9
 NULL
 
+´úÂëÈçÏÂ
+
+#include<stdio.h>
+#include<string.h>
+
+typedef struct  Node{
+	Node* next;
+	int val;
+}Node;
+
+Node* cur = NULL;
+Node* fir = NULL;
+Node* sec = NULL;
+Node* res = NULL;
+
+//Return The Tire of linked list
+Node* Add2LinkList(Node* item){
+	if(NULL == res){
+		res = cur = item;
+	} 
+	else{
+		cur->next = item;
+		cur = cur->next;
+	}
+	return cur;
+}
+
+void PrintLinkList(Node* header){
+	bool first = true;
+	while(NULL != header){
+		if(first){
+			printf("%d",header->val);
+			first = false;
+		}
+		else
+			printf(" %d",header->val);
+		header = header->next;
+	}
+}
+
+int main()
+{
+	int n,m;
+	while(scanf("%d%d",&n,&m) != EOF) {
+
+		cur = NULL;
+		fir = NULL;
+		sec = NULL;
+		res = NULL;
+
+		if(0 == n && 0 == m){
+			printf("NULL\n");
+			continue;
+		}
+		//Build Link List 1
+		for (int i = 0; i < n; i++) {
+			int tmp;
+			scanf("%d",&tmp);
+			Node* node = new Node;
+			node->next = NULL;
+			node->val = tmp;
+			if(NULL == fir){
+				fir = cur = node;
+			}
+			else{
+				cur->next = node;
+				cur = cur->next;
+			}
+		}
+		//Build Link list 2
+		for (int i = 0; i < m; i++) {
+			int tmp;
+			scanf("%d",&tmp);
+			Node* node = new Node;
+			node->next = NULL;
+			node->val = tmp;
+			if(NULL == sec){
+				sec = cur = node;
+			}
+			else{
+				cur->next = node;
+				cur = cur->next;
+			}
+		}
+
+		if(NULL == fir){
+			PrintLinkList(sec);
+		} 
+		else if (NULL == sec){
+			PrintLinkList(fir);
+		}
+		else{
+			Node* tmp = NULL;
+			Node* tile = NULL;
+			//Merge Link list
+			while(NULL != fir && NULL != sec){
+				if(fir->val < sec->val){
+					tmp = fir->next;
+					tile = Add2LinkList(fir);
+					fir = tmp;
+				}
+				else{
+					tmp = sec->next;
+					tile = Add2LinkList(sec);
+					sec = tmp;
+				}
+			}
+
+			//Add The end to Link list tile
+			if(NULL == fir){
+				tile->next = sec;
+			}
+			if(NULL == sec){
+				tile->next = fir;
+			}
+		
+			PrintLinkList(res);
+		}
+		printf("\n");
+	}
+	return 0;
+}
 
