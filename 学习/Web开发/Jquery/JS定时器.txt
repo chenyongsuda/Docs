@@ -1,0 +1,19 @@
+var intervalID=window.setInterval(function(){clock()},800)
+
+function clock()
+            {
+               $.post(
+               "/GetCaseRunningProgress/",
+                 function(data){  
+                    data = JSON.parse(data);
+                    if(data.progress >= data.total){
+                        window.clearInterval(intervalID);
+                        $('.bg').fadeOut(200);
+                        $('.content').fadeOut(200);
+                        
+                    } 
+                 }   
+               ); 
+            }
+			
+window.clearInterval(intervalID);

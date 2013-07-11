@@ -1,0 +1,74 @@
+参考网站
+http://blog.wpjam.com/m/jquery-popup-mask-effect/
+http://www.qianxingzhem.com/demo/1758/
+
+
+HTML 结构
+
+首先先来分析一下这个过程：触发某个事件（例如点击按钮），然后出现一个背景遮罩上面还有一个内容层。触发的按钮，我在这里用 div 来代替，并且使用 click 点击事件来演示。那么我们的 HTML 结构就很明确了。
+
+<div class="click">点击这里</div>
+<div class="click1">效果增强版的</div>
+<div class="bg"></div>
+<div class="content">这里是正文内容</div>
+
+
+
+
+
+CSS 代码
+
+对于遮罩效果的 CSS 代码是最关键的。遮罩用到了两个 div ，一个作为背景，要覆盖整个网页，另一个是内容显示层，通常要居中处理。
+
+.bg{display:none;position:fixed;width:100%;height:100%;background:#000;z-index:2;top:0;left:0;opacity:0.7;}
+.content{display:none;width:500px;height:300px;position:fixed;top:50%;margin-top:-150px;background:#fff;z-index:3;left:50%;margin-left:-250px;}
+简单解释一下，首先要隐藏起来，之后用 jQuery 触发显示。之后指定 position 的属性为 fixed，因为这样，才能激活 top 、left 、bottom 、right 、z-index这些属性，同时可以设置 width 、height 为 100% 来实现覆盖整个网页。通常情况下，一般用 absolute 属性值来实现这种效果，因为它的兼容性更好。但是在实际应用当中，当页面很长，往下滚动的时候，使用 absolute 遮罩层也会跟随滚动。对于内容层来说，比较简单，指定宽度和高度用负边距来使其居中显示。
+
+特别要注意一点，背景层的半透明使用的是 opacity 属性，因为使用这个属性可以更好的用 jQuery 来控制。但是 fixed 、opacity 都是早期 IE 浏览器不支持的。
+
+
+
+
+
+
+jQuery 代码
+
+分析一下遮罩的交互操作，无非就是点击弹出，然后点击一下遮罩，消失。那么就直接对 CSS 进行操作即可。
+
+$(function(){
+    $('.click').click(function(){
+        $('.bg').css({'display':'block'});
+        $('.content').css({'display':'block'});
+    });
+    $('.bg').click(function(){
+        $('.bg').css({'display':'none'});
+        $('.content').css({'display':'none'});
+    });
+});
+这里直接使用 CSS 方法，当点击的时候改变 display 属性，此外还有很多实现方法，不再赘述。完成这些，当我们点击“点击这里”之后，就可以看到效果了。
+
+
+
+
+
+更多技巧和方法
+
+更平缓的显示
+
+点击之后，突然出现并不是一个好方法。所以我又增加了一个按钮，点击之后通过 fadeIn、fadeOut 方法来控制渐隐。
+
+$('.click1').click(function(){
+	$('.bg').fadeIn(200);
+	$('.content').fadeIn(400);
+});
+$('.bg').click(function(){
+	$('.bg').fadeOut(800);
+	$('.content').fadeOut(800);
+});
+这样简单的方法，就增强了用户体验。当然，还有一些更高级的效果可以实现。
+
+其他的实现方法
+
+现在的方法确实足够简单，但是兼容性不够好，对于早期的 IE 浏览器不兼容。通常的做法是这样的：用 Javascript 获取整个网页的高度、宽度，赋值给遮罩层，这样即使打开遮罩滚动网页，也不会出现没有遮罩的地方。具体的代码和实现方式，请看这篇文章：简单的jQuery弹出遮罩层。
+
+差不多就是这样吧，至于内容层的展示之类的，就靠你根据具体内容自由发挥了。

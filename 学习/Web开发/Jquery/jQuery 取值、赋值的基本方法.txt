@@ -1,0 +1,5 @@
+/*获得TEXT.AREATEXT的值*/ 
+     var textval = $("#text_id").attr("value"); 
+//或者 
+     var textval = $("#text_id").val(); 
+	 

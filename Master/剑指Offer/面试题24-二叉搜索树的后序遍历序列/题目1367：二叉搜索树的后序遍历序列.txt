@@ -1,0 +1,83 @@
+题目1367：二叉搜索树的后序遍历序列
+
+题目描述：
+输入一个整数数组，判断该数组是不是某二叉搜索树的后序遍历的结果。如果是则输出Yes,否则输出No。假设输入的数组的任意两个数字都互不相同。
+输入：
+每个测试案例包括2行：
+第一行为1个整数n(1<=n<=10000)，表示数组的长度。
+第二行包含n个整数，表示这个数组，数组中的数的范围是[0,100000000]。
+输出：
+对应每个测试案例，如果输入数组是某二叉搜索树的后序遍历的结果输出Yes，否则输出No。
+样例输入：
+7
+5 7 6 9 11 10 8
+4
+7 4 6 5
+样例输出：
+Yes
+No
+
+
+解题思路 利用BST的root大于左子树小于右子数
+
+伪代码
+checkleft < root
+right > root
+check left tree && check right tree
+
+
+代码如下
+
+#include <stdio.h> 
+#include <string.h>
+
+#define MAX 10001
+
+int a[MAX];
+
+bool ValidatePost(int* a,int s,int e){
+	//Has Node or no Node Return True
+	if(s == e || s == e - 1){
+		return true;
+	}
+	
+	int root = a[e - 1];
+	int firBigIndex = s;
+	for(int i = s; i < e; i++){
+		if(a[i] < root){
+			continue;
+		}
+		else{
+			firBigIndex = i;
+			break;
+		}
+	}
+
+	//Check for firBigIndex 2 end
+	for(int i = firBigIndex; i < e; i++){
+		if(a[i] < root){
+			return false;
+		}
+	}
+
+	return ValidatePost(a,s,firBigIndex) && ValidatePost(a,firBigIndex,e - 1);
+
+}
+
+int main()
+{
+	int n;
+	while(scanf("%d\n",&n) != EOF) {
+		for (int i = 0; i < n; i++) {
+			scanf("%d",&a[i]);
+		}
+		bool ret = ValidatePost(a,0,n);
+		if(ret){
+			printf("Yes\n");
+		}
+		else{
+			printf("No\n");
+		}
+	}
+	return 0;
+}

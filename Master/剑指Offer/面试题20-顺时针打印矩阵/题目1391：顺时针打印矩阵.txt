@@ -29,3 +29,81 @@
 原因是建模过程不对
 参考http://zhedahht.blog.163.com/blog/static/254111742010111112236313/
 其实是个递归的过程 建模型正确了其实比较简单
+
+我自己的代码
+#include<stdio.h>
+#include<string.h>
+
+#define MAX 1001
+int arr[MAX][MAX];
+
+bool first =true;
+void Print(int x, int y){
+	if(first){
+		printf("%d ",arr[x][y]);
+		first = false;
+	}else{
+		printf("%d ",arr[x][y]);
+	}
+}
+int main()
+{
+	int m,n;
+	int nRow = 0, nCol = 0;
+	int wid = 0,hig = 0;
+
+	while(scanf("%d%d",&m,&n) != EOF) {
+		first = true;
+		//Get Min 
+		int min = m > n ? n : m;
+		wid = n; hig = m;
+		nRow = 0; nCol = 0;
+		//Get Array[]
+		for(int i = 0; i < m; i++){
+			for (int j = 0; j < n; j++) {
+				scanf("%d",&arr[i][j]);
+			}
+		}
+		
+		//if 3 loop 2 times 5 ->3times
+		for (int i = 0; i < (min + 1)/2; i++) {
+			if(wid >= 2 & hig >= 2){
+				//top
+				for (int x = nCol; x < nCol + wid - 1; x++) {
+					Print(nRow,x);
+				}
+				//right
+				for (int x = nRow; x < nRow + hig -1; x++) {
+					Print(x,nCol + wid - 1);
+				}
+				//bontom
+				for(int x = nCol + wid -1; x >= nCol + 1; x --){
+					Print(nRow + hig - 1,x);
+				}
+				//left
+				for (int x = nRow + hig - 1; x >= nRow + 1; x--) {
+					Print(x,nCol);
+				}
+			} else {
+				if (1 == hig) {
+					for(int i = nCol; i <nCol + wid; i++){
+						Print(nRow,i);
+					}
+				} 
+				else if (1 == wid){
+					for (int i = nRow; i < nRow + hig; i++) {
+						Print(i,nCol);
+					}
+				} else {
+
+				}
+			}
+			nRow++;nCol++;
+			hig -= 2;
+			wid -= 2;
+		}
+		printf("\n");
+	}
+	return 0;
+}
+

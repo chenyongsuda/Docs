@@ -1,0 +1,54 @@
+http://blog.csdn.net/shangliuyan/article/details/7406876
+
+在django中，使用jquery ajax post数据，会出现403的错误
+
+方法一：
+
+如果用jQuery来处理ajax的话，Django直接送了一段解决问题的代码。把它放在一个独立的js文件中，在html页面中都引入即可。注意这个js文件必须在jquery的js文件引入之后，再引入即可
+[javascript] view plaincopy
+$(document).ajaxSend(function(event, xhr, settings) {  
+    function getCookie(name) {  
+        var cookieValue = null;  
+        if (document.cookie && document.cookie != '') {  
+            var cookies = document.cookie.split(';');  
+            for (var i = 0; i < cookies.length; i++) {  
+                var cookie = jQuery.trim(cookies[i]);  
+                // Does this cookie string begin with the name we want?  
+                if (cookie.substring(0, name.length + 1) == (name + '=')) {  
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));  
+                    break;  
+                }  
+            }  
+        }  
+        return cookieValue;  
+    }  
+    function sameOrigin(url) {  
+        // url could be relative or scheme relative or absolute  
+        var host = document.location.host; // host + port  
+        var protocol = document.location.protocol;  
+        var sr_origin = '//' + host;  
+        var origin = protocol + sr_origin;  
+        // Allow absolute or scheme relative URLs to same origin  
+        return (url == origin || url.slice(0, origin.length + 1) == origin + '/') ||  
+            (url == sr_origin || url.slice(0, sr_origin.length + 1) == sr_origin + '/') ||  
+            // or any other URL that isn't scheme relative or absolute i.e relative.  
+            !(/^(\/\/|http:|https:).*/.test(url));  
+    }  
+    function safeMethod(method) {  
+        return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));  
+    }  
+  
+    if (!safeMethod(settings.type) && sameOrigin(settings.url)) {  
+        xhr.setRequestHeader("X-CSRFToken", getCookie('csrftoken'));  
+    }  
+});  
+
+
+方法二：
+在处理post数据的view前加@csrf_exempt装饰符
+例如
+[python] view plaincopy
+@csrf_exempt  
+def profile_delte(request):  
+    del_file=request.POST.get("delete_file",'')  
+      

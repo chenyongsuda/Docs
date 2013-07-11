@@ -177,6 +177,17 @@ http://www.lhgamer.com/forum.php
 虚幻引擎 
 U3D引擎
 
+@在线代码
+paste.ubuntu.com
+
+@Jquery
+http://www.sd131.com/  插件库
+
+@数据分析 大数据
+http://f.dataguru.cn/forum.php  炼数成金
+学习R，SAS，SPSS等等
+
+目前公开课里面，coursera.org上有两门课：web intelligence and big data大体介绍了到底什么是大数据、现在一般流行用什么方式处理；最近正在进行中的introduction to data science，比较着重讲data hacking，
 
 
 

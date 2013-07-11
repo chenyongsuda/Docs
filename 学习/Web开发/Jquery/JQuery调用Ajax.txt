@@ -1,0 +1,69 @@
+
+http://www.w3school.com.cn/jquery/ajax_post.asp
+
+定义和用法
+post() 方法通过 HTTP POST 请求从服务器载入数据。
+语法
+jQuery.post(url,data,success(data, textStatus, jqXHR),dataType)
+参数	描述
+url	必需。规定把请求发送到哪个 URL。
+data	可选。映射或字符串值。规定连同请求发送到服务器的数据。
+success(data, textStatus, jqXHR)	可选。请求成功时执行的回调函数。
+dataType	
+可选。规定预期的服务器响应的数据类型。
+默认执行智能判断（xml、json、script 或 html）。
+详细说明
+该函数是简写的 Ajax 函数，等价于：
+$.ajax({
+  type: 'POST',
+  url: url,
+  data: data,
+  success: success,
+  dataType: dataType
+});
+根据响应的不同的 MIME 类型，传递给 success 回调函数的返回数据也有所不同，这些数据可以是 XML 根元素、文本字符串、JavaScript 文件或者 JSON 对象。也可向 success 回调函数传递响应的文本状态。
+对于 jQuery 1.5，也可以向 success 回调函数传递 jqXHR 对象（jQuery 1.4 中传递的是 XMLHttpRequest 对象）。
+大部分实现会规定一个 success 函数：
+$.post("ajax/test.html", function(data) {
+  $(".result").html(data);
+});
+本例读取被请求的 HTML 片段，并插入页面中。
+通过 POST 读取的页面不被缓存，因此 jQuery.ajaxSetup() 中的 cache 和 ifModified 选项不会影响这些请求。
+注释：由于浏览器安全方面的限制，大多数 "Ajax" 请求遵守同源策略；请求无法从不同的域、子域或协议成功地取回数据。
+注释：如果由 jQuery.post() 发起的请求返回错误代码，那么不会有任何提示，除非脚本已调用了全局的 .ajaxError() 方法。或者对于 jQuery 1.5，jQuery.post() 返回的 jqXHR 对象的 .error() 方法也可以用于错误处理。
+
+
+更多实例
+例子 1
+请求 test.php 页面，并一起发送一些额外的数据（同时仍然忽略返回值）：
+$.post("test.php", { name: "John", time: "2pm" } );
+例子 2
+向服务器传递数据数组（同时仍然忽略返回值）：
+$.post("test.php", { 'choices[]': ["Jon", "Susan"] });
+例子 3
+使用 ajax 请求发送表单数据：
+$.post("test.php", $("#testform").serialize());
+例子 4
+输出来自请求页面 test.php 的结果（HTML 或 XML，取决于所返回的内容）：
+$.post("test.php", function(data){
+   alert("Data Loaded: " + data);
+ });
+例子 5
+向页面 test.php 发送数据，并输出结果（HTML 或 XML，取决于所返回的内容）：
+$.post("test.php", { name: "John", time: "2pm" },
+   function(data){
+     alert("Data Loaded: " + data);
+   });
+例子 6
+获得 test.php 页面的内容，并存储为 XMLHttpResponse 对象，并通过 process() 这个 JavaScript 函数进行处理：
+$.post("test.php", { name: "John", time: "2pm" },
+   function(data){
+     process(data);
+   }, "xml");
+例子 7
+获得 test.php 页面返回的 json 格式的内容：
+$.post("test.php", { "func": "getNameAndTime" },
+   function(data){
+     alert(data.name); // John
+     console.log(data.time); //  2pm
+   }, "json");

@@ -33,3 +33,85 @@ s 0
 
 比较简单
 每个进堆栈元素保存当前最小值
+
+
+WA代码
+
+#include <stdio.h> 
+#include <string.h>
+
+#define MAX 1000001
+
+typedef struct Item{
+	int val;
+	int min;
+}Item;
+
+
+int top = -1;
+Item* heap[MAX];
+
+
+
+Item* GetTop(){
+	return heap[top];
+}
+
+
+void AddToHeap(int val){
+	Item* item = new Item;
+	item->val = val;
+	if(-1 != top){
+		Item* it = GetTop();
+		int min = it->min > val ? val : it->min;
+		item->min = min;
+	} 
+	else{
+		item->min = val;
+	}
+	heap[++top] = item;
+}
+
+
+void RemoveTop(){
+	if(-1 == top)
+		return;
+	top--;
+}
+
+void Print(Item* it){
+	printf("%d\n",it->min);
+}
+
+int main()
+{
+	int n;
+	char action;
+	int tmp;
+	while(scanf("%d\n",&n) != EOF) {
+		top = -1;
+		for (int i = 0; i < n; i++) {
+			scanf("%c",&action);
+			if('s' == action){
+				scanf("%d",&tmp);
+				//Push to heap
+				AddToHeap(tmp);
+				Item* it = GetTop();
+				Print(it);
+			}
+			else{
+				//Pop
+				RemoveTop();
+				if(-1 != top)
+					Print(GetTop());
+				else
+					printf("NULL\n");
+			}
+		}
+	}
+	return 0;
+}
+
+把输入改成 for (int i = 0; i < n; i++) {
+			scanf("%s",action);
+过了  = =！！

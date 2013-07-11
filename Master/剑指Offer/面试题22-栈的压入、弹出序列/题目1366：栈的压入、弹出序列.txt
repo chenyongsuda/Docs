@@ -23,3 +23,79 @@ No
 
 
 这个得好好做做
+
+这题可以出成 
+1.这个序列有多少种出栈方式  这样就成了 卡特兰数列
+2.还可以打印所有的序列  就变成了树的操作方式了 每个节点有两种 1.出栈 2.入栈
+
+
+本题的解题我使用了模拟  
+
+代码如下
+
+#include <stdio.h> 
+#include <string.h>
+
+#define MAX 100001
+
+int heap[MAX];
+int heaptop = -1;
+int leftIndex = 0;
+int Seq[MAX];
+int newSeq[MAX];
+
+bool IsEmpty(){
+	return (heaptop == -1);
+}
+void AddToHeap(int val){
+	heap[++heaptop] = val;
+}
+
+int GetTop(){
+	return heap[heaptop];
+}
+
+void RemoveItem(){
+	heaptop--;
+}
+
+int main()
+{
+	int n;
+	
+	while(scanf("%d\n",&n) != EOF) {
+		heaptop = -1;
+		leftIndex = 0;
+		for (int i = 0; i < n; i++) {
+			int tmp;
+			scanf("%d",&Seq[i]);
+		}
+		for (int i = 0; i < n; i++) {
+			scanf("%d",&newSeq[i]);
+		}
+
+		for (int i = 0; i < n; i++) {
+			AddToHeap(Seq[i]);
+			while (false == IsEmpty())
+			{
+				int val = GetTop();
+				if(newSeq[leftIndex] == val){
+					RemoveItem();
+					leftIndex++;
+				}
+				else{
+					break;
+				}
+			}
+		}
+
+		if(leftIndex == n && true == IsEmpty()){
+			printf("Yes\n");
+		}
+		else{
+			printf("No\n");
+		}
+		
+	}
+	return 0;
+}

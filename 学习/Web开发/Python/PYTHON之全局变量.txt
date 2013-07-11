@@ -1,0 +1,49 @@
+转:PYTHON之全局变量
+应该尽量避免使用全局变量。不同的模块都可以自由的访问全局变量，可能会导致全局变量的不可预知性。对全局变量，如果程序员甲修改了_a的值，程序员乙同时也要使用_a，这时可能导致程序中的错误。这种错误是很难发现和更正的。 
+
+全局变量降低了函数或模块之间的通用性，不同的函数或模块都要依赖于全局变量。同样，全局变量降低了代码的可读性，阅读者可能并不知道调用的某个变量是全局变量。
+
+但是某些时候，全局变量能够解决局部变量所难以解决的问题。事物要一分为二。
+
+python里面全局变量有两种灵活的用法：
+
+1 声明法
+
+在文件开头声明全局变量variable，
+
+在具体函数中使用该变量时，需要事先声明 global variable，否则系统将该变量视为局部变量。
+
+CONSTANT = 0  (将全局变量大写便于识别)
+
+def modifyConstant() : 
+        global CONSTANT 
+        print CONSTANT 
+        CONSTANT += 1 
+        return
+
+if __name__ == '__main__' : 
+        modifyConstant() 
+        print CONSTANT
+
+2模块法（推荐）
+
+把全局变量定义在一个单独的模块中：
+#gl.py
+gl_1 = 'hello'
+gl_2 = 'world'
+
+在其它模块中使用
+#a.py
+import gl
+
+def hello_world()
+    print gl.gl_1, gl.gl_2
+
+#b.py
+import gl
+
+def fun1()
+    gl.gl_1 = 'Hello'
+    gl.gl_2 = 'World'
+
+第二种方法，适用于不同文件之间的变量共享，而且一定程度上避免了开头所说的全局变量的弊端，推荐！
