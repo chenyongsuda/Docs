@@ -1,0 +1,87 @@
+题目1369：字符串的排列
+
+题目描述：
+输入一个字符串,按字典序打印出该字符串中字符的所有排列。例如输入字符串abc,则打印出由字符a,b,c所能排列出来的所有字符串abc,acb,bac,bca,cab和cba。
+输入：
+每个测试案例包括1行。
+输入一个字符串,长度不超过9(可能有字符重复),字符只包括大小写字母。
+输出：
+对应每组数据,按字典序输出所有排列。
+样例输入：
+abc
+BCA
+样例输出：
+abc
+acb
+bac
+bca
+cab
+cba
+ABC
+ACB
+BAC
+BCA
+CAB
+CBA
+
+
+使用Swap法
+#include <stdio.h> 
+#include <string.h>
+#include <algorithm>
+#include <iostream>
+using namespace std;
+
+#define MAX 9
+
+char str[MAX];
+
+void SWAP(int a, int b){
+	if(a == b){
+		return;
+	}
+	char tmp = str[a];
+	str[a] = str[b];
+	str[b] = tmp;
+}
+
+void DFS(int start,int end){
+	if(start == end - 1){
+		printf("%s\n",str);
+	}
+	char pre = -1;
+	for (int i = start; i < end; i++) {
+		if(pre == str[i]){
+			continue;
+		}
+		//Swap
+		SWAP(start,i);
+		//DFS
+		DFS(start + 1,end);
+		//Swap
+		SWAP(i,start);
+
+		pre = str[i];
+	}
+}
+
+int main()
+{
+	int n;
+	while(scanf("%s",str) != EOF) {
+		int len = strlen(str);
+		sort(str,str+len);
+		DFS(0,len);
+	}
+	return 0;
+}
+
+WA
+
+结果 不能实现字典序
+
+
+那只能使用求下一个字典序的方法代码懒得写了
+以后写吧.
+
+

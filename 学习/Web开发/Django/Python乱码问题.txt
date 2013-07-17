@@ -1,0 +1,62 @@
+https://code.djangoproject.com/ticket/10730
+
+CSV Enconding Enhance
+
+Reported by:	camilonova	Owned by:	nobody
+Component:	Uncategorized	 Version:	1.0
+Severity:		 Keywords:	csv
+Cc:		 Triage Stage:	Unreviewed
+Has patch:	no	 Needs documentation:	no
+Needs tests:	no	 Patch needs improvement:	no
+Easy pickings:		 UI/UX:	
+Description (last modified by Alex)  
+
+Hi, i has to make a function to export a model data to a CSV file, i follow the docs, and works great, but later, when users began to use special characters in a field of the model, the function fails, this is the original function:
+writer = csv.writer(response)
+writer.writerow(['ID', 'NIT', 'Nombre', 'Direccion', 'Telefono', 'Ciudad'])
+for cliente in Cliente.objects.all():
+    writer.writerow([   cliente.id, cliente.nit, 
+                        cliente.nombre,
+                        cliente.direccion_principal, 
+                        cliente.telefono_principal, 
+                        cliente.ciudad
+                    ])
+When someone save a value like "ni?os por la paz en día" the function raises a " Exception Value: 'ascii' codec can't encode character u'\xd1' in position 15: ordinal not in range(128) ", i look in many places for the answer, and found using enconde() may works, and eventually i solve the problem like this:
+writer = csv.writer(response)
+writer.writerow(['ID', 'NIT', 'Nombre', 'Direccion', 'Telefono', 'Ciudad'])
+for cliente in Cliente.objects.all():
+    writer.writerow([   cliente.id, cliente.nit, 
+                        cliente.nombre.encode('utf-8'),
+                        cliente.direccion_principal.encode('utf-8'), 
+                        cliente.telefono_principal, 
+                        cliente.ciudad
+                    ])
+Using encode('utf-8') for the fields that maybe user has special characters. You guys, can do this better or inside django, the encode thing by default, just for saving time and make sure the code works everywhere?
+Thanks
+
+
+Django deliberately uses unicode internally everywhere (where appropriate). In the past it did actually use bytestrings, it's not going back. (Just because you want UTF-8 everywhere doesn't mean everyone does).
+You can probably clean up your example using a utility like the following:
+def encodelist(*items):
+    return [unicode(x).encode("utf-8") for x in items]
+...
+writer.writerow(encodelist(cliente.id, cliente.nit, cliente.nombre, cliente.direccion_principal, cliente.telefono_principal, cliente.ciudad))
+Yep, it's still a pain, but its the best we can do with Python 2.x. You've stumbled on one of the biggest warts in Python string handling, it's addressed in Python 3.0.
+
+
+
+我的代码如下
+def DownloadCSVList(request):
+    response = HttpResponse(mimetype='text/csv')  
+    response.write('\xEF\xBB\xBF')
+    response['Content-Disposition'] = 'attachment; filename=OutputCaseList.csv'  
+    writer = csv.writer(response) 
+    caseList = TestCase.objects.all()
+    for case in caseList :
+        writer.writerow([case.title.encode('utf-8'),case.orign.encode('utf-8'),case.destination.encode('utf-8'),case.waypoints.encode('utf-8')])  
+        #writer.writerow(['First row', 'Foo', 'Bar', 'Baz'])  
+        #writer.writerow(['Second row', 'A', 'B', 'C', '"Testing"', "Here's a quote"])
+    return response   
+    
+加上response.write('\xEF\xBB\xBF') 是为了Excel打开时候出现乱码问题 形成utf8 bom格式
+	

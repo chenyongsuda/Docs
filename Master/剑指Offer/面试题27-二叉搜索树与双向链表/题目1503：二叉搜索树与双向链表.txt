@@ -1,0 +1,116 @@
+题目1503：二叉搜索树与双向链表
+
+题目描述：
+输入一棵二叉搜索树，将该二叉搜索树转换成一个排序的双向链表。要求不能创建任何新的结点，只能调整树中结点指针的指向。
+输入：
+输入可能包含多个测试样例。
+对于每个测试案例，输入的第一行为一个数n(0<n<1000)，代表测试样例的个数。
+接下来的n行，每行为一个二叉搜索树的先序遍历序列，其中左右子树若为空则用0代替。
+输出：
+对应每个测试案例，
+输出将二叉搜索树转换成排序的双向链表后，从链表头至链表尾的遍历结果。
+样例输入：
+1
+2 1 0 0 3 0 0
+样例输出：
+1 2 3
+
+这里的根据输入数据建立二叉树可以写写
+
+创建二叉树
+
+void createTree(Node *&root){  
+    int x;  
+    scanf("%d",&x);  
+    if(!x)  
+        root = NULL;  
+    else{  
+        root = new Node;  
+        root->x = x;  
+        createTree(root->left);  
+        createTree(root->right);  
+    }  
+}  
+
+然后通过中序遍历 以顺序访问 然后创建双链表
+
+
+代码如下  注意输出答案格式
+
+#include <stdio.h> 
+#include <string.h>
+
+#define MAX 1001
+bool first = true;
+struct Node  
+{  
+	int x;  
+	struct Node *left;  
+	struct Node *right;  
+}; 
+
+Node* pre,*head;
+void createTree(Node *&root){  
+	int x;  
+	scanf("%d",&x);  
+	if(!x)  
+		root = NULL;  
+	else{  
+		root = new Node;  
+		root->x = x;  
+		createTree(root->left);  
+		createTree(root->right);  
+	}  
+}  
+
+void dfs(Node* root){
+	if(NULL ==root) return;
+
+	dfs(root->left);
+	/*if(first == true) {
+		printf("%d",root->x);
+		first = false;
+	}
+	else{
+		printf(" %d",root->x);
+	}*/
+	if(NULL == head){
+		head = pre = root;
+	}
+	else{
+		pre->right = root;
+		root->left = pre;
+		pre = root;
+	}
+	dfs(root->right);
+}
+
+int main()
+{
+	int n;
+	while(scanf("%d",&n) != EOF) {
+		for (int i = 0; i < n; i++) {
+			pre = head = NULL;
+			first = true;
+
+			Node* root;
+			createTree(root);
+			dfs(root);
+
+			Node* cur = head;
+			while(NULL != cur){
+				//if(true == first){
+				//	printf("%d",cur->x);
+				//	first = false;
+				//}
+				//else{
+					printf("%d ",cur->x);
+				//}
+				cur = cur->right;
+			}
+			printf("\n");
+		}
+		
+	}
+	return 0;
+}

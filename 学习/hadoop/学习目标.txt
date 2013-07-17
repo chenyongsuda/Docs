@@ -1,0 +1,1 @@
+1.精通hadoop相关技术和原理，熟练掌握MapReduce、HBase、Hive、Impala、Mahout中两种以上技术。

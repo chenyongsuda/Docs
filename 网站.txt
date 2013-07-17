@@ -1,0 +1,203 @@
+公开课网站
+
+@计算机公开课
+Coursera
+Udacity
+
+@中文公开课讨论网站
+http://52opencourse.com/
+http://courseminer.com/
+
+
+@代码练习
+http://codeforces.com/
+http://leetcode.com 
+careercup
+python challenge
+Google code jam
+glassdoor
+http://hero.pongo.cn/Question/Details?ID=17&ExamID=17  庞果网
+
+
+@学习技术网站
+http://www.1point3acres.com/bbs/forum-145-1.html
+http://hxraid.iteye.com/category/83702  数据结构  算法题目
+http://blog.csdn.net/ohmygirl/article/category/1185442	算法总结
+http://www.ahathinking.com/archives/186.html  勇幸|Thinking
+http://www.felix021.com/blog/read.php?1587  算法blog
+http://blog.csdn.net/v_JULY_v/article/details/6322882	算法blog
+http://blog.csdn.net/wuzhekai1985/article/details/6764858  算法
+http://blog.csdn.net/tianshuai11/article/details/7828907  算法集合
+http://www.51projob.com/a/souhu/20120911/651.html  面试题网站
+http://www.mianwww.com/html/2012/03/14404.html
+http://stackoverflow.com/
+http://blog.unieagle.net/2012/10/16/leetcode%E9%A2%98%E7%9B%AE%EF%BC%9Anext-permutation/
+http://dongxicheng.org/knowledges-carding/  一些基础链接 董的blog
+http://ac.jobdu.com/submitpage.php?pid=1082 九度OJ
+http://www.keithschwarz.com/interesting/	数据结构算法的100多条题目
+http://mindlee.net/2011/09/26/binomial-heaps/	酷行天下
+http://www.algorithmist.com/index.php/Data_Structures
+http://blog.csdn.net/lyy289065406/article/details/6674366	 小优 POJ解题
+http://www.cnblogs.com/remlostime/archive/2012/10/29/2745125.html	leetcode
+http://openjudge.cn/
+百度之星程序设计大赛
+http://star.baidu.com/
+http://mindlee.net/2011/09/10/huffman-coding/  酷行天下
+http://www.cnblogs.com/remlostime/  蛮好的Blog  牛人
+
+
+@论坛
+http://bbs.byr.cn/#!board/ACM_ICPC	北邮
+http://www.newsmth.net/nForum/#!board/Algorithm	水木清华
+http://bbs.csdn.net/forums/ST_Arithmetic	CSDN算法
+http://www.1point3acres.com/bbs/forum-84-1.html	一亩三分地算法
+http://www.csie.ntnu.edu.tw/~u91029/	演算法笔记
+http://coolshell.cn/articles/5426.html	酷壳 比较好的学习Blog 每天瞧一瞧		
+
+@HTML5
+http://www.html5cn.org/ 	HTML5学习网站
+http://www.xh-css.cn/category/js/	标准HTML学习过程
+
+一些算法相关推荐
+http://www.1point3acres.com/bbs/thread-35139-1-1.html
+
+@普林斯顿 算法
+http://algs4.cs.princeton.edu/home/
+
+
+@九度面试在线测试
+http://ac.jobdu.com/hhtproblems.php
+
+@专门翻译网站
+http://www.yeeyan.org/
+
+@在线测试网站
+codility
+
+@VS 设置
+比较好看的字体 consolars
+
+@信息资料书籍网站
+ppurl 皮皮书屋
+http://www.nowamagic.net  现代魔法
+http://www.nowamagic.net/librarys/veda/cate/Algorithm  现代魔法：算法部分
+http://dongxicheng.org/category/structure/  数据结构
+
+没解决的笔试题
+http://bbs.byr.cn/#!article/Job/1365483
+
+不错的Blog
+http://wordaligned.org/articles/two-star-programming	Linus	还有相关二级指针等等
+
+http://blog.csdn.net/maqingli87/article/details/8007557	Leetcoed题目
+
+http://blog.csdn.net/haoel/article/details/1388498/	陈昊的Blog
+
+
+
+
+@资源网站
+http://glyphicons.com/	图片资源网站
+
+@好用的编辑器
+webstream	开发webgl	
+Sublime Text 2 liunx下编辑工具	http://www.iplaysoft.com/sublimetext.html
+
+
+
+@字体
+http://www.cnblogs.com/hanyulcf/archive/2010/12/26/1917083.html	10款字体推荐
+
+
+@国内大学教学资料
+http://fusion.grids.cn/mzhang/shixi/	北京大学	数据结构和算法资料
+http://www.jpk.pku.edu.cn/pkujpk/course/sjjg/frame/index.html	北京大学	数据结构和算法课程
+
+
+@Video
+http://www.cnblogs.com/ider/archive/2013/01/22/online-video-tutorial.html
+
+
+@申请
+大學校院招收大陸地區學生聯合招生委員會
+http://rusen.stust.edu.tw/cpx/index.html
+
+台大課程地圖
+http://coursemap.aca.ntu.edu.tw/course_map_all/class.php?code=222M
+
+
+海峡两岸招生服务中心
+http://hxla.gatzs.com.cn/
+
+官網http://rusen.stust.edu.tw 
+萌学姐的申请直播帖http://www.douban.com/group/topic/26595453/
+
+@HTML5
+bootstrap   UI框架
+Cocos-x 游戏开发
+http://blog.csdn.net/xiaominghimi/article/category/921752
+http://blog.csdn.net/bill_man/article/details/7202458   游戏开发和实例
+1.csdn的cocos2d-x开发专栏。
+2.csdn的cocos2d-x入门专栏。
+3.himi的cocos2d-x游戏开发（这个链接是csdn的，大家可以去关注himi的新个人主页）
+4.老G的blog
+5.cocoaChina上面的汇总帖（这个汇总帖涵盖了api、wiki、相关文档和一些开发者博客。值得收藏）
+6.搭建cocos2d-x-android环境 Windows XP3 + Eclipse + NDKR7+COCOS2DX(没有用到cygwin和minigw)
+7.cocos2d-x 编译 Anroid版本遇到的问题以及解决办法
+8. cocos2d-x添加广告条（BADA版本）（上面写了很多关于lua的文章）
+9.http://blog.plicatibu.com/category/cocos2d/
+10.我是妖怪，cocos2d-x 引擎lua源码贡献者
+11.http://www.cnblogs.com/cocos2d-x/ (非常适合win32下面学习的同学关注和支持一下，文章总结的很好，相信楼主还会有更多更新。)
+12.http://blog.sina.com.cn/s/blog_61d2d3f50100y2rv.html(布莱特_雷欧波德的blog)
+13.http://blog.tsiannian.com/archives/category/cocos2d-x（实现了cocos2d-x下面的WIN32按键消息）
+14.http://blog.csdn.net/tkokof1/article/details/7426706(COCOS2D-X支持中文最详细解决方案)
+
+游戏实例讲解
+http://blog.csdn.net/fylz1125/article/details/8489333
+
+
+@sublime
+插件大全
+http://blog.csdn.net/w6611415/article/details/7725566
+
+
+@其他理财生活
+http://cn.wsj.com/gb/index.asp 华尔街中文网
+http://gold.hexun.com/  和讯黄金
+
+@插画设计
+http://www.zcool.com.cn/event/sogou/index.do  
+
+@新闻
+http://live.wallstreetcn.com/live-china
+http://news.sina.com.cn/news1000/?requestOrder=0
+
+@游戏
+http://www.lhgamer.com/forum.php  
+虚幻引擎 
+U3D引擎
+
+@在线代码
+paste.ubuntu.com
+
+@Jquery
+http://www.sd131.com/  插件库
+http://www.oschina.net/project/tag/276/jquery-tabs  插件
+http://jqueryui.com/themeroller/
+jqPlot图表中文API使用文档及源码和在线示例
+http://www.itivy.com/ivy/archive/2012/1/24/jquery-jqplot.html  
+http://www.highcharts.com/demo/pie-basic/grid highcharts
+多选控件
+http://www.erichynds.com/examples/jquery-ui-multiselect-widget/demos/index.htm#basic
+https://github.com/ehynds/jquery-ui-multiselect-widget
+
+
+@数据分析 大数据
+http://f.dataguru.cn/forum.php  炼数成金
+学习R，SAS，SPSS等等
+
+目前公开课里面，coursera.org上有两门课：web intelligence and big data大体介绍了到底什么是大数据、现在一般流行用什么方式处理；最近正在进行中的introduction to data science，比较着重讲data hacking，
+
+
+
+
