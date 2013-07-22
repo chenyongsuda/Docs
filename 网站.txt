@@ -46,13 +46,15 @@ http://mindlee.net/2011/09/10/huffman-coding/  酷行天下
 http://www.cnblogs.com/remlostime/  蛮好的Blog  牛人
 
 
+
 @论坛
 http://bbs.byr.cn/#!board/ACM_ICPC	北邮
 http://www.newsmth.net/nForum/#!board/Algorithm	水木清华
 http://bbs.csdn.net/forums/ST_Arithmetic	CSDN算法
 http://www.1point3acres.com/bbs/forum-84-1.html	一亩三分地算法
 http://www.csie.ntnu.edu.tw/~u91029/	演算法笔记
-http://coolshell.cn/articles/5426.html	酷壳 比较好的学习Blog 每天瞧一瞧		
+http://coolshell.cn/articles/5426.html	酷壳 比较好的学习Blog 每天瞧一瞧	
+http://www.itpub.net/thread-1116625-1-1.html 	ITPUB	
 
 @HTML5
 http://www.html5cn.org/ 	HTML5学习网站
@@ -199,5 +201,9 @@ http://f.dataguru.cn/forum.php  炼数成金
 目前公开课里面，coursera.org上有两门课：web intelligence and big data大体介绍了到底什么是大数据、现在一般流行用什么方式处理；最近正在进行中的introduction to data science，比较着重讲data hacking，
 
 
+
+@自动化搭建工具
+Jenkins  自动编译工具 持续集成引擎
+Redmine  bug管理系统
 
 

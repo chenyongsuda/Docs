@@ -1,0 +1,82 @@
+线段树的测度 ：
+是指最后被覆盖的线段的总长度 
+
+
+1. 线段树的基本应用
+	1.1 求测度
+	1.2 涂色问题
+		参考http://wenku.baidu.com/view/80c2d9390912a216147929a8.html
+		线段树  杨弋
+	1.3 计算面积的线段树的应用 + 离散化
+
+	
+我们再加上测度与连续段的作用：
+(一)、   测度
+由于线段树结构递归定义，其测度也可以递归定义。增加数据域 Lines_Tree.M 表示以该结点为根的子树的测度。 M 取值如下：
+        a[j] – a[i]    该结点 Count>0
+M =    	0           该结点为叶结点且 Count=0
+        Leftchild ↑ .M + Rightchild ↑ .M   该结点为内部结点且 Count=0
+		
+据此，可以用 Lines_Tree.UpData 来动态地维护 Lines_Tree.M 。 UpData 在每一次执行 Insert 或 Delete 之后执行。定义如下：
+Procedure Lines_Tree.UpData
+1        if count > 0
+2          then M ?   a[j] – [i]      { 盖满区间，测度为 a[j] – a[i]}
+3          else if j - i = 1         { 是否叶结点 }
+4                  then M ?   0       { 该结点是叶结点 }
+5                  else M ?   Leftchild ↑ .M + Rightchild ↑ .M
+                                           { 内部结点 }
+UpData 的复杂度为 O(1) ，则用 UpData 来动态维护测度后执行根结点的 Insert 与 Delete 的复杂度仍为 O(logN) 。	
+
+
+(二)、	连续段数
+这里的连续段数指的是区间的并可以分解为多少个独立的区间。如[1，2]∪[2，3]∪[5，6]可以分解为两个区间[1，3]与[5，6]，则连续段数为2。增加一个数据域Lines_Tree.line表示该结点的连续段数。Line的讨论比较复杂，内部结点不能简单地将左右孩子的Line相加。所以再增加Lines_Tree.lbd与Lines_Tree.rbd域。定义如下：
+
+         1    左端点I被描述区间盖到
+lbd  =  
+         0    左端点I不被描述区间盖到
+
+         1     右端点J被描述区间盖到
+rbd  =  
+         0     右端点J不被描述区间盖到
+
+lbd与rbd的实现：
+          1  该结点count > 0
+lbd  =    0  该结点是叶结点且count = 0
+          leftchild↑.lbd    该结点是内部结点且Count=0
+          1  该结点count > 0
+rbd  =    0  该结点是叶结点且count = 0
+          rightchild↑.rbd   该结点是内部结点且Count=0
+有了lbd与rbd，Line域就可以定义了：
+        1  该结点count > 0
+Line =   0  该结点是叶结点且count = 0
+         Leftchild↑.Line  +  Rightchild↑.Line  -  1 
+         当该结点是内部结点且Count=0，Leftchild↑.rbd = 1且Rightchild↑.lbd = 1
+         Leftchild↑.Line  +  Rightchild↑.Line   
+         当该结点是内部结点且Count=0，Leftchild↑.rbd与Rightchild↑.lbd不都为1
+
+据此，可以定义UpData’动态地维护Line域。与UpData相似，UpData’也在每一次执行Insert或Delete后执行。定义如下：
+Procedure  Lines_Tree.UpData’
+1	if  count  >  0           {是否盖满结点表示的区间}
+2	  then  lbd   ?  1
+3	       rbd   ?  1
+4	       Line  ?  1
+5	  else  if   j  -  i  =  1     {是否为叶结点}
+6	          then  lbd   ?  0   {进行到这一步，如果为叶结点，
+                                                count = 0}
+7	                rbd  ?  0
+8	                line  ?  0
+9	          else  line  ?   Leftchild↑.line  +  Rightchild↑.line  -  
+                              Leftchild↑.rbd * Rightchild↑.lbd 
+{用乘法确定Leftchild↑.rbd与Rightchild↑.lbd是否同时为1}
+
+同时，由于增加了Line、M等几个数据域，在建树Lines_Tree.Build时要将新增的域初始化。
+
+	
+
+参考：	http://www.cppblog.com/MemoryGarden/archive/2009/04/11/79565.html
+		http://wenku.baidu.com/view/5c14a736ee06eff9aef807d6.html	线段树及其应用(朱全民)	
+		http://wenku.baidu.com/view/80c2d9390912a216147929a8.html	线段树+-+杨弋讲稿
+		http://www.ahathinking.com/archives/136.html
+		http://dongxicheng.org/structure/segment-tree/
+		http://www.cnblogs.com/shuaiwhu/archive/2012/04/22/2464876.html POJ 1177 Picture (线段树+离散化+扫描线) 详解
+		
