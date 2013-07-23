@@ -39,6 +39,8 @@ http://mindlee.net/2011/09/26/binomial-heaps/	酷行天下
 http://www.algorithmist.com/index.php/Data_Structures
 http://blog.csdn.net/lyy289065406/article/details/6674366	 小优 POJ解题
 http://www.cnblogs.com/remlostime/archive/2012/10/29/2745125.html	leetcode
+http://community.topcoder.com  TopCoder 算法文章
+
 http://openjudge.cn/
 百度之星程序设计大赛
 http://star.baidu.com/
