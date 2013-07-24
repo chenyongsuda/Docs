@@ -1,0 +1,4 @@
+@自动化搭建工具
+Jenkins  自动编译工具 持续集成引擎
+Redmine  bug管理系统
+项目管理，推荐使用Asana
