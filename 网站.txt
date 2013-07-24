@@ -40,6 +40,7 @@ http://www.algorithmist.com/index.php/Data_Structures
 http://blog.csdn.net/lyy289065406/article/details/6674366	 小优 POJ解题
 http://www.cnblogs.com/remlostime/archive/2012/10/29/2745125.html	leetcode
 http://community.topcoder.com  TopCoder 算法文章
+http://hawstein.com/  技术观点 技术知识
 
 http://openjudge.cn/
 百度之星程序设计大赛
@@ -207,5 +208,5 @@ http://f.dataguru.cn/forum.php  炼数成金
 @自动化搭建工具
 Jenkins  自动编译工具 持续集成引擎
 Redmine  bug管理系统
-
+项目管理，推荐使用Asana
 
