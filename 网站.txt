@@ -41,6 +41,7 @@ http://blog.csdn.net/lyy289065406/article/details/6674366	 小优 POJ解题
 http://www.cnblogs.com/remlostime/archive/2012/10/29/2745125.html	leetcode
 http://community.topcoder.com  TopCoder 算法文章
 http://hawstein.com/  技术观点 技术知识
+http://www.wumii.com/item/1eMyfmQd7	果壳学院  公开课学习
 
 http://openjudge.cn/
 百度之星程序设计大赛
@@ -210,3 +211,13 @@ Jenkins  自动编译工具 持续集成引擎
 Redmine  bug管理系统
 项目管理，推荐使用Asana
 
+@hadoop
+http://chinahadoop.net/forum.php   hadoop社区
+http://www.hadoopor.com/ 			
+http://forum.hadoop.tw/			   台湾hadoop社区
+
+http://bigdatauniversity.com/courses/	
+http://cloudcomputing.ruc.edu.cn/						广人大的云计算judgeonline
+GFS Bigtable spanner cassadra dynamo MapReduce Hadoop 	这些都是比较经典的论文
+http://aws.amazon.com/elasticmapreduce/					Amazon的云服务
+http://research.google.com/pubs/papers.html				Google论文

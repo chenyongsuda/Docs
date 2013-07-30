@@ -1,1 +1,103 @@
 1.精通hadoop相关技术和原理，熟练掌握MapReduce、HBase、Hive、Impala、Mahout中两种以上技术。
+
+
+Apache Hadoop Administrator Training
+
+目标
+HDFS和MapReduce的工作原理
+针对Hadoop集群优化硬件配置
+搭建集群的网络考虑因素
+如何配置Hadoop参数以获得最佳集群性能
+如何配置公平调度器满足集群的多用户环境
+如何基于Kerberos安装和实施集群安全
+如何维护和监控集群
+
+
+1. Hadoop概述
+Hadoop的产生及基本概念
+Hadoop生态系统简介
+Hadoop架构
+HDFS
+MapReduce
+JobTracker/Tasktracker、NameNode/SecondaryNameNode/DataNode
+2. 集群安装
+开源版本
+rpm制作
+3. 配置管理
+4. 安全管理
+5. 任务管理及调度
+6. 错误诊断及恢复
+log位置
+FSImage损坏
+NameNode/DataNode挂机
+JobTracker/TaskTracker挂机
+7. 工具使用
+hadoop自带工具
+dfsadmin、mradmin
+balancer
+distcp
+fsck
+fs
+job
+fuse
+第三方工具
+hue
+hdfs over ftp
+ 
+8. 监控及报警
+Ganglia/Nagios
+Graphite
+
+
+
+Apache Hadoop Development Training 
+
+
+课程目标
+       本课程适用于 Apache Hadoop 的开发人员，教授学员使用 Apache Hadoop 来构建强大的数据处理应用系统。
+ 
+学习效益
+
+通过本课程，学员将可以掌握：
+
+Hadoop的核心技术
+HDFS和MapReduce的工作原理
+如何开发MapReduce应用
+如何对MapReduce应用进行单元测试
+如何使用MapReduce combiner、partitioner和distributed cache
+如何实现MapReduce应用中的数据输入和输出
+常见MapReduce任务的算法
+如何对数据集使用join
+
+基础条件
+
+本课程面向希望编写、维护或者优化Hadoop Job的开发人员。
+参加培训的人员需要具备基本的编程经验；需要掌握Java知识；可以理解常用的计算机科学概念。之前是否使用过Hadoop并不是必须的条件。
+ 
+
+课程大纲
+1. Hadoop概述
+Hadoop的产生
+Hadoop基本概念
+Hadoop架构简介
+JobTracker/Tasktracker、NameNode/DataNode、scheduler
+基本工具使用
+
+2. MapReduce
+MapReduce编程入门
+MapReduce单元测试
+3. Hadoop API深度使用
+Combiner与partitioner
+Streaming与多语言支持
+InputFormat基本类型及定制
+Configuration
+DataInputStream/DataOutputStream
+多任务串接
+
+4. 实战技巧及编程案例分析
+WordCount
+Data join
+5. Hadoop平台调试方法
+6. HBase及Pig、Hive
+
+

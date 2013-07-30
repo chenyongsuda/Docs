@@ -1,0 +1,34 @@
+Django 生成数据库
+
+Django一个项目 包括多个模块 
+项目相当于网站  模块相当于比如博客  等等其他功能模块
+
+在Setting配置文件中
+INSTALLED_APPS = (
+    #'django.contrib.auth',
+    #'django.contrib.contenttypes',
+    #'django.contrib.sessions',
+    #'django.contrib.sites',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    #'NaviQuailtyCheckModel',
+    # Uncomment the next line to enable the admin:
+    #'django.contrib.admin',
+    # Uncomment the next line to enable admin documentation:
+    # 'django.contrib.admindocs',
+    
+    # Add By Tony
+    # Add The module Name To Django The Module Name is Folder name with __init__ file in it
+    'NaviQualityTools'
+)
+
+
+NaviQualityTools就是一个模块 
+其实只是文件夹名字  这个文件夹名字下面有个__init__文件
+
+使用
+python manage.py syncdb  对应的model里面定义的数据库结构就变成了表了
+
+
+参考
+http://www.cppblog.com/tuzkee/archive/2008/12/03/68449.html

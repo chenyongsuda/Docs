@@ -1,0 +1,63 @@
+常用参数
+格式：tail file
+输出指定文件file的尾部内容，默认输出最后十行内容（output the last part of files。Print  the  last 10 lines of each FILE to standard output. ）
+ 
+格式：tail file1 file2 ...
+指定多个文件时，会显示每个文件的文件名称，再显示该文件的尾部内容（With more than one FILE, precede each with a header giving the file name.）
+
+注意：tail -n可以显示最后n行的文本内容。那么有没有一种方式显示从n行开始的文本内容，答案是肯定的。
+tail -n +4 file表示显示文件file从第4行开始的内容。从1开始计数。
+
+格式：tail -f file
+动态跟踪文件file的增长情况（output appended data as the file grows），tail会每隔一秒去检查一下文件是否增加新的内容，如果增加就追加在原来的输出后面显示。但这种情况，必须保证在执行tail命令时，文件已经存在。
+如果想终止tail -f的输出，按Ctrl+C中断tail程序即可。如果按Ctrl+C不能中断输出，那么可以在别的终端上执行killall tail强行终止。
+ 
+注意：采用tail -f来监控文件变化情况时，在某些情况会不太灵。比如在java应用程序中采用log4j日志时，每隔1个小时生成一个新的日志文件，
+当前的日志输出在LOG4J.LOG中，当一个小时过去后，log4j会将LOG4J.LOG改名成LOG4J.yyyy-mm-dd-HH的形式。那么这个时候tail -f就不能动态输出新的日志内容了。
+tail命令本身提供了很多参数，似乎都不能完美的解决这个问题。最后只好编写了一个脚本ftail.sh来跟踪日志，详见《Linux下实时跟踪log4j日志文件的bash脚本 - 增强了tail -f的功能 》。刚才我仔细查看了tail的手册页，发现tail -F就能够做到跟踪这种类型的日志。转念一想，这种需求应该早就被Linux世界的人给满足了的。
+
+
+
+tail -f 和 -F 的用法
+2010-08-16 16:03:18
+-f 是--follow[=HOW]的缩写, 可以一直读文件末尾的字符并打印出来.
+
+"[=HOW]"有两个写法,一个"=descriptor",另一个是"=name", 默认使用的是"descriptor", 如果你跟踪的文件被移动或者改名后, 你还想继续tail它, 你可以使用这个选项.
+
+举个例子:
+
+首先启动下面进程
+
+while [ "true" ] ; do date >> test.log; sleep 1 ; done;
+
+然后在开一个新的进程,我是新开了一个终端, 起名叫 bash-2
+
+tail -f test.log
+
+你会看到屏幕不断有内容被打印出来. 这时候中断第一个进程Ctrl-C,
+
+mv test.log test.log1;
+
+while [ "true" ] ; do date >> test.log1; sleep 1 ; done;
+
+继续观察bash-2, 发现屏幕在输出test.log2的内容.
+
+descriptor 虽然是默认的参数,但是一定是最有用的,比如在tail 一个log文件的时候,这个文件很可能是按照日期或者大小滚动, 文件滚动之后这个tail -f命令,就失效了.  我在之前写的一个脚本里面就遇到了这个问题, 这个时候可以使用-F 命令
+
+-F 是--follow=name --retry的缩写, --follow=name是按照文件名跟踪文件, 可以定期去重新打开文件检查文件是否被其它程序删除并重新建立. --retry这个参数, 保证文件重新建立后,可以继续被跟踪.
+
+还是上面的例子,
+
+在bash-1中输入,
+
+while [ "true" ] ; do date >> test.log; sleep 1 ; done;
+
+bash-2中,
+
+tail -F test.log
+
+bash-3中,
+
+rm test.log;
+
+然后看bash-2, 屏幕上依然在继续输出test.log的内容. 如果是在使用-f 时候,那bash-2应该就停止显示log了.

@@ -1,0 +1,19 @@
+在使用git时
+如果我们使用了clone或者git push到远程的某个origin上后
+使用命令
+git branch -a
+会发现，有一个origin/master的分支
+
+这实际上是git从远程clone下来的一个分支
+origin/master指向远端origin的master分支，用来跟踪远程origin的master变化情况
+只有git再和远程的origin通讯（比如fetch,pull）后，origin/master分支的指针才会更新移动
+
+当我们使用
+git fetch
+或者
+git remote update
+时，就会把远端的代码给更新到origin/master上
+此时，如果我们想以远程分支为基础，建一个本地分支来做开发，那么
+git checkout -b local_branch origin/master
+所以，当合并的时候，需要
+git merge origin/master
