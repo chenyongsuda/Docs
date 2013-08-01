@@ -1,0 +1,30 @@
+Django Meta内部类选项
+
+Django 模型类的Meta是一个内部类，它用于定义一些Django模型类的行为特性。以下对此作一总结：
+abstract
+     这个属性是定义当前的模型类是不是一个抽象类。所谓抽象类是不会对应数据库表的。一般我们用它来归纳一些公共属性字段，然后继承它的子类可以继承这些字段。比如下面的代码中Human是一个抽象类，Employee是一个继承了Human的子类，那么在运行syncdb命令时，不会生成Human表，但是会生成一个Employee表，它包含了Human中继承来的字段，以后如果再添加一个Customer模型类，它可以同样继承Human的公共属性：
+class Human(models.Model):
+    name=models.CharField(max_length=100)
+    GENDER_CHOICE=((u'M',u'Male'),(u'F',u'Female'),)
+    gender=models.CharField(max_length=2,choices=GENDER_CHOICE,null=True)
+    class Meta:
+        abstract=True
+class Employee(Human):
+    joint_date=models.DateField()
+class Customer(Human):
+    first_name=models.CharField(max_length=100)
+    birth_day=models.DateField()
+上面的代码，执行python manage.py syncdb 后的输出结果入下，可以看出Human表并没有被创建:
+$ python manage.py syncdb
+Creating tables ...
+Creating table myapp_employee
+Creating table myapp_customer
+Installing custom SQL ...
+Installing indexes ...
+No fixtures found.
+app_label
+
+
+app_label这个选项只在一种情况下使用，就是你的模型类不在默认的应用程序包下的models.py文件中，这时候你需要指定你这个模型类是那个应用程序的。比如你在其他地方写了一个模型类，而这个模型类是属于myapp的，那么你这是需要指定为：
+app_label='myapp'
+db_table

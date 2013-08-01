@@ -1,0 +1,41 @@
+linux SSH无密码验证配置
+
+Namenode 作为客户端，要实现无密码公钥认证，连接到服务端 datanode 上时，需要在 namenode 上生成一个密钥对，包括一个公钥和一个私钥，
+而后将公钥复制到 datanode 上。当 namenode 通过 ssh 连接 datanode 时， datanode 就会生成一个随机数并用 namenode 的公钥对随机数进行加密，
+并发送给 namenode 。 namenode 收到加密数之后再用私钥进行解密，并将解密数回传给 datanode ， datanode 确认解密数无误之后就允许 namenode 进行连接了。
+这就是一个公钥认证过程，其间不需要用户手工输入密码。重要过程是将客户端 namenode 公钥复制到 datanode 上。 
+ 
+(1) 所有机器上生成密码对
+所有节点上执行以下命令 :
+root@hadoop-namenode# ssh-keygen
+然后一路回车就可以了。
+这将在 /root/.ssh/ 目录下生成一个私钥 id_rsa 和一个公钥 id_rsa.pub 。
+把 namenode 节点上面的 id_rsa.pub  复制到所有 datanode 节点 /root/.ssh/ 位置。
+（注意：原文没有细说，这是指把 id_rsa.pub 先拷贝成 authorized_keys ，再将 authorized_keys 复制到其它 datanode 上的）
+root@hadoop-namenode# cp id_rsa.pub authorized_keys
+namenode 的公钥
+root@hadoop-namenode# chmod 644 authorized_keys
+使用 SSH 协议将 namenode 的公钥信息 authorized_keys 复制到所有 DataNode 的 .ssh 目录下 (.ssh 下最初没有 authorized_keys ，如果有，则需要复制追加，后面会讲到如何追加 ) 。
+root@hadoop-namenode# scp authorized_keys data 节点 ip 地址 :/root/.ssh
+ 
+这样配置过后， namenode 可以无密码登录所有 datanode ，可以通过命令
+“ssh 节点 ip 地址 ” 来验证。
+
+
+* 配置每个 Datanode 无密码登录 Namenode
+(0) 原理
+Namenode 连接 datanode 时 namenode 是客户端，需要将 namenode 上的公钥复制到 datanode 上，那么，如果 datanode 主动连接 namenode ， datanode 是客户端，此时需要将 datanode 上的公钥信息追加到 namenode 中的 authorized_keys 之中。 ( 此时，由于 namenode 中已经存在 authorized_keys 文件，所以这里是追加 ) 。
+如果进一步需要 datanode 之间实现公钥无密码验证，则同样需要相互之间追加公钥信息
+(1) 将各个 datanode 上的 id_rsa.pub 追加到 namenode 的 authorized_keys
+ 
+在所有 datanode 上依次执行如下命令 :
+root@hadoop-datanode1# scp id_rsa.pub namenode ip 地址 :/root/.ssh/datanode ip 地址 .id_rsa.pub
+这将 datanode 上之前产生的公钥 id_rsa.pub 复制到 namenode 上的 .ssh 目录中，并重命名为 datanode ip 地址 .id_rsa.pub ，这是为了区分从各个 datanode 上传过来的公钥。
+复制完毕，在 namenode 上执行以下命令，将每个 datanode 的公钥信息追加 :
+root@hadoop-namenode# cat datanode ip 地址 .id_rsa.pub >> authorized_keys
+这样， namenode 和 datanode 之间便可以相互 ssh 上并不需要密码 ......
+注意：整个过程中只涉及到创建密钥，复制公钥，添加公钥内容，没有更改配置文件，实际上配置文件 /etc/ssh/sshd_config 中开启了公钥验证
+{
+RSAAuthentication yes
+PubkeyAuthentication yes
+}

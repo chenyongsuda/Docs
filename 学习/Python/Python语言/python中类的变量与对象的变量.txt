@@ -1,0 +1,38 @@
+python中类的变量与对象的变量
+
+由于最近工作需要，开始接触python这门语言。正在体验他的新奇，第一个让我迷惑的概念就是类的变量与对象的变量。
+
+虽然可以简单的将他们映射为C++等面向对象语言中类的static成员与普通成员，但是个人觉得对象的变量这种概念过于灵活。譬如
+
+
+#! /usr/bin/python
+# Filename:object.py
+
+class Person:
+    countofperson = 0
+    def __init__(self,name):
+        self.name = name
+
+        print '(Initializing %s)' %self.name 
+
+ 
+
+有一个这样的类<人>，按照python中的说法定义了对象的变量name，以及类变量人的个数countofpersion。有一个缺点就是对于类的整体并没有直观的展现在人的面前，因为对象的变量他是隐藏在类定义的函数成员里，人们可能第一时间关注不到某个类的全部对象的变量。
+
+ 
+
+为了保证这点，对于类的清晰程度，建议可以采用__name的方式定义对象的变量，这样既保证了变量的仅作用于对象，又保证了类的清晰度，很满足常规的编程规范。何乐而不为呢？上面那段代码就可以改写为
+
+ #! /usr/bin/python
+
+# Filename:object.py
+
+class Person:
+    countofperson = 0
+    __name = []     
+    def__init__(self,name):
+        self.__name = name
+
+        print '(Initializing %s)' %self.__name 
+
+分类: Python

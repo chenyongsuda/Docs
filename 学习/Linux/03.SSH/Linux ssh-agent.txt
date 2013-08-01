@@ -1,0 +1,75 @@
+ssh-agent的使用
+1. 建立SSH账户的信任关系
+	其实就是cache密码  至少输入一次密码以后就不用输入了
+2. 一个代理转发功能，可以在多个连续ssh中使用
+	之前的ssh-agent就可以不必在多个地方保存private key了
+	
+Sample：
+
+ssh-agent就是一个密钥管理器，运行ssh-agent以后，使用ssh-add将私钥交给ssh-agent保管，其他程序需要身份验证的时候可以将验证申请交给ssh-agent来完成整个认证过程。通过使用ssh-agent就可以很方便的在不的主机间进行漫游了，假如我们手头有三台server：host1、host2、host3且每台server上到保存了本机(supersun.biz)的公钥，因此我可以通过公钥认证登录到每台主机：
+
+[root@supersun.biz ~]#ssh host1
+Last login: Thu Oct 18 13:56:08 2007 from supersun
+[root@host1 root]# 
+
+[root@supersun.biz ~]#ssh host2
+Last login: Fri Oct 12 11:14:44 2007 from supersun
+[root@host2 root]# 
+
+[root@supersun.biz ~]#ssh host3
+Last login: Sat Sep 29 10:21:32 2007 from supersun
+[root@host3 root]# 
+
+但是这三台server之间并没有并没有保存彼此的公钥，而且我也不可能将自己的私钥存放到server上(不安全)，因此彼此之间没有公钥进 行认证（可以密码认证，但是这样慢，经常输密码，烦且密码太多容易忘）。但是如果我们启用ssh-agent，问题就可以迎刃而解了。 
+
+启用ssh-agent:
+
+[root@supersun.biz ~]#eval `ssh-agent `
+Agent pid 3526
+
+添加私钥：
+
+[root@supersun.biz ~]#ssh-add
+Identity added: /root/.ssh/id_rsa (/root/.ssh/id_rsa)
+
+编缉/etc/ssh/ssh_config文件：ForwardAgent yes
+
+让ssh-agent能转发，这样就可以这样登陆了:supersun.biz---->host1---->host2，到此请注意，如果host1上没有设定转发的话就登不了host3了，设定了转发后可以进一步跳到rs3上了。 
+
+[root@supersun.biz ~]#ssh host1
+Last login: Thu Oct 18 16:21:29 2007 from supersun
+[root@host1 root]# vi /etc/ssh/ssh_config 
+[root@host1 root]# ssh host2
+Last login: Thu Oct 18 16:20:28 2007 from supersun
+[root@host2 root]# ssh host3
+Last login: Thu Oct 18 16:10:39 2007 from supersun
+[root@host3 root]# 
+
+到这里基本上已经大功告成了，还有一个小问题那就是总不能每次都手动运行ssh-agent吧！最省时的方法就是将它写到profile中去：
+
+为了不把profile搞乱，我在在/etc/profile.d下建一个ssh-agent.sh文件：
+
+[root@supersun.biz ~]#cat /etc/profile.d/ssh-agent.sh 
+#!/bin/sh
+
+if [ -f ~/.agent.env ]; then
+. ~/.agent.env >/dev/null
+if ! kill -0 $SSH_AGENT_PID >/dev/null 2>&1; then
+echo "Stale agent file found. Spawning new agent..."
+eval `ssh-agent |tee ~/.agent.env`
+ssh-add
+fi
+else
+echo "Starting ssh-agent..."
+eval `ssh-agent |tee ~/.agent.env`
+ssh-add
+fi
+
+这样就不会生成太多的ssh-agent程序了，而且支持GUI环境。当我打开一个终端的话：
+
+Stale agent file found. Spawning new agent...
+Agent pid 2543
+Identity added: /root/.ssh/id_rsa (/root/.ssh/id_rsa)
+[root@supersun.biz ~]#
+
+添加了新的密钥。

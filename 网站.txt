@@ -198,11 +198,6 @@ http://www.erichynds.com/examples/jquery-ui-multiselect-widget/demos/index.htm#b
 https://github.com/ehynds/jquery-ui-multiselect-widget
 
 
-@数据分析 大数据
-http://f.dataguru.cn/forum.php  炼数成金
-学习R，SAS，SPSS等等
-
-目前公开课里面，coursera.org上有两门课：web intelligence and big data大体介绍了到底什么是大数据、现在一般流行用什么方式处理；最近正在进行中的introduction to data science，比较着重讲data hacking，
 
 
 
@@ -212,6 +207,12 @@ Redmine  bug管理系统
 项目管理，推荐使用Asana
 
 @hadoop
+数据分析 大数据
+http://f.dataguru.cn/forum.php  炼数成金
+学习R，SAS，SPSS等等
+
+目前公开课里面，coursera.org上有两门课：web intelligence and big data大体介绍了到底什么是大数据、现在一般流行用什么方式处理；最近正在进行中的introduction to data science，比较着重讲data hacking，
+
 http://chinahadoop.net/forum.php   hadoop社区
 http://www.hadoopor.com/ 			
 http://forum.hadoop.tw/			   台湾hadoop社区
@@ -221,3 +222,11 @@ http://cloudcomputing.ruc.edu.cn/						广人大的云计算judgeonline
 GFS Bigtable spanner cassadra dynamo MapReduce Hadoop 	这些都是比较经典的论文
 http://aws.amazon.com/elasticmapreduce/					Amazon的云服务
 http://research.google.com/pubs/papers.html				Google论文
+
+
+@PYTHON
+http://django-chinese-docs-14.readthedocs.org/en/latest/ref/models/options.html	Django文档
+http://django-dajaxice.readthedocs.org/en/latest/quickstart.html  Django下的AJAX -- dajax库
+
+@Liunx
+http://bbs.chinaunix.net/thread-1569056-1-2.html   chinaLinux

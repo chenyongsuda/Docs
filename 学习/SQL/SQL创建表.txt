@@ -1,0 +1,16 @@
+//创建普通表
+create table UserInfo(
+UserAccounts varchar(20),
+UserName varchar(20),
+UserPwd varchar(10)
+)
+
+//创建有自增ID的表
+
+create table UserInfo(
+UserID int identity(1,1) primary key, --递增主键
+UserAccounts varchar(20),
+UserName varchar(20),
+UserPwd varchar(10)
+)
+

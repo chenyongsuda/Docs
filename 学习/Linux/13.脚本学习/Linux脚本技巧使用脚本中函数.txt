@@ -1,0 +1,8 @@
+首先写个hello.sh的脚本
+内容
+function help() {
+	echo 'this is Help'
+} 
+
+在命令行执行完后就能一直使用
+help命令

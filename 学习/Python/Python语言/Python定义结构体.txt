@@ -1,0 +1,15 @@
+Python 定义及使用结构体
+
+作者：保⑩洁
+Python中没有专门定义结构体的方法，但可以使用class标记定义类来代替结构体，其成员可以在构造函数__init__中定义，具体方法如下。
+# 例：定义及使用结构体
+class item:
+    def __init__(self):
+        self.name = '' 	# 名称
+        self.size = 10 	# 尺寸
+        self.list = [] 	# 列表
+
+a = item()      # 定义结构对象
+a.name = 'cup'
+a.size = 8
+a.list.append('water')

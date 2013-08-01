@@ -1,0 +1,10 @@
+Django查看SQL另外一种办法 2011-06-11 14:59:26
+分类： Mysql/postgreSQL
+有时调试的时候想查看mysql在一段时间执行的sql语句，可以像下面这样配置mysql的sql执行日志，我们只要查看这个日志就可以知道执行了哪些sql
+首先，打开%MySQLDir%my.ini(linux下是my.cnf)加上这么一句
+# 指定log的位置
+log=C:/AppServ/MySQL/mysql.log
+# 或者linux下 log=/var/log/mysql/mysql.log
+有时需要实时查看sql，linux下有tail命令 tail -f /var/log/mysql/mysql.log就行了，windows下可以使用BareTail这个工具。
+
+直接看MYSQL日志就行了。最直观的办法！
