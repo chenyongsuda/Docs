@@ -1,0 +1,20 @@
+django学习笔记： render_to_response()
+前面己经向你展示了怎么去加载模板，生成一个 Context 并填充它，然后将替换(render)好了的模板由HttpResponse一起返回回去。我们己经对它进行了优化，使用 get_template() 来代替硬编码。但它仍然还是需要输入相当多的代码来完成这些事情，因为这些步骤己经成为了公共的特点。django提供了一个快捷的方法来让你加载模板，替换(render)它然后返回一个 HttpResponse对象--------所有这些步骤只要一行代码就可完成。
+
+这个快捷的方法就是一个名叫 render_to_response()函数，它属于 django.shortcuts 模板。大多数情况下你将使用 render_to_response()，而不是手动的创建 Template、Context 和 HttpResponse 对象。除非你的领导是通过代码的行数来判断你的工作量。
+
+现在我们来重新修改views里的current_datetime函数，来使用 render_to_response()：
+
+from  django.shortcuts  import  render_to_response
+import  datetime
+def  current_datetime( request ):
+        now=datetime.datetime.now()
+        return  render_to_response( 'current_datetime.html' ,  { 'current_date' :  now} )
+
+多么大的变化！让我们来代码都做了哪些修改：
+
+1、我们没有再导入 get_template、Template、Context 或　HttpResponse。相反，我们只导入了 django.shutcuts.render_to_response()。剩下的就是 datetime。
+
+2、current_datetime函数里，我们仍然保留了对now的计算，但是模板的加载，Context的创建，模板的解析和HttpResponse的创建均由render_to_response()一个函数来完成。因为render_to_response()返回一个HttpResponse对象。因此我们只需在view里做简单的return。
+
+render_to_response()的第一个参数是模板的名称。如果用到了第二个参数，必须是一个为该模板所创建的Context所使用的字典。如果你没有提供第二个参数，render_to_response()将使用一个空的字典。

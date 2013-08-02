@@ -1,0 +1,12 @@
+class TestCaseData( models.Model ):
+	orign = models.CharField(max_length = 100)
+	destination = models.CharField(max_length = 100)
+	title = models.CharField( max_length = 100)
+	waypoints = models.TextField()
+	route_points = models.TextField()
+	route_steps = models.TextField()
+	class Meta:
+		#db_table = 'TestCase'
+		abstract = True
+		
+加上abstract = True  就会只创建模型不创建表		

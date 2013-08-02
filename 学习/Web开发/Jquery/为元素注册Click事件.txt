@@ -1,0 +1,22 @@
+
+我的代码如下
+<span class="step-links"> 
+{% if Tablecaselist.has_previous %} 
+    <input name = '{{Tablecaselist.previous_page_number}}' type="button" value = "Previous"> 
+{% endif %} 
+<span class="current"> 
+    Page {{ Tablecaselist.number }} of {{ Tablecaselist.paginator.num_pages }}. 
+</span> 
+{% if Tablecaselist.has_next %} 
+    <input name = '{{Tablecaselist.next_page_number}}' type="button" value = "Next"> 
+{% endif %} </span>		
+
+
+		
+$('span').children('input').click(function(){
+    url = "/GetGudTestCaseTable/{{TableName}}/" +$(this).attr('name')+"/"
+    //alert(url)
+    $("#CaseTable").html( '&nbsp;' ).load(url,function() {
+        
+    });
+});		
