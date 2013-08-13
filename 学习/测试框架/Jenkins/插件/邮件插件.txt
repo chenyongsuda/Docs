@@ -1,0 +1,19 @@
+Jenkins邮件通知设置
+分类： 测试 2012-02-26 20:11 193人阅读 评论(0) 收藏 举报
+想要使用邮件通知，首先需要设置SMTP服务器地址。在主页面选择“系统管理”-->"系统设置"，然后在“邮件通知”标签中设置SMTP服务器。
+
+
+1、Jenkins默认的邮件通知
+采用Jenkins默认的邮件通知，在项目配置的”Post-build Actions”选项中勾选”Email Notification”标签，并在“Recipients”中填入邮件地址即可。
+
+
+但是，这样每次编译都会邮件通知，有点烦，因此可选择邮件通知的插件，更优。
+
+
+
+2、采用邮件通知插件
+下载插件email-ext对应的*.hpi文件，拷贝到路径$JENKINS_HOME/plugins，之后需要重新启动Jenkins。
+然后项目配置中，在”Post-build Actions”选项中，不选择”Email Notification”标签，而勾选”Editable Email Notification”标签。并在Global Recipient List中填入接收邮件的地址，其它默认即可。
+
+
+设置完成后，编译错误才会通知对应的邮箱地址。
