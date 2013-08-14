@@ -1,0 +1,38 @@
+安装protoc
+
+
+
+test.proto
+message TestMsg
+{
+    required int32 id=1;
+    required int32 time=2;
+    optional string note=3;
+}
+
+
+编译proto
+protoc -I=. --python_out=../outproto/ *.proto
+
+
+
+使用
+from outproto import test_pb2
+
+#压缩
+test = test_pb2.TestMsg()
+test.id=1
+test.time=int(time.time())
+test.note="asdftest"
+test_str = test.SerializeToString()
+
+
+
+#解压
+test1 = test_pb2.TestMsg()
+test1.ParseFromString(test_str)
+print test1
+
+
+
+
