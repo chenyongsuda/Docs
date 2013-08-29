@@ -1,0 +1,44 @@
+Ubuntu12.04安装jdk1.6.0_35.bin
+
+首先，在http://java.oracle.com下载jdk-6u37-linux-x64.bin,自解压操作起来比较简单，不需要转换。 
+然后，可以把它放置在任何你喜欢的文件夹，建议把它放置到主文件夹（/home/yourname/）下。 
+下面开始安装jdk： 
+在把jdk安装在/usr/lib/jdk下面，
+终端下进入你存放jdk-6u37-linux-x64.bin
+$sudo chmod 777 jdk-6u37-linux-x64.bin // 将文件赋于运行权限
+$ sudo -s ./jdk-6u37-linux-x64.bin /usr/lib/jdk 
+一路回车，直到询问是否安装，输入yes回车   (直接敲一个大写的A加车更好,)
+［如果此命令执行完毕，安装目录并不是在/opt下，而是你自己的帐户目录下，请将整个文件夹移动到/opt 中，并给出适当的权限］
+
+ok，安装完毕，下面配置环境变量 
+
+3.配置classpath，修改所有用户的环境变量 
+$ emacs ~/.bashrc
+在.bashrc中新增或整合PATH变量，如下：
+#java 程序开发/运行的一些环境变量
+JAVA_HOME=/usr/lib/jdk/jdk1.6.0_37
+JRE_HOME=${JAVA_HOME}/jre
+export ANDROID_JAVA_HOME=$JAVA_HOME
+export CLASSPATH=.:${JAVA_HOME}/lib:$JRE_HOME/lib:$CLASSPATH
+export JAVA_PATH=${JAVA_HOME}/bin:${JRE_HOME}/bin
+export JAVA_HOME;
+export JRE_HOME;
+export CLASSPATH;
+HOME_BIN=~/bin/
+export PATH=${PATH}:${JAVA_PATH}:${HOME_BIN};
+保存后，同步更新：
+source ~/.bashrc
+
+4、将系统默认的jdk修改过来
+ 
+$ sudo update-alternatives --install /usr/bin/java java /usr/lib/jdk/jdk1.6.0_37/bin/java 300 
+ 
+$ sudo update-alternatives --install /usr/bin/javac javac /usr/lib/jdk/jdk1.6.0_37/bin/javac 300 
+ 
+$ sudo update-alternatives --config java 
+$ sudo update-alternatives --config javac
+ 
+5、检测，输入java -version
+ java version "1.6.0_37"
+Java(TM) SE Runtime Environment (build 1.6.0_37-b06)
+Java HotSpot(TM) 64-Bit Server VM (build 20.12-b01, mixed mode)

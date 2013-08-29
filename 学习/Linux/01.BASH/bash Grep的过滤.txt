@@ -1,0 +1,7 @@
+ps -ef|grep -v grep |grep -e smxloadmx -e servicemix |awk '{print $2}'|xargs kill -TERM 详细解释
+
+ps -ef 显示所有进程
+grep -v grep 过滤掉grep这个字符
+grep -e smxloadmx -e servicemix 过滤显示smxloadmx servicemix进程
+awk '{print $2}' 截取第二段PID号
+xargs kill    kill 掉

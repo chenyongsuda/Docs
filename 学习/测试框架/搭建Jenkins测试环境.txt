@@ -1,0 +1,22 @@
+1. 安装Jenkins
+wget -q -O - http://pkg.jenkins-ci.org/debian/jenkins-ci.org.key | sudo apt-key add -
+sudo sh -c 'echo deb http://pkg.jenkins-ci.org/debian binary/ > /etc/apt/sources.list.d/jenkins.list'
+sudo apt-get update
+sudo apt-get install jenkins	
+
+2. 增加密码
+sudo passwd jenkins 
+
+3. 复制密钥到Jenkins .ssh 下
+
+4. 配置用户名 邮箱
+ #提交用用户名和邮箱：
+ git config --global user.name xxx #请替换成自己的名字
+ git config --global user.email xxx@xxxx.xxxxx.net #请替换成自己的email
+ 
+ #换行等设置：
+ git config --global core.autocrlf input
+ git config --global core.safecrlf true
+ 
+ 
+ 

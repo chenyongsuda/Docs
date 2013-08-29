@@ -1,0 +1,45 @@
+在HudsonJob中启动daemon进程
+
+场景
+在Hudson中新建一个Job用于构建Web工程，在Job的构建脚本的最后会启动Jetty，观察发现Jetty启动之后一小段时间，进程就终止了。
+ 
+环境
+CentOS 6 x64，Hudson 3.0.1，Jetty 8，Oracle JDK 1.6
+ 
+分析
+刚开始在Job中启动Jetty的方式是在Ant构建脚本build.xml中调用一个shell脚本进行应用部署和容器重启。整个Job的构建过程正常，Jetty终止以后也查不到任何异常日志。
+ 
+后来尝试在Job的build step中直接使用"Execute shell"去调用shell脚本，发现Job的Console output出现如下提示：
+Process leaked file descriptors. See http://wiki.hudson-ci.org/display/HUDSON/Spawning+processes+from+build for more information
+ 
+查看上面的链接以及Google相关资料，发现Hudson在Job构建结束之后，kill所有未终止的衍生进程。
+ 
+Hudson与子进程之间使用三根管道通信(stdin/stdout/stderr)，这样Hudson可以捕捉到子进程的输出。由于子进程可能往stdout写入大量数据然后立即退出，Hudson为了完整读取子进程的输出，会在用于子进程stdout的管道上等待EOF。这样，无论子进程由于什么原因退出，系统将关闭进程使用的文件描述符，因而Hudson总是可以收到EOF。
+ 
+但是当子进程A在后台fork出另一个进程B的时候（比如启动一个daemon进程），情况就出现一些变化。由于进程B会继承进程A的文件描述符，如果进程B没有关闭这些描述符，即使进程A退出，这些描述符依然是打开的，Hudson将不会在相应管道上收到EOF。通常一个实现良好的daemon会关闭所有文件描述符以避免这个问题，但是总有一些实现没有遵循这个规则。在旧版本的Hudson上，这个问题将导致Job无法结束，Hudson一直在等待EOF；新版本则会打印出上面的"leaked file descriptors"警告，然后Job构建过程继续。
+ 
+看来Jetty可能没有关闭继承的文件描述符，Hudson在Job构建过程结束后认为Jetty进程未终止，因而将其kill掉了。上述链接指向的Hudson wiki页面上提到可以使用daemonize工具将程序作为实现良好的daemon进程运行以避免这个问题。
+ 
+在Hudson另一wiki页面上进一步描述了Hudson杀掉衍生进程的情况。Hudson在执行Job时会设置一系列环境变量，这些环境变量将被Job衍生出的进程继承。Hudson在kill衍生进程的时候会查看进程的环境变量，如果找到它之前设置的环境变量，则将其杀掉。Wiki上给出了一个简单的方法来避免进程被kill掉：修改Hudson设置的环境变量BUILD_ID的值，从而让Hudson认为此进程不是由Job的构建过程衍生的。如：
+BUILD_ID=dontKillMe /usr/apache/bin/httpd
+ 
+另外，在此wiki上还提到可以在启动Hudson的时候通过Java选项来关闭Hudson杀掉所有衍生进程的这个功能：
+ java -Dhudson.util.ProcessTreeKiller.disable=true -jar hudson.war
+ 
+解决方案
+1.安装daemonize包，使用daemonize命令wrap Jetty的启动指令。
+daemonize ${jetty_bin} start
+ 
+2.在启动Jetty之前，修改BUILD_ID环境变量。
+# set BUILD_ID, or Hudson will kill any child processes
+# that are started by build steps.
+BUILD_ID="dontKillMe"
+
+${jetty_bin} start 
+ 
+3.设置Java选项hudson.util.ProcessTreeKiller.disable为true。
+ 
+References
+1.Spawning processes from build.http://wiki.hudson-ci.org/display/HUDSON/Spawning+processes+from+build
+2.ProcessTreeKiller.http://wiki.hudson-ci.org/display/HUDSON/ProcessTreeKiller
+3.daemonize — A tool to run a command as a daemon.http://software.clapper.org/daemonize/

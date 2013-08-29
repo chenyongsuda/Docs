@@ -1,0 +1,9 @@
+import os
+HOMEDIR = os.getcwd()
+PATH = HOMEDIR.split("/")
+if all(["bin" in PATH, "src" in PATH]):
+    PATH.remove("bin")
+    PATH.remove("src")
+PATH = "/".join(PATH)
+import sys
+sys.path.append(PATH)

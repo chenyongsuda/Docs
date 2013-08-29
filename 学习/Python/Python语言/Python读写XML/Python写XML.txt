@@ -1,0 +1,48 @@
+Python写xml
+ref: http://blog.csdn.net/five3/article/details/7064879
+	 http://www.cnblogs.com/itech/archive/2011/01/06/1924972.html
+	 
+
+def GenerateXml():
+  import xml.dom.minidom
+  impl = xml.dom.minidom.getDOMImplementation()
+  dom = impl.createDocument(None, 'employees', None)
+  root = dom.documentElement  
+  employee = dom.createElement('employee')
+  root.appendChild(employee)
+  
+  nameE=dom.createElement('name')
+  nameT=dom.createTextNode('linux')
+  nameE.appendChild(nameT)
+  employee.appendChild(nameE)
+  
+  ageE=dom.createElement('age')
+  ageT=dom.createTextNode('30')
+  ageE.appendChild(ageT)
+  employee.appendChild(ageE)
+  
+
+  f= open('employees2.xml', 'w', encoding='utf-8')
+  dom.writexml(f, addindent='  ', newl='\n',encoding='utf-8')
+  f.close()  
+
+GenerateXml()
+
+
+1.其中创建一个root
+impl = xml.dom.minidom.getDOMImplementation()
+dom = impl.createDocument(None, 'employees', None)
+root = dom.documentElement  
+employee = dom.createElement('employee')
+
+
+2.创建一个节点
+dom.createElement('name')
+
+3. 创建一个Text 域
+dom.createTextNode('30')
+
+4. 设置一个属性
+node.setAttribute(key, value)     
+
+  

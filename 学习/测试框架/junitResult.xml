@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<result>
+  <suites>
+    <suite>
+      <file>/home/andym/apache-tomcat-6.0.36/webapps/jenkins/workspace/S4140/build/test1.xml</file>
+      <name>(test1.xml)</name>
+      <duration>0.0</duration>
+      <cases>
+        <case>
+          <duration>0.0</duration>
+          <className>class1</className>
+          <testName>case1</testName>
+          <skipped>false</skipped>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.0</duration>
+          <className>class2</className>
+          <testName>case2</testName>
+          <skipped>false</skipped>
+          <errorStackTrace>error message</errorStackTrace>
+          <errorDetails>case2 FAILED</errorDetails>
+          <failedSince>0</failedSince>
+        </case>
+        <case>
+          <duration>0.0</duration>
+          <className>class2</className>
+          <testName>case3</testName>
+          <skipped>true</skipped>
+          <failedSince>0</failedSince>
+        </case>
+      </cases>
+    </suite>
+  </suites>
+  <duration>0.0</duration>
+  <keepLongStdio>false</keepLongStdio>
+</result>
