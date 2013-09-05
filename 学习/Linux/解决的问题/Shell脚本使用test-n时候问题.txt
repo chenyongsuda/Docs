@@ -1,0 +1,81 @@
+ref：http://www.linuxsir.org/bbs/thread375739.html
+
+Q:
+我发现在shell里面： -n string 的命令必须放在[[]]里面才正常，放在 []里面不对的， 而-z string放在[]里面就正常，何解？
+
+
+A：
+Shell代码 
+[]   
+只是test命令的同义词。 
+Bash分析命令的时候，会首先做变量替换，然后才执行命令。 
+例如: 
+Shell代码 
+str=""  
+[ -n $str ]  && echo true || echo false  
+
+相当于: 
+Shell代码 
+test -n $str && echo true || echo false  
+
+而str为空，变量替换之后为空，由于没有放在引号里面，最后又会进行单词分割，于是得到 
+Shell代码 
+   
+test -n && echo true || echo false  
+
+在Bash Manual中提到，当test命令有且仅有唯一一个不为空的参数时，总返回真值。这里唯一的参数是-n，所以这里返回true. 
+
+至于"[["的结果为何不同。 这是因为"[["是Bash特殊的语法结构，不是test命令。 而且，双中括号里面不会进行单词分割，所以参数替换后的空值依然还在，能正确测试。
+
+可以再变量里面加入双引号来避免
+sample:
+用 [ -n "$string" ]
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+关于单词分割
+
+单词分割与在命令前后毫无关系。 
+根据Bash参考手册 http://www.gnu.org/software/bash/manual/bashref.html#Word-Splitting 
+
+如果参数扩展，命令替换，算术扩展的结果没有被放到双引号里面，都会进一步做单词分割。 
+比如: 
+Shell代码 
+cmd="which who"  
+$cmd sh  
+
+参数扩展之后，进行单词分割，最终得到的结果是 
+Shell代码 
+which who sh  
+#output  
+/usr/bin/who  
+/bin/sh  
+
+若放到到引号里面，就不会进行单词分割，结果： 
+Shell代码 
+"$cmd" sh  
+-bash: which who: command not found  
+
+
+在Bash中，“[[ ]]”里面的内容不会进行单词分割。 而"[ ]"会。 
+所以这样可以: 
+Shell代码 
+var="Love Linux"  
+[[ "Love Linux" = $var ]] && echo yes || echo no  
+
+而这样会提示错误: 
+Shell代码 
+var="Love Linux"  
+[ "Love Linux" = $var ] && echo yes || echo no  
+#命令输出  
+-bash: [: too many arguments  
+no  
+
+
+另外一些"[[" 和"["的区别是: 
+1. "[["里面，表示比较的"<" , ">"不需要转义. 
+2. "[["里面，可以使用模式匹配及正则表达式 
+
+参考: http://www.gnu.org/software/bash/manual/bashref.html#Conditional-Constructs
+	

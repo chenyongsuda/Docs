@@ -1,0 +1,208 @@
+安装ubuntu 12.10(32位/64位皆可)
+12.10 x64镜像下载地址：
+\\mapsrv1\Softz\ubuntu-12.10\
+
+更改unity的图标大小：
+unity默认的图标是很大的，这种设计很适合宽屏显示器和平板电脑，但不适合我们公司的4:3显示器。
+可以unity的图表改小。桌面右键->更改桌面背景->起动器图标大小，拉到最小。
+
+更改字体大小：
+为了能够在平板上使用，ubuntu把默认自体设置的很大，这倒是屏幕信息量太小。
+
+更改自体大小的方法：
+1. 从unity面板打开“ubuntu软件中心”
+2. 搜索“高级设置”("Advanced Settings")并安装，然后就可以更改自体设置了
+*注：12.10中，这个工具已经更名为“Tweak Tool”
+
+卸载ubuntu上的商业商店：
+12.10新加了商店功能，可以在操作系统中直接出售商品，可以关掉。
+打开“ubuntu软件中心”，搜索"Shopping lens for unity"，然后卸载掉即可。
+
+安装新立得：
+打开“ubuntu软件中心”，搜索“新立得”（synaptic），安装
+
+更新ubuntu的源：
+参考：http://mirrors.163.com/.help/ubuntu.html
+
+设置域名访问：
+安装samba、winbind：sudo apt-getinstall samba winbind：sudo 
+修改配置文件/etc/samba/smb.conf：在Global Settings添加wins server = 172.26.10.18
+修改配置文件/etc/nsswitch.conf：在host段添加wins
+重启
+
+安装apt-file：
+ sudo apt-get install apt-file -y
+ apt-file update
+
+安装小工具：
+ sudo apt-get install nautilus-open-terminal -y
+
+傻瓜一键安装：
+ sudo apt-get install bison zlib1g-dev doxygen libxext-dev libpulse-dev libasound2-dev libesd0-dev git-core gnupg flex bison gperf build-essential zip curl zlib1g-dev libc6-dev lib32ncurses5-dev ia32-libs x11proto-core-dev libx11-dev lib32readline-gplv2-dev lib32z1-dev libgl1-mesa-dev g++-multilib mingw32 tofrodos python-markdown libxml2-utils xsltproc libpango1.0-dev ccache libxcursor-dev libgstreamer0.10-dev python-m2crypto python-lxml -y
+
+安装常用工具：
+ sudo apt-get install chromium-browser -y
+ sudo apt-get install gimp -y
+ sudo apt-get install vim -y
+ sudo apt-get install ssh -y
+ sudo apt-get install dos2unix -y
+ sudo apt-get install xrdp -y
+ #注：gimp是一个类似于photoshop的图片编辑器
+
+安装开发工具：
+ sudo apt-get install build-essential -y
+ sudo apt-get install git -y
+ sudo apt-get install subversion -y
+ sudo apt-get install bison -y
+ sudo apt-get install gperf -y
+ sudo apt-get install ccache -y
+ sudo apt-get install gitk -y
+ sudo apt-get install meld -y
+ sudo apt-get install rabbitvcs-nautilus rabbitvcs-gedit -y
+ sudo apt-get install eclipse eclipse-cdt -y
+ sudo apt-get install dh-autoreconf -y
+ 
+ #64位系统需要额外安装以下软件包才能正常编译：
+ sudo apt-get install ia32-libs -y
+ sudo apt-get install libc-dev:i386 -y
+ sudo apt-get install g++-4.7-multilib -y
+ sudo apt-get install g++-multilib -y
+ sudo apt-get install libc6-dev:i386 -y
+ 
+ 安装 GCC G++
+ 
+ 检查当前版本
+$ g++ -v
+$ gcc -v 
+#若均为4.6版，则不用进行后续操作。
+检查版本和安装的版本
+$ ls /usr/bin/gcc*
+/usr/bin/gcc  /usr/bin/gcc-4.7
+如果缺4.6那么就安装
+$ sudo apt-get install gcc-4.6 g++-4.6 
+$ sudo apt-get install gcc-4.6-multilib g++-4.6-multilib
+增加可选项
+$ sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.7 40
+$ sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.6 30
+$ sudo update-alternatives --config gcc
+$ sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.7 40
+$ sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.6 30
+$ sudo update-alternatives --config g++<br />
+#ps：均选择4.6的版本。
+
+安装必备的开发包：
+ sudo apt-get install libpulse-dev -y
+ sudo apt-get install libdirectfb-dev -y
+ sudo apt-get install libpango1.0-dev -y
+ sudo apt-get install libdbus-1-dev -y
+ sudo apt-get install libasound2-dev -y
+ sudo apt-get install libesd0-dev -y
+ sudo apt-get install libncurses5-dev -y
+ sudo apt-get install libicu-dev -y
+ sudo apt-get install libxml2-dev -y
+ sudo apt-get install libsqlite3-dev -y
+ sudo apt-get install libegl1-mesa-dev -y
+ sudo apt-get install libgles2-mesa-dev -y
+ sudo apt-get install libevent-dev -y
+ sudo apt-get install libxcursor-dev -y
+ sudo apt-get install libgstreamer0.10-dev -y
+ sudo apt-get install gstreamer0.10-plugins-good -y
+ sudo apt-get install gstreamer0.10-plugins-ugly -y
+ sudo apt-get install gstreamer0.10-plugins-bad -y
+ sudo apt-get install gstreamer0.10-plugins-bad-multiverse -y
+ sudo apt-get install gstreamer0.10-fluendo-mp3 -y
+ sudo apt-get install ffmpeg -y
+ sudo apt-get install gstreamer0.10-ffmpeg -y
+ sudo apt-get install gstreamer0.10-libav -y
+ sudo apt-get install pyside-tools
+ 
+ #64位系统需要额外安装以下开发包：
+ sudo apt-get install lib32ncurses5-dev -y
+ sudo apt-get install lib32z1-dev -y
+
+如果使用chromium browser，还需要额外安装一下插件：
+ sudo apt-get install chromium-codecs-ffmpeg-extra
+ 
+ 
+ 下载Jdk-6u37-linux-x64.zip下载
+ 首先安装jdk-6u37-linux-x64.bin
+ cp jdk-6u37-linux-x64.bin ~
+ cd ~
+ chmod +x jdk-6u37-linux-x64.bin
+ ./jdk-6u37-linux-x64.bin
+ 
+ #在用户默认目录下运行
+ mkdir /usr/lib/jvm
+ mv jdk1.6.0_37/ /usr/lib/jvm/sun-java6-jdk
+ update-alternatives --install "/usr/bin/java" "java" "/usr/lib/jvm/sun-java6-jdk/bin/java" 1
+ update-alternatives --install "/usr/bin/javac" "javac" "/usr/lib/jvm/sun-java6-jdk/bin/javac" 1
+ update-alternatives --install "/usr/bin/javaws" "javaws" "/usr/lib/jvm/sun-java6-jdk/bin/javaws" 1
+ update-alternatives --install "/usr/bin/jar" "jar" "/usr/lib/jvm/sun-java6-jdk/bin/jar" 1
+ update-alternatives --config java #选择(sun-java6-jdk)
+ update-alternatives --config javac #选择(sun-java6-jdk)
+ update-alternatives --config javaws #选择(sun-java6-jdk)
+ update-alternatives --config jar #选择(sun-java6-jdk)
+ 
+ 
+ 安装qtcreator：
+ sudo apt-get install qtcreator
+
+安装设置repo：
+ git clone ssh://git@nutshell.suntec.net/tools/repo.git
+ cd repo
+ git checkout stable 
+ sudo ln repo /usr/bin/repo
+
+安装cmake：
+ sudo apt-get install cmake
+ 
+ 
+2. 设置Git相关属性
+ #提交用用户名和邮箱：
+ git config --global user.name xxx #请替换成自己的名字
+ git config --global user.email xxx@xxx #请替换成自己的email
+ 
+ #换行等设置：
+ git config --global core.autocrlf input
+ git config --global core.safecrlf true
+ 
+ 
+ 
+安装jenkins
+1. 安装Jenkins
+wget -q -O - http://pkg.jenkins-ci.org/debian/jenkins-ci.org.key | sudo apt-key add -
+sudo sh -c 'echo deb http://pkg.jenkins-ci.org/debian binary/ > /etc/apt/sources.list.d/jenkins.list'
+sudo apt-get update
+sudo apt-get install jenkins	
+
+2. 增加密码
+sudo passwd jenkins 
+
+3. 复制密钥到Jenkins .ssh 下
+
+4. 配置用户名 邮箱
+ #提交用用户名和邮箱：
+ git config --global user.name xxx #请替换成自己的名字
+ git config --global user.email xxx@xxxx.xxxxx.net #请替换成自己的email
+ 
+ #换行等设置：
+ git config --global core.autocrlf input
+ git config --global core.safecrlf true
+
+1. sudo apt-get install python-psycopg2
+		验证 import psycopg2
+		psycopg2.apilevel
+
+		
+2.	安装 protoc  smartauto环境已经安装
+
+安装 python工具
+sudo apt-get install python-setuptools
+
+安装python zmq
+apt-get install python-zmq 
+或者
+sudo easy_install ipython pyzmq tornado	安装失败
+
+安装 adb
+sudo apt-get install android-tools-adb

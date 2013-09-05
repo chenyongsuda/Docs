@@ -1,0 +1,11 @@
+
+设置域名访问：
+安装samba、winbind：sudo apt-getinstall samba winbind：sudo 
+修改配置文件/etc/samba/smb.conf：在Global Settings添加wins server = 172.26.10.18
+修改配置文件/etc/nsswitch.conf：在host段添加wins
+重启
+
+sudo apt-get install samba
+sudo apt-get install cifs-utils
+
+sudo mount -t cifs -o username=chen.yong@storm,password=111111 //172.26.10.3/pset/smartauto/Release/emu_release /mnt/
