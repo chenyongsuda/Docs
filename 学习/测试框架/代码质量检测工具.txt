@@ -1,0 +1,14 @@
+SonarQube
+
+代码审查高效组合推荐
+
+静态代码检查工具首选推荐：SonarQube，原名Sonar，参见www.sonarqube.org 。
+SonarQube本身支持Java，包括PMD, findbugs, checkstyle
+配套有绝大部分开发语言的插件，大部分是免费的。
+对于C++，cppcheck是推荐的工具，其检查结果放在sonarqube中能够记录历史，并更好的展现。
+对于C#, 集成了Fxcop StyleCop等各类对象。参见 http://www.th7.cn/Program/net/201210/108739.shtml 
+其他语言支持，都可google之。
+
+对于双人在线代码评审，一般不要求记录发现的问题，直接交流修改就可以了，但是不排除有些问题当场无法解决，或者有争议，那么这时就值得把发现记录下来，这时同样也可以利用sonarqube。SonarQube支持把发现写在对应代码处，并形成一个“review”（SonarQube中的说法），参与代码评审的各方可以发表各自的看法，如果与mylyn链接的话，此"review"对应的任务可以展现并管理。
+
+当然对于人工代码检查协作工具而言，reviewboard是专门的工具，使用的更为广泛。
