@@ -1,0 +1,5 @@
+在用Jenkins跑python脚本时候
+
+脚本里面的print语句不能实时打出来 很郁闷
+
+使用python -u  xxx.py 解决问题
