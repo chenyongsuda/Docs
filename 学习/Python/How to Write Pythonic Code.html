@@ -1,0 +1,1050 @@
+<?xml version="1.0" encoding="utf8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf8" />
+<meta name="generator" content="Docutils 0.10: http://docutils.sourceforge.net/" />
+<meta name="version" content="S5 1.1" />
+<title>How to Write &quot;Pythonic&quot; Code</title>
+<meta name="author" content="Christopher Arndt" />
+<meta name="date" content="2008-04-13" />
+<link rel="stylesheet" href="css/base.css" type="text/css" />
+<!-- configuration parameters -->
+<meta name="defaultView" content="slideshow" />
+<meta name="controlVis" content="hidden" />
+<!-- style sheet links -->
+<script src="s5/blue-medium/slides.js" type="text/javascript"></script>
+<link rel="stylesheet" href="s5/blue-medium/slides.css"
+      type="text/css" media="projection" id="slideProj" />
+<link rel="stylesheet" href="s5/blue-medium/outline.css"
+      type="text/css" media="screen" id="outlineStyle" />
+<link rel="stylesheet" href="s5/blue-medium/print.css"
+      type="text/css" media="print" id="slidePrint" />
+<link rel="stylesheet" href="s5/blue-medium/opera.css"
+      type="text/css" media="projection" id="operaFix" />
+
+<style type="text/css">
+#currentSlide {display: none;}
+</style>
+</head>
+<body>
+<div class="layout">
+<div id="controls"></div>
+<div id="currentSlide"></div>
+<div id="header">
+
+</div>
+<div id="footer">
+<h1>How to Write &quot;Pythonic&quot; Code</h1>
+<h2>RuPy, Poznań • 2008-04-13
+<a class="reference external" href="http://chrisarndt.de/talks/rupy">http://chrisarndt.de/talks/rupy</a></h2>
+</div>
+</div>
+<div class="presentation">
+<div class="slide" id="slide0">
+<h1 class="title">How to Write &quot;Pythonic&quot; Code</h1>
+<table class="docinfo" frame="void" rules="none">
+<col class="docinfo-name" />
+<col class="docinfo-content" />
+<tbody valign="top">
+<tr><th class="docinfo-name">Author:</th>
+<td>Christopher Arndt</td></tr>
+<tr><th class="docinfo-name">Date:</th>
+<td>2008-04-13</td></tr>
+<tr class="field"><th class="docinfo-name">Location:</th><td class="field-body">RuPy Conference Poznań, Poland</td>
+</tr>
+</tbody>
+</table>
+<table class="handout docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Copyright:</th><td class="field-body">CC Attribution/Share-Alike</td>
+</tr>
+</tbody>
+</table>
+<div class="handout container">
+Knowing the syntax and the standard library of Python alone doesn't make
+one a good Python programmer. In more than a decade of increasing usage and
+popularity of the language, Pythonistas have developed many typical Python
+idioms and pythonic ways &quot;to do it&quot;. These are either based on the fact that
+in Python, being a highly dynamic language, many things necessary in more
+static languages just make no sense or on the fundamental principles laid
+down in the so-called &quot;Zen of Python&quot;. This talks tries to explain these
+principles and how they translate into actual code.</div>
+<div class="contents handout topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#acknowledgements" id="id8">Acknowledgements</a></li>
+<li><a class="reference internal" href="#the-zen-of-python" id="id9">The Zen of Python</a></li>
+<li><a class="reference internal" href="#the-zen-of-python-1" id="id10">The Zen of Python (1)</a></li>
+<li><a class="reference internal" href="#the-zen-of-python-2" id="id11">The Zen of Python (2)</a></li>
+<li><a class="reference internal" href="#coding-style" id="id12">Coding Style</a></li>
+<li><a class="reference internal" href="#id1" id="id13">Coding Style</a></li>
+<li><a class="reference internal" href="#read-pep-8" id="id14">Read PEP 8!</a></li>
+<li><a class="reference internal" href="#whitespace-1" id="id15">Whitespace (1)</a></li>
+<li><a class="reference internal" href="#whitespace-2" id="id16">Whitespace (2)</a></li>
+<li><a class="reference internal" href="#naming-conventions" id="id17">Naming Conventions</a></li>
+<li><a class="reference internal" href="#long-lines-continuations" id="id18">Long Lines &amp; Continuations</a></li>
+<li><a class="reference internal" href="#long-strings-1" id="id19">Long Strings (1)</a></li>
+<li><a class="reference internal" href="#long-strings-2" id="id20">Long strings (2)</a></li>
+<li><a class="reference internal" href="#compound-statements" id="id21">Compound Statements</a></li>
+<li><a class="reference internal" href="#docstrings-comments" id="id22">Docstrings &amp; Comments</a></li>
+<li><a class="reference internal" href="#simple-is-better-than-complex" id="id23">Simple is Better Than Complex</a></li>
+<li><a class="reference internal" href="#id2" id="id24">Simple is Better Than Complex</a></li>
+<li><a class="reference internal" href="#general-python-idioms" id="id25">General Python Idioms</a></li>
+<li><a class="reference internal" href="#swap-values" id="id26">Swap Values</a></li>
+<li><a class="reference internal" href="#tuples" id="id27">Tuples</a></li>
+<li><a class="reference internal" href="#interactive" id="id28">Interactive <tt class="docutils literal">&quot;_&quot;</tt></a></li>
+<li><a class="reference internal" href="#building-strings-from-substrings" id="id29">Building Strings from Substrings</a></li>
+<li><a class="reference internal" href="#testing-for-none" id="id30">Testing for None</a></li>
+<li><a class="reference internal" href="#iterating-a-list" id="id31">Iterating a list</a></li>
+<li><a class="reference internal" href="#use-in-where-possible" id="id32">Use <tt class="docutils literal">in</tt> where possible</a></li>
+<li><a class="reference internal" href="#dictionary-setdefault-method" id="id33">Dictionary <tt class="docutils literal">setdefault</tt> Method</a></li>
+<li><a class="reference internal" href="#other-languages-have-variables-1" id="id34">Other languages have &quot;variables&quot; (1)</a></li>
+<li><a class="reference internal" href="#other-languages-have-variables-2" id="id35">Other languages have &quot;variables&quot; (2)</a></li>
+<li><a class="reference internal" href="#id3" id="id36">Other languages have &quot;variables&quot; (2)</a></li>
+<li><a class="reference internal" href="#python-has-names-1" id="id37">Python has &quot;names&quot; (1)</a></li>
+<li><a class="reference internal" href="#python-has-names-2" id="id38">Python has &quot;names&quot; (2)</a></li>
+<li><a class="reference internal" href="#default-parameter-values-1" id="id39">Default Parameter Values (1)</a></li>
+<li><a class="reference internal" href="#default-parameter-values-2" id="id40">Default Parameter Values (2)</a></li>
+<li><a class="reference internal" href="#list-comprehensions" id="id41">List Comprehensions</a></li>
+<li><a class="reference internal" href="#generator-expressions-1" id="id42">Generator Expressions (1)</a></li>
+<li><a class="reference internal" href="#generator-expressions-2" id="id43">Generator Expressions (2)</a></li>
+<li><a class="reference internal" href="#generators" id="id44">Generators</a></li>
+<li><a class="reference internal" href="#sorting-with-dsu" id="id45">Sorting with DSU</a></li>
+<li><a class="reference internal" href="#id4" id="id46">Sorting with DSU</a></li>
+<li><a class="reference internal" href="#eafp-vs-lbyl" id="id47">EAFP vs. LBYL</a></li>
+<li><a class="reference internal" href="#program-structure" id="id48">Program structure</a></li>
+<li><a class="reference internal" href="#id5" id="id49">Program structure</a></li>
+<li><a class="reference internal" href="#command-line-scripts" id="id50">Command line scripts</a></li>
+<li><a class="reference internal" href="#oo-programming" id="id51">OO-Programming</a></li>
+<li><a class="reference internal" href="#setters-getters-1" id="id52">Setters &amp; Getters (1)</a></li>
+<li><a class="reference internal" href="#setters-getters-2" id="id53">Setters &amp; Getters (2)</a></li>
+<li><a class="reference internal" href="#setters-getters-3" id="id54">Setters &amp; Getters (3)</a></li>
+<li><a class="reference internal" href="#setters-getters-4" id="id55">Setters &amp; Getters (4)</a></li>
+<li><a class="reference internal" href="#setters-getters-5" id="id56">Setters &amp; Getters (5)</a></li>
+<li><a class="reference internal" href="#setters-getters-6" id="id57">Setters &amp; Getters (6)</a></li>
+<li><a class="reference internal" href="#setters-getters-7" id="id58">Setters &amp; Getters (7)</a></li>
+<li><a class="reference internal" href="#static-and-class-methods" id="id59">Static and Class methods</a></li>
+<li><a class="reference internal" href="#static-methods" id="id60">Static methods</a></li>
+<li><a class="reference internal" href="#class-methods-1" id="id61">Class methods (1)</a></li>
+<li><a class="reference internal" href="#class-methods-2" id="id62">Class methods (2)</a></li>
+<li><a class="reference internal" href="#class-methods-3" id="id63">Class methods (3)</a></li>
+<li><a class="reference internal" href="#summary" id="id64">Summary</a></li>
+<li><a class="reference internal" href="#id6" id="id65">Summary</a></li>
+<li><a class="reference internal" href="#how-to-recognize-trees-from-afar" id="id66">How to recognize trees from afar</a></li>
+<li><a class="reference internal" href="#id7" id="id67">How to recognize trees from afar</a></li>
+<li><a class="reference internal" href="#eggbasket" id="id68">EggBasket</a></li>
+</ul>
+</div>
+
+</div>
+<div class="slide" id="acknowledgements">
+<h1>Acknowledgements</h1>
+<p>This talk is based to a good part on the slides of David Goodger's talk
+<a class="reference external" href="http://python.net/~goodger/projects/pycon/2007/idiomatic/">Code Like a Pythonista. Idiomatic Python</a> resp. Jeff Hinrich's <a class="reference external" href="http://www.omahapython.org/IdiomaticPython.html">adaptation</a>
+with the same title, from which I picked the topics I could most relate too and
+then added a few of my own favorite Python idioms. The presentation is released
+under the Creative Commons <a class="reference external" href="http://creativecommons.org/licenses/by-sa/3.0/">Attribution/Share-Alike License</a>.</p>
+</div>
+<div class="slide" id="the-zen-of-python">
+<h1>The Zen of Python</h1>
+<p class="section-title">The Zen of Python</p>
+</div>
+<div class="slide" id="the-zen-of-python-1">
+<h1>The Zen of Python (1)</h1>
+<p class="handout">Try this at your Python prompt:</p>
+<pre class="handout literal-block">
+&gt;&gt;&gt; import this
+</pre>
+<p>The Zen of Python, by Tim Peters</p>
+<div class="incremental container">
+<div class="line-block">
+<div class="line">Beautiful is better than ugly.</div>
+<div class="line">Explicit is better than implicit.</div>
+<div class="line">Simple is better than complex.</div>
+<div class="line">Complex is better than complicated.</div>
+<div class="line">Flat is better than nested.</div>
+<div class="line">Sparse is better than dense.</div>
+<div class="line">Readability counts.</div>
+<div class="line">Special cases aren't special enough to break the rules.</div>
+<div class="line">Although practicality beats purity.</div>
+<div class="line">Errors should never pass silently.</div>
+<div class="line">Unless explicitly silenced.</div>
+</div>
+</div>
+</div>
+<div class="slide" id="the-zen-of-python-2">
+<h1>The Zen of Python (2)</h1>
+<p>The Zen of Python, cont.</p>
+<div class="incremental container">
+<div class="line-block">
+<div class="line">In the face of ambiguity, refuse the temptation to guess.</div>
+<div class="line">There should be one -- and preferably only one -- obvious way to do it.</div>
+<div class="line">Although that way may not be obvious at first unless you're Dutch.</div>
+<div class="line">Now is better than never.</div>
+<div class="line">Although never is often better than <em>right</em> now.</div>
+<div class="line">If the implementation is hard to explain, it's a bad idea.</div>
+<div class="line">If the implementation is easy to explain, it may be a good idea.</div>
+<div class="line">Namespaces are one honking great idea -- let's do more of those!</div>
+</div>
+</div>
+</div>
+<div class="slide" id="coding-style">
+<h1>Coding Style</h1>
+<p class="section-title">Beautiful is better than ugly</p>
+</div>
+<div class="slide" id="id1">
+<h1>Coding Style</h1>
+<blockquote>
+<p>Programs must be written for people to read, and only incidentally for
+machines to execute.</p>
+<blockquote>
+— Abelson &amp; Sussman, Structure and Interpretation of Computer Programs</blockquote>
+</blockquote>
+</div>
+<div class="slide" id="read-pep-8">
+<h1>Read PEP 8!</h1>
+<p>Every Python programmer should know PEP 8:</p>
+<blockquote>
+<a class="reference external" href="http://www.python.org/dev/peps/pep-0008/">http://www.python.org/dev/peps/pep-0008/</a></blockquote>
+<p>PEP = Python Enhancement Proposal</p>
+<p>The Python community has its own standards for what source code should look
+like, codified in PEP 8. These standards <em>are different</em> from those of other
+communities, like C, C++, C#, Java, VisualBasic, etc.</p>
+<p>Because indentation and whitespace are so important in Python, the Style Guide
+for Python Code is as good as a standard.</p>
+<p class="handout">Most open-source projects and (hopefully) in-house projects follow the
+style guide quite closely and there are even tools to check whether code
+adheres to the standard.</p>
+</div>
+<div class="slide" id="whitespace-1">
+<h1>Whitespace (1)</h1>
+<blockquote>
+<ul class="simple">
+<li>4 spaces per indentation level.</li>
+<li>No hard tabs.</li>
+<li>Never mix tabs and spaces.</li>
+<li>One blank line between functions.</li>
+<li>Two blank lines between classes.</li>
+</ul>
+</blockquote>
+</div>
+<div class="slide" id="whitespace-2">
+<h1>Whitespace (2)</h1>
+<ul class="simple">
+<li>Add a space after <tt class="docutils literal">&quot;,&quot;</tt> in dicts, lists, tuples, &amp; argument lists, and after
+<tt class="docutils literal">&quot;:&quot;</tt> in dicts, but <em>not</em> before.</li>
+<li>Put spaces around assignments &amp; comparisons (except in argument lists).</li>
+<li><em>No</em> spaces just inside parentheses or just before argument lists.</li>
+<li><em>No</em> spaces just inside docstrings.</li>
+</ul>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">make_squares</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Return a dictionary and a list...&quot;&quot;&quot;</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="n">key</span><span class="p">:</span> <span class="n">value</span><span class="p">}</span>
+    <span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">d</span><span class="p">,</span> <span class="n">l</span>
+</pre></div>
+</div>
+<div class="slide" id="naming-conventions">
+<h1>Naming Conventions</h1>
+<ul class="simple">
+<li><tt class="docutils literal">joined_lower</tt> for functions, methods, attributes</li>
+<li><tt class="docutils literal">joined_lower</tt> or <tt class="docutils literal">ALL_CAPS</tt> for constants</li>
+<li><tt class="docutils literal">StudlyCaps</tt> for classes</li>
+<li><tt class="docutils literal">camelCase</tt> <em>only</em> to conform to pre-existing conventions</li>
+<li>Attributes: <tt class="docutils literal">interface</tt>, <tt class="docutils literal">_internal</tt>, (<tt class="docutils literal">__private</tt>)</li>
+</ul>
+<p class="handout">I never use <tt class="docutils literal">__private</tt> form. And so will probably you.</p>
+</div>
+<div class="slide" id="long-lines-continuations">
+<h1>Long Lines &amp; Continuations</h1>
+<p>Keep lines below 80 characters in length.</p>
+<p>Use implied line continuation inside parentheses/brackets/braces:</p>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">first</span><span class="p">,</span> <span class="n">second</span><span class="p">,</span> <span class="n">third</span><span class="p">,</span>
+             <span class="n">fourth</span><span class="p">,</span> <span class="n">fifth</span><span class="p">,</span> <span class="n">sixth</span><span class="p">):</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="p">(</span><span class="n">first</span> <span class="o">+</span> <span class="n">second</span> <span class="o">+</span> <span class="n">third</span>
+              <span class="o">+</span> <span class="n">fourth</span> <span class="o">+</span> <span class="n">fifth</span> <span class="o">+</span> <span class="n">sixth</span><span class="p">)</span>
+</pre></div>
+<p>Use backslashes as a last resort:</p>
+<div class="highlight"><pre><span class="n">VeryLong</span><span class="o">.</span><span class="n">left_hand_side</span> \
+    <span class="o">=</span> <span class="n">even_longer</span><span class="o">.</span><span class="n">right_hand_side</span><span class="p">()</span>
+</pre></div>
+<p>Backslashes are fragile; they must end the line they're on. If you add a space
+after the backslash, it won't work any more. Also, they're ugly.</p>
+</div>
+<div class="slide" id="long-strings-1">
+<h1>Long Strings (1)</h1>
+<p>Adjacent literal strings are concatenated by the parser:</p>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="k">print</span> <span class="s">&#39;o&#39;</span> <span class="s">&#39;n&#39;</span> <span class="s">&quot;e&quot;</span>
+<span class="n">one</span>
+</pre></div>
+<p>The string prefixed with an &quot;r&quot; is a &quot;raw&quot; string. Backslashes are not
+evaluated as escapes in raw strings. They're useful for regular expressions and
+Windows filesystem paths.</p>
+<p>Note named string objects are not concatenated:</p>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="s">&#39;three&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="s">&#39;four&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="n">b</span>
+  <span class="n">File</span> <span class="s">&quot;&lt;stdin&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span>
+    <span class="n">a</span> <span class="n">b</span>
+      <span class="o">^</span>
+<span class="ne">SyntaxError</span><span class="p">:</span> <span class="n">invalid</span> <span class="n">syntax</span>
+</pre></div>
+</div>
+<div class="slide" id="long-strings-2">
+<h1>Long strings (2)</h1>
+<p>That's because this automatic concatenation is a feature of the Python
+parser/compiler, not the interpreter. You must use the &quot;+&quot; operator to
+concatenate strings at run time.</p>
+<div class="highlight"><pre><span class="n">text</span> <span class="o">=</span> <span class="p">(</span><span class="s">&#39;Long strings can be made up &#39;</span>
+        <span class="s">&#39;of several shorter strings.&#39;</span><span class="p">)</span>
+</pre></div>
+<p>The parentheses allow implicit line continuation.</p>
+<p>Multiline strings use triple quotes:</p>
+<div class="highlight"><pre><span class="sd">&quot;&quot;&quot;\</span>
+<span class="sd">Triple</span>
+<span class="sd">double</span>
+<span class="sd">quotes&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+<div class="slide" id="compound-statements">
+<h1>Compound Statements</h1>
+<div class="incremental container">
+<p class="goodex">Good:</p>
+<div class="highlight"><pre><span class="k">if</span> <span class="n">foo</span> <span class="o">==</span> <span class="s">&#39;blah&#39;</span><span class="p">:</span>
+    <span class="n">do_something</span><span class="p">()</span>
+<span class="n">do_one</span><span class="p">()</span>
+<span class="n">do_two</span><span class="p">()</span>
+<span class="n">do_three</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="incremental container">
+<p class="badex">Bad:</p>
+<div class="highlight"><pre><span class="k">if</span> <span class="n">foo</span> <span class="o">==</span> <span class="s">&#39;blah&#39;</span><span class="p">:</span> <span class="n">do_something</span><span class="p">()</span>
+<span class="n">do_one</span><span class="p">();</span> <span class="n">do_two</span><span class="p">();</span> <span class="n">do_three</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="slide" id="docstrings-comments">
+<h1>Docstrings &amp; Comments</h1>
+<p>Docstrings = How to use code</p>
+<p>Comments = Why (rationale) &amp; how code works</p>
+<div class="incremental container">
+Docstrings explain how to use code, and are for the users of your code.</div>
+<div class="incremental container">
+Comments explain why, and are for the maintainers of your code. That
+includes yourself!</div>
+</div>
+<div class="slide" id="simple-is-better-than-complex">
+<h1>Simple is Better Than Complex</h1>
+<p class="section-title">Simple is Better Than Complex</p>
+</div>
+<div class="slide" id="id2">
+<h1>Simple is Better Than Complex</h1>
+<blockquote>
+<p>Debugging is twice as hard as writing the code in the first place.
+Therefore, if you write the code as cleverly as possible, you are, by
+definition, not smart enough to debug it.</p>
+<blockquote>
+— Brian W. Kernighan</blockquote>
+<p>In other words, KISS!</p>
+</blockquote>
+</div>
+<div class="slide" id="general-python-idioms">
+<h1>General Python Idioms</h1>
+<p class="section-title">General Python Idioms</p>
+</div>
+<div class="slide" id="swap-values">
+<h1>Swap Values</h1>
+<p>In other languages:</p>
+<div class="highlight"><pre><span class="n">temp</span> <span class="o">=</span> <span class="n">a</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">b</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">temp</span>
+</pre></div>
+<p>In Python:</p>
+<div class="highlight"><pre><span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span>
+</pre></div>
+</div>
+<div class="slide" id="tuples">
+<h1>Tuples</h1>
+<p>We saw that the comma is the tuple constructor, not the parentheses. Example:</p>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="mi">1</span><span class="p">,</span>
+<span class="p">(</span><span class="mi">1</span><span class="p">,)</span>
+</pre></div>
+<p>The Python interpreter shows the parentheses for clarity, and I recommend you
+use parentheses too:</p>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="p">(</span><span class="mi">1</span><span class="p">,)</span>
+<span class="p">(</span><span class="mi">1</span><span class="p">,)</span>
+</pre></div>
+<p>Don't forget the comma!</p>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="mi">1</span>
+</pre></div>
+</div>
+<div class="slide" id="interactive">
+<h1>Interactive <tt class="docutils literal">&quot;_&quot;</tt></h1>
+<p>This is a really useful feature that surprisingly few people know.</p>
+<p>In the interactive interpreter, whenever you evaluate an expression or call a
+function, the result is bound to a temporary name, _ (an underscore):</p>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="mi">2</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">_</span>
+<span class="mi">2</span>
+</pre></div>
+<p><tt class="docutils literal">_</tt> stores the last printed expression.</p>
+<p>When a result is <tt class="docutils literal">None</tt>, nothing is printed, so <tt class="docutils literal">_</tt> doesn't change. That's
+convenient!</p>
+<div class="note">
+<p class="first admonition-title">Note</p>
+<p class="last">This only works in the interactive interpreter, not within a module.</p>
+</div>
+</div>
+<div class="slide" id="building-strings-from-substrings">
+<h1>Building Strings from Substrings</h1>
+<p>Start with a list of strings and then <tt class="docutils literal">join()</tt> it:</p>
+<div class="highlight"><pre><span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;red&#39;</span><span class="p">,</span> <span class="s">&#39;blue&#39;</span><span class="p">,</span> <span class="s">&#39;green&#39;</span><span class="p">,</span> <span class="s">&#39;yellow&#39;</span><span class="p">]</span>
+<span class="k">print</span> <span class="s">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">colors</span><span class="p">)</span>
+</pre></div>
+<p>We want to join all the strings together into one large string. Especially when
+the number of substrings is large...</p>
+<div class="incremental container">
+<p class="badex">Don't do this:</p>
+<div class="highlight"><pre><span class="n">result</span> <span class="o">=</span> <span class="s">&#39;&#39;</span>
+<span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">colors</span><span class="p">:</span>
+    <span class="n">result</span> <span class="o">+=</span> <span class="n">s</span>
+</pre></div>
+</div>
+</div>
+<div class="slide" id="testing-for-none">
+<h1>Testing for None</h1>
+<div class="incremental container">
+<p class="goodex">Good:</p>
+<div class="highlight"><pre><span class="k">if</span> <span class="n">foo</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+    <span class="n">do_something</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="incremental container">
+<p class="okex">Maybe:</p>
+<div class="highlight"><pre><span class="k">if</span> <span class="ow">not</span> <span class="n">foo</span><span class="p">:</span>
+    <span class="n">do_someting</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="incremental container">
+<p class="badex">Bad:</p>
+<div class="highlight"><pre><span class="k">if</span> <span class="n">foo</span> <span class="o">==</span> <span class="bp">None</span><span class="p">:</span>
+    <span class="n">do_something</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="slide" id="iterating-a-list">
+<h1>Iterating a list</h1>
+<div class="incremental container">
+<p class="goodex">Good:</p>
+<div class="highlight"><pre><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">item</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">mylist</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">print</span> <span class="n">mylist</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">item</span>
+</pre></div>
+</div>
+<div class="incremental container">
+<p class="badex">Bad:</p>
+<div class="highlight"><pre><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">mylist</span><span class="p">)):</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">print</span> <span class="n">mylist</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">mylist</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="incremental container">
+<p class="badex">Also bad:</p>
+<div class="highlight"><pre><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">mylist</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">print</span> <span class="n">mylist</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">item</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="slide" id="use-in-where-possible">
+<h1>Use <tt class="docutils literal">in</tt> where possible</h1>
+<p class="goodex">Good:</p>
+<div class="highlight"><pre><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">d</span><span class="p">:</span>
+    <span class="k">print</span> <span class="n">key</span>
+</pre></div>
+<ul class="simple">
+<li>in is generally faster.</li>
+<li>This pattern also works for items in arbitrary containers (such as lists,
+tuples, and sets).</li>
+<li>in is also an operator (as we'll see).</li>
+</ul>
+<!-- container: incremental
+
+.. class:: badex
+
+    Bad:
+
+.. sourcecode:: python
+
+    for key in d.keys():
+        print key
+
+This is limited to objects with a keys() method. -->
+</div>
+<div class="slide" id="dictionary-setdefault-method">
+<h1>Dictionary <tt class="docutils literal">setdefault</tt> Method</h1>
+<p>Dicts have a <tt class="docutils literal">setdefault</tt> method that is very useful to initialise dicts:</p>
+<div class="highlight"><pre><span class="n">navs</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">portfolio</span><span class="p">,</span> <span class="n">equity</span><span class="p">,</span> <span class="n">position</span><span class="p">)</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+    <span class="n">navs</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">portfolio</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">navs</span><span class="p">[</span><span class="n">portfolio</span><span class="p">]</span> <span class="o">+=</span> <span class="n">position</span> <span class="o">*</span> <span class="n">prices</span><span class="p">[</span><span class="n">equity</span><span class="p">]</span>
+</pre></div>
+<p>The setdefault dictionary method returns the default value, and we're taking
+advantage of setdefault's side effect, that it sets the dictionary value only
+if there is no value already.</p>
+<div class="tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">Python 2.5 has the <tt class="docutils literal">defaultdict</tt> class. Look it up in the standard library
+reference!</p>
+</div>
+</div>
+<div class="slide" id="other-languages-have-variables-1">
+<h1>Other languages have &quot;variables&quot; (1)</h1>
+<p>In many other languages, assigning to a variable puts a value into a box.</p>
+<div class="highlight"><pre><span class="nb">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</pre></div>
+<img alt="images/a1box.png" src="images/a1box.png" />
+<p>Box <tt class="docutils literal">&quot;a&quot;</tt> now contains an integer 1.</p>
+</div>
+<div class="slide" id="other-languages-have-variables-2">
+<h1>Other languages have &quot;variables&quot; (2)</h1>
+<p>Assigning another value to the same variable replaces the contents of the box:</p>
+<div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+</pre></div>
+<img alt="images/a2box.png" src="images/a2box.png" />
+<p>Now box <tt class="docutils literal">&quot;a&quot;</tt> contains an integer 2.</p>
+</div>
+<div class="slide" id="id3">
+<h1>Other languages have &quot;variables&quot; (2)</h1>
+<p>Assigning one variable to another makes a copy of the value and puts it in the
+new box:</p>
+<div class="highlight"><pre><span class="nb">int</span> <span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
+</pre></div>
+<img alt="images/b2box.png" src="images/b2box.png" />
+<img alt="images/a2box.png" src="images/a2box.png" />
+<p><tt class="docutils literal">&quot;b&quot;</tt> is a second box, with a copy of integer 2. Box <tt class="docutils literal">&quot;a&quot;</tt> has a separate
+copy.</p>
+</div>
+<div class="slide" id="python-has-names-1">
+<h1>Python has &quot;names&quot; (1)</h1>
+<p>In Python, a &quot;name&quot; or &quot;identifier&quot; is like a parcel tag (or nametag) attached
+to an object.</p>
+<div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+<img alt="images/a1tag.png" src="images/a1tag.png" />
+<p>Here, an integer <tt class="docutils literal">1</tt> object has a tag labelled <tt class="docutils literal">&quot;a&quot;</tt>.</p>
+<p>If we reassign to <tt class="docutils literal">&quot;a&quot;</tt>, we just move the tag to another object:</p>
+<div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="mi">2</span>
+</pre></div>
+<img alt="images/a2tag.png" src="images/a2tag.png" />
+<img alt="images/1.png" src="images/1.png" />
+</div>
+<div class="slide" id="python-has-names-2">
+<h1>Python has &quot;names&quot; (2)</h1>
+<p>If we assign one name to another, we're just attaching another nametag to an
+existing object:</p>
+<div class="highlight"><pre><span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
+</pre></div>
+<img alt="images/ab2tag.png" src="images/ab2tag.png" />
+<p>The name <tt class="docutils literal">&quot;b&quot;</tt> is just a second tag bound to the same object as <tt class="docutils literal">&quot;a&quot;</tt>.</p>
+</div>
+<div class="slide" id="default-parameter-values-1">
+<h1>Default Parameter Values (1)</h1>
+<p>This is a common mistake that beginners often make. Even more advanced
+programmers make this mistake if they don't understand Python names.</p>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">bad_append</span><span class="p">(</span><span class="n">new_item</span><span class="p">,</span> <span class="n">a_list</span><span class="o">=</span><span class="p">[]):</span>
+    <span class="n">a_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_item</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">a_list</span>
+</pre></div>
+<div class="incremental container">
+<p>The problem here is that the default value of a_list, an empty list, is
+evaluated at function definition time. So every time you call the function,
+you get the same default value. Try it several times:</p>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="k">print</span> <span class="n">bad_append</span><span class="p">(</span><span class="s">&#39;one&#39;</span><span class="p">)</span>
+<span class="p">[</span><span class="s">&#39;one&#39;</span><span class="p">]</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span> <span class="n">bad_append</span><span class="p">(</span><span class="s">&#39;two&#39;</span><span class="p">)</span>
+<span class="p">[</span><span class="s">&#39;one&#39;</span><span class="p">,</span> <span class="s">&#39;two&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="slide" id="default-parameter-values-2">
+<h1>Default Parameter Values (2)</h1>
+<p>Lists are a mutable objects; you can change their contents. The correct way to
+get a default list (or dictionary, or set) is to create it at run time instead,
+inside the function:</p>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">good_append</span><span class="p">(</span><span class="n">new_item</span><span class="p">,</span> <span class="n">a_list</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">a_list</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">a_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">a_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_item</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">a_list</span>
+</pre></div>
+</div>
+<div class="slide" id="list-comprehensions">
+<h1>List Comprehensions</h1>
+<p>List comprehensions (&quot;listcomps&quot; for short) are syntax shortcuts for this
+general pattern:</p>
+<p>The traditional way, with for and if statements:</p>
+<div class="highlight"><pre><span class="n">new_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">a_list</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">condition</span><span class="p">(</span><span class="n">item</span><span class="p">):</span>
+        <span class="n">new_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">fn</span><span class="p">(</span><span class="n">item</span><span class="p">))</span>
+</pre></div>
+<p>As a list comprehension:</p>
+<div class="highlight"><pre><span class="n">new_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">fn</span><span class="p">(</span><span class="n">item</span><span class="p">)</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">a_list</span>
+            <span class="k">if</span> <span class="n">condition</span><span class="p">(</span><span class="n">item</span><span class="p">)]</span>
+</pre></div>
+</div>
+<div class="slide" id="generator-expressions-1">
+<h1>Generator Expressions (1)</h1>
+<p>Let's sum the squares of the numbers up to 100. As a loop:</p>
+<div class="highlight"><pre><span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">101</span><span class="p">):</span>
+    <span class="n">total</span> <span class="o">+=</span> <span class="n">num</span> <span class="o">*</span> <span class="n">num</span>
+</pre></div>
+<p>We can use the sum function to quickly do the work for us, by building the
+appropriate sequence. As a list comprehension:</p>
+<div class="highlight"><pre><span class="n">total</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="n">num</span> <span class="o">*</span> <span class="n">num</span> <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">101</span><span class="p">)])</span>
+</pre></div>
+</div>
+<div class="slide" id="generator-expressions-2">
+<h1>Generator Expressions (2)</h1>
+<p>As a generator expression:</p>
+<div class="highlight"><pre><span class="n">total</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">num</span> <span class="o">*</span> <span class="n">num</span> <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">101</span><span class="p">))</span>
+</pre></div>
+<p>Rule of thumb:</p>
+<ul class="simple">
+<li>Use a list comprehension when a computed list is the desired end result.</li>
+<li>Use a generator expression when the computed list is just an intermediate step.</li>
+</ul>
+</div>
+<div class="slide" id="generators">
+<h1>Generators</h1>
+<p>Here's a useful generator à la <tt class="docutils literal">find(1)</tt>:</p>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">walkfiles</span><span class="p">(</span><span class="n">startdir</span><span class="p">,</span> <span class="n">pattern</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Return generator for full paths of all files below startdir.</span>
+
+<span class="sd">    Optionally filters out files not matching pattern.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="nb">dir</span><span class="p">,</span> <span class="n">dirlist</span><span class="p">,</span> <span class="n">filelist</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">startdir</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">fname</span> <span class="ow">in</span> <span class="n">filelist</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">pattern</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">fnmatch</span><span class="o">.</span><span class="n">fnmatch</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">pattern</span><span class="p">):</span>
+                <span class="k">continue</span>
+            <span class="k">yield</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">dir</span><span class="p">,</span> <span class="n">fname</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="slide" id="sorting-with-dsu">
+<h1>Sorting with DSU</h1>
+<p>DSU = Decorate-Sort-Undecorate</p>
+<p>Instead of creating a custom comparison function, we create an auxiliary list
+that will sort naturally:</p>
+<div class="highlight"><pre><span class="n">alist</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">)]</span>
+
+<span class="c"># Decorate:</span>
+<span class="n">to_sort</span> <span class="o">=</span> <span class="p">[(</span><span class="n">item</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">item</span><span class="p">)</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">alist</span><span class="p">]</span>
+
+<span class="c"># Sort:</span>
+<span class="n">to_sort</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+
+<span class="c"># Undecorate:</span>
+<span class="n">alist</span> <span class="o">=</span> <span class="p">[</span><span class="n">item</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">to_sort</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="slide" id="id4">
+<h1>Sorting with DSU</h1>
+<p>In Python 2.4 and above, you can use the <tt class="docutils literal">key</tt> parameter to <tt class="docutils literal">sort</tt> to do
+this in one step.</p>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">operator</span> <span class="kn">import</span> <span class="n">itemgetter</span>
+
+<span class="n">alist</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="n">itemgetter</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="slide" id="eafp-vs-lbyl">
+<h1>EAFP vs. LBYL</h1>
+<p class="incremental">It's easier to ask forgiveness than permission</p>
+<p class="incremental">Look before you leap</p>
+<div class="incremental container">
+<p class="goodex">Good:</p>
+<div class="highlight"><pre><span class="k">try</span><span class="p">:</span>
+    <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+    <span class="o">...</span>
+</pre></div>
+<p class="badex">Bad:</p>
+<div class="highlight"><pre><span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">basestring</span><span class="p">):</span>
+    <span class="n">do_something</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="slide" id="program-structure">
+<h1>Program structure</h1>
+<p class="section-title">Program structure</p>
+</div>
+<div class="slide" id="id5">
+<h1>Program structure</h1>
+<blockquote>
+<ol class="arabic simple">
+<li>(Shebang)</li>
+<li>Source encoding declaration</li>
+<li>Module docstring</li>
+<li>Imports (stdlib, third-party, private modules)</li>
+<li>Global constants and initialization code</li>
+<li>Exceptions</li>
+<li>Module-level functions</li>
+<li>Classes</li>
+<li><tt class="docutils literal">main</tt> function</li>
+</ol>
+</blockquote>
+</div>
+<div class="slide" id="command-line-scripts">
+<h1>Command line scripts</h1>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="highlight"><pre><span class="c">#!/usr/bin/env python</span>
+
+<span class="c"># examples/script-template.py</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">args</span><span class="p">:</span>
+        <span class="k">print</span> <span class="s">&quot;Usage: foo ARG1 [ARG2...]&quot;</span>
+        <span class="k">return</span> <span class="mi">2</span>
+    <span class="k">return</span> <span class="mi">0</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">sys</span>
+    <span class="n">status</span> <span class="o">=</span> <span class="n">main</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">status</span><span class="p">)</span>
+    <span class="c"># or combined</span>
+    <span class="c"># sys.exit(main(sys.argv[1:]))</span>
+</pre></div>
+</td></tr></table></div>
+<div class="slide" id="oo-programming">
+<h1>OO-Programming</h1>
+<p class="section-title">OO-Programming</p>
+</div>
+<div class="slide" id="setters-getters-1">
+<h1>Setters &amp; Getters (1)</h1>
+<p>Bad:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Foo</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">spamm</span><span class="p">,</span> <span class="n">eggs</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">spamm</span> <span class="o">=</span> <span class="n">spamm</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">eggs</span> <span class="o">=</span> <span class="n">eggs</span>
+
+    <span class="k">def</span> <span class="nf">get_spamm</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">spamm</span>
+
+    <span class="k">def</span> <span class="nf">set_spamm</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">spamm</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="c"># et cetera</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="n">Foo</span><span class="p">(</span><span class="s">&#39;bar&#39;</span><span class="p">,</span> <span class="s">&#39;baz&#39;</span><span class="p">)</span>
+<span class="n">myspamm</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">get_spamm</span><span class="p">()</span>
+</pre></div>
+</td></tr></table></div>
+<div class="slide" id="setters-getters-2">
+<h1>Setters &amp; Getters (2)</h1>
+<p>Good:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Foo</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">spamm</span><span class="p">,</span> <span class="n">eggs</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">spamm</span> <span class="o">=</span> <span class="n">spamm</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">eggs</span> <span class="o">=</span> <span class="n">eggs</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="n">Foo</span><span class="p">(</span><span class="s">&#39;bar&#39;</span><span class="p">,</span> <span class="s">&#39;baz&#39;</span><span class="p">)</span>
+<span class="n">myspamm</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">spamm</span>
+</pre></div>
+</td></tr></table></div>
+<div class="slide" id="setters-getters-3">
+<h1>Setters &amp; Getters (3)</h1>
+<p>But what if you need to make your attribute dynamic later?</p>
+<div class="incremental container">
+<p>Bad:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Foo</span><span class="p">:</span>
+    <span class="c"># ...</span>
+
+    <span class="k">def</span> <span class="nf">get_spamm</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">make_spamm</span><span class="p">()</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="n">Foo</span><span class="p">()</span>
+<span class="n">myspamm</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">get_spamm</span><span class="p">()</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="slide" id="setters-getters-4">
+<h1>Setters &amp; Getters (4)</h1>
+<p>Solution: use the <tt class="docutils literal">property</tt>  builtin:</p>
+<div class="incremental container">
+<p>Good:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Foo</span><span class="p">:</span>
+    <span class="c"># ...</span>
+
+    <span class="k">def</span> <span class="nf">_spamm</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return  fresh portion of spamm.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">make_spamm</span><span class="p">()</span>
+    <span class="n">spamm</span> <span class="o">=</span> <span class="nb">property</span><span class="p">(</span><span class="n">_spamm</span><span class="p">)</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="n">Foo</span><span class="p">()</span>
+<span class="n">myspamm</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">spamm</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="slide" id="setters-getters-5">
+<h1>Setters &amp; Getters (5)</h1>
+<p>Or, using <tt class="docutils literal">property</tt> as a <em>decorator</em>:</p>
+<div class="incremental container">
+<p>Very good:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Foo</span><span class="p">:</span>
+    <span class="c"># ...</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">spamm</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">make_spamm</span><span class="p">()</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="n">Foo</span><span class="p">()</span>
+<span class="n">myspamm</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">spamm</span>
+</pre></div>
+</td></tr></table></div>
+<div class="incremental container">
+<div class="warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Both forms will turn <tt class="docutils literal">spamm</tt> into a read-only attribute!</p>
+</div>
+</div>
+</div>
+<div class="slide" id="setters-getters-6">
+<h1>Setters &amp; Getters (6)</h1>
+<p>The same works for setting attributes:</p>
+<p>Bad:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Foo</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="nf">set_spamm</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">is_valid</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">spamm</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;I want my spamm!&#39;</span><span class="p">)</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">Foo</span><span class="p">()</span>
+<span class="n">f</span><span class="o">.</span><span class="n">set_spamm</span> <span class="o">=</span> <span class="s">&quot;Eggs&quot;</span>
+</pre></div>
+</td></tr></table></div>
+<div class="slide" id="setters-getters-7">
+<h1>Setters &amp; Getters (7)</h1>
+<p>Good (again using <tt class="docutils literal">property</tt>):</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span class="c"># examples/property_01.py</span>
+
+<span class="k">class</span> <span class="nc">Foo</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">_get_spamm</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">make_spamm</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">_set_spamm</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">is_valid</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__dict__</span><span class="p">[</span><span class="s">&#39;spamm&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;I want my spamm!&#39;</span><span class="p">)</span>
+    <span class="n">spamm</span> <span class="o">=</span> <span class="nb">property</span><span class="p">(</span><span class="n">_get_spamm</span><span class="p">,</span> <span class="n">_set_spamm</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span>
+        <span class="s">&quot;Tasty spamm&quot;</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+<div class="slide" id="static-and-class-methods">
+<h1>Static and Class methods</h1>
+</div>
+<div class="slide" id="static-methods">
+<h1>Static methods</h1>
+<p>Static methods don't receive the instance as the first argument. They can be
+be thought of as functions living in the namespace of the class. They are
+similar to the same concept in Java or C++. They are not very useful in Python
+(just use a normal function instead) but can be used for helper functions in a
+class, which doesn't need access to <tt class="docutils literal">self</tt>, and are no use outside the class.</p>
+<div class="incremental container">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Foo</span><span class="p">:</span>
+    <span class="c"># ...</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_format_name</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">name</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;_&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="slide" id="class-methods-1">
+<h1>Class methods (1)</h1>
+<p>Class methods receive the <em>class</em> object as the first argument, not the
+instance. It is therefore good practice to name the first parameter <tt class="docutils literal">cls</tt>
+(<tt class="docutils literal">class</tt> is a keyword!) instead of <tt class="docutils literal">self</tt>. A good use for class methods
+are <em>factory functions</em>, i.e. alternative, convenient ways to create
+pre-configured class instances.</p>
+</div>
+<div class="slide" id="class-methods-2">
+<h1>Class methods (2)</h1>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="highlight"><pre><span class="c"># examples/classmethod_01.py</span>
+
+<span class="k">class</span> <span class="nc">Template</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">template</span><span class="p">,</span> <span class="o">**</span><span class="n">data</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">template</span> <span class="o">=</span> <span class="n">template</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">from_file</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="o">**</span><span class="n">data</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return Template with template string read</span>
+<span class="sd">            from filename.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">cls</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">(),</span> <span class="n">data</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">render</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">data</span><span class="p">):</span>
+        <span class="n">subst</span> <span class="o">=</span>  <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">subst</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">template</span> <span class="o">%</span> <span class="n">data</span>
+</pre></div>
+</td></tr></table></div>
+<div class="slide" id="class-methods-3">
+<h1>Class methods (3)</h1>
+<div class="note">
+<p class="first admonition-title">Note</p>
+<p>Classmethods can be called on the class:</p>
+<pre class="literal-block">
+Template.from_file(...)
+</pre>
+<p>or the instance with the same effect:</p>
+<pre class="last literal-block">
+t.from_file(...)
+</pre>
+</div>
+</div>
+<div class="slide" id="summary">
+<h1>Summary</h1>
+<p class="section-title">Summary</p>
+</div>
+<div class="slide" id="id6">
+<h1>Summary</h1>
+<blockquote>
+<ul class="simple">
+<li>Follow PEP 8</li>
+<li>Read the standard library reference</li>
+<li>Know your lists, dicts and iterators</li>
+<li><tt class="docutils literal">Import this</tt></li>
+</ul>
+</blockquote>
+</div>
+<div class="slide" id="how-to-recognize-trees-from-afar">
+<h1>How to recognize trees from afar</h1>
+<p class="section-title">And now for something completely different...</p>
+</div>
+<div class="slide" id="id7">
+<h1>How to recognize trees from afar</h1>
+<p class="section-title">Number 1: The Larch</p>
+</div>
+<div class="slide" id="eggbasket">
+<h1>EggBasket</h1>
+<img alt="images/eggbasket_screenshot.png" src="images/eggbasket_screenshot.png" />
+<p>For more infomation, please visit <a class="reference external" href="http://chrisarndt.de/projects/Eggbasket">http://chrisarndt.de/projects/Eggbasket</a>.</p>
+</div>
+</div>
+</body>
+</html>
