@@ -1,0 +1,10 @@
+The traditional way, with for and if statements:
+
+new_list = []
+for item in a_list:
+    if condition(item):
+        new_list.append(fn(item))
+As a list comprehension:
+
+new_list = [fn(item) for item in a_list
+            if condition(item)]
