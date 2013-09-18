@@ -1,0 +1,52 @@
+1. 查看本地仓库的远程链接 (以ModelA模块为例）
+$ git remote -v
+origin 
+ssh://git@xxx.net/PROJECT/develop/framework/service/ModelA 
+(fetch)
+origin 
+ssh://git@xxx.net/PROJECT/develop/framework/service/ModelA 
+(push)
+
+2. 追加builder仓库的远程链接 并更新
+$ git remote add builder 
+ssh://git@xxx.net/PROJECT/builder/framework/service/ModelA
+$ git remote -v
+builder 
+ssh://git@xxx.net/PROJECT/builder/framework/service/ModelA 
+(fetch)
+builder 
+ssh://git@xxx.net/PROJECT/builder/framework/service/ModelA 
+(push)
+origin 
+ssh://git@xxx.net/PROJECT/develop/framework/service/ModelA 
+(fetch)
+origin 
+ssh://git@xxx.net/PROJECT/develop/framework/service/ModelA 
+(push)
+
+如果添加builder仓库出现问题，需要删除之前添加的错误builder仓库重新添加的话：
+$git remote rm builder
+再重新追加即可
+
+$ git remote update
+
+3. 追加本地branch 并 切换过去
+$ git branch DL_130226 builder/abc/DL_130226
+$ git checkout DL_130226
+$ git branch
+ * DL_130226
+ master
+
+4. 将master上的提交，在DL_130226上再提交一次
+$ git cherry-pick <commit>
+
+比如：直接使用commit id
+$ git cherry-pick c2907f
+使用master分支来操作
+ (master分支最后一个提交）
+ $ git cherry-pick master
+ (master分支前一个提交）
+ $ git cherry-pick master~1
+
+5. 推送到builder仓库
+$ git push builder DL_130226:abc/DL_130226
