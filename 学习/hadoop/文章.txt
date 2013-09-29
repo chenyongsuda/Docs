@@ -1,0 +1,9 @@
+Hadoop基础介绍
+http://wenku.baidu.com/view/0f687cf49e31433239689319.html?pn=1
+
+Hadoop原理与代码分析
+http://www.cnblogs.com/forfuture1978/category/300670.html
+
+Hadoop代码分析
+http://wenku.baidu.com/view/5c2a4d3183c4bb4cf7ecd182.html
+

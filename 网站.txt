@@ -42,6 +42,7 @@ http://www.cnblogs.com/remlostime/archive/2012/10/29/2745125.html	leetcode
 http://community.topcoder.com  TopCoder 算法文章
 http://hawstein.com/  技术观点 技术知识
 http://www.wumii.com/item/1eMyfmQd7	果壳学院  公开课学习
+http://www.aojgame.com/category/developer/page/2    小杰
 
 http://openjudge.cn/
 百度之星程序设计大赛
@@ -230,3 +231,11 @@ http://django-dajaxice.readthedocs.org/en/latest/quickstart.html  Django下的AJAX
 
 @Liunx
 http://bbs.chinaunix.net/thread-1569056-1-2.html   chinaLinux
+
+@VIM
+vim练习游戏  VIM大冒险
+CodeTank（代码坦克）是全世界首个Javascript程序员的在线编程对战游戏，是由 腾讯 AlloyTeam 和 HTML5 梦工场联合出品的在线坦克仿真游戏平台.
+
+@搜索
+http://stblog.baidu-tech.com/?paged=10  百度搜索技术官方
+http://www.searchtb.com/				淘宝搜索技术官方

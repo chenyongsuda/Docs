@@ -1,0 +1,38 @@
+http://stblog.baidu-tech.com/?p=397
+
+实现思路：
+
+2.   Hadoop应用实例：大规模数据的排序
+Hadoop平台没有提供全局数据排序，而在大规模数据处理中进行数据的全局排序是非常普遍的需求。大量的将大规模数据任务切分成小数据规模的数据处理任务都必须先将大规模数据进行全局排序。例如处理两组大的数据集的属性合并，可以对两组数据进行全局排序然后分解成一系列小的二路归并问题实现。
+2.1应用hadoop进行大规模数据全局排序的方法
+使用hadoop进行大量的数据排序排序最直观的方法是把文件所有内容给map之后，map不做任何处理，直接输出给一个reduce，利用hadoop的自己的shuffle机制，对所有数据进行排序，而后由reduce直接输出。
+然而这样的方法跟单机毫无差别，完全无法用到多机分布式计算的便利。因此这种方法是不行的。
+利用hadoop分而治之的计算模型，可以参照快速排序的思想。在这里我们先简单回忆一下快速排序。快速排序基本步骤就是需要现在所有数据中选取一个作为支点。然后将大于这个支点的放在一边，小于这个支点的放在另一边。
+设想如果我们有N个支点（这里可以称为标尺），就可以把所有的数据分成N+1个part，将这N+1个part丢给reduce，由hadoop自动排序，最后输出N+1个内部有序的文件，再把这N+1个文件首尾相连合并成一个文件，收工。
+由此我们可以归纳出这样一个用hadoop对大量数据排序的步骤：
+1）  对待排序数据进行抽样；
+2）  对抽样数据进行排序，产生标尺；
+3）  Map对输入的每条数据计算其处于哪两个标尺之间；将数据发给对应区间ID的reduce
+4）  Reduce将获得数据直接输出。
+这里使用对一组url进行排序来作为例子：
+
+
+
+具体实现：
+借鉴快速排序的思路：假设为升序排序，那么每完成一次partition，pivot左边所有元素的值都小于等于pivot，而pivot右边的所有元素的值都大于等于pivot，如果现在有N个pivot，那么数据就被map成了N+1个区间，让reducer个数等于N+1，将不同区间的数据发送到相应区间的reducer；hadoop利用shuffle操作将这N+1份数据自动排序，reduce操作只需要接收中间结果后直接输出到文件即可。
+
+由此归纳出用hadoop对大量数据排序的步骤：
+
+1）、对待排序数据进行抽样；
+
+2）、对抽样数据进行排序，产生pivot（例如得到的pivot为：3,9,11）；
+
+3）、Map对输入的每条数据计算其处于哪两个pivot之间，之后将数据发给相应的reduce（例如区间划分为：<3、[3,9)、>=9，分别对应reducer0、reducer1、reducer2）；
+
+4）、Reduce将获得数据直接输出。
+
+(6)、简单实现
+      数据抽样由：RandomSelectMapper和RandomSelectReducer完成，数据划分由ReducerPatition完成，排序输出由SortMapper和SortReducer完成，执行顺序为：RandomSelectMapper –> RandomSelectReducer –> SortMapper –> SortReducer。
+	  
+	  
+http://www.cnblogs.com/vivounicorn/archive/2011/09/20/2182433.html

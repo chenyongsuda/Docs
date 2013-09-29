@@ -1,0 +1,58 @@
+javascript中的冒号的作用
+
+虽然之前写过不少的javascirpt的脚本，但是对冒号:却不甚了了，感觉即陌生又熟悉，没办法老毛病又犯了，不把问题搞清楚那个(：)
+
+老在眼前晃，于是在网上搜吧，查资料，很郁闷网上介绍冒号用法的贴子不多，而且比较零碎，也不够深入，看完让人更迷糊，折腾了两天，终于对冒号(：)有了更进一步的了解,希望对想了解冒号用法的人有所帮助。 
+1、switch语句分支 
+2、?:三元表达式的false 
+3、声明对象直接量的成员 
+4、声明标签 
+
+1和2相信地球人都知道吧？如果有人不知道,那我改成地球上的程序员都知道,哈哈 
+3、对象直接量我们也经常用，什么是对象直接量呢？ 
+对象直接量（也称为对象初始化程序）是由一个列表构成的，这个列表的元素是用冒号分隔的属性/值对，元素之间用逗号隔开了，整个列表包含在花括号之中。 
+javascript中的对象可以像C#、JAVA这些面向对象的语言中的对象一样，拥有属性和方法。 
+我们创建javascript对象有很多种方法,例如，你可以用Object创建， 
+复制代码 代码如下:
+var obj1 = new Object(); 
+obj1.X = "20px"; 
+obj1.Y = "30px"; 
+obj1.myFunction = function() { alert("我是一个方法！"); }; 
+obj1.myFunction(); 
+
+用对象直接量创建一个对象: 
+复制代码 代码如下:
+var obj2={X:"20px",Y:"30px",myFunction:function(){alert("我是一个方法！");}} 
+obj2.myFunction(); 
+
+用对象直接量创建对象看上去很简洁. 
+当然你也可以先写个类似Class类的东西然后用构造函数创建： 
+复制代码 代码如下:
+function myClass(x, y) { 
+this.X = x; 
+this.Y = y; 
+} 
+myClass.prototype.myFunction=function(){ 
+alert("我是一个方法！"); 
+} 
+var obj3 = new myClass("20px", "30px"); 
+obj3.myFunction(); 
+
+4、声明标签 
+脚本语言有很多，除了javascript之外，我们也可以用其它脚本语言来实现javascript所能实现的功能; 
+例： 
+<input type="button" onclick="vbscript:vbFunction()" value='按钮'/> 
+当点击按钮时就会用vbscript语法去执行你用vbscript定义的vbFunction方法; 
+如果把onclick后面的vbscript:vbFunction()，改成javascript:vbFunction();就会出错。 
+这些声明你也可以不写直接调用方法， 
+<input type="button" onclick="vbFunction()" value='按钮'/> 
+这时onclick中的方法， 无论你用vbscript还是javascript，IE浏览器会自行识别，用相应的语法去执行，当然其它浏览器是不支持vbscript的. 
+平时我们用javascript习惯上是加声明的，也就是"javascript:"， 
+<input type="button" onclick="javascript:alert('你点击了我！')" value='按钮'/> 
+"javascript:"经常被那些自称黑客的人们利用,利用"javascript:"绕过一些简单的或者更高级一点的html表单限制及cookie/session验证;以及SQL注入.如果想了解可以到别的地方查，不过学会千万不要搞破坏啊，哈哈 
+做个简单的小例子： 
+首先打开www.baidu.com百度的首页,然后直接把下面这句复制到浏览器的地址栏中，按回车, 
+javascript:alert(document.forms[0].wd.value='csdn');document.forms[0].submit() 
+效果怎么样呢？不错，我们利用javascript直接操作了搜索框中的文本，还有执行了表单的提交，更复杂的操作，可以自己研究。 
+
+详细出处参考：http://www.jb51.net/article/18465.htm
