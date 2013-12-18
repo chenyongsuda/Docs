@@ -1,0 +1,67 @@
+
+2.1.1 Remove Duplicates from Sorted Array
+描述
+Given a sorted array, remove the duplicates in place such that each element appear only
+once and return the new length.
+Do not allocate extra space for another array, you must do this in place with constant memory.
+For example, Given input array A = [1,1,2],
+Your function should return length = 2, and A is now [1,2].
+
+int RemoveDuplicate(int A[],int n)
+{
+	if(n < 1) return 0;
+
+	int pre = 0;
+	for (int index = 1; index < n; index++) {
+		if (A[pre] != A[index]) {
+			A[++pre] = A[index];
+		}
+	}
+	
+	for(int i = 0; i <= pre; i ++){
+		printf("%d ", A[i]);
+	}
+	return pre + 1;
+}
+
+// LeetCode-Array.cpp : Defines the entry point for the console application.
+//
+/************************************************************************/
+/* 2.1.2 Remove Duplicates from Sorted Array II
+描述
+Follow up for ”Remove Duplicates”: What if duplicates are allowed at most twice?
+For example, Given sorted array A = [1,1,1,2,2,3],
+Your function should return length = 5, and A is now [1,1,2,2,3]                                                         */
+/************************************************************************/
+#include "stdafx.h"
+
+int RemoveDuplicate(int A[],int n)
+{
+	if(n < 1) return 0;
+
+	int count = 1;//新队列最后元素已经加入到新队列中的个数
+	int pre = 0;
+	for (int index = 1; index < n; index++) {
+		if (A[pre] != A[index]) {
+			A[++pre] = A[index];
+			count = 1;//元素不同时候初始化为1
+		} else {
+			count++;
+			if(count <= 2){ //由于允许最多两个一样的
+			A[++pre] = A[index];
+			}
+		}
+	}
+	
+	for(int i = 0; i <= pre; i ++){
+		printf("%d ", A[i]);
+	}
+	return pre + 1;
+}
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+	int A[] = {1,2,3,3,3,4,4,4,4};
+	int num = RemoveDuplicate(A,9);
+	return 0;
+}
