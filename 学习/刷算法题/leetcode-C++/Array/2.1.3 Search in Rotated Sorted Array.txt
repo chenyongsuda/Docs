@@ -1,0 +1,136 @@
+二分查找的bug
+	有问题的代码是这一行：
+	int mid = (low + high) >> 1;　
+
+	大家知道，其等价于：
+	int mid =(low + high) / 2;
+
+	问题是在 low 和 high 都很大时，比如数组的元素达到 2^30 时，low + high 将超过整数的最大值 2^31 -1，此时将造成溢流，溢流后得到的 mid 为负值。
+
+	正确的实现应该为：
+				 int mid = low + ((high - low) / 2);
+
+二分查找最重要的是确定查找模型
+	确立和中间值mid的关系  > < = 分为3块
+	选定范围可以采用[ )  或者[] 分块时候应该保持一致
+	
+具体写二分可能遇到的问题参考2.1.3 二分查找学习札记
+
+
+2.1.3 Search in Rotated Sorted Array
+
+	主要找出轴 由于位移了分为两个部分 条件为两个  if else
+	这是一个两部分搜索,先确定两部分边界
+	
+这个方法 定义为寻找数组中的最小值
+二分搜索来找到转折点，也就是最小数的位置。对二分搜索要稍作修改，当a[left] <= a[mid]时，可以肯定a[left..mid]是升序的，
+那么a[left]是最小的，也可能最小的在a[mid+1..right]中，
+其实会出现两种模型分两块递增 | 全是递增的(在中间切割时候出现 比如 8个前4个一段后四个一段 6789 1234 切一半9 9 > 6 去1 2 3 4 找 这时候1 2 3 4 为存递增数列
+再切的话 1 和 3 4 取 3 4 得到最小值为 3 left 为 1 则取 1)
+
+int findPos(int a[], int left, int right)
+{
+    if (left > right)
+        return -1;
+        
+    int mid = left + (right - left) / 2;
+    
+    if (a[left] <= a[mid])
+    {
+        int pos = findPos(a, mid + 1, right);
+        
+        if (pos == -1)
+            return left;
+        else
+            return a[left] < a[pos] ? left : pos; 
+			//return pos;
+    }
+    else
+    {
+        int pos = findPos(a, left, mid - 1);
+        
+        if (pos == -1)
+            return mid;
+        else
+            return a[pos] < a[mid] ? pos : mid;
+			//return pos;
+    }
+}
+
+
+Search in Rotated Sorted Array II
+
+int findPos(int a[], int left, int right)
+{
+    if (left > right)
+        return -1;
+        
+    int mid = left + (right - left) / 2;
+    
+    if (a[left] < a[mid])
+    {
+        int pos = findPos(a, mid + 1, right);
+        if (pos == -1)
+            return left;
+        else
+            return a[pos] <= a[left] ? pos : left;
+    }
+    else if (a[left] > a[mid])
+    {
+        int pos = findPos(a, left, mid - 1);
+        if (pos == -1)
+            return mid;
+        else
+            return a[pos] < a[mid] ? pos : mid;
+    }
+    else
+    {
+        int pos1 = findPos(a, left, mid - 1);
+        int pos2 = findPos(a, mid + 1, right);
+        if (pos1 == -1 && pos2 == -1)
+            return mid;
+        else if (pos1 == -1)
+            return a[mid] < a[pos2] ? mid : pos2;
+        else if (pos2 == -1)
+            return a[mid] <= a[pos1] ? mid : pos1;
+        else
+        {
+            if (a[pos1] < a[pos2])
+                return a[mid] <= a[pos1] ? mid : pos1;
+            else
+                return a[mid] < a[pos2] ? mid : pos2;
+        }
+    }
+}
+
+
+上面这是确定边界的方法
+
+下面是不用确定边界的方法
+	见PDF
+	http://leetcode.com/2010/04/searching-element-in-rotated-array.html
+	解决方法是不断缩小范围
+	Solution:
+	This time you have to search for the rotation pivot. There is a subtle observation. 
+	This problem is in fact the same as finding the minimum element’s index. 
+	If the middle element is greater than the right most element,
+	then the pivot must be to the right; if it is not, the pivot must be to the left.
+	求pivot
+	int FindSortedArrayRotation(int A[], int N) {
+	  int L = 0;
+	  int R = N - 1;
+	  
+	  while (A[L] > A[R]) {
+		int M = L + (R - L) / 2;
+		if (A[M] > A[R])
+		  L = M + 1;
+		else
+		  R = M;
+	  }
+	  return L;
+	}
+	
+	二分查找大于等于V的第一个值
+	
+	这两种相似  只要想想迫近后的最终极限状态
+	
