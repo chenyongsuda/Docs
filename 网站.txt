@@ -17,6 +17,9 @@ python challenge
 Google code jam
 glassdoor
 http://hero.pongo.cn/Question/Details?ID=17&ExamID=17  庞果网
+geeksforgeeks
+topcoder
+
 
 
 @学习技术网站
