@@ -55,6 +55,7 @@ http://zhiqiang.org/blog/				阅微堂
 http://www.cnblogs.com/lichen782/category/494719.html  有想法说明的 Leetcode 解题笔记
 http://www.cnblogs.com/shawnhue/archive/2013/06/05/leetcode_126.html	有想法说明的 Leetcode 解题笔记
 http://blog.csdn.net/pickless/article/details/12034365				有讲解的解题笔记
+http://www.ardendertat.com/category/programming-interview/	面试题目讲解
 
 
 
