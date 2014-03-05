@@ -56,6 +56,10 @@ http://www.cnblogs.com/lichen782/category/494719.html  ÓĞÏë·¨ËµÃ÷µÄ Leetcode ½âÌ
 http://www.cnblogs.com/shawnhue/archive/2013/06/05/leetcode_126.html	ÓĞÏë·¨ËµÃ÷µÄ Leetcode ½âÌâ±Ê¼Ç
 http://blog.csdn.net/pickless/article/details/12034365				ÓĞ½²½âµÄ½âÌâ±Ê¼Ç
 http://www.ardendertat.com/category/programming-interview/	ÃæÊÔÌâÄ¿½²½â
+http://www.xuetangx.com/  Çå»ª¹«¿ª¿Î ÀàËÆ MIT OpenEdX
+http://online.stanford.edu/openedx
+http://mooc.guokr.com/course/platform/Coursera/?platform_id=1&order=grading moocÑ§Ôº
+
 
 
 
@@ -259,3 +263,8 @@ http://www.searchtb.com/				ÌÔ±¦ËÑË÷¼¼Êõ¹Ù·½
 
 @Ğ¡ÄÔ½î
 ÃÅÈøÂÛÌ³
+
+
+@android 
+http://www.nfchome.org/  NFCÖ®¼Ò
+http://zhuwenhao.com/		²»´íµÄÑ§Ï°µØ·½ ÓĞAndroidÔ´Âë
