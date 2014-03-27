@@ -270,3 +270,9 @@ http://www.searchtb.com/				淘宝搜索技术官方
 @android 
 http://www.nfchome.org/  NFC之家
 http://zhuwenhao.com/		不错的学习地方 有Android源码
+
+
+@多线程 高并发
+http://blog.csdn.net/yangbutao/article/details/8479520
+
+http://www.ibm.com/developerworks/cn/java/j-concurrent/?ca=j-r IBM Java 并发文档库
