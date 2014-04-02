@@ -288,3 +288,7 @@ http://www.iteye.com/blogs/subjects/JavaConcurrencyIP	Java Concurrency in Practi
 @考研
 http://www.moe.edu.cn/	教育部门户网站
 http://yz.chsi.com.cn/	研究生招生信息网
+
+
+@好玩
+ThinkGeek是美国一家专卖各种极客物品的购物网站，出售的东西包括各种游戏、电影周边物品以及电脑外设、衣服、马克杯、玩具、糖果等。
