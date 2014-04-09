@@ -14,6 +14,10 @@ http://www.jdon.com/
 http://coolshell.cn/
 http://ifeve.com/
 
+@国内比赛平台
+http://102.alibaba.com/competition/addDiscovery/gameIntroduce.htm  天猫天池
+http://openresearch.baidu.com/activity/activity_index.jspx;jsessionid=AB24875939CBA7778AF61671E6EAA954?pageid=10&topicId=1  百度开放研究平台
+
 
 
 @代码练习
