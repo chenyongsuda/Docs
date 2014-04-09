@@ -63,7 +63,7 @@ http://mooc.guokr.com/course/platform/Coursera/?platform_id=1&order=grading mooc
 http://www.ibm.com/developerworks/cn/linux/l-cn-gpb/   ibm 技术文档
 http://blog.csdn.net/sbitswc/article/category/1928157  Leetcode 题目分类
 http://www.infoq.com/cn/		infoQ信息网站
-
+http://www.searchtb.com/2012/10/introduction_to_disruptor.html	淘宝
 
 
 
