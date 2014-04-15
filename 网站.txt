@@ -15,6 +15,7 @@ http://coolshell.cn/
 http://ifeve.com/
 http://www.zhihu.com/
 http://class.qq.com/
+http://www.oschina.net/translate/implementing-producer-consumer-using-synchronousqueue
 
 @国内比赛平台
 http://102.alibaba.com/competition/addDiscovery/gameIntroduce.htm  天猫天池
