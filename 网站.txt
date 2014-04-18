@@ -305,6 +305,8 @@ http://blog.csdn.net/morewindows?viewmode=contents	多线程面试题 题目 汇总 + 白话
 http://www.blogjava.net/xylz/category/45607.html 深入浅出java 并发编程
 书籍
 Java 7 Concurrency Cookbook
+http://coderbee.net/index.php/uncategorized/20140105/697#并发		JAVA Concurrent 源码阅读
+
 
 
 @考研
