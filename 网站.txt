@@ -1,14 +1,14 @@
-¹«¿ª¿ÎÍøÕ¾
+å…¬å¼€è¯¾ç½‘ç«™
 
-@¼ÆËã»ú¹«¿ª¿Î
+@è®¡ç®—æœºå…¬å¼€è¯¾
 Coursera
 Udacity
 
-@ÖĞÎÄ¹«¿ª¿ÎÌÖÂÛÍøÕ¾
+@ä¸­æ–‡å…¬å¼€è¯¾è®¨è®ºç½‘ç«™
 http://52opencourse.com/
 http://courseminer.com/
 
-@¼¼ÊõÍøÕ¾
+@æŠ€æœ¯ç½‘ç«™
 http://www.infoq.com/cn/
 http://www.jdon.com/
 http://coolshell.cn/
@@ -16,226 +16,226 @@ http://ifeve.com/
 http://www.zhihu.com/
 http://class.qq.com/
 http://www.oschina.net/translate/implementing-producer-consumer-using-synchronousqueue
-http://www.it165.net/pro/	JAVA ÒÔ¼°ÆäËû¿ª·¢¼¼ÊõÍøÕ¾
+http://www.it165.net/pro/	JAVA ä»¥åŠå…¶ä»–å¼€å‘æŠ€æœ¯ç½‘ç«™
 
-@¹úÄÚ±ÈÈüÆ½Ì¨
-http://102.alibaba.com/competition/addDiscovery/gameIntroduce.htm  ÌìÃ¨Ìì³Ø
-http://openresearch.baidu.com/activity/activity_index.jspx;jsessionid=AB24875939CBA7778AF61671E6EAA954?pageid=10&topicId=1  °Ù¶È¿ª·ÅÑĞ¾¿Æ½Ì¨
+@å›½å†…æ¯”èµ›å¹³å°
+http://102.alibaba.com/competition/addDiscovery/gameIntroduce.htm  å¤©çŒ«å¤©æ± 
+http://openresearch.baidu.com/activity/activity_index.jspx;jsessionid=AB24875939CBA7778AF61671E6EAA954?pageid=10&topicId=1  ç™¾åº¦å¼€æ”¾ç ”ç©¶å¹³å°
 
 
 
-@´úÂëÁ·Ï°
+@ä»£ç ç»ƒä¹ 
 http://codeforces.com/
 http://leetcode.com 
 careercup
 python challenge
 Google code jam
 glassdoor
-http://hero.pongo.cn/Question/Details?ID=17&ExamID=17  ÅÓ¹ûÍø
+http://hero.pongo.cn/Question/Details?ID=17&ExamID=17  åºæœç½‘
 geeksforgeeks
 topcoder
-http://openjudge.cn/  ±±´ó³ÌĞòÑ§Ï°ÍøÕ¾
+http://openjudge.cn/  åŒ—å¤§ç¨‹åºå­¦ä¹ ç½‘ç«™
 
 
 
-@Ñ§Ï°¼¼ÊõÍøÕ¾
+@å­¦ä¹ æŠ€æœ¯ç½‘ç«™
 http://www.1point3acres.com/bbs/forum-145-1.html
-http://hxraid.iteye.com/category/83702  Êı¾İ½á¹¹  Ëã·¨ÌâÄ¿
-http://blog.csdn.net/ohmygirl/article/category/1185442	Ëã·¨×Ü½á
-http://www.ahathinking.com/archives/186.html  ÓÂĞÒ|Thinking
-http://www.felix021.com/blog/read.php?1587  Ëã·¨blog
-http://blog.csdn.net/v_JULY_v/article/details/6322882	Ëã·¨blog
-http://blog.csdn.net/wuzhekai1985/article/details/6764858  Ëã·¨
-http://blog.csdn.net/tianshuai11/article/details/7828907  Ëã·¨¼¯ºÏ
-http://www.51projob.com/a/souhu/20120911/651.html  ÃæÊÔÌâÍøÕ¾
+http://hxraid.iteye.com/category/83702  æ•°æ®ç»“æ„  ç®—æ³•é¢˜ç›®
+http://blog.csdn.net/ohmygirl/article/category/1185442	ç®—æ³•æ€»ç»“
+http://www.ahathinking.com/archives/186.html  å‹‡å¹¸|Thinking
+http://www.felix021.com/blog/read.php?1587  ç®—æ³•blog
+http://blog.csdn.net/v_JULY_v/article/details/6322882	ç®—æ³•blog
+http://blog.csdn.net/wuzhekai1985/article/details/6764858  ç®—æ³•
+http://blog.csdn.net/tianshuai11/article/details/7828907  ç®—æ³•é›†åˆ
+http://www.51projob.com/a/souhu/20120911/651.html  é¢è¯•é¢˜ç½‘ç«™
 http://www.mianwww.com/html/2012/03/14404.html
 http://stackoverflow.com/
 http://blog.unieagle.net/2012/10/16/leetcode%E9%A2%98%E7%9B%AE%EF%BC%9Anext-permutation/
-http://dongxicheng.org/knowledges-carding/  Ò»Ğ©»ù´¡Á´½Ó ¶­µÄblog
-http://ac.jobdu.com/submitpage.php?pid=1082 ¾Å¶ÈOJ
-http://www.keithschwarz.com/interesting/	Êı¾İ½á¹¹Ëã·¨µÄ100¶àÌõÌâÄ¿
-http://mindlee.net/2011/09/26/binomial-heaps/	¿áĞĞÌìÏÂ
+http://dongxicheng.org/knowledges-carding/  ä¸€äº›åŸºç¡€é“¾æ¥ è‘£çš„blog
+http://ac.jobdu.com/submitpage.php?pid=1082 ä¹åº¦OJ
+http://www.keithschwarz.com/interesting/	æ•°æ®ç»“æ„ç®—æ³•çš„100å¤šæ¡é¢˜ç›®
+http://mindlee.net/2011/09/26/binomial-heaps/	é…·è¡Œå¤©ä¸‹
 http://www.algorithmist.com/index.php/Data_Structures
-http://blog.csdn.net/lyy289065406/article/details/6674366	 Ğ¡ÓÅ POJ½âÌâ
+http://blog.csdn.net/lyy289065406/article/details/6674366	 å°ä¼˜ POJè§£é¢˜
 http://www.cnblogs.com/remlostime/archive/2012/10/29/2745125.html	leetcode
-http://community.topcoder.com  TopCoder Ëã·¨ÎÄÕÂ
-http://hawstein.com/  ¼¼Êõ¹Ûµã ¼¼ÊõÖªÊ¶
-http://www.wumii.com/item/1eMyfmQd7	¹û¿ÇÑ§Ôº  ¹«¿ª¿ÎÑ§Ï°
-http://www.aojgame.com/category/developer/page/2    Ğ¡½Ü
-http://www.geeksforgeeks.org/inorder-tree-traversal-without-recursion/  ±È½ÏºÃµÄËã·¨ÎÄµµÍøÕ¾
+http://community.topcoder.com  TopCoder ç®—æ³•æ–‡ç« 
+http://hawstein.com/  æŠ€æœ¯è§‚ç‚¹ æŠ€æœ¯çŸ¥è¯†
+http://www.wumii.com/item/1eMyfmQd7	æœå£³å­¦é™¢  å…¬å¼€è¯¾å­¦ä¹ 
+http://www.aojgame.com/category/developer/page/2    å°æ°
+http://www.geeksforgeeks.org/inorder-tree-traversal-without-recursion/  æ¯”è¾ƒå¥½çš„ç®—æ³•æ–‡æ¡£ç½‘ç«™
 http://www.matrix67.com/blog/		matrix67
-http://techsingular.net/		¼¼ÊõÆæÒìµã
-http://mindhacks.cn/        ÁõÎ´Åô | MIND HACKS
-http://www.yangsheep.net/algorithm.html		Ëã·¨Ö®ÃÀ
-http://zhiqiang.org/blog/				ÔÄÎ¢ÌÃ
-http://www.cnblogs.com/lichen782/category/494719.html  ÓĞÏë·¨ËµÃ÷µÄ Leetcode ½âÌâ±Ê¼Ç
-http://www.cnblogs.com/shawnhue/archive/2013/06/05/leetcode_126.html	ÓĞÏë·¨ËµÃ÷µÄ Leetcode ½âÌâ±Ê¼Ç
-http://blog.csdn.net/pickless/article/details/12034365				ÓĞ½²½âµÄ½âÌâ±Ê¼Ç
-http://www.ardendertat.com/category/programming-interview/	ÃæÊÔÌâÄ¿½²½â
-http://www.xuetangx.com/  Çå»ª¹«¿ª¿Î ÀàËÆ MIT OpenEdX
+http://techsingular.net/		æŠ€æœ¯å¥‡å¼‚ç‚¹
+http://mindhacks.cn/        åˆ˜æœªé¹ | MIND HACKS
+http://www.yangsheep.net/algorithm.html		ç®—æ³•ä¹‹ç¾
+http://zhiqiang.org/blog/				é˜…å¾®å ‚
+http://www.cnblogs.com/lichen782/category/494719.html  æœ‰æƒ³æ³•è¯´æ˜çš„ Leetcode è§£é¢˜ç¬”è®°
+http://www.cnblogs.com/shawnhue/archive/2013/06/05/leetcode_126.html	æœ‰æƒ³æ³•è¯´æ˜çš„ Leetcode è§£é¢˜ç¬”è®°
+http://blog.csdn.net/pickless/article/details/12034365				æœ‰è®²è§£çš„è§£é¢˜ç¬”è®°
+http://www.ardendertat.com/category/programming-interview/	é¢è¯•é¢˜ç›®è®²è§£
+http://www.xuetangx.com/  æ¸…åå…¬å¼€è¯¾ ç±»ä¼¼ MIT OpenEdX
 http://online.stanford.edu/openedx
-http://mooc.guokr.com/course/platform/Coursera/?platform_id=1&order=grading moocÑ§Ôº
-http://www.ibm.com/developerworks/cn/linux/l-cn-gpb/   ibm ¼¼ÊõÎÄµµ
-http://blog.csdn.net/sbitswc/article/category/1928157  Leetcode ÌâÄ¿·ÖÀà
-http://www.infoq.com/cn/		infoQĞÅÏ¢ÍøÕ¾
-http://www.searchtb.com/2012/10/introduction_to_disruptor.html	ÌÔ±¦
-http://www.jdon.com/			JµÀ  javaÍøÕ¾
+http://mooc.guokr.com/course/platform/Coursera/?platform_id=1&order=grading moocå­¦é™¢
+http://www.ibm.com/developerworks/cn/linux/l-cn-gpb/   ibm æŠ€æœ¯æ–‡æ¡£
+http://blog.csdn.net/sbitswc/article/category/1928157  Leetcode é¢˜ç›®åˆ†ç±»
+http://www.infoq.com/cn/		infoQä¿¡æ¯ç½‘ç«™
+http://www.searchtb.com/2012/10/introduction_to_disruptor.html	æ·˜å®
+http://www.jdon.com/			Jé“  javaç½‘ç«™
 
 
 
 
 
 http://openjudge.cn/
-°Ù¶ÈÖ®ĞÇ³ÌĞòÉè¼Æ´óÈü
+ç™¾åº¦ä¹‹æ˜Ÿç¨‹åºè®¾è®¡å¤§èµ›
 http://star.baidu.com/
-http://mindlee.net/2011/09/10/huffman-coding/  ¿áĞĞÌìÏÂ
-http://www.cnblogs.com/remlostime/  ÂùºÃµÄBlog  Å£ÈË
+http://mindlee.net/2011/09/10/huffman-coding/  é…·è¡Œå¤©ä¸‹
+http://www.cnblogs.com/remlostime/  è›®å¥½çš„Blog  ç‰›äºº
 
 
 
-@ÂÛÌ³
-http://bbs.byr.cn/#!board/ACM_ICPC	±±ÓÊ
-http://www.newsmth.net/nForum/#!board/Algorithm	Ë®Ä¾Çå»ª
-http://bbs.csdn.net/forums/ST_Arithmetic	CSDNËã·¨
-http://www.1point3acres.com/bbs/forum-84-1.html	Ò»Ä¶Èı·ÖµØËã·¨
-http://www.csie.ntnu.edu.tw/~u91029/	ÑİËã·¨±Ê¼Ç
-http://coolshell.cn/articles/5426.html	¿á¿Ç ±È½ÏºÃµÄÑ§Ï°Blog Ã¿ÌìÇÆÒ»ÇÆ	
+@è®ºå›
+http://bbs.byr.cn/#!board/ACM_ICPC	åŒ—é‚®
+http://www.newsmth.net/nForum/#!board/Algorithm	æ°´æœ¨æ¸…å
+http://bbs.csdn.net/forums/ST_Arithmetic	CSDNç®—æ³•
+http://www.1point3acres.com/bbs/forum-84-1.html	ä¸€äº©ä¸‰åˆ†åœ°ç®—æ³•
+http://www.csie.ntnu.edu.tw/~u91029/	æ¼”ç®—æ³•ç¬”è®°
+http://coolshell.cn/articles/5426.html	é…·å£³ æ¯”è¾ƒå¥½çš„å­¦ä¹ Blog æ¯å¤©ç§ä¸€ç§	
 http://www.itpub.net/thread-1116625-1-1.html 	ITPUB	
 
 @HTML5
-http://www.html5cn.org/ 	HTML5Ñ§Ï°ÍøÕ¾
-http://www.xh-css.cn/category/js/	±ê×¼HTMLÑ§Ï°¹ı³Ì
+http://www.html5cn.org/ 	HTML5å­¦ä¹ ç½‘ç«™
+http://www.xh-css.cn/category/js/	æ ‡å‡†HTMLå­¦ä¹ è¿‡ç¨‹
 
-Ò»Ğ©Ëã·¨Ïà¹ØÍÆ¼ö
+ä¸€äº›ç®—æ³•ç›¸å…³æ¨è
 http://www.1point3acres.com/bbs/thread-35139-1-1.html
 
-@ÆÕÁÖË¹¶Ù Ëã·¨
+@æ™®æ—æ–¯é¡¿ ç®—æ³•
 http://algs4.cs.princeton.edu/home/
 
 
-@¾Å¶ÈÃæÊÔÔÚÏß²âÊÔ
+@ä¹åº¦é¢è¯•åœ¨çº¿æµ‹è¯•
 http://ac.jobdu.com/hhtproblems.php
 
-@×¨ÃÅ·­ÒëÍøÕ¾
+@ä¸“é—¨ç¿»è¯‘ç½‘ç«™
 http://www.yeeyan.org/
 
-@ÔÚÏß²âÊÔÍøÕ¾
+@åœ¨çº¿æµ‹è¯•ç½‘ç«™
 codility
 
-@VS ÉèÖÃ
-±È½ÏºÃ¿´µÄ×ÖÌå consolars
+@VS è®¾ç½®
+æ¯”è¾ƒå¥½çœ‹çš„å­—ä½“ consolars
 
-@ĞÅÏ¢×ÊÁÏÊé¼®ÍøÕ¾
-ppurl Æ¤Æ¤ÊéÎİ
-http://www.nowamagic.net  ÏÖ´úÄ§·¨
-http://www.nowamagic.net/librarys/veda/cate/Algorithm  ÏÖ´úÄ§·¨£ºËã·¨²¿·Ö
-http://dongxicheng.org/category/structure/  Êı¾İ½á¹¹
+@ä¿¡æ¯èµ„æ–™ä¹¦ç±ç½‘ç«™
+ppurl çš®çš®ä¹¦å±‹
+http://www.nowamagic.net  ç°ä»£é­”æ³•
+http://www.nowamagic.net/librarys/veda/cate/Algorithm  ç°ä»£é­”æ³•ï¼šç®—æ³•éƒ¨åˆ†
+http://dongxicheng.org/category/structure/  æ•°æ®ç»“æ„
 
-Ã»½â¾öµÄ±ÊÊÔÌâ
+æ²¡è§£å†³çš„ç¬”è¯•é¢˜
 http://bbs.byr.cn/#!article/Job/1365483
 
-²»´íµÄBlog
-http://wordaligned.org/articles/two-star-programming	Linus	»¹ÓĞÏà¹Ø¶ş¼¶Ö¸ÕëµÈµÈ
+ä¸é”™çš„Blog
+http://wordaligned.org/articles/two-star-programming	Linus	è¿˜æœ‰ç›¸å…³äºŒçº§æŒ‡é’ˆç­‰ç­‰
 
-http://blog.csdn.net/maqingli87/article/details/8007557	LeetcoedÌâÄ¿
+http://blog.csdn.net/maqingli87/article/details/8007557	Leetcoedé¢˜ç›®
 
-http://blog.csdn.net/haoel/article/details/1388498/	³Âê»µÄBlog
-
-
-
-
-@×ÊÔ´ÍøÕ¾
-http://glyphicons.com/	Í¼Æ¬×ÊÔ´ÍøÕ¾
-
-@ºÃÓÃµÄ±à¼­Æ÷
-webstream	¿ª·¢webgl	
-Sublime Text 2 liunxÏÂ±à¼­¹¤¾ß	http://www.iplaysoft.com/sublimetext.html
+http://blog.csdn.net/haoel/article/details/1388498/	é™ˆæ˜Šçš„Blog
 
 
 
-@×ÖÌå
-http://www.cnblogs.com/hanyulcf/archive/2010/12/26/1917083.html	10¿î×ÖÌåÍÆ¼ö
+
+@èµ„æºç½‘ç«™
+http://glyphicons.com/	å›¾ç‰‡èµ„æºç½‘ç«™
+
+@å¥½ç”¨çš„ç¼–è¾‘å™¨
+webstream	å¼€å‘webgl	
+Sublime Text 2 liunxä¸‹ç¼–è¾‘å·¥å…·	http://www.iplaysoft.com/sublimetext.html
 
 
-@¹úÄÚ´óÑ§½ÌÑ§×ÊÁÏ
-http://fusion.grids.cn/mzhang/shixi/	±±¾©´óÑ§	Êı¾İ½á¹¹ºÍËã·¨×ÊÁÏ
-http://www.jpk.pku.edu.cn/pkujpk/course/sjjg/frame/index.html	±±¾©´óÑ§	Êı¾İ½á¹¹ºÍËã·¨¿Î³Ì
+
+@å­—ä½“
+http://www.cnblogs.com/hanyulcf/archive/2010/12/26/1917083.html	10æ¬¾å­—ä½“æ¨è
+
+
+@å›½å†…å¤§å­¦æ•™å­¦èµ„æ–™
+http://fusion.grids.cn/mzhang/shixi/	åŒ—äº¬å¤§å­¦	æ•°æ®ç»“æ„å’Œç®—æ³•èµ„æ–™
+http://www.jpk.pku.edu.cn/pkujpk/course/sjjg/frame/index.html	åŒ—äº¬å¤§å­¦	æ•°æ®ç»“æ„å’Œç®—æ³•è¯¾ç¨‹
 
 
 @Video
 http://www.cnblogs.com/ider/archive/2013/01/22/online-video-tutorial.html
 
 
-@ÉêÇë
-´óŒWĞ£ÔºÕĞÊÕ´óê‘µØ…^ŒWÉúÂ“ºÏÕĞÉúÎ¯†T•ş
+@ç”³è¯·
+å¤§å­¸æ ¡é™¢æ‹›æ”¶å¤§é™¸åœ°å€å­¸ç”Ÿè¯åˆæ‹›ç”Ÿå§”å“¡æœƒ
 http://rusen.stust.edu.tw/cpx/index.html
 
-Ì¨´óÕn³ÌµØˆD
+å°å¤§èª²ç¨‹åœ°åœ–
 http://coursemap.aca.ntu.edu.tw/course_map_all/class.php?code=222M
 
 
-º£Ï¿Á½°¶ÕĞÉú·şÎñÖĞĞÄ
+æµ·å³¡ä¸¤å²¸æ‹›ç”ŸæœåŠ¡ä¸­å¿ƒ
 http://hxla.gatzs.com.cn/
 
-¹Ù¾Whttp://rusen.stust.edu.tw 
-ÃÈÑ§½ãµÄÉêÇëÖ±²¥Ìûhttp://www.douban.com/group/topic/26595453/
+å®˜ç¶²http://rusen.stust.edu.tw 
+èŒå­¦å§çš„ç”³è¯·ç›´æ’­å¸–http://www.douban.com/group/topic/26595453/
 
 @HTML5
-bootstrap   UI¿ò¼Ü
-Cocos-x ÓÎÏ·¿ª·¢
+bootstrap   UIæ¡†æ¶
+Cocos-x æ¸¸æˆå¼€å‘
 http://blog.csdn.net/xiaominghimi/article/category/921752
-http://blog.csdn.net/bill_man/article/details/7202458   ÓÎÏ·¿ª·¢ºÍÊµÀı
-1.csdnµÄcocos2d-x¿ª·¢×¨À¸¡£
-2.csdnµÄcocos2d-xÈëÃÅ×¨À¸¡£
-3.himiµÄcocos2d-xÓÎÏ·¿ª·¢£¨Õâ¸öÁ´½ÓÊÇcsdnµÄ£¬´ó¼Ò¿ÉÒÔÈ¥¹Ø×¢himiµÄĞÂ¸öÈËÖ÷Ò³£©
-4.ÀÏGµÄblog
-5.cocoaChinaÉÏÃæµÄ»ã×ÜÌû£¨Õâ¸ö»ã×ÜÌûº­¸ÇÁËapi¡¢wiki¡¢Ïà¹ØÎÄµµºÍÒ»Ğ©¿ª·¢Õß²©¿Í¡£ÖµµÃÊÕ²Ø£©
-6.´î½¨cocos2d-x-android»·¾³ Windows XP3 + Eclipse + NDKR7+COCOS2DX(Ã»ÓĞÓÃµ½cygwinºÍminigw)
-7.cocos2d-x ±àÒë Anroid°æ±¾Óöµ½µÄÎÊÌâÒÔ¼°½â¾ö°ì·¨
-8. cocos2d-xÌí¼Ó¹ã¸æÌõ£¨BADA°æ±¾£©£¨ÉÏÃæĞ´ÁËºÜ¶à¹ØÓÚluaµÄÎÄÕÂ£©
+http://blog.csdn.net/bill_man/article/details/7202458   æ¸¸æˆå¼€å‘å’Œå®ä¾‹
+1.csdnçš„cocos2d-xå¼€å‘ä¸“æ ã€‚
+2.csdnçš„cocos2d-xå…¥é—¨ä¸“æ ã€‚
+3.himiçš„cocos2d-xæ¸¸æˆå¼€å‘ï¼ˆè¿™ä¸ªé“¾æ¥æ˜¯csdnçš„ï¼Œå¤§å®¶å¯ä»¥å»å…³æ³¨himiçš„æ–°ä¸ªäººä¸»é¡µï¼‰
+4.è€Gçš„blog
+5.cocoaChinaä¸Šé¢çš„æ±‡æ€»å¸–ï¼ˆè¿™ä¸ªæ±‡æ€»å¸–æ¶µç›–äº†apiã€wikiã€ç›¸å…³æ–‡æ¡£å’Œä¸€äº›å¼€å‘è€…åšå®¢ã€‚å€¼å¾—æ”¶è—ï¼‰
+6.æ­å»ºcocos2d-x-androidç¯å¢ƒ Windows XP3 + Eclipse + NDKR7+COCOS2DX(æ²¡æœ‰ç”¨åˆ°cygwinå’Œminigw)
+7.cocos2d-x ç¼–è¯‘ Anroidç‰ˆæœ¬é‡åˆ°çš„é—®é¢˜ä»¥åŠè§£å†³åŠæ³•
+8. cocos2d-xæ·»åŠ å¹¿å‘Šæ¡ï¼ˆBADAç‰ˆæœ¬ï¼‰ï¼ˆä¸Šé¢å†™äº†å¾ˆå¤šå…³äºluaçš„æ–‡ç« ï¼‰
 9.http://blog.plicatibu.com/category/cocos2d/
-10.ÎÒÊÇÑı¹Ö£¬cocos2d-x ÒıÇæluaÔ´Âë¹±Ï×Õß
-11.http://www.cnblogs.com/cocos2d-x/ (·Ç³£ÊÊºÏwin32ÏÂÃæÑ§Ï°µÄÍ¬Ñ§¹Ø×¢ºÍÖ§³ÖÒ»ÏÂ£¬ÎÄÕÂ×Ü½áµÄºÜºÃ£¬ÏàĞÅÂ¥Ö÷»¹»áÓĞ¸ü¶à¸üĞÂ¡£)
-12.http://blog.sina.com.cn/s/blog_61d2d3f50100y2rv.html(²¼À³ÌØ_À×Å·²¨µÂµÄblog)
-13.http://blog.tsiannian.com/archives/category/cocos2d-x£¨ÊµÏÖÁËcocos2d-xÏÂÃæµÄWIN32°´¼üÏûÏ¢£©
-14.http://blog.csdn.net/tkokof1/article/details/7426706(COCOS2D-XÖ§³ÖÖĞÎÄ×îÏêÏ¸½â¾ö·½°¸)
+10.æˆ‘æ˜¯å¦–æ€ªï¼Œcocos2d-x å¼•æ“luaæºç è´¡çŒ®è€…
+11.http://www.cnblogs.com/cocos2d-x/ (éå¸¸é€‚åˆwin32ä¸‹é¢å­¦ä¹ çš„åŒå­¦å…³æ³¨å’Œæ”¯æŒä¸€ä¸‹ï¼Œæ–‡ç« æ€»ç»“çš„å¾ˆå¥½ï¼Œç›¸ä¿¡æ¥¼ä¸»è¿˜ä¼šæœ‰æ›´å¤šæ›´æ–°ã€‚)
+12.http://blog.sina.com.cn/s/blog_61d2d3f50100y2rv.html(å¸ƒè±ç‰¹_é›·æ¬§æ³¢å¾·çš„blog)
+13.http://blog.tsiannian.com/archives/category/cocos2d-xï¼ˆå®ç°äº†cocos2d-xä¸‹é¢çš„WIN32æŒ‰é”®æ¶ˆæ¯ï¼‰
+14.http://blog.csdn.net/tkokof1/article/details/7426706(COCOS2D-Xæ”¯æŒä¸­æ–‡æœ€è¯¦ç»†è§£å†³æ–¹æ¡ˆ)
 
-ÓÎÏ·ÊµÀı½²½â
+æ¸¸æˆå®ä¾‹è®²è§£
 http://blog.csdn.net/fylz1125/article/details/8489333
 
 
 @sublime
-²å¼ş´óÈ«
+æ’ä»¶å¤§å…¨
 http://blog.csdn.net/w6611415/article/details/7725566
 
 
-@ÆäËûÀí²ÆÉú»î
-http://cn.wsj.com/gb/index.asp »ª¶û½ÖÖĞÎÄÍø
-http://gold.hexun.com/  ºÍÑ¶»Æ½ğ
+@å…¶ä»–ç†è´¢ç”Ÿæ´»
+http://cn.wsj.com/gb/index.asp åå°”è¡—ä¸­æ–‡ç½‘
+http://gold.hexun.com/  å’Œè®¯é»„é‡‘
 
-@²å»­Éè¼Æ
+@æ’ç”»è®¾è®¡
 http://www.zcool.com.cn/event/sogou/index.do  
 
-@ĞÂÎÅ
+@æ–°é—»
 http://live.wallstreetcn.com/live-china
 http://news.sina.com.cn/news1000/?requestOrder=0
 
-@ÓÎÏ·
+@æ¸¸æˆ
 http://www.lhgamer.com/forum.php  
-Ğé»ÃÒıÇæ 
-U3DÒıÇæ
+è™šå¹»å¼•æ“ 
+U3Då¼•æ“
 
-@ÔÚÏß´úÂë
+@åœ¨çº¿ä»£ç 
 paste.ubuntu.com
 
 @Jquery
-http://www.sd131.com/  ²å¼ş¿â
-http://www.oschina.net/project/tag/276/jquery-tabs  ²å¼ş
+http://www.sd131.com/  æ’ä»¶åº“
+http://www.oschina.net/project/tag/276/jquery-tabs  æ’ä»¶
 http://jqueryui.com/themeroller/
-jqPlotÍ¼±íÖĞÎÄAPIÊ¹ÓÃÎÄµµ¼°Ô´ÂëºÍÔÚÏßÊ¾Àı
+jqPlotå›¾è¡¨ä¸­æ–‡APIä½¿ç”¨æ–‡æ¡£åŠæºç å’Œåœ¨çº¿ç¤ºä¾‹
 http://www.itivy.com/ivy/archive/2012/1/24/jquery-jqplot.html  
 http://www.highcharts.com/demo/pie-basic/grid highcharts
-¶àÑ¡¿Ø¼ş
+å¤šé€‰æ§ä»¶
 http://www.erichynds.com/examples/jquery-ui-multiselect-widget/demos/index.htm#basic
 https://github.com/ehynds/jquery-ui-multiselect-widget
 
@@ -243,85 +243,88 @@ https://github.com/ehynds/jquery-ui-multiselect-widget
 
 
 
-@×Ô¶¯»¯´î½¨¹¤¾ß
-Jenkins  ×Ô¶¯±àÒë¹¤¾ß ³ÖĞø¼¯³ÉÒıÇæ
-Redmine  bug¹ÜÀíÏµÍ³
-ÏîÄ¿¹ÜÀí£¬ÍÆ¼öÊ¹ÓÃAsana
+@è‡ªåŠ¨åŒ–æ­å»ºå·¥å…·
+Jenkins  è‡ªåŠ¨ç¼–è¯‘å·¥å…· æŒç»­é›†æˆå¼•æ“
+Redmine  bugç®¡ç†ç³»ç»Ÿ
+é¡¹ç›®ç®¡ç†ï¼Œæ¨èä½¿ç”¨Asana
 
 @hadoop
-Êı¾İ·ÖÎö ´óÊı¾İ
-http://f.dataguru.cn/forum.php  Á¶Êı³É½ğ
-Ñ§Ï°R£¬SAS£¬SPSSµÈµÈ
+æ•°æ®åˆ†æ å¤§æ•°æ®
+http://f.dataguru.cn/forum.php  ç‚¼æ•°æˆé‡‘
+å­¦ä¹ Rï¼ŒSASï¼ŒSPSSç­‰ç­‰
 
-Ä¿Ç°¹«¿ª¿ÎÀïÃæ£¬coursera.orgÉÏÓĞÁ½ÃÅ¿Î£ºweb intelligence and big data´óÌå½éÉÜÁËµ½µ×Ê²Ã´ÊÇ´óÊı¾İ¡¢ÏÖÔÚÒ»°ãÁ÷ĞĞÓÃÊ²Ã´·½Ê½´¦Àí£»×î½üÕıÔÚ½øĞĞÖĞµÄintroduction to data science£¬±È½Ï×ÅÖØ½²data hacking£¬
+ç›®å‰å…¬å¼€è¯¾é‡Œé¢ï¼Œcoursera.orgä¸Šæœ‰ä¸¤é—¨è¯¾ï¼šweb intelligence and big dataå¤§ä½“ä»‹ç»äº†åˆ°åº•ä»€ä¹ˆæ˜¯å¤§æ•°æ®ã€ç°åœ¨ä¸€èˆ¬æµè¡Œç”¨ä»€ä¹ˆæ–¹å¼å¤„ç†ï¼›æœ€è¿‘æ­£åœ¨è¿›è¡Œä¸­çš„introduction to data scienceï¼Œæ¯”è¾ƒç€é‡è®²data hackingï¼Œ
 
-http://chinahadoop.net/forum.php   hadoopÉçÇø
+http://chinahadoop.net/forum.php   hadoopç¤¾åŒº
 http://www.hadoopor.com/ 			
-http://forum.hadoop.tw/			   Ì¨ÍåhadoopÉçÇø
+http://forum.hadoop.tw/			   å°æ¹¾hadoopç¤¾åŒº
 
 http://bigdatauniversity.com/courses/	
-http://cloudcomputing.ruc.edu.cn/						¹ãÈË´óµÄÔÆ¼ÆËãjudgeonline
-GFS Bigtable spanner cassadra dynamo MapReduce Hadoop 	ÕâĞ©¶¼ÊÇ±È½Ï¾­µäµÄÂÛÎÄ
-http://aws.amazon.com/elasticmapreduce/					AmazonµÄÔÆ·şÎñ
-http://research.google.com/pubs/papers.html				GoogleÂÛÎÄ
+http://cloudcomputing.ruc.edu.cn/						å¹¿äººå¤§çš„äº‘è®¡ç®—judgeonline
+GFS Bigtable spanner cassadra dynamo MapReduce Hadoop 	è¿™äº›éƒ½æ˜¯æ¯”è¾ƒç»å…¸çš„è®ºæ–‡
+http://aws.amazon.com/elasticmapreduce/					Amazonçš„äº‘æœåŠ¡
+http://research.google.com/pubs/papers.html				Googleè®ºæ–‡
 
 
 @PYTHON
-http://django-chinese-docs-14.readthedocs.org/en/latest/ref/models/options.html	DjangoÎÄµµ
-http://django-dajaxice.readthedocs.org/en/latest/quickstart.html  DjangoÏÂµÄAJAX -- dajax¿â
+http://django-chinese-docs-14.readthedocs.org/en/latest/ref/models/options.html	Djangoæ–‡æ¡£
+http://django-dajaxice.readthedocs.org/en/latest/quickstart.html  Djangoä¸‹çš„AJAX -- dajaxåº“
 
 @Liunx
 http://bbs.chinaunix.net/thread-1569056-1-2.html   chinaLinux
 
 @VIM
-vimÁ·Ï°ÓÎÏ·  VIM´óÃ°ÏÕ
-CodeTank£¨´úÂëÌ¹¿Ë£©ÊÇÈ«ÊÀ½çÊ×¸öJavascript³ÌĞòÔ±µÄÔÚÏß±à³Ì¶ÔÕ½ÓÎÏ·£¬ÊÇÓÉ ÌÚÑ¶ AlloyTeam ºÍ HTML5 ÃÎ¹¤³¡ÁªºÏ³öÆ·µÄÔÚÏßÌ¹¿Ë·ÂÕæÓÎÏ·Æ½Ì¨.
+vimç»ƒä¹ æ¸¸æˆ  VIMå¤§å†’é™©
+CodeTankï¼ˆä»£ç å¦å…‹ï¼‰æ˜¯å…¨ä¸–ç•Œé¦–ä¸ªJavascriptç¨‹åºå‘˜çš„åœ¨çº¿ç¼–ç¨‹å¯¹æˆ˜æ¸¸æˆï¼Œæ˜¯ç”± è…¾è®¯ AlloyTeam å’Œ HTML5 æ¢¦å·¥åœºè”åˆå‡ºå“çš„åœ¨çº¿å¦å…‹ä»¿çœŸæ¸¸æˆå¹³å°.
 
-@ËÑË÷
-http://stblog.baidu-tech.com/?paged=10  °Ù¶ÈËÑË÷¼¼Êõ¹Ù·½
-http://www.searchtb.com/				ÌÔ±¦ËÑË÷¼¼Êõ¹Ù·½
+@æœç´¢
+http://stblog.baidu-tech.com/?paged=10  ç™¾åº¦æœç´¢æŠ€æœ¯å®˜æ–¹
+http://www.searchtb.com/				æ·˜å®æœç´¢æŠ€æœ¯å®˜æ–¹
 
 
-@Ğ¡ÄÔ½î
-ÃÅÈøÂÛÌ³
+@å°è„‘ç­‹
+é—¨è¨è®ºå›
 
 
 @android 
-http://www.nfchome.org/  NFCÖ®¼Ò
-http://zhuwenhao.com/		²»´íµÄÑ§Ï°µØ·½ ÓĞAndroidÔ´Âë
+http://www.nfchome.org/  NFCä¹‹å®¶
+http://zhuwenhao.com/		ä¸é”™çš„å­¦ä¹ åœ°æ–¹ æœ‰Androidæºç 
 
 
-@¶àÏß³Ì ¸ß²¢·¢
+@å¤šçº¿ç¨‹ é«˜å¹¶å‘
 http://blog.csdn.net/yangbutao/article/details/8479520
 
-http://www.ibm.com/developerworks/cn/java/j-concurrent/?ca=j-r IBM Java ²¢·¢ÎÄµµ¿â
-http://ifeve.com/category/java/		²¢·¢±à³ÌÍø
-http://www.blogjava.net/xylz/category/45607.html	java ²¢·¢×¨Ìâ²©¿Í
-Êé¼®¡¶Java Memory Model¡·¡¢¡¶Java Concurrency in Practice¡·¡¢¡¶Concurrent Programming in Java: Design Principles and Patterns¡·
-http://www.infoq.com/cn/articles/ConcurrentHashMap		ÁÄÁÄ²¢·¢
-http://www.molotang.com/post_list		java¶àÏß³Ìblog
-http://www.iteye.com/blogs/subjects/JavaConcurrencyIP	Java Concurrency in Practice ¶ÁÊé±Ê¼Ç
-http://blog.csdn.net/morewindows?viewmode=contents	¶àÏß³ÌÃæÊÔÌâ ÌâÄ¿ »ã×Ü + °×»°Ëã·¨
-http://www.blogjava.net/xylz/category/45607.html ÉîÈëÇ³³öjava ²¢·¢±à³Ì
-Êé¼®
+http://www.ibm.com/developerworks/cn/java/j-concurrent/?ca=j-r IBM Java å¹¶å‘æ–‡æ¡£åº“
+http://ifeve.com/category/java/		å¹¶å‘ç¼–ç¨‹ç½‘
+http://www.blogjava.net/xylz/category/45607.html	java å¹¶å‘ä¸“é¢˜åšå®¢
+ä¹¦ç±ã€ŠJava Memory Modelã€‹ã€ã€ŠJava Concurrency in Practiceã€‹ã€ã€ŠConcurrent Programming in Java: Design Principles and Patternsã€‹
+http://www.infoq.com/cn/articles/ConcurrentHashMap		èŠèŠå¹¶å‘
+http://www.molotang.com/post_list		javaå¤šçº¿ç¨‹blog
+http://www.iteye.com/blogs/subjects/JavaConcurrencyIP	Java Concurrency in Practice è¯»ä¹¦ç¬”è®°
+http://blog.csdn.net/morewindows?viewmode=contents	å¤šçº¿ç¨‹é¢è¯•é¢˜ é¢˜ç›® æ±‡æ€» + ç™½è¯ç®—æ³•
+http://www.blogjava.net/xylz/category/45607.html æ·±å…¥æµ…å‡ºjava å¹¶å‘ç¼–ç¨‹
+ä¹¦ç±
 Java 7 Concurrency Cookbook
-http://coderbee.net/index.php/uncategorized/20140105/697#²¢·¢		JAVA Concurrent Ô´ÂëÔÄ¶Á
-http://www.cnblogs.com/skywang12345/p/java_threads_category.html		¾«Æ·°¡  java ¶àÏß³ÌÏµÁĞ
+http://coderbee.net/index.php/uncategorized/20140105/697#å¹¶å‘		JAVA Concurrent æºç é˜…è¯»
+http://www.cnblogs.com/skywang12345/p/java_threads_category.html		ç²¾å“å•Š  java å¤šçº¿ç¨‹ç³»åˆ—
 
 
 
-@¿¼ÑĞ
-http://www.moe.edu.cn/	½ÌÓı²¿ÃÅ»§ÍøÕ¾
-http://yz.chsi.com.cn/	ÑĞ¾¿ÉúÕĞÉúĞÅÏ¢Íø
-http://www.da-fan-shu.cn/computer/	ÊÓÆµÍøÕ¾
+@è€ƒç ”
+http://www.moe.edu.cn/	æ•™è‚²éƒ¨é—¨æˆ·ç½‘ç«™
+http://yz.chsi.com.cn/	ç ”ç©¶ç”Ÿæ‹›ç”Ÿä¿¡æ¯ç½‘
+http://www.da-fan-shu.cn/computer/	è§†é¢‘ç½‘ç«™
 
 
 
-@ºÃÍæ
-ThinkGeekÊÇÃÀ¹úÒ»¼Ò×¨Âô¸÷ÖÖ¼«¿ÍÎïÆ·µÄ¹ºÎïÍøÕ¾£¬³öÊÛµÄ¶«Î÷°üÀ¨¸÷ÖÖÓÎÏ·¡¢µçÓ°ÖÜ±ßÎïÆ·ÒÔ¼°µçÄÔÍâÉè¡¢ÒÂ·ş¡¢Âí¿Ë±­¡¢Íæ¾ß¡¢ÌÇ¹ûµÈ¡£
+@å¥½ç©
+ThinkGeekæ˜¯ç¾å›½ä¸€å®¶ä¸“å–å„ç§æå®¢ç‰©å“çš„è´­ç‰©ç½‘ç«™ï¼Œå‡ºå”®çš„ä¸œè¥¿åŒ…æ‹¬å„ç§æ¸¸æˆã€ç”µå½±å‘¨è¾¹ç‰©å“ä»¥åŠç”µè„‘å¤–è®¾ã€è¡£æœã€é©¬å…‹æ¯ã€ç©å…·ã€ç³–æœç­‰ã€‚
 
-@´´Òµ
-http://www.chinaz.com/start/2014/0220/339768.shtml		´´ÒµÍøÕ¾
+@åˆ›ä¸š
+http://www.chinaz.com/start/2014/0220/339768.shtml		åˆ›ä¸šç½‘ç«™
 
-@Ãâ·Ñ
+@å…è´¹
 http://www.freehao123.com/jae-wordpress/
+
+@Codingç½‘ç«™
+www.livecoding.tv
