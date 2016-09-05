@@ -338,3 +338,7 @@ http://www.aikaiyuan.com/7922.html
 http://v2ex.com/
 
 @CISA audit 
+
+@Golang
+http://www.phpxs.com/code/golang/ code snippet
+http://www.sharejs.com/codes/go/?start=60 code snippet
