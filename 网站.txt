@@ -342,3 +342,6 @@ http://v2ex.com/
 @Golang
 http://www.phpxs.com/code/golang/ code snippet
 http://www.sharejs.com/codes/go/?start=60 code snippet
+
+@OpenSource
+http://www.open-open.com/lib/ 
