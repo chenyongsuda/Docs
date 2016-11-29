@@ -352,3 +352,6 @@ http://www.52im.net/
 
 @Good
 http://blog.csdn.net/langb2014/article/details/51637653   From 0 Build Coffe
+
+@Opencv
+http://lib.csdn.net/opencv/node/582
