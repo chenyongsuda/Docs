@@ -436,3 +436,6 @@ http://lib.csdn.net/opencv/node/582
 ————————————————————————————————————————————-
 找工作需要看哪些书籍？
 看看这位师兄的经验：http://meterfield.com/otbzi/?p=39
+
+@machine learning
+https://www.52ml.net/21300.html
