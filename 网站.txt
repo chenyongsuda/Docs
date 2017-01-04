@@ -439,3 +439,6 @@ http://lib.csdn.net/opencv/node/582
 
 @machine learning
 https://www.52ml.net/21300.html
+
+@分布式
+http://oserror.com/
