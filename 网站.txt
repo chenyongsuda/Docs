@@ -445,3 +445,7 @@ http://oserror.com/
 https://pdos.csail.mit.edu/6.824/           Distributed Systems Lesson
 http://lib.csdn.net/base/71?source=blogtop  micro Service articsh
 http://www.cnblogs.com/foxmailed/
+实战：
+MIT 6.824 Home Page: Spring 2014  http://css.csail.mit.edu/6.824/2014/
+CMU http://www.cs.cmu.edu/~dga/15-440/F12/
+CMU https://www.cs.cmu.edu/~410/
