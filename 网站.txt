@@ -450,3 +450,10 @@ MIT 6.824 Home Page: Spring 2014  http://css.csail.mit.edu/6.824/2014/
                      Spring 2016  https://pdos.csail.mit.edu/6.824/
 CMU http://www.cs.cmu.edu/~dga/15-440/F12/
 CMU https://www.cs.cmu.edu/~410/
+
+Google这几年发布了不少的论文来介绍它底层分布式的计算平台，其中最重要的有5篇，其中包括了大名鼎鼎的MapReduce，GFS，也有不那么出名的chubby：
+GoogleCluster： http://research.google.com/archive/googlecluster.html 
+Chubby：http://labs.google.com/papers/chubby.html 
+GFS：http://labs.google.com/papers/gfs.html 
+BigTable：http://labs.google.com/papers/bigtable.html 
+MapReduce：http://labs.google.com/papers/mapreduce.html 
