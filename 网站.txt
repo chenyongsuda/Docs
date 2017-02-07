@@ -457,3 +457,5 @@ Chubby：http://labs.google.com/papers/chubby.html
 GFS：http://labs.google.com/papers/gfs.html 
 BigTable：http://labs.google.com/papers/bigtable.html 
 MapReduce：http://labs.google.com/papers/mapreduce.html 
+
+http://www.zenlife.tk/  nice Distribute article
