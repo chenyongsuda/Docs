@@ -461,3 +461,8 @@ MapReduce：http://labs.google.com/papers/mapreduce.html
 http://www.zenlife.tk/  nice Distribute article
 
 http://www.jianshu.com/p/6016fb568452 RPC系列
+
+
+@游戏
+Handmade Hero 教程  YOUTUBE
+OpenGL
