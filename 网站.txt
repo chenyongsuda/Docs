@@ -462,6 +462,7 @@ http://www.zenlife.tk/  nice Distribute article
 
 http://www.jianshu.com/p/6016fb568452 RPC系列
 
+http://oserror.com/ chirs的博客里面有很多系统实现 如MAPREDUCE RPC等
 
 @游戏
 Handmade Hero 教程  YOUTUBE
