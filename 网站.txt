@@ -468,6 +468,7 @@ http://oserror.com/ chirs的博客里面有很多系统实现 如MAPREDUCE RPC�
 Handmade Hero 教程  YOUTUBE
 OpenGL
 http://www.oxox.work/ 虚幻大学 各种教程WEBGL D3D PYTHON 等 还有网易公开课里有C++ DirectX 中级教程 - 网易云课堂也不错
+http://www-cs-students.stanford.edu/~amitp/gameprog.html  游戏大量资源从初学到大师
 
 @java复习 
 http://www.cnblogs.com/xrq730/category/733883.html  JAVA线程文章
