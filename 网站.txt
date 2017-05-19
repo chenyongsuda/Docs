@@ -200,6 +200,9 @@ http://blog.csdn.net/bill_man/article/details/7202458   游戏开发和实例
 13.http://blog.tsiannian.com/archives/category/cocos2d-x（实现了cocos2d-x下面的WIN32按键消息）
 14.http://blog.csdn.net/tkokof1/article/details/7426706(COCOS2D-X支持中文最详细解决方案)
 
+@组件
+手风琴组件http://www.html5tricks.com/tag/%E6%89%8B%E9%A3%8E%E7%90%B4%E8%8F%9C%E5%8D%95
+
 游戏实例讲解
 http://blog.csdn.net/fylz1125/article/details/8489333
 
