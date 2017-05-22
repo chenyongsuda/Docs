@@ -199,6 +199,8 @@ http://blog.csdn.net/bill_man/article/details/7202458   游戏开发和实例
 12.http://blog.sina.com.cn/s/blog_61d2d3f50100y2rv.html(布莱特_雷欧波德的blog)
 13.http://blog.tsiannian.com/archives/category/cocos2d-x（实现了cocos2d-x下面的WIN32按键消息）
 14.http://blog.csdn.net/tkokof1/article/details/7426706(COCOS2D-X支持中文最详细解决方案)
+15.http://blog.csdn.net/musicvs/article/details/8349314  Cocos2dx 比较好的教程
+16.http://blog.csdn.net/vanquishedzxl/article/details/21746941 Cocos2dx 比较好的教程
 
 @组件
 手风琴组件http://www.html5tricks.com/tag/%E6%89%8B%E9%A3%8E%E7%90%B4%E8%8F%9C%E5%8D%95
