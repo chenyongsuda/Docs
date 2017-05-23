@@ -480,3 +480,6 @@ http://blog.csdn.net/lideguo1979/article/details/42110179 大富翁游戏开发
 @java复习 
 http://www.cnblogs.com/xrq730/category/733883.html  JAVA线程文章
 http://www.itwendao.com/article/detail/205319.html  不错的网站有好多有价值的文章.
+
+@股票
+https://www.joinquant.com/  股票数据量化平台
