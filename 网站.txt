@@ -483,3 +483,6 @@ http://www.itwendao.com/article/detail/205319.html  不错的网站有好多有
 
 @股票
 https://www.joinquant.com/  股票数据量化平台
+
+@运维
+http://blog.csdn.net/u012062455/article/details/53259682  Zabbix监控教程
