@@ -493,3 +493,14 @@ https://gurudigger.com/startups 使用pjax的网页  包含新应用新创公�
 
 @HTML模板
 http://11140372.blog.51cto.com/11130372/1907120  adminLTE模板使用
+
+@spring boot
+
+SpringBoot-Learning
+本项目内容为Spring Boot教程程序样例。
+作者博客：http://blog.didispace.com 作者GitHub：https://github.com/dyc87112/SpringBoot-Learning
+Spring Boot系列博文：http://blog.didispace.com/categories/Spring-Boot/
+Spring Cloud系列博文：http://blog.didispace.com/tag/spring-cloud/
+Spring For All社区：http://spring4all.com/
+GitHub：https://github.com/dyc87112/
+开源中国：http://git.oschina.net/didispace
