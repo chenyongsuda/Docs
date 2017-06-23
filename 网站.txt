@@ -489,3 +489,7 @@ http://blog.csdn.net/u012062455/article/details/53259682  Zabbix监控教程
 
 @ajax
 https://gurudigger.com/startups 使用pjax的网页  包含新应用新创公司等,比较不错.
+
+
+@HTML模板
+http://11140372.blog.51cto.com/11130372/1907120  adminLTE模板使用
