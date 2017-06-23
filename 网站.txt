@@ -486,3 +486,6 @@ https://www.joinquant.com/  股票数据量化平台
 
 @运维
 http://blog.csdn.net/u012062455/article/details/53259682  Zabbix监控教程
+
+@ajax
+https://gurudigger.com/startups 使用pjax的网页  包含新应用新创公司等,比较不错.
