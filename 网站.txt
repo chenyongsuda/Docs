@@ -506,6 +506,7 @@ Spring Cloud系列博文：http://blog.didispace.com/tag/spring-cloud/
 Spring For All社区：http://spring4all.com/
 GitHub：https://github.com/dyc87112/
 开源中国：http://git.oschina.net/didispace
+https://gitee.com/jeff1993/springboot-learning-example
 
 @页面设计
 icon http://www.iconfont.cn/
@@ -526,3 +527,6 @@ webnspect
 appscan
 
 新手指南:DVWA-1.9全级别教程
+
+开源项目：
+https://www.oschina.net/question/2686220_2242120
