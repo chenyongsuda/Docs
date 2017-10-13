@@ -1,0 +1,45 @@
+一、Mysql数据库双活
+1、Mysql binlog介绍
+官网： 
+https://dev.mysql.com/doc/refman/5.5/en/binary-log.html
+中文： 
+* http://www.cnblogs.com/Richardzhu/p/3225254.html 
+* http://www.cnblogs.com/martinzhang/p/3454358.html
+
+2、阿里数据库同步工具Canal
+官网： 
+https://github.com/alibabatech/canal/
+
+使用介绍：
+阿里巴巴开源项目: canal 基于mysql数据库binlog的增量订阅&消费
+利用Canal完成Mysql数据同步Redis
+搭建： canal部署与实例运行
+MySQL增量订阅&消费组件Canal POC
+分布式集群项目中同步DB数据的解决方案之Canal
+Canal源码分析—模拟Slave同步binlog
+用 Canal 监控mysql数据变化
+使用 Binlog 和 Canal 从 MySQL 抽取数据
+3、Mysql数据双活
+
+sql高可用架构方案之中的一个(keepalived+主主双活)
+大话数据中心双活
+二、Oracle双活
+1、Kettle实现数据同步
+
+在Kettle里使用时间戳实现变化数据捕获（CDC）
+kettle参数、变量详细讲解
+实时同步，增量ETL方案分享（源表含时间戳，做逻辑删除）
+Kettle Spoon 表输入组件报“无效的列索引”错误解决方案
+关于Kettle的推荐书籍如下：
+《Pentaho Kettle解决方案_使用PDI构建开源ETL解决方案》
+
+2、使用Databus实现数据库同步
+LinkedIn实时低延迟数据抓取系统Databus开源
+Databus中文教程
+Databus项目开源地址
+3、Oracle日志数据同步
+基于Oracle Logminer数据同步
+OGG实现两台Oracle数据库的同步
+基于OGG的Oracle与Hadoop集群准实时同步介绍
+ORACLE 几种同步灾备手段（OGG，ADG，DSG，高级复制，流复制，logmnr）
+Oracle11gR2下搭建DataGuard主备同步详解
